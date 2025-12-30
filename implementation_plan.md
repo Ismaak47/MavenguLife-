@@ -55,10 +55,7 @@ Refactor the AI chat engine to transform Mavengu into a high-level consciousness
     4. **Tafsiri ya Kiishara (Symbolic Interpretation)**
     5. **Mwongozo wa Usalama (Grounding Insight)**
 
-### [Component] ChatGPT Backend Server (`server.js`)
-- **Node.js Server**: Implemented an Express server to proxy requests to OpenAI.
-- **Security**: Uses `.env` to store the API key securely.
-- **Dynamic Prompting**: Constructs a detailed system prompt for every request based on the user's profile.
+### [Component] Safe Knowledge Architecture
 
 ### [Component] Supporting Data (`js/numerology.js`, `js/soul-mission.js`)
 - Update descriptions to provide more "Scientific/Systemic" and "Spiritual" hooks for the chat engine to use.
