@@ -1,58 +1,41 @@
-# MavenguLife Platform - Task List
+# Task: Enhance Mavengu AI Chat Knowledge and Autonomy
 
-- [x] Project Setup
-    - [x] Create directory structure
-    - [x] Create `task.md`
-- [x] Design System & Foundation
-    - [x] Create `css/styles.css` with galaxy theme and animations
-- [x] HTML Structure
-    - [x] Create `index.html` with intro, form, dashboard, and chat
-- [x] Core Logic
-    - [x] Implement `js/numerology.js`
-    - [x] Implement `js/astrology.js`
-- [x] Application Logic
-    - [x] Implement `js/ai-chat.js`
-    - [x] Implement `js/app.js`
-- [x] Visual Assets
-    - [x] Generate `assets/images/galaxy-background.png` (Skipped due to quota, used CSS fallback)
-    - [x] Generate `assets/images/logo.svg`
-    - [x] Generate/Create zodiac icons (Used text emojis as fallback)
-- [x] Verification
-    - [x] Verify calculations
-    - [x] Check responsiveness
-    - [x] Verify animations
+## Status
+- [ ] Research and Planning [/]
+- [ ] Enhance Intent Detection [ ]
+- [ ] Expand Knowledge Library [ ]
+- [ ] Implement Context Awareness [ ]
+- [ ] Refine Dynamic Response Generation [ ]
+- [ ] Final Verification and Testing [ ]
 
-## UI Redesign: Diagnosis Machine Dashboard
-- [x] Update Design System (`css/styles.css`)
-    - [x] Implement "Tech/HUD" color palette (Cyan, Black, Amber)
-    - [x] Add grid backgrounds and scanline effects
-    - [x] Style cards as "Data Panels" with technical borders
-    - [x] Switch typography to monospace/technical fonts
-- [x] Update HTML Structure (`index.html`)
-    - [x] Add HUD overlay elements (status bars, coordinates)
-    - [x] Reorganize dashboard into a "System Monitor" layout
-    - [x] Add "Place of Birth" field (Optional)
-- [x] Update Interactions (`js/app.js`)
-    - [x] Change "Loading" to "System Scanning"
-    - [x] Add "Typing/Data Stream" animations for results
-    - [x] Handle "Place of Birth" data
+## Details
 
-## Soul Mission & Occult Modules
-- [x] Create `js/soul-mission.js`
-    - [x] Implement `getSoulMission(lifePath)`
-    - [x] Implement `getShadowWork(zodiac)`
-    - [x] Implement `getMeditation(element)`
-    - [x] Implement `getSunFrequency(zodiac)`
-    - [x] Implement `getMysticOracle()`
-    - [x] Implement `getAesthetics(zodiac)`
-- [x] Update `index.html`
-    - [x] Add panels for: Soul Mission, Elemental Essence, Shadow Work, Meditation, Divine Purpose, Sun Frequency, Mystic Oracle, Aesthetics
-- [x] Update `app.js`
-    - [x] Integrate new module and render data
+### Research and Planning
+- [x] Analyze current `ai-chat.js` implementation
+- [x] Identify repetitive patterns in user-provided transcript
+- [x] Map out new intents and knowledge areas
 
-## AI Chat Knowledge Enhancement
-- [x] Expand `js/ai-chat.js` knowledge base
-    - [x] Add specific logic for "before born" / past lives
-    - [x] Add detailed Life Path and Zodiac insights
-    - [x] Integrate Sun Frequency and Shadow Work data into chat
-    - [x] Improve conversational flow and insight depth
+### Enhance Intent Detection
+- [ ] Add more Swahili keywords for existing intents
+- [ ] Add new intents: Health (spiritual view), Family, Future, Specific Numbers
+- [ ] Implement fuzzy matching or better regex for intents
+
+### Expand Knowledge Library
+- [ ] Add deeper Swahili explanations for Life Paths
+- [ ] Add detailed insights for Zodiac/Element combinations
+- [ ] Create "Advanced Wisdom" snippets for various life topics
+
+### Implement Context Awareness
+- [ ] Store `lastTopic` and `lastResponse` to avoid repetition
+- [ ] Add "Follow-up" logic to keep the conversation flowing
+- [ ] Implement a "State" machine for deeper dives into topics
+
+### Refine Dynamic Response Generation
+- [ ] Create a template-based system for more varied sentence structures
+- [ ] Ensure every response feels personalized using at least 2-3 profile data points
+- [ ] Improve Swahili tone to be more "Mystic/Sage-like"
+
+### Final Verification and Testing
+- [ ] Test with common user queries
+- [ ] Verify Swahili grammar and tone
+- [ ] Ensure no regressions in profile data usage
