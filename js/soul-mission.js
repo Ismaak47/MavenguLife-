@@ -87,24 +87,6 @@ const SoulMission = {
             "Water": "Bluu nzito, Zambarau, Seafoam. Athari za majimaji na holographic."
         };
         return aesthetics[element] || "Iridescence ya Ulimwengu";
-    },
-
-    getUchawiSymbolic: function (lifePath) {
-        const interpretations = {
-            1: "Ishara ya 'Vizuizi vya Mapenzi'. Inaashiria hofu ya kushindwa kuongoza au kuanza jambo jipya. Hii ni 'blockage' ya ndani, si nje.",
-            2: "Ishara ya 'Dissonance ya Mahusiano'. Inaashiria hofu ya kusalitiwa au kutokueleweka. Ni mwangwi wa kutokuaminiana ndani ya nafsi.",
-            3: "Ishara ya 'Kuzimwa kwa Nuru'. Inaashiria msongo wa mawazo unaozuia ubunifu wako. Ni 'shadow' ya hofu ya kuhukumiwa na jamii.",
-            4: "Ishara ya 'Misingi Inayoyumba'. Inaashiria hofu ya kupoteza utulivu au usalama wa kifedha. Ni ishara ya kutojiamini katika uwezo wako wa kujenga.",
-            5: "Ishara ya 'Kifungo cha Uhuru'. Inaashiria hisia za kukwama katika mzunguko uleule. Ni hofu ya mabadiliko inayojificha kama 'uchawi'.",
-            6: "Ishara ya 'Mizigo ya Familia'. Inaashiria shinikizo la majukumu yanayokulemea. Ni 'energy leak' inayotokana na kutokuweka mipaka.",
-            7: "Ishara ya 'Giza la Maarifa'. Inaashiria kuchanganyikiwa kwa kiroho. Ni hofu ya kutafuta ukweli unaoweza kubadilisha maisha yako.",
-            8: "Ishara ya 'Kupotea kwa Nguvu'. Inaashiria hofu ya umaskini au kupoteza mamlaka. Ni mwangwi wa kutokujithamini katika ulimwengu wa kimwili.",
-            9: "Ishara ya 'Mwisho wa Mzunguko'. Inaashiria hofu ya kuachilia mambo yaliyopita. Ni 'attachment' inayozuia ukuaji wako mpya.",
-            11: "Ishara ya 'Nuru Inayopofusha'. Inaashiria mshtuko wa kiroho (spiritual crisis). Ni nguvu kubwa ya ndani inayohitaji kuelekezwa vizuri.",
-            22: "Ishara ya 'Ujenzi wa Ndoto'. Inaashiria hofu ya majukumu makubwa. Ni 'pressure' ya kutaka kufanya mambo makubwa peke yako.",
-            33: "Ishara ya 'Moyo Uliochoka'. Inaashiria kutoa nishati nyingi kwa wengine bila kujijali. Ni 'imbalance' ya huruma."
-        };
-        return interpretations[lifePath] || "Ishara ya 'Mabadiliko ya Ndani'. Inaashiria mchakato wa nafsi kujitambua kupitia changamoto.";
     }
 };
 

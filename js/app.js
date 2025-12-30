@@ -114,8 +114,7 @@ function generateProfile(fullName, birthDate, birthPlace) {
         meditation: meditation,
         sunFreq: sunFreq,
         aesthetics: aesthetics,
-        oracle: oracle,
-        uchawi: window.SoulMission.getUchawiSymbolic(lifePath)
+        oracle: oracle
     };
 }
 
@@ -140,7 +139,6 @@ function renderDashboard(profile) {
     document.getElementById('sun-freq-text').textContent = profile.sunFreq;
     document.getElementById('aesthetics-text').textContent = profile.aesthetics;
     document.getElementById('oracle-text').textContent = `"${profile.oracle}"`;
-    document.getElementById('uchawi-text').textContent = profile.uchawi;
 
     // Detailed Analysis
     const analysisDiv = document.getElementById('detailed-analysis');
