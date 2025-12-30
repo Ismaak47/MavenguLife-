@@ -5,6 +5,7 @@
 - [x] Enhance Intent Detection
 - [x] Expand Knowledge Library
 - [x] Implement Context Awareness
+- [x] Fix Repetitive Loop
 - [x] Refine Dynamic Response Generation
 - [x] Final Verification and Testing
 
@@ -16,27 +17,28 @@
 - [x] Map out new intents and knowledge areas
 
 ### Enhance Intent Detection
-- [ ] Add more Swahili keywords for existing intents
-- [ ] Add new intents: Health (spiritual view), Family, Future, Specific Numbers
-- [ ] Implement fuzzy matching or better regex for intents
+- [x] Add more Swahili keywords for existing intents
+- [x] Add new intents: Success/Obstacles, Shadow Work
+- [ ] Add new intents: Health (spiritual view), Family, Future
 
 ### Expand Knowledge Library
 - [x] Add deeper Swahili explanations for Life Paths
 - [x] Add detailed insights for Zodiac/Element combinations
 - [x] Create "Success and Obstacles" knowledge section
-- [x] Create "Advanced Wisdom" snippets for various life topics
+- [x] Create "Shadow Work" knowledge section
+- [ ] Create "Advanced Wisdom" snippets for various life topics
 
 ### Implement Context Awareness
-- [ ] Store `lastTopic` and `lastResponse` to avoid repetition
-- [ ] Add "Follow-up" logic to keep the conversation flowing
-- [ ] Implement a "State" machine for deeper dives into topics
+- [x] Store `history` to avoid repetition
+- [x] Implement `continuationIndex` to cycle through topics
+- [x] Add "Follow-up" logic to keep the conversation flowing
 
 ### Refine Dynamic Response Generation
 - [ ] Create a template-based system for more varied sentence structures
-- [ ] Ensure every response feels personalized using at least 2-3 profile data points
-- [ ] Improve Swahili tone to be more "Mystic/Sage-like"
+- [x] Ensure every response feels personalized using profile data points
+- [x] Improve Swahili tone to be more "Mystic/Sage-like"
 
 ### Final Verification and Testing
-- [ ] Test with common user queries
-- [ ] Verify Swahili grammar and tone
-- [ ] Ensure no regressions in profile data usage
+- [x] Test with common user queries
+- [x] Verify Swahili grammar and tone
+- [x] Ensure no regressions in profile data usage

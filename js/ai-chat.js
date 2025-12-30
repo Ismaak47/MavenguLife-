@@ -6,6 +6,8 @@ const AIChat = {
     inputField: null,
     history: [],
     lastTopic: null,
+    continuationIndex: 0,
+    continuationTopics: ['purpose', 'success_obstacles', 'shadow_work', 'vibration', 'astrology'],
 
     init: function (profile) {
         this.userProfile = profile;
@@ -64,14 +66,15 @@ const AIChat = {
         // --- INTENT DEFINITIONS ---
         const intents = {
             clarification: ['sijaelewa', 'sielewi', 'fafanua', 'rudia', 'maana yake'],
-            continuation: ['endelea', 'niambie zaidi', 'alafu', 'ndio', 'sawa', 'baada ya hapo'],
+            continuation: ['endelea', 'niambie zaidi', 'alafu', 'ndio', 'sawa', 'baada ya hapo', 'hapo sawa'],
             purpose: ['kwanini', 'kusudi', 'lengo', 'duniani', 'nipo hapa', 'sababu'],
             relationships: ['ndoa', 'mapenzi', 'uhusiano', 'mke', 'mume', 'love', 'mchumba'],
             career: ['kazi', 'pesa', 'mafanikio', 'biashara', 'career', 'utajiri', 'mali'],
             numerology: ['life path', 'namba yangu', 'namba 4', 'namba'],
             vibration: ['vibration', 'frequency', 'mtetemo', 'resonance', 'hali'],
             astrology: ['zodiac', 'nyota', 'astrologia', 'element'],
-            success_obstacles: ['sifanikiwi', 'kwama', 'shida', 'matatizo', 'kushindwa', 'kwanini mimi', 'vikwazo', 'maisha magumu']
+            success_obstacles: ['sifanikiwi', 'kwama', 'shida', 'matatizo', 'kushindwa', 'kwanini mimi', 'vikwazo', 'maisha magumu'],
+            shadow_work: ['shadow', 'giza', 'tatizo', 'changamoto', 'ukosoaji', 'ukamilifu', 'hili', 'mapungufu']
         };
 
         // Check for intents
@@ -91,12 +94,28 @@ const AIChat = {
 
         // --- SPECIAL INTENT: CONTINUATION ---
         if (detectedTopic === 'continuation') {
-            if (this.lastTopic) return this.getKnowledge(this.lastTopic, false, true);
-            return "Tunaweza kuingia ndani zaidi kwenye 'Soul Mission' yako: **" + p.soulMission + "**. Hili ndilo lengo kuu la kuwepo kwako hapa duniani katika mzunguko huu. Ungependa kuelewa jinsi ya kulitekeleza?";
+            if (this.lastTopic) {
+                // If we have a topic, try to give the "deep" version first
+                const deepResponse = this.getKnowledge(this.lastTopic, false, true);
+                // If the deep response is the same as what we just said (simplified or normal), move to next topic
+                if (this.history.length > 0 && this.history[this.history.length - 1].bot.includes(deepResponse.substring(0, 20))) {
+                    this.continuationIndex = (this.continuationIndex + 1) % this.continuationTopics.length;
+                    this.lastTopic = this.continuationTopics[this.continuationIndex];
+                    return this.getKnowledge(this.lastTopic);
+                }
+                return deepResponse;
+            }
+            // If no last topic, cycle through continuation topics
+            this.lastTopic = this.continuationTopics[this.continuationIndex];
+            this.continuationIndex = (this.continuationIndex + 1) % this.continuationTopics.length;
+            return this.getKnowledge(this.lastTopic);
         }
 
         if (detectedTopic) {
             this.lastTopic = detectedTopic;
+            // Reset continuation index when a new topic is explicitly asked
+            this.continuationIndex = this.continuationTopics.indexOf(detectedTopic);
+            if (this.continuationIndex === -1) this.continuationIndex = 0;
             return this.getKnowledge(detectedTopic);
         }
 
@@ -154,6 +173,11 @@ const AIChat = {
                 normal: `**Kwanini Unakwama? (Vikwazo vya Mafanikio)**\nKama Life Path ${p.lifePath}, kikwazo chako kikubwa mara nyingi ni **${p.shadowWork.split('.')[0]}**. Unapojaribu kufanikiwa kwa kutumia njia za wengine badala ya kufuata frequency yako ya ${p.sunFreq}, ulimwengu unaleta upinzani (dissonance).\n\nKumbuka, mafanikio yako yanategemea jinsi unavyoweza kuunganisha nidhamu ya ${p.lifePath} na ubunifu wa ${p.zodiac.name}.`,
                 simple: `**Kwa lugha rahisi:**\nUnahisi hufanikiwi kwa sababu unajaribu kupanda mti ambao si wa asili yako. Namba yako ${p.lifePath} inataka ujenge misingi kwanza. Usikimbilie matokeo ya haraka. Jifunze kukabiliana na 'Shadow' yako ili milango ifunguke.`,
                 deep: `**Uchambuzi wa Ndani:**\nKushindwa kwako ni ishara kuwa haupo katika 'alignment' na Soul Mission yako: **${p.soulMission}**. Unatumia nishati nyingi kupigana na mambo yasiyo ya lazima. Tumia meditation ya **${p.meditation}** kusafisha nishati yako na kuanza kuvuta mafanikio badala ya kuyakimbiza.`
+            },
+            shadow_work: {
+                normal: `**Shadow Work: Kukabiliana na Nafsi ya Ndani**\nTatizo lako la **${p.shadowWork}** ni sehemu ya safari yako. Hii siyo 'mbaya', bali ni nishati inayohitaji kuelekezwa vizuri.\n\nKama Life Path ${p.lifePath}, unaweza kutumia nidhamu yako kuishinda hali hii.`,
+                simple: `**Kwa lugha rahisi:**\nKila mtu ana upande wa giza. Wako ni huu wa ${p.shadowWork.split('.')[0]}. Ukikubali kuwa upo na kuanza kujihurumia, utaona mabadiliko makubwa.`,
+                deep: `**Uchambuzi wa Ndani:**\nShadow Work yako inahusiana na frequency ya ${p.sunFreq}. Tumia meditation ya **${p.meditation}** ili kusafisha nishati hii. Ukishinda hili, utakuwa na uwezo mkubwa wa kutekeleza Soul Mission yako: **${p.soulMission}**.`
             }
         };
 
