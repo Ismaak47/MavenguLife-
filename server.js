@@ -9,9 +9,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Test route
+app.get("/", (req, res) => {
+    res.send("Mavengu Server is Online!");
+});
+
 app.post("/chat", async (req, res) => {
+    console.log("Incoming request to /chat...");
     try {
         const { message, profile } = req.body;
+        console.log("User Message:", message);
 
         if (!message || !profile) {
             return res.status(400).json({ error: "Message and profile are required." });

@@ -24,6 +24,7 @@ const AIChat = {
         this.inputField.value = '';
         this.showTyping();
 
+        console.log("Sending message to Mavengu Server...", message);
         try {
             const response = await fetch('http://localhost:3000/chat', {
                 method: 'POST',
@@ -33,6 +34,8 @@ const AIChat = {
                     profile: this.userProfile
                 })
             });
+
+            console.log("Response received from server:", response.status);
 
             const data = await response.json();
             this.removeTyping();
