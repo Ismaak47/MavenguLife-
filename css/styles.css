@@ -340,6 +340,10 @@ label {
     transform: translateX(0);
 }
 
+.chat-widget.active~.chat-toggle {
+    display: none;
+}
+
 .chat-header {
     padding: 1rem;
     background: rgba(0, 243, 255, 0.1);
@@ -445,6 +449,7 @@ label {
         right: 0;
         border: none;
         position: fixed;
+        z-index: 2000;
     }
 
     .chat-toggle {
