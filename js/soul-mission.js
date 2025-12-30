@@ -10,7 +10,7 @@ const SoulMission = {
             5: "Kukomboa na kupata uzoefu. Lengo lako ni kuonyesha wengine thamani ya uhuru na uwezo wa kubadilika.",
             6: "Kulea na kulinda. Lengo lako ni kuleta uzuri, haki, na huduma kwa jamii yako.",
             7: "Kutafuta ukweli na hekima. Lengo lako ni kuunganisha ulimwengu wa kimwili na ule wa kiroho.",
-            8: "Kumudu ulimwengu wa kimwili. Lengo lako ni kujiwezesha na kuwezesha wengine kupitia mafanikio na wingi.",
+            8: "Kumudu ulimwengu wa kimwili. Lengo lako ni kujiwezesha and kuwezesha wengine kupitia mafanikio na wingi.",
             9: "Kutumikia ubinadamu. Lengo lako ni kupenda bila masharti na kuongoza wengine kuelekea ukamilifu.",
             11: "Kumulika njia. Lengo lako ni kuwa mjumbe wa kiroho na mwenye maono makubwa.",
             22: "Kudhihirisha ndoto. Lengo lako ni kugeuza mawazo makubwa kuwa ukweli unaoonekana.",
@@ -87,6 +87,24 @@ const SoulMission = {
             "Water": "Bluu nzito, Zambarau, Seafoam. Athari za majimaji na holographic."
         };
         return aesthetics[element] || "Iridescence ya Ulimwengu";
+    },
+
+    getSymbolicWisdom: function (lifePath) {
+        const wisdom = {
+            1: "Kadi ya 'Mwanzo': Inaashiria uwezo wa kuvunja mifumo ya zamani ya giza na kuanza upya kwa nuru.",
+            2: "Kadi ya 'Usawa': Inaashiria ulinzi kupitia amani ya ndani na ushirikiano na nguvu za asili.",
+            3: "Kadi ya 'Nuru': Inaashiria uwezo wa ubunifu kushinda hofu na mashaka yoyote ya kiroho.",
+            4: "Kadi ya 'Ngome': Inaashiria ulinzi imara wa kiroho kupitia nidhamu na misingi ya kimaadili.",
+            5: "Kadi ya 'Ukombozi': Inaashiria kuvunja minyororo ya hofu na paranoia kupitia uhuru wa nafsi.",
+            6: "Kadi ya 'Upendo': Inaashiria frequency ya juu ya upendo inayofuta nishati yoyote hasi.",
+            7: "Kadi ya 'Hekima': Inaashiria ulinzi kupitia maarifa ya kweli na kutambua hila za akili.",
+            8: "Kadi ya 'Mamlaka': Inaashiria kumiliki nishati yako mwenyewe na kutoruhusu ushawishi wa nje.",
+            9: "Kadi ya 'Ukamilifu': Inaashiria mwisho wa mzunguko wa hofu na kuanza kwa utumishi wa kiroho.",
+            11: "Kadi ya 'Maono': Inaashiria uwezo wa kuona ukweli nyuma ya pazia la hofu.",
+            22: "Kadi ya 'Ujenzi': Inaashiria kutengeneza ukweli mpya usio na hofu ya kurogwa.",
+            33: "Kadi ya 'Uponyaji': Inaashiria frequency ya juu ya uponyaji inayolinda na kulea nafsi."
+        };
+        return wisdom[lifePath] || "Kadi ya 'Safari': Inaashiria ulinzi wa ulimwengu katika kila hatua.";
     }
 };
 

@@ -100,6 +100,7 @@ function generateProfile(fullName, birthDate, birthPlace) {
     const sunFreq = window.SoulMission.getSunFrequency(zodiac.name);
     const aesthetics = window.SoulMission.getAesthetics(zodiac.element);
     const oracle = window.SoulMission.getMysticOracle();
+    const symbolicWisdom = window.SoulMission.getSymbolicWisdom(lifePath);
 
     return {
         name: fullName,
@@ -114,7 +115,8 @@ function generateProfile(fullName, birthDate, birthPlace) {
         meditation: meditation,
         sunFreq: sunFreq,
         aesthetics: aesthetics,
-        oracle: oracle
+        oracle: oracle,
+        symbolicWisdom: symbolicWisdom
     };
 }
 
@@ -139,6 +141,7 @@ function renderDashboard(profile) {
     document.getElementById('sun-freq-text').textContent = profile.sunFreq;
     document.getElementById('aesthetics-text').textContent = profile.aesthetics;
     document.getElementById('oracle-text').textContent = `"${profile.oracle}"`;
+    document.getElementById('symbolic-wisdom-text').textContent = profile.symbolicWisdom;
 
     // Detailed Analysis
     const analysisDiv = document.getElementById('detailed-analysis');

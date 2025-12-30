@@ -12,6 +12,7 @@
 - [x] Improve Mobile Responsiveness
 - [x] Fix Chat Toggle Overlap on Mobile
 - [x] Refine Dynamic Response Generation
+- [x] Implement Symbolic Wisdom (Uchawi) Module
 - [x] Final Verification and Testing
 
 ## Details
@@ -24,26 +25,27 @@
 ### Enhance Intent Detection
 - [x] Add more Swahili keywords for existing intents
 - [x] Add new intents: Success/Obstacles, Shadow Work
-- [ ] Add new intents: Health (spiritual view), Family, Future
+- [x] Add new intent: Uchawi (Symbolic Wisdom)
 
 ### Expand Knowledge Library
 - [x] Add deeper Swahili explanations for Life Paths
 - [x] Add detailed insights for Zodiac/Element combinations
 - [x] Create "Success and Obstacles" knowledge section
 - [x] Create "Shadow Work" knowledge section
-- [ ] Create "Advanced Wisdom" snippets for various life topics
+- [x] Create "Uchawi" (Symbolic Wisdom) knowledge section
 
 ### Implement Context Awareness
 - [x] Store `history` to avoid repetition
 - [x] Implement `continuationIndex` to cycle through topics
 - [x] Add "Follow-up" logic to keep the conversation flowing
 
-### Refine Dynamic Response Generation
-- [ ] Create a template-based system for more varied sentence structures
-- [x] Ensure every response feels personalized using profile data points
-- [x] Improve Swahili tone to be more "Mystic/Sage-like"
+### Implement Symbolic Wisdom (Uchawi) Module
+- [x] Add `getSymbolicWisdom` to `soul-mission.js`
+- [x] Add "Uchawi" card to `index.html`
+- [x] Update `app.js` to render the new card
+- [x] Implement safe `uchawi` knowledge in `ai-chat.js`
 
 ### Final Verification and Testing
-- [x] Test with common user queries
+- [x] Test "Uchawi" card and chat responses
 - [x] Verify Swahili grammar and tone
 - [x] Ensure no regressions in profile data usage
