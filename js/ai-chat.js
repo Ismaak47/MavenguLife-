@@ -53,6 +53,7 @@ const AIChat = {
             numerology: ['life path', 'namba yangu', 'namba', 'destiny', 'namba 4', 'personal year'],
             success: ['sifanikiwi', 'kwama', 'shida', 'vikwazo', 'mafanikio', 'pesa', 'kazi', 'utajiri'],
             relationships: ['ndoa', 'mapenzi', 'uhusiano', 'mke', 'mume', 'love', 'mchumba'],
+            creativity: ['ubunifu', 'sanaa', 'uumbaji', 'creativity', 'art'],
             continuation: ['endelea', 'niambie zaidi', 'ndio', 'sawa', 'hapo sawa'],
             clarification: ['sijaelewa', 'sielewi', 'fafanua', 'rudia', 'maana yake']
         };
@@ -177,6 +178,13 @@ ${data.step5}
                 step3: "Migogoro mara nyingi ni 'dissonance' inayotokea pale tunapojaribu kulazimisha resonance na mtu ambaye hayupo katika alignment yetu.",
                 step4: "Katika harmonics, upendo ni frequency ya juu zaidi. Unapopenda, unainua vibration ya mfumo wako mzima.",
                 step5: "Insight: Je, uhusiano wako wa sasa unakusaidia kukua au unakurudisha nyuma katika mifumo ya zamani?"
+            },
+            creativity: {
+                step1: "Ubunifu ni uwezo wa kuunganisha vitu vilivyopo katika njia mpya na ya kipekee.",
+                step2: "Katika mifumo ya asili, ubunifu ni nguvu inayoendesha mageuzi (evolution).",
+                step3: "Kisaikolojia, ubunifu unahitaji hali ya akili iliyo wazi na isiyo na hofu ya kufanya makosa.",
+                step4: "Kila wazo jipya lina frequency yake. Unapokuwa mbunifu, unaingia katika resonance na uwezekano mpya.",
+                step5: "Tafakari: Je, unajipa ruhusa ya kucheza na mawazo mapya bila kujihukumu?"
             }
         };
 

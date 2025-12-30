@@ -324,8 +324,8 @@ label {
     position: fixed;
     bottom: 100px;
     right: 30px;
-    width: 350px;
-    height: 500px;
+    width: 450px;
+    height: 600px;
     background: rgba(5, 10, 15, 0.95);
     border: 1px solid var(--primary-color);
     display: flex;
