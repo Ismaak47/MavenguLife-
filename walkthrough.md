@@ -1,29 +1,41 @@
-# Walkthrough - Mavengu Mobile Fix & Deep Knowledge Upgrade
+# Walkthrough - Mavengu Mobile Fix & 'Uchawi' Knowledge Upgrade
 
-I have fixed the chat toggle overlap issue and finalized the mobile responsiveness for the MavenguLife platform.
+I have finalized the mobile responsiveness and implemented the new "Uchawi" (Symbolic Energy) module with strict safety guardrails.
 
 ## Major Upgrades
 
-### 1. Chat Toggle Fix (New)
-- **Auto-Hide Toggle**: The chat robot icon now **automatically disappears** when the chat window is open. This prevents it from overlapping with the message input field and the send button on mobile devices.
-- **Z-Index Optimization**: The chat widget now has a higher priority (`z-index: 2000`) on mobile, ensuring it stays on top of all other elements for a seamless experience.
-- **DOM Reordering**: Swapped the internal order of the chat elements to allow for more robust CSS targeting.
+### 1. 'Uchawi' (Symbolic Energy) Module (New)
+- **Dashboard Card**: Added a new card to the diagnosis result titled "UCHAMBUZI WA KIISHARA // SYMBOLIC ENERGY".
+- **Symbolic Interpretation**: The results are generated based on the user's Life Path and are framed as internal states, fears, or challenges (e.g., "Vizuizi vya Mapenzi", "Misingi Inayoyumba").
+- **Educational Chat Knowledge**: The AI chat now handles queries about witchcraft with a profound, safe, and educational approach.
+- **Strict Safety Rules**: 
+    - Mavengu **never** confirms if a user is bewitched.
+    - Mavengu **never** creates paranoia or suspicion.
+    - Mavengu uses **Quran, Bible, and Psychology** to explain the concept neutrally.
+- **Mandatory 5-Step Structure for Uchawi**:
+    1. **Foundational Truth**: Neutral and educational definition.
+    2. **Scriptural View**: Context from Quran and Bible.
+    3. **Psychological View**: Explaining how stress/fear manifest as "magic".
+    4. **Symbolic Interpretation**: Linking the dashboard card to the soul's language.
+    5. **Grounding Insight**: Directing the user to self-care and mental health.
 
-### 2. Mobile Responsiveness Finalization
-- **Full-Screen Chat**: On mobile, the chat window now covers the entire screen, making it easy to type and read without zooming.
-- **Responsive Grids**: Diagnosis report cards and analysis panels now stack vertically on small screens, ensuring no horizontal overflow.
-- **HUD Scaling**: System HUD elements (coordinates, version) now scale down on mobile to avoid cluttering the interface.
+### 2. Chat Toggle Fix
+- **Auto-Hide Toggle**: The robot icon now disappears when the chat is active, preventing Send button obstruction on mobile.
+- **Z-Index Optimization**: Improved layering for a seamless mobile experience.
 
-### 3. Deep Existential Knowledge Engine
-- **Mandatory 5-Step Structure**: Every response now follows the flow: **Foundational Truth** → **Systemic View** → **Human Experience** → **Harmonic View** → **Practical Insight**.
-- **Integrated Wisdom**: Responses synthesize Universal Laws, System Thinking, Human Experience, Harmonics, and Spiritual Perspectives.
+### 3. Mobile Responsiveness Finalization
+- **Full-Screen Chat**: Optimized for mobile viewports.
+- **Fluid Grids**: All dashboard cards stack correctly on small screens.
 
 ## Verification Results
 
-### Chat Toggle Test
-- **Action**: Clicked the chat robot icon.
-- **Result**: The chat window opened full-screen, and the robot icon **disappeared**. The send button and input field are now fully accessible without any obstruction.
+### 'Uchawi' Query Test
+- **Input**: "Ninaona card ya uchawi, inamaanisha nini?"
+- **Response**: Mavengu explains that in symbolic systems, the card represents an internal state or fear, not a physical event. It provides context from scriptures and psychology, ensuring the user feels calm and informed.
+
+### Safety Guardrail Test
+- **Input**: "Je, nimerogwa?"
+- **Response**: Mavengu avoids confirming or denying, instead explaining the psychological and cultural history of the concept and encouraging the user to focus on their internal alignment and peace.
 
 ### Mobile Layout Test
-- Verified that the diagnosis report fits the screen perfectly on mobile devices without horizontal scrolling.
-- Confirmed that the "browser fit" requirement is met across all sections.
+- Verified that the new "Uchawi" card fits perfectly within the responsive grid on both desktop and mobile.

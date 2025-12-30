@@ -29,6 +29,10 @@ const AIChat = {
         numerology: {
             path: '/knowledge-base/numerology.json',
             subdomains: ['life_path_numbers', 'cycles_personal_years']
+        },
+        uchawi: {
+            path: '/knowledge-base/uchawi.json',
+            subdomains: ['history', 'symbolism', 'psychology', 'scriptures']
         }
     },
 
@@ -88,6 +92,7 @@ const AIChat = {
 
         // --- INTENT DETECTION (Domain Mapping) ---
         const domainMap = {
+            uchawi: ['uchawi', 'sihr', 'rogwa', 'mchawi', 'majini', 'pepo', 'nguvu za giza', 'ndumba', 'limbwata'],
             existential: ['kwanini nilikuja', 'soul mission', 'mimi ni nani', 'maana ya maisha', 'kusudi langu', 'lengo la kuwepo'],
             human: ['consciousness', 'kujitambua', 'roho', 'nafsi', 'hisia', 'tabia', 'ukuaji', 'maumivu', 'kukwama'],
             world: ['asili', 'muda', 'wakati', 'usawa', 'fujo', 'chaos', 'sheria za asili', 'mzunguko', 'cycle', 'rhythm'],
@@ -114,7 +119,7 @@ const AIChat = {
         }
 
         if (detectedDomain === 'continuation') {
-            const domains = ['existential', 'human', 'world', 'harmonics', 'astrology', 'numerology', 'success'];
+            const domains = ['existential', 'human', 'world', 'harmonics', 'astrology', 'numerology', 'success', 'uchawi'];
             this.continuationIndex = (this.continuationIndex + 1) % domains.length;
             detectedDomain = domains[this.continuationIndex];
         }
@@ -158,6 +163,13 @@ ${data.practical}
 
     getDeepKnowledge: function (domain, p) {
         const library = {
+            uchawi: {
+                foundational: "Dhana ya uchawi (sihr au witchcraft) kihistoria imetumika kuelezea mambo ambayo mifumo ya wakati huo haikuweza kuyafafanua. Ni dhana inayopatikana katika tamaduni zote kama njia ya kuelewa nguvu zisizoonekana.",
+                systemic: "Katika kimaandiko, kama vile Qur'an na Biblia, uchawi unatajwa kama onyo la kimaadili. Qur'an inaelezea sihr kama mchakato wa 'illusion' au udanganyifu wa macho, huku Biblia ikihimiza nidhamu ya imani na kuepuka hofu ya nguvu za giza.",
+                experience: "Kisaikolojia, hisia za 'kurogwa' mara nyingi hutokana na msongo mkubwa wa mawazo (stress), hofu ya yasiyojulikana, au matukio magumu yanayofuatana. Akili ya binadamu hutafuta sababu ya nje ili kuelezea maumivu ya ndani.",
+                harmonics: "Katika mifumo ya kiishara (symbolic systems), matokeo ya diagnosis yako yanayoonyesha **${p.uchawi}** hayamaanishi tukio la kimwili. Ni ishara ya 'dissonance' ya ndani inayohitaji utulivu na 're-tuning' ya nishati yako.",
+                practical: "Mwongozo wa Usalama: Lengo langu ni kusaidia akili yako kupata utulivu. Badala ya hofu, lenga katika self-care, sala, au kutafuta msaada wa kitaalamu wa afya ya akili ikiwa unahisi kulemewa. Je, unahisi amani kuanza mchakato huu wa 'alignment'?"
+            },
             existential: {
                 foundational: "Swali la 'kwanini nipo hapa' ni msingi wa safari ya kila nafsi. Ni mwanzo wa kutambua kuwa wewe si tukio la bahati, bali ni sehemu ya mpango mkubwa wa kiulimwengu.",
                 systemic: "Katika mifumo ya asili, kila kitu kina kazi yake. Maisha yako hufanya kazi kama mfumo unaojirekebisha kupitia cycles na feedback. Life Path ${p.lifePath} yako ni 'blueprint' inayoelekeza nishati yako kwenye ujenzi na utulivu.",
@@ -196,7 +208,7 @@ ${data.practical}
             numerology: {
                 foundational: "Numerology ni sayansi ya frequency zilizojificha katika namba, ambapo kila namba inabeba vibration ya kipekee.",
                 systemic: "Life Path ${p.lifePath} inawakilisha mfumo wa uendeshaji (operating system) wa safari yako. Inatoa mpangilio na mantiki katika uzoefu wako.",
-                experience: "Kihisia, namba yako inakupa hisia ya usalama na mwelekeo. Namba 4 (Mjenzi) inamaanisha roho yako ilichagua kuja kudhihirisha utulivu.",
+                experience: "Kihisia, namba yako inakupa hisia ya usalama na mwelekeo. Namba ${p.lifePath} inamaanisha roho yako ilichagua kuja kudhihirisha utulivu.",
                 harmonics: "Katika mifumo ya harmonic, namba ni alama za frequency. Life Path yako ni frequency kuu inayotawala mzunguko wa maisha yako.",
                 practical: "Insight: Ni misingi gani unaijenga leo katika maisha yako ambayo itakuwa na faida kwa vizazi vijavyo?"
             },

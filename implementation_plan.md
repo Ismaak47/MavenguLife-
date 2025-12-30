@@ -44,6 +44,17 @@ Refactor the AI chat engine to transform Mavengu into a high-level consciousness
 - **Existential Depth**: Enhance responses for "Why am I here?", "Soul mission", and "Identity in the universe" to be deep, grounded, and wise.
 - **Tone & Flow**: Implement a "calm and flowing" delivery style, avoiding logic gaps or repetitive phrases.
 
+### [Component] Symbolic 'Uchawi' Knowledge & Card
+- **New Dashboard Card**: Add a card for "Uchawi" (Symbolic Energy) to the diagnosis result.
+- **Symbolic Interpretation**: Frame the results as internal states, fears, or challenges rather than physical witchcraft.
+- **Strict Safety Rules**: Implement guardrails to never confirm witchcraft, never create paranoia, and use educational/psychological framing.
+- **Mandatory 5-Step Structure for Uchawi**:
+    1. **Ufafanuzi wa Dhana (Neutral & Educational)**
+    2. **Mtazamo wa Kiimani / Kimaandiko** (Quran/Bible)
+    3. **Mtazamo wa Kisaikolojia / Kibinadamu**
+    4. **Tafsiri ya Kiishara (Symbolic Interpretation)**
+    5. **Mwongozo wa Usalama (Grounding Insight)**
+
 ### [Component] Safe Knowledge Architecture
 
 ### [Component] Supporting Data (`js/numerology.js`, `js/soul-mission.js`)
@@ -58,3 +69,7 @@ Refactor the AI chat engine to transform Mavengu into a high-level consciousness
 - Confirm the 4-step structure is present in every response.
 - Check the tone for the "Mixed" balance (e.g., "Inaweza kuelekea kama...", "Katika mifumo ya maarifa...").
 - Ensure profile data (Life Path 4, 741 Hz) is still correctly integrated.
+- **Uchawi Verification**:
+    - Test queries about "uchawi" to ensure the 5-step structure is followed.
+    - Verify that the AI never says "umerogwa" or confirms witchcraft.
+    - Check that the dashboard card displays a symbolic/educational result.
