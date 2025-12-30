@@ -7,10 +7,10 @@ The goal is to transform the current keyword-based chat into a more sophisticate
 ### [Component] AI Chat Engine (`js/ai-chat.js`)
 
 #### [MODIFY] [ai-chat.js](file:///c:/Users/mms/Downloads/MavenguLife/MavenguLife-/js/ai-chat.js)
-- **Intent Detection**: Replace simple `includes` with a more robust system using arrays of keywords and regex for better matching.
+- **Intent Detection**: Replace simple `includes` with a more robust system using arrays of keywords and regex for better matching. Add specific detection for "success", "failure", "struggles", and "life obstacles".
 - **Context Management**: Add a `history` array to track recent topics and avoid repeating the same "normal" response.
-- **Dynamic Content**: Implement a `generateDynamicResponse` function that combines multiple profile attributes (Life Path, Zodiac, Frequency, Soul Mission) into a single, cohesive narrative.
-- **Expanded Library**: Significantly increase the depth of the Swahili content in the `library` object.
+- **Dynamic Content**: Implement a `generateDynamicResponse` function that combines multiple profile attributes (Life Path, Zodiac, Frequency, Soul Mission, Shadow Work) into a single, cohesive narrative.
+- **Expanded Library**: Significantly increase the depth of the Swahili content in the `library` object, including a new section for `success_obstacles`.
 - **Intelligent Fallbacks**: Create a larger pool of fallback responses that feel like "probing questions" to keep the user engaged.
 
 ### [Component] Wisdom Data (`js/numerology.js`, `js/soul-mission.js`)

@@ -95,9 +95,9 @@ const Numerology = {
                 soulUrge: "Unatamani kujieleza na kushirikiana na watu."
             },
             4: {
-                lifePath: "Mjenzi. Wewe ni mtu wa vitendo, mwenye nidhamu, na unayeaminika.",
-                destiny: "Kujenga misingi imara na kuleta mpangilio.",
-                soulUrge: "Unatamani utulivu, mpangilio, na hisia ya usalama."
+                lifePath: "Mjenzi. Wewe ni mtu wa vitendo, mwenye nidhamu, na unayeaminika. Una uwezo wa kugeuza mawazo kuwa ukweli kupitia kazi ngumu na mpangilio.",
+                destiny: "Kujenga misingi imara na kuleta mpangilio. Umeumbiwa kuweka mifumo inayodumu.",
+                soulUrge: "Unatamani utulivu, mpangilio, na hisia ya usalama katika kila nyanja ya maisha yako."
             },
             5: {
                 lifePath: "Mwanasafari. Wewe ni mtu unayebadilika haraka, na unayependa uhuru.",

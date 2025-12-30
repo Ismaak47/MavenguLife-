@@ -4,8 +4,8 @@ const AIChat = {
     userProfile: null,
     chatContainer: null,
     inputField: null,
+    history: [],
     lastTopic: null,
-    explanationLevel: 1,
 
     init: function (profile) {
         this.userProfile = profile;
@@ -29,6 +29,8 @@ const AIChat = {
             this.removeTyping();
             const response = this.generateResponse(message);
             this.addMessage(response, 'bot');
+            this.history.push({ user: message, bot: response });
+            if (this.history.length > 5) this.history.shift();
         }, 1500);
     },
 
@@ -59,54 +61,43 @@ const AIChat = {
         const lowerInput = input.toLowerCase();
         const p = this.userProfile;
 
-        // --- SPECIAL INTENT: CONFUSION/SIMPLIFICATION ---
-        if (lowerInput.includes('sijaelewa') || lowerInput.includes('sielewi') || lowerInput.includes('fafanua') || lowerInput.includes('rudia')) {
+        // --- INTENT DEFINITIONS ---
+        const intents = {
+            clarification: ['sijaelewa', 'sielewi', 'fafanua', 'rudia', 'maana yake'],
+            continuation: ['endelea', 'niambie zaidi', 'alafu', 'ndio', 'sawa', 'baada ya hapo'],
+            purpose: ['kwanini', 'kusudi', 'lengo', 'duniani', 'nipo hapa', 'sababu'],
+            relationships: ['ndoa', 'mapenzi', 'uhusiano', 'mke', 'mume', 'love', 'mchumba'],
+            career: ['kazi', 'pesa', 'mafanikio', 'biashara', 'career', 'utajiri', 'mali'],
+            numerology: ['life path', 'namba yangu', 'namba 4', 'namba'],
+            vibration: ['vibration', 'frequency', 'mtetemo', 'resonance', 'hali'],
+            astrology: ['zodiac', 'nyota', 'astrologia', 'element'],
+            success_obstacles: ['sifanikiwi', 'kwama', 'shida', 'matatizo', 'kushindwa', 'kwanini mimi', 'vikwazo', 'maisha magumu']
+        };
+
+        // Check for intents
+        let detectedTopic = null;
+        for (const [topic, keywords] of Object.entries(intents)) {
+            if (keywords.some(kw => lowerInput.includes(kw))) {
+                detectedTopic = topic;
+                break;
+            }
+        }
+
+        // --- SPECIAL INTENT: CLARIFICATION ---
+        if (detectedTopic === 'clarification') {
             if (this.lastTopic) return this.getKnowledge(this.lastTopic, true);
             return "Samahani kwa kutumia lugha nzito. Namaanisha kuwa maisha yako yanaongozwa na 'rhythm' fulani. Kama vile wimbo unavyohitaji mpangilio, maisha yako yanahitaji usawa kati ya kile unachokiwaza na kile unachokifanya. Je, ungependa nikupe mfano rahisi kuhusu Life Path yako?";
         }
 
         // --- SPECIAL INTENT: CONTINUATION ---
-        if (lowerInput.includes('endelea') || lowerInput.includes('niambie zaidi') || lowerInput.includes('alafu') || lowerInput.includes('ndio')) {
+        if (detectedTopic === 'continuation') {
             if (this.lastTopic) return this.getKnowledge(this.lastTopic, false, true);
             return "Tunaweza kuingia ndani zaidi kwenye 'Soul Mission' yako: **" + p.soulMission + "**. Hili ndilo lengo kuu la kuwepo kwako hapa duniani katika mzunguko huu. Ungependa kuelewa jinsi ya kulitekeleza?";
         }
 
-        // --- TOPIC DETECTION ---
-
-        // 1. Purpose / Why am I here? (Kwanini nipo duniani, kusudi langu, lengo langu)
-        if (lowerInput.includes('kwanini') || lowerInput.includes('kusudi') || lowerInput.includes('lengo') || lowerInput.includes('duniani')) {
-            this.lastTopic = 'purpose';
-            return this.getKnowledge('purpose');
-        }
-
-        // 2. Marriage / Relationships (Ndoa, mapenzi, uhusiano, mke, mume)
-        if (lowerInput.includes('ndoa') || lowerInput.includes('mapenzi') || lowerInput.includes('uhusiano') || lowerInput.includes('mke') || lowerInput.includes('mume') || lowerInput.includes('love')) {
-            this.lastTopic = 'relationships';
-            return this.getKnowledge('relationships');
-        }
-
-        // 3. Career / Money / Success (Kazi, pesa, mafanikio, biashara)
-        if (lowerInput.includes('kazi') || lowerInput.includes('pesa') || lowerInput.includes('mafanikio') || lowerInput.includes('biashara') || lowerInput.includes('career')) {
-            this.lastTopic = 'career';
-            return this.getKnowledge('career');
-        }
-
-        // 4. Life Path Specific (Life path, namba yangu)
-        if (lowerInput.includes('life path') || lowerInput.includes('namba yangu')) {
-            this.lastTopic = 'numerology';
-            return this.getKnowledge('numerology');
-        }
-
-        // 5. Vibration / Frequency
-        if (lowerInput.includes('vibration') || lowerInput.includes('frequency') || lowerInput.includes('mtetemo') || lowerInput.includes('resonance')) {
-            this.lastTopic = 'vibration';
-            return this.getKnowledge('vibration');
-        }
-
-        // 6. Zodiac / Astrology
-        if (lowerInput.includes('zodiac') || lowerInput.includes('nyota') || lowerInput.includes('astrologia')) {
-            this.lastTopic = 'astrology';
-            return this.getKnowledge('astrology');
+        if (detectedTopic) {
+            this.lastTopic = detectedTopic;
+            return this.getKnowledge(detectedTopic);
         }
 
         // --- GUARDRAILS ---
@@ -145,8 +136,8 @@ const AIChat = {
                 deep: `**Uchambuzi wa Ndani:**\nNishati ya ${p.zodiac.element} inakupa msukumo wa kufanikiwa. Lakini kuwa makini na Shadow Work yako: **${p.shadowWork}**. Hii inaweza kuwa kikwazo cha mafanikio yako ikiwa hutaifanyia kazi. Tumia frequency ya ${p.sunFreq} kusafisha njia yako ya mafanikio.`
             },
             numerology: {
-                normal: `**Uchambuzi wa Life Path ${p.lifePath}**\nNamba 4 katika numerology inawakilisha 'Mjenzi' (The Builder). Hii ni frequency ya utulivu, nidhamu, na misingi imara. Wewe ni nguzo ambayo wengine wanaweza kuitegemea.\n\nMaana yake kwako: **${numMeaning}**.`,
-                simple: `**Kwa lugha rahisi:**\nLife Path 4 inamaanisha wewe ni mtu wa misingi. Hupendi mambo ya kubahatisha. Unataka kujenga kitu cha kudumu. Wewe ni kama msingi wa nyumba—bila wewe, mambo hayawezi kusimama.`,
+                normal: `**Uchambuzi wa Life Path ${p.lifePath}**\nNamba ${p.lifePath} katika numerology inawakilisha misingi ya safari yako. Hii ni frequency ya utulivu, nidhamu, na misingi imara. Wewe ni nguzo ambayo wengine wanaweza kuitegemea.\n\nMaana yake kwako: **${numMeaning}**.`,
+                simple: `**Kwa lugha rahisi:**\nLife Path ${p.lifePath} inamaanisha wewe ni mtu wa misingi. Hupendi mambo ya kubahatisha. Unataka kujenga kitu cha kudumu. Wewe ni kama msingi wa nyumba—bila wewe, mambo hayawezi kusimama.`,
                 deep: `**Uchambuzi wa Ndani:**\nNamba ${p.lifePath} inahusiana na frequency ya ${p.sunFreq}. Hii inakupa uwezo wa kuona ukweli uliopo nyuma ya mambo ya kimwili. Soul Mission yako ${p.soulMission} ndiyo dira yako ya kweli.`
             },
             vibration: {
@@ -158,6 +149,11 @@ const AIChat = {
                 normal: `**Nyota yako ya ${p.zodiac.name}**\nNyota yako inatawaliwa na element ya **${p.zodiac.element}**. Hii inakupa sifa za: **${zodiacTraits}**.\n\nIcon yako ya kiulimwengu ni ${p.zodiac.icon}, inayowakilisha saini yako ya kipekee katika anga.`,
                 simple: `**Kwa lugha rahisi:**\nNyota yako inasema wewe ni mtu wa **${p.zodiac.element}**. Hii inamaanisha una tabia fulani za asili ambazo huwezi kuzikimbia. Kuzielewa ni kuanza kujitawala.`,
                 deep: `**Uchambuzi wa Ndani:**\nVisual Signature (Aesthetics) yako ni **${p.aesthetics}**. Hizi ni rangi na mitindo inayoongeza vibration yako. Unapozitumia, unavutia resonance zaidi kutoka kwa ulimwengu.`
+            },
+            success_obstacles: {
+                normal: `**Kwanini Unakwama? (Vikwazo vya Mafanikio)**\nKama Life Path ${p.lifePath}, kikwazo chako kikubwa mara nyingi ni **${p.shadowWork.split('.')[0]}**. Unapojaribu kufanikiwa kwa kutumia njia za wengine badala ya kufuata frequency yako ya ${p.sunFreq}, ulimwengu unaleta upinzani (dissonance).\n\nKumbuka, mafanikio yako yanategemea jinsi unavyoweza kuunganisha nidhamu ya ${p.lifePath} na ubunifu wa ${p.zodiac.name}.`,
+                simple: `**Kwa lugha rahisi:**\nUnahisi hufanikiwi kwa sababu unajaribu kupanda mti ambao si wa asili yako. Namba yako ${p.lifePath} inataka ujenge misingi kwanza. Usikimbilie matokeo ya haraka. Jifunze kukabiliana na 'Shadow' yako ili milango ifunguke.`,
+                deep: `**Uchambuzi wa Ndani:**\nKushindwa kwako ni ishara kuwa haupo katika 'alignment' na Soul Mission yako: **${p.soulMission}**. Unatumia nishati nyingi kupigana na mambo yasiyo ya lazima. Tumia meditation ya **${p.meditation}** kusafisha nishati yako na kuanza kuvuta mafanikio badala ya kuyakimbiza.`
             }
         };
 
