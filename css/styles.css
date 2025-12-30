@@ -202,9 +202,31 @@ label {
 /* Dashboard Grid */
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
     margin-top: 2rem;
+}
+
+.analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.full-width {
+    grid-column: span 2;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .analysis-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .full-width {
+        grid-column: span 1;
+    }
 }
 
 /* HUD Elements */
@@ -405,17 +427,45 @@ label {
 @media (max-width: 768px) {
     .container {
         padding: 1rem;
+        padding-top: 60px;
     }
 
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
+    }
+
+    .data-value {
+        font-size: 2rem;
     }
 
     .chat-widget {
         width: 100%;
-        height: 100%;
+        height: 100vh;
         bottom: 0;
         right: 0;
         border: none;
+        position: fixed;
+    }
+
+    .chat-toggle {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .tech-panel {
+        padding: 1rem;
+    }
+
+    .hud-overlay-left,
+    .hud-overlay-right {
+        font-size: 0.6rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
     }
 }

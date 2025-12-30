@@ -12,11 +12,12 @@
 
 <body>
     <!-- HUD Overlay -->
-    <div style="position: fixed; top: 20px; left: 20px; color: var(--text-muted); font-size: 0.7rem; z-index: 100;">
+    <div class="hud-overlay-left"
+        style="position: fixed; top: 20px; left: 20px; color: var(--text-muted); font-size: 0.7rem; z-index: 100;">
         SYS.VER.2.0.4<br>
         HALI: ONLINE
     </div>
-    <div
+    <div class="hud-overlay-right"
         style="position: fixed; top: 20px; right: 20px; color: var(--text-muted); font-size: 0.7rem; text-align: right; z-index: 100;">
         COORDINATES: <span id="coords">00.00.00</span><br>
         MEM: 64TB
@@ -31,7 +32,7 @@
 
     <!-- Intro Section -->
     <section id="intro-section" class="container"
-        style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+        style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
         <div class="tech-panel" style="max-width: 800px; text-align: center;">
             <h1>MFUMO WA DIAGNOSIS YA KIULIMWENGU</h1>
             <p style="margin: 2rem 0; font-size: 1.1rem;">
@@ -165,7 +166,7 @@
         <div class="tech-panel" style="margin-top: 2rem;">
             <div class="data-label">MATOKEO YA SCAN YA NDANI</div>
             <div class="hud-line"></div>
-            <div id="detailed-analysis" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div id="detailed-analysis" class="analysis-grid">
                 <!-- Content populated by JS -->
             </div>
         </div>

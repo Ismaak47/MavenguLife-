@@ -151,11 +151,11 @@ function renderDashboard(profile) {
             <div class="data-label">ZODIAC SIGNATURE</div>
             <div style="color: var(--text-color);">${profile.zodiac.icon} ${profile.zodiac.name.toUpperCase()}</div>
         </div>
-        <div style="grid-column: span 2; margin-top: 1rem;">
+        <div class="full-width">
             <div class="data-label">DIVINE PURPOSE</div>
             <div style="color: var(--text-color);">${profile.soulMission}</div>
         </div>
-        <div style="grid-column: span 2; margin-top: 1rem; border-top: 1px solid var(--primary-color); padding-top: 1rem;">
+        <div class="full-width" style="border-top: 1px solid var(--primary-color); padding-top: 1rem;">
             <div class="data-label">ORIGIN COORDINATES</div>
             <div style="color: var(--success-color); font-family: var(--font-display);">${profile.birthPlace.toUpperCase()}</div>
         </div>
