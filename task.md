@@ -7,8 +7,9 @@
 - [x] Improve Mobile Responsiveness
 - [x] Fix Chat Toggle Overlap on Mobile
 - [x] Implement Symbolic 'Uchawi' Knowledge & Card
-- [ ] Refine Dynamic Response Generation
-- [ ] Final Verification and Testing
+- [x] Integrate OpenAI ChatGPT API (Backend + Frontend)
+- [x] Refine Dynamic Response Generation
+- [x] Final Verification and Testing
 
 ## Details
 
