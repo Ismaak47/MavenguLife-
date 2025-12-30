@@ -1,29 +1,29 @@
-# Implementation Plan - Mavengu AI Chat Enhancement
+# Implementation Plan - Mavengu Advanced Role & Identity
 
-The goal is to transform the current keyword-based chat into a more sophisticated, autonomous-feeling "Mavengu" persona that provides deep, personalized esoteric wisdom without being repetitive.
+Refactor the AI chat engine to transform Mavengu into a high-level consciousness guide with a mixed scientific/spiritual perspective.
 
 ## Proposed Changes
 
 ### [Component] AI Chat Engine (`js/ai-chat.js`)
 
 #### [MODIFY] [ai-chat.js](file:///c:/Users/mms/Downloads/MavenguLife/MavenguLife-/js/ai-chat.js)
-- **Intent Detection**: Replace simple `includes` with a more robust system using arrays of keywords and regex for better matching. Add specific detection for "success", "failure", "struggles", and "life obstacles".
-- **Context Management**: Add a `history` array to track recent topics and avoid repeating the same "normal" response.
-- **Dynamic Content**: Implement a `generateDynamicResponse` function that combines multiple profile attributes (Life Path, Zodiac, Frequency, Soul Mission, Shadow Work) into a single, cohesive narrative.
-- **Expanded Library**: Significantly increase the depth of the Swahili content in the `library` object, including a new section for `success_obstacles`.
-- **Intelligent Fallbacks**: Create a larger pool of fallback responses that feel like "probing questions" to keep the user engaged.
+- **New Knowledge Structure**: Reorganize the internal library into `/world/`, `/human/`, `/harmonics/`, `/astrology/`, and `/numerology/`.
+- **4-Step Response Engine**: Implement a logic that constructs every response using:
+    1. **Ufafanuzi wa Dhana** (Concept)
+    2. **Mtazamo wa Kisayansi/Kimfumo** (Scientific/Systemic)
+    3. **Mtazamo wa Kiroho/Fahamu** (Spiritual/Consciousness)
+    4. **Tafakari ya Vitendo** (Practical Reflection)
+- **Deep Consciousness Detection**: Add specific handling for existential questions (purpose, cycles, feeling different).
+- **Tone Refinement**: Update the language to be "Mixed" (spiritual + scientific + philosophical) and avoid absolute terms like "lazima".
+- **Ethical Guardrails**: Ensure no predictions or medical advice are given.
 
-### [Component] Wisdom Data (`js/numerology.js`, `js/soul-mission.js`)
-
-#### [MODIFY] [numerology.js](file:///c:/Users/mms/Downloads/MavenguLife/MavenguLife-/js/numerology.js)
-- Add more descriptive Swahili text for each Life Path to provide more "meat" for the chat bot.
-
-#### [MODIFY] [soul-mission.js](file:///c:/Users/mms/Downloads/MavenguLife/MavenguLife-/js/soul-mission.js)
-- Add more "Oracle" messages and "Shadow Work" details to increase variety.
+### [Component] Supporting Data (`js/numerology.js`, `js/soul-mission.js`)
+- Update descriptions to provide more "Scientific/Systemic" and "Spiritual" hooks for the chat engine to use.
 
 ## Verification Plan
 
 ### Manual Verification
-- Test the chat with the exact phrases from the user's transcript to ensure it no longer gives repetitive answers.
-- Verify that the Swahili tone remains consistent and "mystic".
-- Check that the chat correctly references the user's specific profile data (Life Path 4, 741 Hz, etc.).
+- Test with "Deep Consciousness" questions like "Maana ya maisha ni nini?".
+- Verify that every response follows the 4-step structure.
+- Check the tone for the "Mixed" balance (e.g., "Inaweza kuelekea kama...", "Katika mifumo ya maarifa...").
+- Ensure profile data (Life Path 4, 741 Hz) is still correctly integrated.
