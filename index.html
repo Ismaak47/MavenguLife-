@@ -162,24 +162,6 @@
                 <div class="data-value" id="sun-freq-text" style="font-size: 1.5rem;">0 Hz</div>
             </div>
 
-            <!-- Aesthetics -->
-            <div class="tech-panel">
-                <div class="data-label">SAINI YA KIKIDIJITALI // AESTHETICS</div>
-                <p id="aesthetics-text">INACHAMBUZA...</p>
-            </div>
-
-            <!-- Mystic Oracle -->
-            <div class="tech-panel" style="grid-column: span 2; border-color: var(--secondary-color);">
-                <div id="detailed-analysis" class="analysis-grid">
-                    <!-- Content populated by JS -->
-                </div>
-            </div>
-    </section>
-
-    <!-- Chat Widget -->
-    <div class="chat-widget" id="chat-widget">
-        <div class="chat-header">
-            <span>MAVENGU // ONLINE</span>
             <i class="fas fa-times" id="close-chat" style="cursor: pointer;"></i>
         </div>
         <div class="chat-messages" id="chat-messages">
@@ -192,37 +174,37 @@
             <button id="send-msg-btn" class="btn" style="padding: 0.5rem 1rem;"><i
                     class="fas fa-angle-right"></i></button>
         </div>
-    </div>
+        </div>
 
-    <!-- Chat Toggle (Preserved Icon) -->
-    <div class="chat-toggle" id="chat-toggle-btn">
-        <i class="fas fa-robot"></i>
-    </div>
+        <!-- Chat Toggle (Preserved Icon) -->
+        <div class="chat-toggle" id="chat-toggle-btn">
+            <i class="fas fa-robot"></i>
+        </div>
 
-    <canvas id="universe-canvas"
-        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
+        <canvas id="universe-canvas"
+            style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
 
-    <!-- Scripts -->
-    <script src="js/config.js"></script>
-    <script src="js/mavengu-system-prompt.js"></script>
-    <script src="js/gemini-api.js"></script>
-    <script src="js/numerology.js"></script>
-    <script src="js/astrology.js"></script>
-    <script src="js/soul-mission.js"></script>
-    <script src="js/ai-chat.js"></script>
-    <script src="js/app.js"></script>
-    <script>
-        // Simple coordinate updater for effect
-        setInterval(() => {
-            const coords = document.getElementById('coords');
-            if (coords) {
-                coords.innerText =
-                    Math.floor(Math.random() * 99) + '.' +
-                    Math.floor(Math.random() * 99) + '.' +
-                    Math.floor(Math.random() * 99);
-            }
-        }, 1000);
-    </script>
+        <!-- Scripts -->
+        <script src="js/config.js"></script>
+        <script src="js/mavengu-system-prompt.js"></script>
+        <script src="js/gemini-api.js"></script>
+        <script src="js/numerology.js"></script>
+        <script src="js/astrology.js"></script>
+        <script src="js/soul-mission.js"></script>
+        <script src="js/ai-chat.js"></script>
+        <script src="js/app.js"></script>
+        <script>
+            // Simple coordinate updater for effect
+            setInterval(() => {
+                const coords = document.getElementById('coords');
+                if (coords) {
+                    coords.innerText =
+                        Math.floor(Math.random() * 99) + '.' +
+                        Math.floor(Math.random() * 99) + '.' +
+                        Math.floor(Math.random() * 99);
+                }
+            }, 1000);
+        </script>
 </body>
 
 </html>

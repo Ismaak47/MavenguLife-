@@ -39,15 +39,22 @@ function initApp() {
 
             // Simulate Calculation Time
             setTimeout(() => {
-                const profile = generateProfile(fullName, birthDate, birthPlace);
-                renderDashboard(profile);
+                try {
+                    const profile = generateProfile(fullName, birthDate, birthPlace);
+                    renderDashboard(profile);
 
-                loadingScreen.style.display = 'none';
-                dashboardSection.style.display = 'block';
+                    loadingScreen.style.display = 'none';
+                    dashboardSection.style.display = 'block';
 
-                // Initialize Chat with Profile
-                if (window.AIChat) {
-                    window.AIChat.init(profile);
+                    // Initialize Chat with Profile
+                    if (window.AIChat) {
+                        window.AIChat.init(profile);
+                    }
+                } catch (error) {
+                    console.error("Profile Generation Error:", error);
+                    alert("Kuna tatizo la kiufundi: " + error.message);
+                    loadingScreen.style.display = 'none';
+                    inputSection.style.display = 'block';
                 }
             }, 3000);
         });
