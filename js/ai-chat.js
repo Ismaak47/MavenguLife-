@@ -11,7 +11,7 @@ const AIChat = {
         console.log("AIChat initialized with profile:", profile.name);
     },
 
-    handleInput: function () {
+    handleInput: async function () {
         const inputField = document.getElementById('user-input');
         const chatMessages = document.getElementById('chat-messages');
         const input = inputField.value.trim();
@@ -22,18 +22,78 @@ const AIChat = {
         this.addMessage(input, 'user');
         inputField.value = '';
 
-        // Generate and Add Bot Response
-        setTimeout(() => {
-            const response = this.generateResponse(input);
-            this.addMessage(response, 'bot');
-        }, 1000);
+        // Show typing indicator
+        this.showTypingIndicator();
+
+        // Try AI first, fallback to rule-based
+        try {
+            let response;
+            let source = 'rule-based';
+
+            // Check if Gemini API is available
+            if (window.GeminiAPI && window.GeminiAPI.isAvailable()) {
+                const result = await window.GeminiAPI.sendMessage(input, this.userProfile);
+
+                if (result.success) {
+                    response = result.response;
+                    source = 'ai';
+                } else {
+                    // Fallback to rule-based
+                    response = this.generateResponse(input);
+                }
+            } else {
+                // Use rule-based system
+                response = this.generateResponse(input);
+            }
+
+            // Remove typing indicator and add response
+            this.hideTypingIndicator();
+            this.addMessage(response, 'bot', source);
+
+        } catch (error) {
+            console.error('Chat error:', error);
+            this.hideTypingIndicator();
+            const fallbackResponse = this.generateResponse(input);
+            this.addMessage(fallbackResponse, 'bot', 'rule-based');
+        }
     },
 
-    addMessage: function (text, sender) {
+    showTypingIndicator: function () {
+        const chatMessages = document.getElementById('chat-messages');
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'message bot typing-indicator';
+        typingDiv.id = 'typing-indicator';
+        typingDiv.innerHTML = `
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            INACHAMBULIA...
+        `;
+        chatMessages.appendChild(typingDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    },
+
+    hideTypingIndicator: function () {
+        const typingIndicator = document.getElementById('typing-indicator');
+        if (typingIndicator) {
+            typingIndicator.remove();
+        }
+    },
+
+    addMessage: function (text, sender, source = 'rule-based') {
         const chatMessages = document.getElementById('chat-messages');
         const msgDiv = document.createElement('div');
         msgDiv.className = `message ${sender}`;
-        msgDiv.innerHTML = text.replace(/\n/g, '<br>');
+
+        // Add source indicator for bot messages
+        let sourceIndicator = '';
+        if (sender === 'bot' && window.MavenguConfig && window.MavenguConfig.features.showAPIStatus) {
+            const icon = source === 'ai' ? '🧠' : '⚙️';
+            const label = source === 'ai' ? 'AI-POWERED' : 'RULE-BASED';
+            sourceIndicator = `<div style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.5rem;">${icon} ${label}</div>`;
+        }
+
+        msgDiv.innerHTML = sourceIndicator + text.replace(/\n/g, '<br>');
         chatMessages.appendChild(msgDiv);
         chatMessages.scrollTop = chatMessages.scrollHeight;
     },
