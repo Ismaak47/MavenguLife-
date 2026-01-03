@@ -8,13 +8,28 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Chat Box Height Fix */
+        .chat-widget {
+            height: 500px !important;
+            max-height: calc(100vh - 150px) !important;
+        }
+
+        /* Close Button Visibility Fix */
+        #close-chat {
+            color: var(--primary-color) !important;
+            font-size: 1.5rem !important;
+            opacity: 1 !important;
+            z-index: 10 !important;
+        }
+    </style>
 </head>
 
 <body>
     <!-- HUD Overlay -->
     <div class="hud-overlay-left"
         style="position: fixed; top: 20px; left: 20px; color: var(--text-muted); font-size: 0.7rem; z-index: 100;">
-        SYS.VER.2.0.4<br>
+        SYS.VER.2.0.5<br>
         HALI: ONLINE
     </div>
     <div class="hud-overlay-right"
@@ -96,7 +111,7 @@
                     <div class="data-value" id="life-path-number">0</div>
                     <i class="fas fa-microchip" style="font-size: 2rem; color: var(--text-muted);"></i>
                 </div>
-                <p id="life-path-desc" style="font-size: 0.9rem;">INACHAMBUA...</p>
+                <p id="life-path-desc" style="font-size: 0.9rem;">INACHAMB UA...</p>
             </div>
 
             <!-- Destiny Panel -->
@@ -150,7 +165,7 @@
             <!-- Aesthetics -->
             <div class="tech-panel">
                 <div class="data-label">SAINI YA KIKIDIJITALI // AESTHETICS</div>
-                <p id="aesthetics-text">INACHAMBUA...</p>
+                <p id="aesthetics-text">INACHAMBUZA...</p>
             </div>
 
             <!-- Mystic Oracle -->
@@ -207,6 +222,9 @@
         style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>
 
     <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/mavengu-system-prompt.js"></script>
+    <script src="js/gemini-api.js"></script>
     <script src="js/numerology.js"></script>
     <script src="js/astrology.js"></script>
     <script src="js/soul-mission.js"></script>
