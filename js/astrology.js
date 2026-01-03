@@ -131,6 +131,104 @@ const Astrology = {
             "Pisces": "Butterfly (Mabadiliko na Roho)"
         };
         return animals[signName] || "Phoenix";
+    },
+
+    getLuckyColor: function (signName) {
+        const colors = {
+            "Aries": "Red", "Taurus": "Green", "Gemini": "Yellow", "Cancer": "Silver",
+            "Leo": "Gold", "Virgo": "Grey", "Libra": "Pink", "Scorpio": "Black",
+            "Sagittarius": "Purple", "Capricorn": "Brown", "Aquarius": "Blue", "Pisces": "Sea Green"
+        };
+        return colors[signName] || "White";
+    },
+
+    getLuckyDay: function (signName) {
+        const days = {
+            "Aries": "Tuesday", "Taurus": "Friday", "Gemini": "Wednesday", "Cancer": "Monday",
+            "Leo": "Sunday", "Virgo": "Wednesday", "Libra": "Friday", "Scorpio": "Tuesday",
+            "Sagittarius": "Thursday", "Capricorn": "Saturday", "Aquarius": "Saturday", "Pisces": "Thursday"
+        };
+        return days[signName] || "Sunday";
+    },
+
+    getTarotCard: function (signName) {
+        const cards = {
+            "Aries": "The Emperor", "Taurus": "The Hierophant", "Gemini": "The Lovers", "Cancer": "The Chariot",
+            "Leo": "Strength", "Virgo": "The Hermit", "Libra": "Justice", "Scorpio": "Death",
+            "Sagittarius": "Temperance", "Capricorn": "The Devil", "Aquarius": "The Star", "Pisces": "The Moon"
+        };
+        return cards[signName] || "The Fool";
+    },
+
+    getChakra: function (signName) {
+        const chakras = {
+            "Aries": "Solar Plexus", "Taurus": "Heart", "Gemini": "Throat", "Cancer": "Third Eye",
+            "Leo": "Crown", "Virgo": "Throat", "Libra": "Heart", "Scorpio": "Sacral",
+            "Sagittarius": "Sacral", "Capricorn": "Root", "Aquarius": "Root", "Pisces": "Solar Plexus"
+        };
+        return chakras[signName] || "Root";
+    },
+
+    getChineseZodiac: function (birthDate) {
+        const year = new Date(birthDate).getFullYear();
+        const animals = ["Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"];
+        const index = (year - 4) % 12;
+        return animals[index >= 0 ? index : index + 12];
+    },
+
+    getAuraColor: function (signName) {
+        const auras = {
+            "Aries": "Bright Red", "Taurus": "Forest Green", "Gemini": "Bright Yellow", "Cancer": "Soft Pink",
+            "Leo": "Orange-Gold", "Virgo": "Royal Blue", "Libra": "Pastel Green", "Scorpio": "Deep Red",
+            "Sagittarius": "Light Purple", "Capricorn": "Deep Indigo", "Aquarius": "Electric Blue", "Pisces": "Violet"
+        };
+        return auras[signName] || "White";
+    },
+
+    getNorthNode: function (signName) {
+        // Simplified North Node logic based on Zodiac Sign for demonstration
+        const nodes = {
+            "Aries": "Libra", "Taurus": "Scorpio", "Gemini": "Sagittarius", "Cancer": "Capricorn",
+            "Leo": "Aquarius", "Virgo": "Pisces", "Libra": "Aries", "Scorpio": "Taurus",
+            "Sagittarius": "Gemini", "Capricorn": "Cancer", "Aquarius": "Leo", "Pisces": "Virgo"
+        };
+        return nodes[signName] || "Unknown";
+    },
+
+    getLifeLesson: function (signName) {
+        const lessons = {
+            "Aries": "Subira na Kujidhibiti",
+            "Taurus": "Kuachilia na Kubadilika",
+            "Gemini": "Kuzingatia na Undani",
+            "Cancer": "Kujitegemea Kihisia",
+            "Leo": "Unyenyekevu na Huduma",
+            "Virgo": "Kukubali Mapungufu",
+            "Libra": "Kujiamini na Maamuzi",
+            "Scorpio": "Msamaha na Imani",
+            "Sagittarius": "Ukweli na Uwajibikaji",
+            "Capricorn": "Furaha na Usawa",
+            "Aquarius": "Ushirikiano na Hisia",
+            "Pisces": "Mipaka na Uhalisia"
+        };
+        return lessons[signName] || "Kujitambua";
+    },
+
+    getGuardianAngel: function (signName) {
+        const angels = {
+            "Aries": "Ariel", "Taurus": "Chamuel", "Gemini": "Zadkiel", "Cancer": "Gabriel",
+            "Leo": "Raziel", "Virgo": "Metatron", "Libra": "Jophiel", "Scorpio": "Jeremiel",
+            "Sagittarius": "Raguel", "Capricorn": "Azrael", "Aquarius": "Uriel", "Pisces": "Sandalphon"
+        };
+        return angels[signName] || "Michael";
+    },
+
+    getSoulAge: function (birthDate) {
+        const year = new Date(birthDate).getFullYear();
+        if (year > 2010) return "Infant Soul";
+        if (year > 1995) return "Baby Soul";
+        if (year > 1980) return "Young Soul";
+        if (year > 1960) return "Mature Soul";
+        return "Old Soul";
     }
 };
 

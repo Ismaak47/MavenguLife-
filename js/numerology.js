@@ -35,13 +35,11 @@ const Numerology = {
     },
 
     calculateLifePath: function (birthDate) {
-        // Format: YYYY-MM-DD
         const parts = birthDate.split('-');
         const year = parseInt(parts[0]);
         const month = parseInt(parts[1]);
         const day = parseInt(parts[2]);
 
-        // Reduce year, month, day separately then sum
         const rYear = this.reduceNumber(year);
         const rMonth = this.reduceNumber(month);
         const rDay = this.reduceNumber(day);
@@ -52,28 +50,20 @@ const Numerology = {
     calculateDestiny: function (fullName) {
         let sum = 0;
         const cleanName = fullName.toLowerCase().replace(/[^a-z]/g, '');
-
         for (let i = 0; i < cleanName.length; i++) {
             const letter = cleanName[i];
-            if (this.letterValues[letter]) {
-                sum += this.letterValues[letter];
-            }
+            if (this.letterValues[letter]) sum += this.letterValues[letter];
         }
-
         return this.reduceNumber(sum);
     },
 
     calculateSoulUrge: function (fullName) {
         let sum = 0;
         const cleanName = fullName.toLowerCase().replace(/[^a-z]/g, '');
-
         for (let i = 0; i < cleanName.length; i++) {
             const letter = cleanName[i];
-            if (this.vowels.includes(letter)) {
-                sum += this.letterValues[letter];
-            }
+            if (this.vowels.includes(letter)) sum += this.letterValues[letter];
         }
-
         return this.reduceNumber(sum);
     },
 
@@ -82,7 +72,6 @@ const Numerology = {
         const month = parseInt(parts[1]);
         const day = parseInt(parts[2]);
         const currentYear = new Date().getFullYear();
-
         return this.reduceNumber(day + month + currentYear);
     },
 
@@ -97,9 +86,7 @@ const Numerology = {
         let sum = 0;
         names.forEach(name => {
             const firstLetter = name.toLowerCase()[0];
-            if (this.letterValues[firstLetter]) {
-                sum += this.letterValues[firstLetter];
-            }
+            if (this.letterValues[firstLetter]) sum += this.letterValues[firstLetter];
         });
         return this.reduceNumber(sum);
     },
@@ -107,18 +94,13 @@ const Numerology = {
     calculateHiddenPassion: function (fullName) {
         const counts = {};
         const cleanName = fullName.toLowerCase().replace(/[^a-z]/g, '');
-
         for (let i = 0; i < cleanName.length; i++) {
             const letter = cleanName[i];
             const val = this.letterValues[letter];
-            if (val) {
-                counts[val] = (counts[val] || 0) + 1;
-            }
+            if (val) counts[val] = (counts[val] || 0) + 1;
         }
-
         let maxCount = 0;
         let passionNumber = 0;
-
         for (const [num, count] of Object.entries(counts)) {
             if (count > maxCount) {
                 maxCount = count;
@@ -126,6 +108,73 @@ const Numerology = {
             }
         }
         return passionNumber || 0;
+    },
+
+    calculateKarmicDebt: function (birthDate) {
+        const parts = birthDate.split('-');
+        const day = parseInt(parts[2]);
+        const month = parseInt(parts[1]);
+        const year = parseInt(parts[0]);
+
+        if ([13, 14, 16, 19].includes(day)) return day;
+
+        let sum = 0;
+        const digits = (day + "" + month + "" + year).split('');
+        digits.forEach(d => sum += parseInt(d));
+
+        if ([13, 14, 16, 19].includes(sum)) return sum;
+        return 0;
+    },
+
+    calculateFirstChallenge: function (birthDate) {
+        const parts = birthDate.split('-');
+        const day = parseInt(parts[2]);
+        const month = parseInt(parts[1]);
+
+        const rMonth = this.reduceNumber(month);
+        const rDay = this.reduceNumber(day);
+
+        return Math.abs(rMonth - rDay);
+    },
+
+    calculateMaturityNumber: function (lifePath, destiny) {
+        return this.reduceNumber(lifePath + destiny);
+    },
+
+    calculateRationalThought: function (fullName, birthDate) {
+        const firstName = fullName.trim().split(/\s+/)[0].toLowerCase();
+        const day = parseInt(birthDate.split('-')[2]);
+        let sum = 0;
+        for (let i = 0; i < firstName.length; i++) {
+            const letter = firstName[i];
+            if (this.letterValues[letter]) sum += this.letterValues[letter];
+        }
+        return this.reduceNumber(sum + day);
+    },
+
+    calculateAttitudeNumber: function (birthDate) {
+        const parts = birthDate.split('-');
+        const month = parseInt(parts[1]);
+        const day = parseInt(parts[2]);
+        return this.reduceNumber(month + day);
+    },
+
+    calculatePinnacles: function (birthDate) {
+        const parts = birthDate.split('-');
+        const month = parseInt(parts[1]);
+        const day = parseInt(parts[2]);
+        const year = parseInt(parts[0]);
+
+        const rMonth = this.reduceNumber(month);
+        const rDay = this.reduceNumber(day);
+        const rYear = this.reduceNumber(year);
+
+        const p1 = this.reduceNumber(rMonth + rDay);
+        const p2 = this.reduceNumber(rDay + rYear);
+        const p3 = this.reduceNumber(p1 + p2);
+        const p4 = this.reduceNumber(rMonth + rYear);
+
+        return { p1, p2, p3, p4 };
     },
 
     getMeaning: function (number, type) {
@@ -191,12 +240,10 @@ const Numerology = {
                 soulUrge: "Unatamani kulea na kuponya ulimwengu."
             }
         };
-
         return meanings[number] ? meanings[number][type] : "Vibration ya kipekee.";
     }
 };
 
-// Export for use in app.js
 if (typeof window !== 'undefined') {
     window.Numerology = Numerology;
 }

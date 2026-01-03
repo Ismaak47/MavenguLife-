@@ -112,6 +112,26 @@ function generateProfile(fullName, birthDate, birthPlace) {
     const balanceNumber = window.Numerology.calculateBalanceNumber(fullName);
     const passionNumber = window.Numerology.calculateHiddenPassion(fullName);
 
+    // New Advanced Metaphysics Data
+    const karmicDebt = window.Numerology.calculateKarmicDebt(birthDate);
+    const firstChallenge = window.Numerology.calculateFirstChallenge(birthDate);
+    const luckyColor = window.Astrology.getLuckyColor(zodiac.name);
+    const luckyDay = window.Astrology.getLuckyDay(zodiac.name);
+    const tarotCard = window.Astrology.getTarotCard(zodiac.name);
+    const chakra = window.Astrology.getChakra(zodiac.name);
+    const chineseZodiac = window.Astrology.getChineseZodiac(birthDate);
+    const pinnacle = window.Numerology.calculatePinnacles(birthDate).p1;
+
+    // New Esoteric Insights Data
+    const auraColor = window.Astrology.getAuraColor(zodiac.name);
+    const lifeLesson = window.Astrology.getLifeLesson(zodiac.name);
+    const maturityNumber = window.Numerology.calculateMaturityNumber(lifePath, destiny);
+    const rationalThought = window.Numerology.calculateRationalThought(fullName, birthDate);
+    const attitudeNumber = window.Numerology.calculateAttitudeNumber(birthDate);
+    const northNode = window.Astrology.getNorthNode(zodiac.name);
+    const guardianAngel = window.Astrology.getGuardianAngel(zodiac.name);
+    const soulAge = window.Astrology.getSoulAge(birthDate);
+
     return {
         name: fullName,
         birthDate: birthDate,
@@ -134,7 +154,23 @@ function generateProfile(fullName, birthDate, birthPlace) {
         birthStone: birthStone,
         spiritAnimal: spiritAnimal,
         balanceNumber: balanceNumber,
-        passionNumber: passionNumber
+        passionNumber: passionNumber,
+        karmicDebt: karmicDebt,
+        firstChallenge: firstChallenge,
+        luckyColor: luckyColor,
+        luckyDay: luckyDay,
+        tarotCard: tarotCard,
+        chakra: chakra,
+        chineseZodiac: chineseZodiac,
+        pinnacle: pinnacle,
+        auraColor: auraColor,
+        lifeLesson: lifeLesson,
+        maturityNumber: maturityNumber,
+        rationalThought: rationalThought,
+        attitudeNumber: attitudeNumber,
+        northNode: northNode,
+        guardianAngel: guardianAngel,
+        soulAge: soulAge
     };
 }
 
@@ -197,6 +233,26 @@ function renderDashboard(profile) {
     document.getElementById('balance-number').textContent = profile.balanceNumber;
     document.getElementById('passion-number').textContent = profile.passionNumber;
 
+    // Update Advanced Metaphysics Grid
+    document.getElementById('karmic-debt').textContent = profile.karmicDebt || "0";
+    document.getElementById('first-challenge').textContent = profile.firstChallenge;
+    document.getElementById('lucky-color').textContent = profile.luckyColor.toUpperCase();
+    document.getElementById('lucky-day').textContent = profile.luckyDay.toUpperCase();
+    document.getElementById('tarot-card').textContent = profile.tarotCard.toUpperCase();
+    document.getElementById('chakra-ruler').textContent = profile.chakra.toUpperCase();
+    document.getElementById('chinese-zodiac').textContent = profile.chineseZodiac.toUpperCase();
+    document.getElementById('pinnacle-cycle').textContent = profile.pinnacle;
+
+    // Update Esoteric Insights Grid
+    document.getElementById('aura-color').textContent = profile.auraColor.toUpperCase();
+    document.getElementById('life-lesson').textContent = profile.lifeLesson.toUpperCase();
+    document.getElementById('maturity-number').textContent = profile.maturityNumber;
+    document.getElementById('rational-thought').textContent = profile.rationalThought;
+    document.getElementById('attitude-number').textContent = profile.attitudeNumber;
+    document.getElementById('north-node').textContent = profile.northNode.toUpperCase();
+    document.getElementById('guardian-angel').textContent = profile.guardianAngel.toUpperCase();
+    document.getElementById('soul-age').textContent = profile.soulAge.toUpperCase();
+
     // Detailed Analysis
     const analysisDiv = document.getElementById('detailed-analysis');
     analysisDiv.innerHTML = `
@@ -238,6 +294,26 @@ function renderDashboard(profile) {
     setupModalTrigger('spirit-animal', `SPIRIT ANIMAL: ${profile.spiritAnimal}`, `Mnyama wangu wa roho ni ${profile.spiritAnimal}. Ninaweza kujifunza nini kutoka kwake?`, profile);
     setupModalTrigger('balance-number', `BALANCE NUMBER: ${profile.balanceNumber}`, `Namba yangu ya usawa ni ${profile.balanceNumber}. Inanisaidiaje wakati wa changamoto?`, profile);
     setupModalTrigger('passion-number', `HIDDEN PASSION: ${profile.passionNumber}`, `Shauku yangu ya ndani ni namba ${profile.passionNumber}. Hii inaonyesha nini kuhusu vipaji vyangu?`, profile);
+
+    // Advanced Metaphysics Triggers
+    setupModalTrigger('karmic-debt', `KARMIC DEBT: ${profile.karmicDebt}`, `Nina deni la karma namba ${profile.karmicDebt}. Hii inamaanisha nini kuhusu maisha yangu ya zamani na changamoto za sasa?`, profile);
+    setupModalTrigger('first-challenge', `FIRST CHALLENGE: ${profile.firstChallenge}`, `Changamoto yangu ya kwanza ni namba ${profile.firstChallenge}. Hii inanifundisha nini katika kipindi hiki cha maisha?`, profile);
+    setupModalTrigger('lucky-color', `LUCKY COLOR: ${profile.luckyColor}`, `Rangi yangu ya bahati ni ${profile.luckyColor}. Nitumieje rangi hii kuongeza nishati yangu?`, profile);
+    setupModalTrigger('lucky-day', `LUCKY DAY: ${profile.luckyDay}`, `Siku yangu ya bahati ni ${profile.luckyDay}. Ni mambo gani mazuri ya kufanya siku hii?`, profile);
+    setupModalTrigger('tarot-card', `TAROT ARCHETYPE: ${profile.tarotCard}`, `Kadi yangu ya Tarot ni ${profile.tarotCard}. Hii inaashiria nini kuhusu safari yangu ya roho?`, profile);
+    setupModalTrigger('chakra-ruler', `CHAKRA RULER: ${profile.chakra}`, `Chakra yangu kiongozi ni ${profile.chakra}. Nifanye nini kuiweka sawa na kuitumia vizuri?`, profile);
+    setupModalTrigger('chinese-zodiac', `CHINESE ZODIAC: ${profile.chineseZodiac}`, `Nyota yangu ya Kichina ni ${profile.chineseZodiac}. Hii inaongeza nini kwenye tabia yangu?`, profile);
+    setupModalTrigger('pinnacle-cycle', `PINNACLE CYCLE: ${profile.pinnacle}`, `Mzunguko wangu wa kilele ni namba ${profile.pinnacle}. Hii inaashiria mafanikio gani yanayokuja?`, profile);
+
+    // Esoteric Insights Triggers
+    setupModalTrigger('aura-color', `AURA COLOR: ${profile.auraColor}`, `Rangi yangu ya aura ni ${profile.auraColor}. Hii inasema nini kuhusu nishati yangu ya sasa?`, profile);
+    setupModalTrigger('life-lesson', `LIFE LESSON: ${profile.lifeLesson}`, `Somo langu la maisha ni ${profile.lifeLesson}. Nifanye nini ili kufanikiwa katika somo hili?`, profile);
+    setupModalTrigger('maturity-number', `MATURITY NUMBER: ${profile.maturityNumber}`, `Namba yangu ya ukomavu ni ${profile.maturityNumber}. Hii itakuwa na athari gani katika maisha yangu ya baadae?`, profile);
+    setupModalTrigger('rational-thought', `RATIONAL THOUGHT: ${profile.rationalThought}`, `Namba yangu ya fikra za kimantiki ni ${profile.rationalThought}. Hii inaonyesha nini kuhusu jinsi ninavyofanya maamuzi?`, profile);
+    setupModalTrigger('attitude-number', `ATTITUDE NUMBER: ${profile.attitudeNumber}`, `Namba yangu ya mtazamo ni ${profile.attitudeNumber}. Hii inaathiri vipi jinsi watu wanavyoniona mara ya kwanza?`, profile);
+    setupModalTrigger('north-node', `NORTH NODE: ${profile.northNode}`, `North Node yangu ipo ${profile.northNode}. Hii inaashiria nini kuhusu mwelekeo wa roho yangu?`, profile);
+    setupModalTrigger('guardian-angel', `GUARDIAN ANGEL: ${profile.guardianAngel}`, `Malaika wangu mlinzi ni ${profile.guardianAngel}. Ninaweza kuwasiliana naye vipi kwa ajili ya mwongozo?`, profile);
+    setupModalTrigger('soul-age', `SOUL AGE: ${profile.soulAge}`, `Umri wa roho yangu ni ${profile.soulAge}. Hii inaashiria nini kuhusu uzoefu wangu wa kiulimwengu?`, profile);
 }
 
 // Modal Logic

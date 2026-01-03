@@ -85,6 +85,9 @@ IMPORTANT: DAIMA jibu kwa Kiswahili. DAIMA fuata muundo wa hatua 5. Jibu kama Ms
 ▸ BIRTH DAY NUMBER: ${profile.birthDayNumber}
 ▸ BALANCE NUMBER: ${profile.balanceNumber}
 ▸ HIDDEN PASSION: ${profile.passionNumber}
+▸ MATURITY NUMBER: ${profile.maturityNumber}
+▸ RATIONAL THOUGHT: ${profile.rationalThought}
+▸ ATTITUDE NUMBER: ${profile.attitudeNumber}
 
 // ASTROLOGY DATA
 ▸ ZODIAC SIGN: ${profile.zodiac.name} (${profile.zodiac.element})
@@ -93,13 +96,26 @@ IMPORTANT: DAIMA jibu kwa Kiswahili. DAIMA fuata muundo wa hatua 5. Jibu kama Ms
 ▸ MOON PHASE: ${profile.moonPhase.name}
 ▸ BIRTH STONE: ${profile.birthStone.name}
 ▸ SPIRIT ANIMAL: ${profile.spiritAnimal}
+▸ CHINESE ZODIAC: ${profile.chineseZodiac}
+▸ LUCKY COLOR: ${profile.luckyColor}
+▸ LUCKY DAY: ${profile.luckyDay}
+▸ CHAKRA RULER: ${profile.chakra}
+▸ TAROT CARD: ${profile.tarotCard}
 
-// SOUL MISSION DATA
+// SOUL MISSION & ESOTERIC DATA
 ▸ SOUL MISSION: ${profile.soulMission}
 ▸ SHADOW WORK: ${profile.shadowWork}
 ▸ SUN FREQUENCY: ${profile.sunFreq}
 ▸ MEDITATION PRACTICE: ${profile.meditation}
 ▸ SYMBOLIC WISDOM: ${profile.symbolicWisdom}
+▸ KARMIC DEBT: ${profile.karmicDebt}
+▸ FIRST CHALLENGE: ${profile.firstChallenge}
+▸ PINNACLE CYCLE: ${profile.pinnacle}
+▸ AURA COLOR: ${profile.auraColor}
+▸ LIFE LESSON: ${profile.lifeLesson}
+▸ NORTH NODE: ${profile.northNode}
+▸ GUARDIAN ANGEL: ${profile.guardianAngel}
+▸ SOUL AGE: ${profile.soulAge}
 
 Tumia taarifa hii kumpa mtumiaji majibu ya kibinafsi na ya kina.`;
     },
