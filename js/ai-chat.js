@@ -185,9 +185,9 @@ ${data.step5}
             },
             existential: {
                 step1: "Swali la 'kwanini nipo hapa' ni msingi wa safari ya kila nafsi. Ni mwanzo wa kutambua kuwa wewe si tukio la bahati, bali ni sehemu ya mpango mkubwa wa kiulimwengu.",
-                step2: "Katika mifumo ya asili, kila kitu kina kazi yake. Maisha yako hufanya kazi kama mfumo unaojirekebisha kupitia cycles na feedback. Life Path ${p.lifePath} yako ni 'blueprint' inayoelekeza nishati yako.",
+                step2: `Katika mifumo ya asili, kila kitu kina kazi yake. Maisha yako hufanya kazi kama mfumo unaojirekebisha kupitia cycles na feedback. Life Path ${p.lifePath} yako ni 'blueprint' inayoelekeza nishati yako.`,
                 step3: "Kihisia, kutafuta maana kunaweza kuleta hisia ya kukwama. Hii ni 'feedback' ya mfumo wako ikikuambia kuwa unahitaji alignment mpya na kusudi lako la asili.",
-                step4: "Inaweza kufananishwa na frequency ya ${p.sunFreq} inayotafuta resonance. Dissonance unayohisi ni ishara ya 're-tuning' ya maisha yako ili uweze kutekeleza Soul Mission yako.",
+                step4: `Inaweza kufananishwa na frequency ya ${p.sunFreq} inayotafuta resonance. Dissonance unayohisi ni ishara ya 're-tuning' ya maisha yako ili uweze kutekeleza Soul Mission yako.`,
                 step5: "Tafakari: Je, unaruhusu maisha yako yatiririke katika mzunguko wake wa asili, au unajaribu kulazimisha rhythm isiyo yako?"
             },
             human: {
@@ -201,29 +201,29 @@ ${data.step5}
                 step1: "Ulimwengu unaongozwa na sheria za asili zinazohakikisha usawa (balance) na mzunguko (cycles).",
                 step2: "Kila mfumo wa asili una rhythm yake. Kama vile misimu inavyobadilika, maisha yako yana vipindi vya 'expansion' na 'contraction'.",
                 step3: "Tunapata amani tunapokubali sheria ya 'Cause and Effect', tukitambua kuwa sisi ni washiriki hai katika kutengeneza ukweli wetu.",
-                step4: "Inaweza kufananishwa na wimbo mkubwa wa ulimwengu ambapo kila mmoja wetu ana 'note' yake ya kipekee. Frequency yako ya ${p.sunFreq} ni sehemu ya wimbo huu.",
+                step4: `Inaweza kufananishwa na wimbo mkubwa wa ulimwengu ambapo kila mmoja wetu ana 'note' yake ya kipekee. Frequency yako ya ${p.sunFreq} ni sehemu ya wimbo huu.`,
                 step5: "Insight: Je, unapingana na mzunguko wa sasa wa maisha yako au unajifunza kutokana na kile unachopitia sasa?"
             },
             harmonics: {
                 step1: "Harmonics ni lugha ya ulimwengu inayoelezea jinsi nishati inavyoingiliana kutengeneza maelewano au fujo.",
-                step2: "Frequency yako ya ${p.sunFreq} ni 'base note' ya mfumo wako wa nishati. Resonance hutokea pale matendo yako yanapoendana na frequency hii.",
+                step2: `Frequency yako ya ${p.sunFreq} ni 'base note' ya mfumo wako wa nishati. Resonance hutokea pale matendo yako yanapoendana na frequency hii.`,
                 step3: "Unapohisi kukwama, mara nyingi ni 'dissonance' ya nishati. Ni ishara kuwa unahitaji 're-tuning' ili kurudi katika rhythm yako ya asili.",
                 step4: "Katika mifumo ya harmonic, 'tuning' siyo tukio la mara moja, bali ni mchakato wa kila siku wa kusawazisha nishati yako na ulimwengu.",
                 step5: "Insight: Ni mambo gani katika mazingira yako yanayoongeza vibration yako na yapi yanayopunguza?"
             },
             astrology: {
                 step1: "Astrology ni lugha ya archetypes inayoelezea mifumo ya nishati ya ulimwengu inavyojidhihirisha kupitia binadamu.",
-                step2: "Nyota yako ya ${p.zodiac.name} na element ya ${p.zodiac.element} ni kama 'blueprint' ya kisaikolojia inayoelezea tabia na msukumo wako wa asili.",
-                step3: "Kihisia, kuelewa nyota yako kukusaidia kukubali 'shadow' yako (kama ${p.shadowWork}) na kuitumia kama nguvu ya mabadiliko.",
+                step2: `Nyota yako ya ${p.zodiac.name} na element ya ${p.zodiac.element} ni kama 'blueprint' ya kisaikolojia inayoelezea tabia na msukumo wako wa asili.`,
+                step3: `Kihisia, kuelewa nyota yako kukusaidia kukubali 'shadow' yako (kama ${p.shadowWork}) na kuitumia kama nguvu ya mabadiliko.`,
                 step4: "Kila sayari ina frequency yake inayopiga resonance na nishati yako. Kuelewa hili ni kuelewa jinsi ya kucheza wimbo wako vizuri.",
-                step5: "Insight: Je, unatumia sifa za asili za ${p.zodiac.name} kujenga maisha yako, au unazitumia kama kisingizio cha kutopiga hatua?"
+                step5: `Insight: Je, unatumia sifa za asili za ${p.zodiac.name} kujenga maisha yako, au unazitumia kama kisingizio cha kutopiga hatua?`
             },
             numerology: {
                 step1: "Namba ni lugha ya kimahesabu ya ulimwengu. Kila namba ina mtetemo wake unaobeba maana na kusudi.",
-                step2: "Life Path ${p.lifePath} yako ni namba ya mwelekeo. Inawakilisha mfumo wa nishati uliokuja nao duniani ili kuukamilisha.",
+                step2: `Life Path ${p.lifePath} yako ni namba ya mwelekeo. Inawakilisha mfumo wa nishati uliokuja nao duniani ili kuukamilisha.`,
                 step3: "Kihisia, namba zako zinaonyesha 'comfort zone' yako na maeneo ambayo unahitaji kujisukuma ili kukua.",
                 step4: "Namba hufanya kazi kama 'harmonics' za maisha. Unapoelewa namba zako, unaanza kuona mifumo inayojirudia katika maisha yako.",
-                step5: "Insight: Je, namba yako ya Destiny (${p.destiny}) inakuongoza kuelekea wapi leo?"
+                step5: `Insight: Je, namba yako ya Destiny (${p.destiny}) inakuongoza kuelekea wapi leo?`
             },
             success: {
                 step1: "Mafanikio si tukio la bahati, bali ni matokeo ya 'alignment' kati ya nishati yako na fursa za ulimwengu.",
