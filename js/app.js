@@ -203,17 +203,32 @@ function renderDashboard(profile) {
 // Modal Logic
 function setupModalTrigger(elementId, title, prompt, profile) {
     const element = document.getElementById(elementId);
-    if (!element) return;
+    if (!element) {
+        console.warn(`Mavengu Debug: Element not found - ${elementId}`);
+        return;
+    }
 
     // Find parent tech-panel
     const panel = element.closest('.tech-panel');
     if (panel) {
-        panel.onclick = () => openDeepDiveModal(title, prompt, profile);
+        console.log(`Mavengu Debug: Attaching listener to ${elementId}`);
+        panel.style.cursor = 'pointer';
+        panel.onclick = (e) => {
+            console.log(`Mavengu Debug: Clicked ${title}`);
+            openDeepDiveModal(title, prompt, profile);
+        };
+    } else {
+        console.warn(`Mavengu Debug: Parent panel not found for ${elementId}`);
     }
 }
 
 async function openDeepDiveModal(title, prompt, profile) {
+    console.log(`Mavengu Debug: Opening modal for ${title}`);
     const modal = document.getElementById('info-modal');
+    if (!modal) {
+        console.error("Mavengu Debug: Modal element #info-modal not found!");
+        return;
+    }
     const modalTitle = document.getElementById('modal-title');
     const modalBody = document.getElementById('modal-body');
     const closeBtn = document.getElementById('close-modal');
