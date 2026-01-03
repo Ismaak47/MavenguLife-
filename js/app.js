@@ -163,6 +163,11 @@ function renderDashboard(profile) {
             <div style="color: var(--success-color); font-family: var(--font-display);">${profile.birthPlace.toUpperCase()}</div>
         </div>
     `;
+
+    // Render Universal Cards
+    if (window.UniversalCards) {
+        window.UniversalCards.render('dashboard-section', profile);
+    }
 }
 
 /* Particle Animation System */
