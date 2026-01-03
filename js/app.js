@@ -39,22 +39,15 @@ function initApp() {
 
             // Simulate Calculation Time
             setTimeout(() => {
-                try {
-                    const profile = generateProfile(fullName, birthDate, birthPlace);
-                    renderDashboard(profile);
+                const profile = generateProfile(fullName, birthDate, birthPlace);
+                renderDashboard(profile);
 
-                    loadingScreen.style.display = 'none';
-                    dashboardSection.style.display = 'block';
+                loadingScreen.style.display = 'none';
+                dashboardSection.style.display = 'block';
 
-                    // Initialize Chat with Profile
-                    if (window.AIChat) {
-                        window.AIChat.init(profile);
-                    }
-                } catch (error) {
-                    console.error("Profile Generation Error:", error);
-                    alert("Kuna tatizo la kiufundi: " + error.message);
-                    loadingScreen.style.display = 'none';
-                    inputSection.style.display = 'block';
+                // Initialize Chat with Profile
+                if (window.AIChat) {
+                    window.AIChat.init(profile);
                 }
             }, 3000);
         });
@@ -109,12 +102,6 @@ function generateProfile(fullName, birthDate, birthPlace) {
     const oracle = window.SoulMission.getMysticOracle();
     const symbolicWisdom = window.SoulMission.getSymbolicWisdom(lifePath);
 
-    // New Metrics
-    const currentCycle = window.SoulMission.getCurrentCycle(birthDate);
-    const chakra = window.SoulMission.getChakraDominance(zodiac.name);
-    const spiritAnimal = window.SoulMission.getSpiritAnimal(lifePath);
-    const elementBalance = `Dominant: ${zodiac.element}`;
-
     return {
         name: fullName,
         birthDate: birthDate,
@@ -129,76 +116,53 @@ function generateProfile(fullName, birthDate, birthPlace) {
         sunFreq: sunFreq,
         aesthetics: aesthetics,
         oracle: oracle,
-        symbolicWisdom: symbolicWisdom,
-        currentCycle: currentCycle,
-        chakra: chakra,
-        spiritAnimal: spiritAnimal,
-        elementBalance: elementBalance
+        symbolicWisdom: symbolicWisdom
     };
-}
-
-function safeSetText(id, text) {
-    const el = document.getElementById(id);
-    if (el) {
-        el.textContent = text;
-    } else {
-        console.error(`CRITICAL ERROR: Element with ID '${id}' not found in DOM.`);
-    }
 }
 
 function renderDashboard(profile) {
     // Update Name
-    safeSetText('user-name-display', profile.name);
+    document.getElementById('user-name-display').textContent = profile.name;
 
     // Update Core Panels
-    safeSetText('life-path-number', profile.lifePath);
-    safeSetText('life-path-desc', window.Numerology.getMeaning(profile.lifePath, 'lifePath'));
+    document.getElementById('life-path-number').textContent = profile.lifePath;
+    document.getElementById('life-path-desc').textContent = window.Numerology.getMeaning(profile.lifePath, 'lifePath');
 
-    safeSetText('destiny-number', profile.destiny);
-    safeSetText('destiny-desc', window.Numerology.getMeaning(profile.destiny, 'destiny'));
+    document.getElementById('destiny-number').textContent = profile.destiny;
+    document.getElementById('destiny-desc').textContent = window.Numerology.getMeaning(profile.destiny, 'destiny');
 
-    safeSetText('soul-urge-number', profile.soulUrge);
-    safeSetText('soul-urge-desc', window.Numerology.getMeaning(profile.soulUrge, 'soulUrge'));
+    document.getElementById('soul-urge-number').textContent = profile.soulUrge;
+    document.getElementById('soul-urge-desc').textContent = window.Numerology.getMeaning(profile.soulUrge, 'soulUrge');
 
     // Update Soul Mission Panels
-    safeSetText('soul-mission-text', profile.soulMission);
-    safeSetText('shadow-work-text', profile.shadowWork);
-    safeSetText('meditation-text', profile.meditation);
-    safeSetText('sun-freq-text', profile.sunFreq);
-    safeSetText('aesthetics-text', profile.aesthetics);
-    safeSetText('oracle-text', `"${profile.oracle}"`);
-    safeSetText('symbolic-wisdom-text', profile.symbolicWisdom);
-
-    // Update Extended Panels
-    safeSetText('current-cycle-text', profile.currentCycle);
-    safeSetText('chakra-text', profile.chakra);
-    safeSetText('spirit-animal-text', profile.spiritAnimal);
-    safeSetText('element-balance-text', profile.elementBalance);
+    document.getElementById('soul-mission-text').textContent = profile.soulMission;
+    document.getElementById('shadow-work-text').textContent = profile.shadowWork;
+    document.getElementById('meditation-text').textContent = profile.meditation;
+    document.getElementById('sun-freq-text').textContent = profile.sunFreq;
+    document.getElementById('aesthetics-text').textContent = profile.aesthetics;
+    document.getElementById('oracle-text').textContent = `"${profile.oracle}"`;
+    document.getElementById('symbolic-wisdom-text').textContent = profile.symbolicWisdom;
 
     // Detailed Analysis
     const analysisDiv = document.getElementById('detailed-analysis');
-    if (analysisDiv) {
-        analysisDiv.innerHTML = `
+    analysisDiv.innerHTML = `
         <div>
             <div class="data-label">ELEMENTAL COMPOSITION</div>
             <div class="data-value" style="font-size: 1.5rem;">${profile.zodiac.element.toUpperCase()}</div>
         </div>
         <div>
             <div class="data-label">ZODIAC SIGNATURE</div>
-            <div class="data-value" style="font-size: 1.5rem;">${profile.zodiac.icon} ${profile.zodiac.name.toUpperCase()}</div>
+            <div style="color: var(--text-color);">${profile.zodiac.icon} ${profile.zodiac.name.toUpperCase()}</div>
         </div>
-        <div style="grid-column: span 2;">
+        <div class="full-width">
             <div class="data-label">DIVINE PURPOSE</div>
-            <p>${profile.soulMission}</p>
+            <div style="color: var(--text-color);">${profile.soulMission}</div>
         </div>
-        <div style="grid-column: span 2;">
+        <div class="full-width" style="border-top: 1px solid var(--primary-color); padding-top: 1rem;">
             <div class="data-label">ORIGIN COORDINATES</div>
-            <div class="data-value" style="font-size: 1.2rem;">${profile.birthPlace.toUpperCase()}</div>
+            <div style="color: var(--success-color); font-family: var(--font-display);">${profile.birthPlace.toUpperCase()}</div>
         </div>
     `;
-    } else {
-        console.error("CRITICAL ERROR: 'detailed-analysis' div not found.");
-    }
 }
 
 /* Particle Animation System */
