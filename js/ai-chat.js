@@ -38,8 +38,10 @@ const AIChat = {
                     response = result.response;
                     source = 'ai';
                 } else {
-                    // Fallback to rule-based
-                    response = this.generateResponse(input);
+                    // Fallback to rule-based BUT show error reason
+                    console.error("Gemini API Failed:", result.error);
+                    response = `[SYSTEM ERROR: ${result.error}] \n\n` + this.generateResponse(input);
+                    source = 'rule-based'; // Keep as rule-based to show gear icon
                 }
             } else {
                 // Use rule-based system
@@ -53,7 +55,7 @@ const AIChat = {
         } catch (error) {
             console.error('Chat error:', error);
             this.hideTypingIndicator();
-            const fallbackResponse = this.generateResponse(input);
+            const fallbackResponse = `[CRITICAL ERROR: ${error.message}] \n\n` + this.generateResponse(input);
             this.addMessage(fallbackResponse, 'bot', 'rule-based');
         }
     },

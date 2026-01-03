@@ -102,7 +102,8 @@ const GeminiAPI = {
     callGeminiAPI: async function (messages) {
         const config = window.MavenguConfig;
         const apiKey = config.api.gemini.key;
-        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+        const model = config.api.gemini.model || 'gemini-1.5-flash';
+        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
         const requestBody = {
             contents: messages,

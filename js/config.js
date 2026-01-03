@@ -5,8 +5,8 @@ const MavenguConfig = {
     api: {
         gemini: {
             key: 'AIzaSyB4Y-ccwj6s0EYS0Z0uZwIg67d5wPntmRc',
-            endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent',
-            model: 'gemini-pro'
+            endpoint: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent',
+            model: 'gemini-1.5-flash'
         },
         maxRetries: 3,
         timeout: 30000 // 30 seconds
