@@ -131,12 +131,86 @@ function generateProfile(fullName, birthDate, birthPlace) {
         oracle: oracle,
         symbolicWisdom: symbolicWisdom,
         currentCycle: currentCycle,
-        const ctx = canvas.getContext('2d');
+        chakra: chakra,
+        spiritAnimal: spiritAnimal,
+        elementBalance: elementBalance
+    };
+}
 
-        let width, height;
-        let particles =[];
+function safeSetText(id, text) {
+    const el = document.getElementById(id);
+    if (el) {
+        el.textContent = text;
+    } else {
+        console.error(`CRITICAL ERROR: Element with ID '${id}' not found in DOM.`);
+    }
+}
 
-        function resize() {
+function renderDashboard(profile) {
+    // Update Name
+    safeSetText('user-name-display', profile.name);
+
+    // Update Core Panels
+    safeSetText('life-path-number', profile.lifePath);
+    safeSetText('life-path-desc', window.Numerology.getMeaning(profile.lifePath, 'lifePath'));
+
+    safeSetText('destiny-number', profile.destiny);
+    safeSetText('destiny-desc', window.Numerology.getMeaning(profile.destiny, 'destiny'));
+
+    safeSetText('soul-urge-number', profile.soulUrge);
+    safeSetText('soul-urge-desc', window.Numerology.getMeaning(profile.soulUrge, 'soulUrge'));
+
+    // Update Soul Mission Panels
+    safeSetText('soul-mission-text', profile.soulMission);
+    safeSetText('shadow-work-text', profile.shadowWork);
+    safeSetText('meditation-text', profile.meditation);
+    safeSetText('sun-freq-text', profile.sunFreq);
+    safeSetText('aesthetics-text', profile.aesthetics);
+    safeSetText('oracle-text', `"${profile.oracle}"`);
+    safeSetText('symbolic-wisdom-text', profile.symbolicWisdom);
+
+    // Update Extended Panels
+    safeSetText('current-cycle-text', profile.currentCycle);
+    safeSetText('chakra-text', profile.chakra);
+    safeSetText('spirit-animal-text', profile.spiritAnimal);
+    safeSetText('element-balance-text', profile.elementBalance);
+
+    // Detailed Analysis
+    const analysisDiv = document.getElementById('detailed-analysis');
+    if (analysisDiv) {
+        analysisDiv.innerHTML = `
+        <div>
+            <div class="data-label">ELEMENTAL COMPOSITION</div>
+            <div class="data-value" style="font-size: 1.5rem;">${profile.zodiac.element.toUpperCase()}</div>
+        </div>
+        <div>
+            <div class="data-label">ZODIAC SIGNATURE</div>
+            <div class="data-value" style="font-size: 1.5rem;">${profile.zodiac.icon} ${profile.zodiac.name.toUpperCase()}</div>
+        </div>
+        <div style="grid-column: span 2;">
+            <div class="data-label">DIVINE PURPOSE</div>
+            <p>${profile.soulMission}</p>
+        </div>
+        <div style="grid-column: span 2;">
+            <div class="data-label">ORIGIN COORDINATES</div>
+            <div class="data-value" style="font-size: 1.2rem;">${profile.birthPlace.toUpperCase()}</div>
+        </div>
+    `;
+    } else {
+        console.error("CRITICAL ERROR: 'detailed-analysis' div not found.");
+    }
+}
+
+/* Particle Animation System */
+function initParticles() {
+    const canvas = document.getElementById('universe-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    let width, height;
+    let particles = [];
+
+    function resize() {
         width = window.innerWidth;
         height = window.innerHeight;
         canvas.width = width;
