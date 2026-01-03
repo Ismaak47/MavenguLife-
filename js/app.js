@@ -185,6 +185,78 @@ function renderDashboard(profile) {
             <div style="color: var(--success-color); font-family: var(--font-display);">${profile.birthPlace.toUpperCase()}</div>
         </div>
     `;
+
+    // Setup Modal Triggers
+    setupModalTrigger('life-path-number', `LIFE PATH ${profile.lifePath}`, `Nielezee kwa kina kuhusu Life Path ${profile.lifePath}. Nini maana yake, nguvu zake, changamoto zake, na kusudi lake?`, profile);
+    setupModalTrigger('destiny-number', `DESTINY NUMBER ${profile.destiny}`, `Nielezee kwa kina kuhusu Destiny Number ${profile.destiny}. Inasema nini kuhusu hatima yangu na vipaji vyangu?`, profile);
+    setupModalTrigger('soul-urge-number', `SOUL URGE ${profile.soulUrge}`, `Nielezee kwa kina kuhusu Soul Urge ${profile.soulUrge}. Moyo wangu unatamani nini hasa?`, profile);
+
+    setupModalTrigger('personal-year-number', `PERSONAL YEAR ${profile.personalYear}`, `Nielezee kwa kina kuhusu Personal Year ${profile.personalYear}. Mwaka huu una nishati gani kwangu na nifanye nini?`, profile);
+    setupModalTrigger('birth-day-number', `BIRTH DAY ${profile.birthDayNumber}`, `Nielezee kwa kina kuhusu Birth Day Number ${profile.birthDayNumber}. Hii inaashiria kipaji gani maalum nilichozaliwa nacho?`, profile);
+    setupModalTrigger('element-text', `ELEMENT: ${profile.zodiac.element.toUpperCase()}`, `Nielezee kwa kina kuhusu Element ya ${profile.zodiac.element}. Hii inaathiri vipi tabia yangu na nishati yangu?`, profile);
+
+    setupModalTrigger('soul-mission-text', 'SOUL MISSION', `Nielezee kwa kina kuhusu Soul Mission yangu: "${profile.soulMission}". Hii inamaanisha nini katika maisha yangu ya kila siku?`, profile);
+    setupModalTrigger('shadow-work-text', 'SHADOW WORK', `Nielezee kwa kina kuhusu Shadow Work yangu: "${profile.shadowWork}". Hii ni sehemu gani ya nafsi yangu iliyojificha na nifanyeje kazi nayo?`, profile);
+    setupModalTrigger('symbolic-wisdom-text', 'SYMBOLIC WISDOM', `Nielezee kwa kina hekima hii ya kiishara: "${profile.symbolicWisdom}". Ina ujumbe gani wa ndani kwangu?`, profile);
+}
+
+// Modal Logic
+function setupModalTrigger(elementId, title, prompt, profile) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    // Find parent tech-panel
+    const panel = element.closest('.tech-panel');
+    if (panel) {
+        panel.onclick = () => openDeepDiveModal(title, prompt, profile);
+    }
+}
+
+async function openDeepDiveModal(title, prompt, profile) {
+    const modal = document.getElementById('info-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+    const closeBtn = document.getElementById('close-modal');
+
+    modalTitle.textContent = title;
+    modal.style.display = 'flex';
+
+    // Loading State
+    modalBody.innerHTML = `
+        < div class="scanner-line" ></div >
+        <p style="text-align: center; margin-top: 2rem;">INACHAMBUA TAARIFA ZA KINA KUTOKA KWENYE REKODI ZA AKASHIC...</p>
+        <p style="text-align: center; color: var(--accent-color); font-size: 0.8rem;">[ CONNECTING TO MAVENGU CORE ]</p>
+    `;
+
+    // Close Logic
+    const closeModal = () => {
+        modal.style.display = 'none';
+    };
+    closeBtn.onclick = closeModal;
+    modal.onclick = (e) => {
+        if (e.target === modal) closeModal();
+    };
+
+    // Fetch AI Insight
+    try {
+        const systemPrompt = window.MavenguSystemPrompt.generatePrompt(profile);
+        const fullPrompt = `${systemPrompt}\n\nUSER REQUEST: ${prompt}\n\nToa uchambuzi wa kina sana (deep dive) kama ripoti ya kitaalamu. Tumia vichwa vidogo, na eleza kwa urefu.`;
+
+        const messages = [{ role: 'user', parts: [{ text: fullPrompt }] }];
+
+        const text = await window.GeminiAPI.callGeminiAPI(messages);
+
+        // Format response
+        let formattedText = text
+            .replace(/\*\*(.*?)\*\*/g, '<h3>$1</h3>')
+            .replace(/\n/g, '<br>');
+
+        modalBody.innerHTML = formattedText;
+
+    } catch (e) {
+        console.error(e);
+        modalBody.innerHTML = `<p style="color: red;">SYSTEM ERROR: ${e.message || 'Connection Failed'}</p>`;
+    }
 }
 
 /* Particle Animation System */
