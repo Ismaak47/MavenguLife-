@@ -223,7 +223,7 @@ async function openDeepDiveModal(title, prompt, profile) {
 
     // Loading State
     modalBody.innerHTML = `
-        < div class="scanner-line" ></div >
+        <div class="scanner-line"></div>
         <p style="text-align: center; margin-top: 2rem;">INACHAMBUA TAARIFA ZA KINA KUTOKA KWENYE REKODI ZA AKASHIC...</p>
         <p style="text-align: center; color: var(--accent-color); font-size: 0.8rem;">[ CONNECTING TO MAVENGU CORE ]</p>
     `;
