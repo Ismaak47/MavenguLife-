@@ -101,6 +101,8 @@ function generateProfile(fullName, birthDate, birthPlace) {
     const aesthetics = window.SoulMission.getAesthetics(zodiac.element);
     const oracle = window.SoulMission.getMysticOracle();
     const symbolicWisdom = window.SoulMission.getSymbolicWisdom(lifePath);
+    const personalYear = window.Numerology.calculatePersonalYear(birthDate);
+    const birthDayNumber = window.Numerology.calculateBirthDayNumber(birthDate);
 
     return {
         name: fullName,
@@ -116,7 +118,9 @@ function generateProfile(fullName, birthDate, birthPlace) {
         sunFreq: sunFreq,
         aesthetics: aesthetics,
         oracle: oracle,
-        symbolicWisdom: symbolicWisdom
+        symbolicWisdom: symbolicWisdom,
+        personalYear: personalYear,
+        birthDayNumber: birthDayNumber
     };
 }
 
@@ -133,6 +137,24 @@ function renderDashboard(profile) {
 
     document.getElementById('soul-urge-number').textContent = profile.soulUrge;
     document.getElementById('soul-urge-desc').textContent = window.Numerology.getMeaning(profile.soulUrge, 'soulUrge');
+
+    // Update Secondary Panels
+    document.getElementById('personal-year-number').textContent = profile.personalYear;
+    document.getElementById('personal-year-desc').textContent = "Mzunguko wa " + profile.personalYear;
+
+    document.getElementById('birth-day-number').textContent = profile.birthDayNumber;
+    document.getElementById('birth-day-desc').textContent = "Kipaji cha Asili";
+
+    document.getElementById('element-text').textContent = profile.zodiac.element.toUpperCase();
+
+    // Update Element Icon
+    const elIcon = document.getElementById('element-icon');
+    const el = profile.zodiac.element.toLowerCase();
+    elIcon.className = 'fas'; // Reset
+    if (el.includes('moto') || el.includes('fire')) elIcon.classList.add('fa-fire');
+    else if (el.includes('maji') || el.includes('water')) elIcon.classList.add('fa-water');
+    else if (el.includes('ardhi') || el.includes('earth')) elIcon.classList.add('fa-leaf');
+    else elIcon.classList.add('fa-wind'); // Default Air
 
     // Update Soul Mission Panels
     document.getElementById('soul-mission-text').textContent = profile.soulMission;

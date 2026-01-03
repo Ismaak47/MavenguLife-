@@ -77,6 +77,21 @@ const Numerology = {
         return this.reduceNumber(sum);
     },
 
+    calculatePersonalYear: function (birthDate) {
+        const parts = birthDate.split('-');
+        const month = parseInt(parts[1]);
+        const day = parseInt(parts[2]);
+        const currentYear = new Date().getFullYear();
+
+        return this.reduceNumber(day + month + currentYear);
+    },
+
+    calculateBirthDayNumber: function (birthDate) {
+        const parts = birthDate.split('-');
+        const day = parseInt(parts[2]);
+        return this.reduceNumber(day);
+    },
+
     getMeaning: function (number, type) {
         const meanings = {
             1: {
