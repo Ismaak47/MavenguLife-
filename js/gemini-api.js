@@ -103,7 +103,7 @@ const GeminiAPI = {
         const config = window.MavenguConfig;
         const apiKey = config.api.gemini.key;
         const model = config.api.gemini.model || 'gemini-1.5-flash';
-        const endpoint = `https://generativelanguage.googleapis.com/v1/models/${model}:generateContent?key=${apiKey}`;
+        const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
         const requestBody = {
             contents: messages,
