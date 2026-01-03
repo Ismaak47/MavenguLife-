@@ -104,6 +104,14 @@ function generateProfile(fullName, birthDate, birthPlace) {
     const personalYear = window.Numerology.calculatePersonalYear(birthDate);
     const birthDayNumber = window.Numerology.calculateBirthDayNumber(birthDate);
 
+    // New Cosmic Data
+    const rulingPlanet = window.Astrology.getRulingPlanet(zodiac.name);
+    const moonPhase = window.Astrology.getMoonPhase(birthDate);
+    const birthStone = window.Astrology.getBirthStone(birthDate);
+    const spiritAnimal = window.Astrology.getSpiritAnimal(zodiac.name);
+    const balanceNumber = window.Numerology.calculateBalanceNumber(fullName);
+    const passionNumber = window.Numerology.calculateHiddenPassion(fullName);
+
     return {
         name: fullName,
         birthDate: birthDate,
@@ -120,7 +128,13 @@ function generateProfile(fullName, birthDate, birthPlace) {
         oracle: oracle,
         symbolicWisdom: symbolicWisdom,
         personalYear: personalYear,
-        birthDayNumber: birthDayNumber
+        birthDayNumber: birthDayNumber,
+        rulingPlanet: rulingPlanet,
+        moonPhase: moonPhase,
+        birthStone: birthStone,
+        spiritAnimal: spiritAnimal,
+        balanceNumber: balanceNumber,
+        passionNumber: passionNumber
     };
 }
 
@@ -165,6 +179,24 @@ function renderDashboard(profile) {
     document.getElementById('oracle-text').textContent = `"${profile.oracle}"`;
     document.getElementById('symbolic-wisdom-text').textContent = profile.symbolicWisdom;
 
+    // Update Cosmic Alignment Grid
+    document.getElementById('planet-name').textContent = profile.rulingPlanet.name.toUpperCase();
+    document.getElementById('planet-icon').textContent = profile.rulingPlanet.icon;
+    document.getElementById('planet-desc').textContent = profile.rulingPlanet.desc;
+
+    document.getElementById('moon-phase').textContent = profile.moonPhase.name.toUpperCase();
+    document.getElementById('moon-icon').textContent = profile.moonPhase.icon;
+    document.getElementById('moon-desc').textContent = profile.moonPhase.desc;
+
+    document.getElementById('birth-stone').textContent = profile.birthStone.name.toUpperCase();
+    // document.getElementById('stone-icon').style.color = profile.birthStone.color; // Optional styling
+    document.getElementById('stone-desc').textContent = profile.birthStone.desc;
+
+    document.getElementById('spirit-animal').textContent = profile.spiritAnimal.split(' ')[0].toUpperCase();
+
+    document.getElementById('balance-number').textContent = profile.balanceNumber;
+    document.getElementById('passion-number').textContent = profile.passionNumber;
+
     // Detailed Analysis
     const analysisDiv = document.getElementById('detailed-analysis');
     analysisDiv.innerHTML = `
@@ -198,6 +230,14 @@ function renderDashboard(profile) {
     setupModalTrigger('soul-mission-text', 'SOUL MISSION', `Nielezee kwa kina kuhusu Soul Mission yangu: "${profile.soulMission}". Hii inamaanisha nini katika maisha yangu ya kila siku?`, profile);
     setupModalTrigger('shadow-work-text', 'SHADOW WORK', `Nielezee kwa kina kuhusu Shadow Work yangu: "${profile.shadowWork}". Hii ni sehemu gani ya nafsi yangu iliyojificha na nifanyeje kazi nayo?`, profile);
     setupModalTrigger('symbolic-wisdom-text', 'SYMBOLIC WISDOM', `Nielezee kwa kina hekima hii ya kiishara: "${profile.symbolicWisdom}". Ina ujumbe gani wa ndani kwangu?`, profile);
+
+    // New Triggers
+    setupModalTrigger('planet-name', `RULING PLANET: ${profile.rulingPlanet.name}`, `Nielezee kuhusu sayari yangu kiongozi ${profile.rulingPlanet.name}. Inaathiri vipi maisha yangu?`, profile);
+    setupModalTrigger('moon-phase', `MOON PHASE: ${profile.moonPhase.name}`, `Nilizaliwa wakati wa ${profile.moonPhase.name}. Hii ina maana gani kwangu kiroho?`, profile);
+    setupModalTrigger('birth-stone', `BIRTH STONE: ${profile.birthStone.name}`, `Jiwe langu la asili ni ${profile.birthStone.name}. Lina nguvu gani za uponyaji kwangu?`, profile);
+    setupModalTrigger('spirit-animal', `SPIRIT ANIMAL: ${profile.spiritAnimal}`, `Mnyama wangu wa roho ni ${profile.spiritAnimal}. Ninaweza kujifunza nini kutoka kwake?`, profile);
+    setupModalTrigger('balance-number', `BALANCE NUMBER: ${profile.balanceNumber}`, `Namba yangu ya usawa ni ${profile.balanceNumber}. Inanisaidiaje wakati wa changamoto?`, profile);
+    setupModalTrigger('passion-number', `HIDDEN PASSION: ${profile.passionNumber}`, `Shauku yangu ya ndani ni namba ${profile.passionNumber}. Hii inaonyesha nini kuhusu vipaji vyangu?`, profile);
 }
 
 // Modal Logic

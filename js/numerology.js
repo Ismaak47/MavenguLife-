@@ -92,6 +92,42 @@ const Numerology = {
         return this.reduceNumber(day);
     },
 
+    calculateBalanceNumber: function (fullName) {
+        const names = fullName.trim().split(/\s+/);
+        let sum = 0;
+        names.forEach(name => {
+            const firstLetter = name.toLowerCase()[0];
+            if (this.letterValues[firstLetter]) {
+                sum += this.letterValues[firstLetter];
+            }
+        });
+        return this.reduceNumber(sum);
+    },
+
+    calculateHiddenPassion: function (fullName) {
+        const counts = {};
+        const cleanName = fullName.toLowerCase().replace(/[^a-z]/g, '');
+
+        for (let i = 0; i < cleanName.length; i++) {
+            const letter = cleanName[i];
+            const val = this.letterValues[letter];
+            if (val) {
+                counts[val] = (counts[val] || 0) + 1;
+            }
+        }
+
+        let maxCount = 0;
+        let passionNumber = 0;
+
+        for (const [num, count] of Object.entries(counts)) {
+            if (count > maxCount) {
+                maxCount = count;
+                passionNumber = parseInt(num);
+            }
+        }
+        return passionNumber || 0;
+    },
+
     getMeaning: function (number, type) {
         const meanings = {
             1: {

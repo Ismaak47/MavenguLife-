@@ -55,6 +55,82 @@ const Astrology = {
             "Pisces": "Mwenye huruma, msanii, na mwenye intuition. Wewe ni mwotaji mwenye uhusiano wa kina na kiroho."
         };
         return traits[signName] || "Nishati ya kipekee ya kiulimwengu.";
+    },
+
+    getRulingPlanet: function (signName) {
+        const planets = {
+            "Aries": { name: "Mars", icon: "♂️", desc: "Sayari ya Vita na Nishati" },
+            "Taurus": { name: "Venus", icon: "♀️", desc: "Sayari ya Upendo na Uzuri" },
+            "Gemini": { name: "Mercury", icon: "☿️", desc: "Sayari ya Mawasiliano" },
+            "Cancer": { name: "Moon", icon: "🌙", desc: "Sayari ya Hisia na Intuition" },
+            "Leo": { name: "Sun", icon: "☀️", desc: "Nyota ya Nguvu na Uhai" },
+            "Virgo": { name: "Mercury", icon: "☿️", desc: "Sayari ya Akili na Uchambuzi" },
+            "Libra": { name: "Venus", icon: "♀️", desc: "Sayari ya Mahusiano" },
+            "Scorpio": { name: "Pluto", icon: "♇️", desc: "Sayari ya Mabadiliko na Nguvu" },
+            "Sagittarius": { name: "Jupiter", icon: "♃️", desc: "Sayari ya Bahati na Falsafa" },
+            "Capricorn": { name: "Saturn", icon: "♄️", desc: "Sayari ya Nidhamu na Karma" },
+            "Aquarius": { name: "Uranus", icon: "♅️", desc: "Sayari ya Mapinduzi" },
+            "Pisces": { name: "Neptune", icon: "♆️", desc: "Sayari ya Ndoto na Kiroho" }
+        };
+        return planets[signName] || { name: "Unknown", icon: "❓", desc: "Nishati Isiyojulikana" };
+    },
+
+    getMoonPhase: function (birthDate) {
+        const date = new Date(birthDate);
+        // Known New Moon: Jan 6, 2000
+        const knownNewMoon = new Date('2000-01-06');
+        const cycle = 29.53058867;
+        const diffTime = date.getTime() - knownNewMoon.getTime();
+        const diffDays = diffTime / (1000 * 3600 * 24);
+        const totalCycles = diffDays / cycle;
+        const currentCycle = totalCycles - Math.floor(totalCycles);
+        const age = currentCycle * cycle;
+
+        if (age < 1.84566) return { name: "New Moon", icon: "🌑", desc: "Mwanzo Mpya" };
+        if (age < 5.53699) return { name: "Waxing Crescent", icon: "🌒", desc: "Kuweka Nia" };
+        if (age < 9.22831) return { name: "First Quarter", icon: "🌓", desc: "Kuchukua Hatua" };
+        if (age < 12.91963) return { name: "Waxing Gibbous", icon: "🌔", desc: "Kukamilisha" };
+        if (age < 16.61096) return { name: "Full Moon", icon: "🌕", desc: "Utimilifu na Mavuno" };
+        if (age < 20.30228) return { name: "Waning Gibbous", icon: "🌖", desc: "Kushukuru" };
+        if (age < 23.99361) return { name: "Last Quarter", icon: "🌗", desc: "Kuachilia" };
+        return { name: "Waning Crescent", icon: "🌘", desc: "Kupumzika" };
+    },
+
+    getBirthStone: function (birthDate) {
+        const month = new Date(birthDate).getMonth() + 1;
+        const stones = {
+            1: { name: "Garnet", color: "Dark Red", desc: "Ulinzi na Nguvu" },
+            2: { name: "Amethyst", color: "Purple", desc: "Hekima na Utulivu" },
+            3: { name: "Aquamarine", color: "Light Blue", desc: "Ujasiri na Amani" },
+            4: { name: "Diamond", color: "Clear", desc: "Upendo wa Milele" },
+            5: { name: "Emerald", color: "Green", desc: "Uzazi na Upyaji" },
+            6: { name: "Pearl", color: "White", desc: "Usafi na Hekima" },
+            7: { name: "Ruby", color: "Red", desc: "Shauku na Ulinzi" },
+            8: { name: "Peridot", color: "Light Green", desc: "Nguvu na Uponyaji" },
+            9: { name: "Sapphire", color: "Blue", desc: "Hekima na Uaminifu" },
+            10: { name: "Opal", color: "Multi", desc: "Matumaini na Ubunifu" },
+            11: { name: "Topaz", color: "Yellow", desc: "Upendo na Mapenzi" },
+            12: { name: "Turquoise", color: "Blue-Green", desc: "Bahati na Mafanikio" }
+        };
+        return stones[month] || { name: "Quartz", color: "Clear", desc: "Nguvu ya Jumla" };
+    },
+
+    getSpiritAnimal: function (signName) {
+        const animals = {
+            "Aries": "Cheetah (Kasi na Focus)",
+            "Taurus": "Bear (Nguvu na Utulivu)",
+            "Gemini": "Dolphin (Akili na Furaha)",
+            "Cancer": "Rabbit (Upole na Ulinzi)",
+            "Leo": "Lion (Ujasiri na Uongozi)",
+            "Virgo": "Fox (Ujanja na Uchambuzi)",
+            "Libra": "Swan (Neema na Usawa)",
+            "Scorpio": "Snake (Mabadiliko na Uponyaji)",
+            "Sagittarius": "Owl (Hekima na Uhuru)",
+            "Capricorn": "Wolf (Nidhamu na Uaminifu)",
+            "Aquarius": "Eagle (Maono na Uhuru)",
+            "Pisces": "Butterfly (Mabadiliko na Roho)"
+        };
+        return animals[signName] || "Phoenix";
     }
 };
 

@@ -81,10 +81,18 @@ IMPORTANT: DAIMA jibu kwa Kiswahili. DAIMA fuata muundo wa hatua 5. Jibu kama Ms
 ▸ LIFE PATH: ${profile.lifePath} - ${this.getLifePathSummary(profile.lifePath)}
 ▸ DESTINY NUMBER: ${profile.destiny}
 ▸ SOUL URGE: ${profile.soulUrge}
+▸ PERSONAL YEAR: ${profile.personalYear}
+▸ BIRTH DAY NUMBER: ${profile.birthDayNumber}
+▸ BALANCE NUMBER: ${profile.balanceNumber}
+▸ HIDDEN PASSION: ${profile.passionNumber}
 
 // ASTROLOGY DATA
 ▸ ZODIAC SIGN: ${profile.zodiac.name} (${profile.zodiac.element})
 ▸ ZODIAC ICON: ${profile.zodiac.icon}
+▸ RULING PLANET: ${profile.rulingPlanet.name}
+▸ MOON PHASE: ${profile.moonPhase.name}
+▸ BIRTH STONE: ${profile.birthStone.name}
+▸ SPIRIT ANIMAL: ${profile.spiritAnimal}
 
 // SOUL MISSION DATA
 ▸ SOUL MISSION: ${profile.soulMission}

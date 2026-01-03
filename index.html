@@ -218,6 +218,69 @@
             </div>
         </div>
 
+        <!-- Cosmic Alignment Grid -->
+        <div class="dashboard-grid" style="margin-top: 2rem;">
+            <!-- Ruling Planet -->
+            <div class="tech-panel interactive-card" id="card-planet">
+                <div class="data-label">SAYARI KIONGOZI</div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
+                    <div class="data-value" id="planet-name">MARS</div>
+                    <div style="font-size: 2rem;" id="planet-icon">♂️</div>
+                </div>
+                <p id="planet-desc" style="font-size: 0.8rem;">Sayari ya Vita</p>
+            </div>
+
+            <!-- Moon Phase -->
+            <div class="tech-panel interactive-card" id="card-moon">
+                <div class="data-label">AWAMU YA MWEZI</div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
+                    <div class="data-value" id="moon-phase">FULL MOON</div>
+                    <div style="font-size: 2rem;" id="moon-icon">🌕</div>
+                </div>
+                <p id="moon-desc" style="font-size: 0.8rem;">Utimilifu</p>
+            </div>
+
+            <!-- Birth Stone -->
+            <div class="tech-panel interactive-card" id="card-stone">
+                <div class="data-label">JIWE LA ASILI</div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
+                    <div class="data-value" id="birth-stone">RUBY</div>
+                    <div style="font-size: 2rem;" id="stone-icon">💎</div>
+                </div>
+                <p id="stone-desc" style="font-size: 0.8rem;">Ulinzi</p>
+            </div>
+
+            <!-- Spirit Animal -->
+            <div class="tech-panel interactive-card" id="card-animal">
+                <div class="data-label">MNYAMA WA ROHO</div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
+                    <div class="data-value" id="spirit-animal">LION</div>
+                    <div style="font-size: 2rem;">🐾</div>
+                </div>
+                <p style="font-size: 0.8rem;">Ujasiri</p>
+            </div>
+
+            <!-- Balance Number -->
+            <div class="tech-panel interactive-card" id="card-balance">
+                <div class="data-label">NAMBA YA USAWA</div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
+                    <div class="data-value" id="balance-number">0</div>
+                    <div style="font-size: 2rem;">⚖️</div>
+                </div>
+                <p style="font-size: 0.8rem;">Jinsi unavyokabiliana na changamoto</p>
+            </div>
+
+            <!-- Hidden Passion -->
+            <div class="tech-panel interactive-card" id="card-passion">
+                <div class="data-label">SHAUKU YA NDANI</div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
+                    <div class="data-value" id="passion-number">0</div>
+                    <div style="font-size: 2rem;">🔥</div>
+                </div>
+                <p style="font-size: 0.8rem;">Kile unachokipenda zaidi</p>
+            </div>
+        </div>
+
         <!-- Detailed Analysis Panel -->
         <div class="tech-panel" style="margin-top: 2rem;">
             <div class="data-label">MATOKEO YA SCAN YA NDANI</div>
@@ -235,251 +298,254 @@
             <i class="fas fa-times" id="close-chat" style="cursor: pointer;"></i>
         </div>
         <div class="chat-messages" id="chat-messages">
-        <div class="scanner-line"></div>
-        <h3 style="margin-top: 20px; color: var(--primary-color);">INAFANYA SCAN...</h3>
-        <p style="font-size: 0.8rem; color: var(--text-muted);">[ CALIBRATING SENSORS ]</p>
-    </div>
-
-    <!-- Intro Section -->
-    <section id="intro-section" class="container"
-        style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
-        <div class="tech-panel" style="max-width: 800px; text-align: center;">
-            <h1>MFUMO WA DIAGNOSIS YA KIULIMWENGU</h1>
-            <p style="margin: 2rem 0; font-size: 1.1rem;">
-                ANZISHA MPANGILIO WA SCAN YA BIOMETRIC NA ASTROLOGIA.<br>
-                TAFADHALI TOA TAARIFA ZA SUBJECT KWA AJILI YA UCHAMBUZI.
-            </p>
-            <button id="start-btn" class="btn">ANZISHA MFUMO</button>
-        </div>
-    </section>
-
-    <!-- Input Form Section -->
-    <section id="input-section" class="container" style="display: none; padding-top: 100px;">
-        <div class="tech-panel" style="max-width: 600px; margin: 0 auto;">
-            <h2 style="margin-bottom: 2rem; border-bottom: 1px solid var(--text-muted); padding-bottom: 10px;">UINGIZAJI
-                WA TAARIFA ZA SUBJECT</h2>
-            <form id="cosmic-form">
-                <div class="input-group">
-                    <label for="full-name">JINA LA SUBJECT</label>
-                    <input type="text" id="full-name" required placeholder="INGIZA JINA KAMILI">
-                </div>
-
-                <div class="input-group">
-                    <label for="birth-date">TAREHE YA ASILI</label>
-                    <input type="date" id="birth-date" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="birth-place">MAHALI PA ASILI (OPTIONAL)</label>
-                    <input type="text" id="birth-place" placeholder="MJINI, NCHI">
-                </div>
-
-                <div class="input-group">
-                    <label for="birth-time">MUDA WA ASILI (OPTIONAL)</label>
-                    <input type="time" id="birth-time">
-                </div>
-
-                <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">TEKELEZA UCHAMBUZI</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Dashboard Section -->
-    <section id="dashboard-section" class="container" style="display: none; padding-top: 80px;">
-        <div
-            style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; border-bottom: 1px solid var(--primary-color); padding-bottom: 1rem;">
-            <div>
-                <h2>RIPOTI YA DIAGNOSIS</h2>
-                <p>SUBJECT: <span id="user-name-display" style="color: var(--success-color);">UNKNOWN</span></p>
-            </div>
-            <div style="text-align: right; font-size: 0.8rem; color: var(--text-muted);">
-                SCAN IMEKAMILIKA<br>
-                UADILIFU: 100%
-            </div>
+            <div class="scanner-line"></div>
+            <h3 style="margin-top: 20px; color: var(--primary-color);">INAFANYA SCAN...</h3>
+            <p style="font-size: 0.8rem; color: var(--text-muted);">[ CALIBRATING SENSORS ]</p>
         </div>
 
-        <div class="dashboard-grid">
-            <!-- Life Path Panel -->
-            <div class="tech-panel">
-                <div class="data-label">PROCESSOR YA MSINGI // LIFE PATH</div>
-                <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
-                    <div class="data-value" id="life-path-number">0</div>
-                    <i class="fas fa-microchip" style="font-size: 2rem; color: var(--text-muted);"></i>
-                </div>
-                <p id="life-path-desc" style="font-size: 0.9rem;">INACHAMB UA...</p>
-            </div>
-
-            <!-- Destiny Panel -->
-            <div class="tech-panel">
-                <div class="data-label">MWELEKEO // DESTINY</div>
-                <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
-                    <div class="data-value" id="destiny-number">0</div>
-                    <i class="fas fa-route" style="font-size: 2rem; color: var(--text-muted);"></i>
-                </div>
-                <p id="destiny-desc" style="font-size: 0.9rem;">INATAFUTA NJIA...</p>
-            </div>
-
-            <!-- Soul Urge Panel -->
-            <div class="tech-panel">
-                <div class="data-label">MSUKUMO WA NDANI // SOUL URGE</div>
-                <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
-                    <div class="data-value" id="soul-urge-number" style="color: var(--accent-color);">0</div>
-                    <i class="fas fa-heartbeat" style="font-size: 2rem; color: var(--text-muted);"></i>
-                </div>
-                <p id="soul-urge-desc" style="font-size: 0.9rem;">INASCAN MSINGI...</p>
-            </div>
-        </div>
-
-        <!-- Secondary Numerology Grid -->
-        <div class="dashboard-grid" style="margin-top: 2rem;">
-            <!-- Personal Year Panel -->
-            <div class="tech-panel">
-                <div class="data-label">MZUNGUKO WA SASA // PERSONAL YEAR</div>
-                <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
-                    <div class="data-value" id="personal-year-number">0</div>
-                    <i class="fas fa-calendar-alt" style="font-size: 2rem; color: var(--text-muted);"></i>
-                </div>
-                <p id="personal-year-desc" style="font-size: 0.9rem;">INAHESABU...</p>
-            </div>
-
-            <!-- Birth Day Number Panel -->
-            <div class="tech-panel">
-                <div class="data-label">KIPAJI CHA ASILI // BIRTH DAY</div>
-                <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
-                    <div class="data-value" id="birth-day-number">0</div>
-                    <i class="fas fa-star" style="font-size: 2rem; color: var(--text-muted);"></i>
-                </div>
-                <p id="birth-day-desc" style="font-size: 0.9rem;">INACHAMBUA...</p>
-            </div>
-
-            <!-- Element Panel -->
-            <div class="tech-panel">
-                <div class="data-label">ELEMENTI YA ASILI // ELEMENT</div>
-                <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
-                    <div class="data-value" id="element-text" style="font-size: 1.5rem;">VOID</div>
-                    <i class="fas fa-wind" id="element-icon" style="font-size: 2rem; color: var(--text-muted);"></i>
-                </div>
-                <p style="font-size: 0.9rem;">MSINGI WA NISHATI</p>
-            </div>
-        </div>
-
-        <!-- Soul Mission & Occult Grid -->
-        <div class="dashboard-grid" style="margin-top: 2rem;">
-            <!-- Soul Mission -->
-            <div class="tech-panel" style="grid-column: span 2;">
-                <div class="data-label">LENGO KUU // SOUL MISSION</div>
-                <div class="hud-line"></div>
-                <p id="soul-mission-text" style="font-size: 1.1rem; color: var(--text-color);">INAHESABU...</p>
-            </div>
-
-            <!-- Shadow Work -->
-            <div class="tech-panel">
-                <div class="data-label">SEKTA ILIYOJIFICHA // SHADOW WORK</div>
-                <p id="shadow-work-text" style="color: var(--accent-color);">INASCAN...</p>
-            </div>
-
-            <!-- Meditation -->
-            <div class="tech-panel">
-                <div class="data-label">PROTOKALI YA KUONGEZA NGUVU // MEDITATION</div>
-                <p id="meditation-text" style="color: var(--success-color);">INAPAKIA...</p>
-            </div>
-
-            <!-- Sun Frequency -->
-            <div class="tech-panel">
-                <div class="data-label">RESONANCE // SUN FREQUENCY</div>
-                <div class="data-value" id="sun-freq-text" style="font-size: 1.5rem;">0 Hz</div>
-            </div>
-
-            <!-- Aesthetics -->
-            <div class="tech-panel">
-                <div class="data-label">SAINI YA KIKIDIJITALI // AESTHETICS</div>
-                <p id="aesthetics-text">INACHAMBUZA...</p>
-            </div>
-
-            <!-- Mystic Oracle -->
-            <div class="tech-panel" style="grid-column: span 2; border-color: var(--secondary-color);">
-                <div class="data-label">UJUMBE WA MFUMO // MYSTIC ORACLE</div>
-                <p id="oracle-text"
-                    style="font-family: var(--font-display); font-size: 1.2rem; text-align: center; margin-top: 1rem;">
-                    "..."</p>
-            </div>
-
-            <!-- Symbolic Wisdom (Uchawi) -->
-            <div class="tech-panel" style="grid-column: span 2; border-color: var(--accent-color);">
-                <div class="data-label">UCHAMBUZI WA KIISHARA // SYMBOLIC WISDOM</div>
-                <div class="hud-line"></div>
-                <p id="symbolic-wisdom-text" style="font-size: 1.1rem; color: var(--accent-color);">INASCAN MIFUMO...
+        <!-- Intro Section -->
+        <section id="intro-section" class="container"
+            style="display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+            <div class="tech-panel" style="max-width: 800px; text-align: center;">
+                <h1>MFUMO WA DIAGNOSIS YA KIULIMWENGU</h1>
+                <p style="margin: 2rem 0; font-size: 1.1rem;">
+                    ANZISHA MPANGILIO WA SCAN YA BIOMETRIC NA ASTROLOGIA.<br>
+                    TAFADHALI TOA TAARIFA ZA SUBJECT KWA AJILI YA UCHAMBUZI.
                 </p>
+                <button id="start-btn" class="btn">ANZISHA MFUMO</button>
+            </div>
+        </section>
+
+        <!-- Input Form Section -->
+        <section id="input-section" class="container" style="display: none; padding-top: 100px;">
+            <div class="tech-panel" style="max-width: 600px; margin: 0 auto;">
+                <h2 style="margin-bottom: 2rem; border-bottom: 1px solid var(--text-muted); padding-bottom: 10px;">
+                    UINGIZAJI
+                    WA TAARIFA ZA SUBJECT</h2>
+                <form id="cosmic-form">
+                    <div class="input-group">
+                        <label for="full-name">JINA LA SUBJECT</label>
+                        <input type="text" id="full-name" required placeholder="INGIZA JINA KAMILI">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="birth-date">TAREHE YA ASILI</label>
+                        <input type="date" id="birth-date" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="birth-place">MAHALI PA ASILI (OPTIONAL)</label>
+                        <input type="text" id="birth-place" placeholder="MJINI, NCHI">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="birth-time">MUDA WA ASILI (OPTIONAL)</label>
+                        <input type="time" id="birth-time">
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">TEKELEZA UCHAMBUZI</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard-section" class="container" style="display: none; padding-top: 80px;">
+            <div
+                style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; border-bottom: 1px solid var(--primary-color); padding-bottom: 1rem;">
+                <div>
+                    <h2>RIPOTI YA DIAGNOSIS</h2>
+                    <p>SUBJECT: <span id="user-name-display" style="color: var(--success-color);">UNKNOWN</span></p>
+                </div>
+                <div style="text-align: right; font-size: 0.8rem; color: var(--text-muted);">
+                    SCAN IMEKAMILIKA<br>
+                    UADILIFU: 100%
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Life Path Panel -->
+                <div class="tech-panel">
+                    <div class="data-label">PROCESSOR YA MSINGI // LIFE PATH</div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
+                        <div class="data-value" id="life-path-number">0</div>
+                        <i class="fas fa-microchip" style="font-size: 2rem; color: var(--text-muted);"></i>
+                    </div>
+                    <p id="life-path-desc" style="font-size: 0.9rem;">INACHAMB UA...</p>
+                </div>
+
+                <!-- Destiny Panel -->
+                <div class="tech-panel">
+                    <div class="data-label">MWELEKEO // DESTINY</div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
+                        <div class="data-value" id="destiny-number">0</div>
+                        <i class="fas fa-route" style="font-size: 2rem; color: var(--text-muted);"></i>
+                    </div>
+                    <p id="destiny-desc" style="font-size: 0.9rem;">INATAFUTA NJIA...</p>
+                </div>
+
+                <!-- Soul Urge Panel -->
+                <div class="tech-panel">
+                    <div class="data-label">MSUKUMO WA NDANI // SOUL URGE</div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
+                        <div class="data-value" id="soul-urge-number" style="color: var(--accent-color);">0</div>
+                        <i class="fas fa-heartbeat" style="font-size: 2rem; color: var(--text-muted);"></i>
+                    </div>
+                    <p id="soul-urge-desc" style="font-size: 0.9rem;">INASCAN MSINGI...</p>
+                </div>
+            </div>
+
+            <!-- Secondary Numerology Grid -->
+            <div class="dashboard-grid" style="margin-top: 2rem;">
+                <!-- Personal Year Panel -->
+                <div class="tech-panel">
+                    <div class="data-label">MZUNGUKO WA SASA // PERSONAL YEAR</div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
+                        <div class="data-value" id="personal-year-number">0</div>
+                        <i class="fas fa-calendar-alt" style="font-size: 2rem; color: var(--text-muted);"></i>
+                    </div>
+                    <p id="personal-year-desc" style="font-size: 0.9rem;">INAHESABU...</p>
+                </div>
+
+                <!-- Birth Day Number Panel -->
+                <div class="tech-panel">
+                    <div class="data-label">KIPAJI CHA ASILI // BIRTH DAY</div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
+                        <div class="data-value" id="birth-day-number">0</div>
+                        <i class="fas fa-star" style="font-size: 2rem; color: var(--text-muted);"></i>
+                    </div>
+                    <p id="birth-day-desc" style="font-size: 0.9rem;">INACHAMBUA...</p>
+                </div>
+
+                <!-- Element Panel -->
+                <div class="tech-panel">
+                    <div class="data-label">ELEMENTI YA ASILI // ELEMENT</div>
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem 0;">
+                        <div class="data-value" id="element-text" style="font-size: 1.5rem;">VOID</div>
+                        <i class="fas fa-wind" id="element-icon" style="font-size: 2rem; color: var(--text-muted);"></i>
+                    </div>
+                    <p style="font-size: 0.9rem;">MSINGI WA NISHATI</p>
+                </div>
+            </div>
+
+            <!-- Soul Mission & Occult Grid -->
+            <div class="dashboard-grid" style="margin-top: 2rem;">
+                <!-- Soul Mission -->
+                <div class="tech-panel" style="grid-column: span 2;">
+                    <div class="data-label">LENGO KUU // SOUL MISSION</div>
+                    <div class="hud-line"></div>
+                    <p id="soul-mission-text" style="font-size: 1.1rem; color: var(--text-color);">INAHESABU...</p>
+                </div>
+
+                <!-- Shadow Work -->
+                <div class="tech-panel">
+                    <div class="data-label">SEKTA ILIYOJIFICHA // SHADOW WORK</div>
+                    <p id="shadow-work-text" style="color: var(--accent-color);">INASCAN...</p>
+                </div>
+
+                <!-- Meditation -->
+                <div class="tech-panel">
+                    <div class="data-label">PROTOKALI YA KUONGEZA NGUVU // MEDITATION</div>
+                    <p id="meditation-text" style="color: var(--success-color);">INAPAKIA...</p>
+                </div>
+
+                <!-- Sun Frequency -->
+                <div class="tech-panel">
+                    <div class="data-label">RESONANCE // SUN FREQUENCY</div>
+                    <div class="data-value" id="sun-freq-text" style="font-size: 1.5rem;">0 Hz</div>
+                </div>
+
+                <!-- Aesthetics -->
+                <div class="tech-panel">
+                    <div class="data-label">SAINI YA KIKIDIJITALI // AESTHETICS</div>
+                    <p id="aesthetics-text">INACHAMBUZA...</p>
+                </div>
+
+                <!-- Mystic Oracle -->
+                <div class="tech-panel" style="grid-column: span 2; border-color: var(--secondary-color);">
+                    <div class="data-label">UJUMBE WA MFUMO // MYSTIC ORACLE</div>
+                    <p id="oracle-text"
+                        style="font-family: var(--font-display); font-size: 1.2rem; text-align: center; margin-top: 1rem;">
+                        "..."</p>
+                </div>
+
+                <!-- Symbolic Wisdom (Uchawi) -->
+                <div class="tech-panel" style="grid-column: span 2; border-color: var(--accent-color);">
+                    <div class="data-label">UCHAMBUZI WA KIISHARA // SYMBOLIC WISDOM</div>
+                    <div class="hud-line"></div>
+                    <p id="symbolic-wisdom-text" style="font-size: 1.1rem; color: var(--accent-color);">INASCAN
+                        MIFUMO...
+                    </p>
+                </div>
+            </div>
+
+            <!-- Detailed Analysis Panel -->
+            <div class="tech-panel" style="margin-top: 2rem;">
+                <div class="data-label">MATOKEO YA SCAN YA NDANI</div>
+                <div class="hud-line"></div>
+                <div id="detailed-analysis" class="analysis-grid">
+                    <!-- Content populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Widget -->
+        <div class="chat-widget" id="chat-widget">
+            <div class="chat-header">
+                <span>MAVENGU // ONLINE</span>
+                <i class="fas fa-times" id="close-chat" style="cursor: pointer;"></i>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot">
+                    MFUMO UPO TAYARI. UNASUBIRI INPUT.
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="INGIZA COMMAND...">
+                <button id="send-msg-btn" class="btn" style="padding: 0.5rem 1rem;"><i
+                        class="fas fa-angle-right"></i></button>
             </div>
         </div>
 
-        <!-- Detailed Analysis Panel -->
-        <div class="tech-panel" style="margin-top: 2rem;">
-            <div class="data-label">MATOKEO YA SCAN YA NDANI</div>
-            <div class="hud-line"></div>
-            <div id="detailed-analysis" class="analysis-grid">
-                <!-- Content populated by JS -->
+        <!-- Info Modal -->
+        <div id="info-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-content tech-panel">
+                <div class="modal-header">
+                    <h2 id="modal-title">MODAL TITLE</h2>
+                    <i class="fas fa-times" id="close-modal" style="cursor: pointer; font-size: 1.5rem;"></i>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <div class="scanner-line"></div>
+                    <p>INACHAMBUA TAARIFA ZA KINA...</p>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Chat Widget -->
-    <div class="chat-widget" id="chat-widget">
-        <div class="chat-header">
-            <span>MAVENGU // ONLINE</span>
-            <i class="fas fa-times" id="close-chat" style="cursor: pointer;"></i>
+        <!-- Chat Toggle -->
+        <div class="chat-toggle" id="chat-toggle-btn">
+            <i class="fas fa-robot"></i>
         </div>
-        <div class="chat-messages" id="chat-messages">
-            <div class="message bot">
-                MFUMO UPO TAYARI. UNASUBIRI INPUT.
-            </div>
-        </div>
-        <div class="chat-input">
-            <input type="text" id="user-input" placeholder="INGIZA COMMAND...">
-            <button id="send-msg-btn" class="btn" style="padding: 0.5rem 1rem;"><i
-                    class="fas fa-angle-right"></i></button>
-        </div>
-    </div>
 
-    <!-- Info Modal -->
-    <div id="info-modal" class="modal-overlay" style="display: none;">
-        <div class="modal-content tech-panel">
-            <div class="modal-header">
-                <h2 id="modal-title">MODAL TITLE</h2>
-                <i class="fas fa-times" id="close-modal" style="cursor: pointer; font-size: 1.5rem;"></i>
-            </div>
-            <div class="modal-body" id="modal-body">
-                <div class="scanner-line"></div>
-                <p>INACHAMBUA TAARIFA ZA KINA...</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Chat Toggle -->
-    <div class="chat-toggle" id="chat-toggle-btn">
-        <i class="fas fa-robot"></i>
-    </div>
-
-    <!-- Scripts -->
-    <script src="js/config.js"></script>
-    <script src="js/numerology.js"></script>
-    <script src="js/astrology.js"></script>
-    <script src="js/soul-mission.js"></script>
-    <script src="js/mavengu-system-prompt.js"></script>
-    <script src="js/gemini-api.js"></script>
-    <script src="js/ai-chat.js"></script>
-    <script src="js/app.js"></script>
-    <script>
-        // Simple coordinate updater for effect
-        setInterval(() => {
-            const coords = document.getElementById('coords');
-            if (coords) {
-                coords.innerText =
-                    Math.floor(Math.random() * 99) + '.' +
-                    Math.floor(Math.random() * 99) + '.' +
-                    Math.floor(Math.random() * 99);
-            }
-        }, 1000);
-    </script>
+        <!-- Scripts -->
+        <script src="js/config.js"></script>
+        <script src="js/numerology.js"></script>
+        <script src="js/astrology.js"></script>
+        <script src="js/soul-mission.js"></script>
+        <script src="js/mavengu-system-prompt.js"></script>
+        <script src="js/gemini-api.js"></script>
+        <script src="js/ai-chat.js"></script>
+        <script src="js/app.js"></script>
+        <script>
+            // Simple coordinate updater for effect
+            setInterval(() => {
+                const coords = document.getElementById('coords');
+                if (coords) {
+                    coords.innerText =
+                        Math.floor(Math.random() * 99) + '.' +
+                        Math.floor(Math.random() * 99) + '.' +
+                        Math.floor(Math.random() * 99);
+                }
+            }, 1000);
+        </script>
 </body>
+
 </html>
