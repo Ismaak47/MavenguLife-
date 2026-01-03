@@ -131,73 +131,12 @@ function generateProfile(fullName, birthDate, birthPlace) {
         oracle: oracle,
         symbolicWisdom: symbolicWisdom,
         currentCycle: currentCycle,
-        chakra: chakra,
-        spiritAnimal: spiritAnimal,
-        elementBalance: elementBalance
-    };
-}
+        const ctx = canvas.getContext('2d');
 
-function renderDashboard(profile) {
-    // Update Name
-    document.getElementById('user-name-display').textContent = profile.name;
+        let width, height;
+        let particles =[];
 
-    // Update Core Panels
-    document.getElementById('life-path-number').textContent = profile.lifePath;
-    document.getElementById('life-path-desc').textContent = window.Numerology.getMeaning(profile.lifePath, 'lifePath');
-
-    document.getElementById('destiny-number').textContent = profile.destiny;
-    document.getElementById('destiny-desc').textContent = window.Numerology.getMeaning(profile.destiny, 'destiny');
-
-    document.getElementById('soul-urge-number').textContent = profile.soulUrge;
-    document.getElementById('soul-urge-desc').textContent = window.Numerology.getMeaning(profile.soulUrge, 'soulUrge');
-
-    // Update Soul Mission Panels
-    document.getElementById('soul-mission-text').textContent = profile.soulMission;
-    document.getElementById('shadow-work-text').textContent = profile.shadowWork;
-    document.getElementById('meditation-text').textContent = profile.meditation;
-    document.getElementById('sun-freq-text').textContent = profile.sunFreq;
-    document.getElementById('aesthetics-text').textContent = profile.aesthetics;
-    document.getElementById('oracle-text').textContent = `"${profile.oracle}"`;
-    document.getElementById('symbolic-wisdom-text').textContent = profile.symbolicWisdom;
-
-    // Update Extended Panels
-    document.getElementById('current-cycle-text').textContent = profile.currentCycle;
-    document.getElementById('chakra-text').textContent = profile.chakra;
-    document.getElementById('spirit-animal-text').textContent = profile.spiritAnimal;
-    document.getElementById('element-balance-text').textContent = profile.elementBalance;
-
-    // Detailed Analysis
-    const analysisDiv = document.getElementById('detailed-analysis');
-    analysisDiv.innerHTML = `
-        <div>
-            <div class="data-label">ELEMENTAL COMPOSITION</div>
-            <div class="data-value" style="font-size: 1.5rem;">${profile.zodiac.element.toUpperCase()}</div>
-        </div>
-        <div>
-            <div class="data-label">ZODIAC SIGNATURE</div>
-            <div style="color: var(--text-color);">${profile.zodiac.icon} ${profile.zodiac.name.toUpperCase()}</div>
-        </div>
-        <div class="full-width">
-            <div class="data-label">DIVINE PURPOSE</div>
-            <div style="color: var(--text-color);">${profile.soulMission}</div>
-        </div>
-        <div class="full-width" style="border-top: 1px solid var(--primary-color); padding-top: 1rem;">
-            <div class="data-label">ORIGIN COORDINATES</div>
-            <div style="color: var(--success-color); font-family: var(--font-display);">${profile.birthPlace.toUpperCase()}</div>
-        </div>
-    `;
-}
-
-/* Particle Animation System */
-function initParticles() {
-    const canvas = document.getElementById('universe-canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-
-    let width, height;
-    let particles = [];
-
-    function resize() {
+        function resize() {
         width = window.innerWidth;
         height = window.innerHeight;
         canvas.width = width;
