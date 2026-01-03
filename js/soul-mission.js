@@ -105,6 +105,66 @@ const SoulMission = {
             33: "Kadi ya 'Uponyaji': Inaashiria frequency ya juu ya uponyaji inayolinda na kulea nafsi."
         };
         return wisdom[lifePath] || "Kadi ya 'Safari': Inaashiria ulinzi wa ulimwengu katika kila hatua.";
+    },
+
+    getCurrentCycle: function (birthDate) {
+        const today = new Date();
+        const birth = new Date(birthDate);
+        const currentYear = today.getFullYear();
+
+        let sum = birth.getDate() + (birth.getMonth() + 1) + currentYear;
+        while (sum > 9) {
+            sum = sum.toString().split('').reduce((a, b) => parseInt(a) + parseInt(b), 0);
+        }
+
+        const cycles = {
+            1: "Mwanzo Mpya. Panda mbegu za malengo mapya.",
+            2: "Ushirikiano na Subira. Jenga uhusiano na subiri matokeo.",
+            3: "Kujieleza na Ubunifu. Furahia maisha na onyesha vipaji.",
+            4: "Kazi na Misingi. Weka bidii na jenga utulivu.",
+            5: "Mabadiliko na Uhuru. Kubali fursa mpya na safiri.",
+            6: "Wajibu na Familia. Zingatia nyumbani na huduma.",
+            7: "Tafakari na Kiroho. Pumzika na jitathmini.",
+            8: "Mafanikio na Nguvu. Vuna matunda ya kazi yako.",
+            9: "Kukamilisha na Kuachilia. Safisha yaliyopita kwa ajili ya mapya."
+        };
+        return `Mwaka wa ${sum}: ${cycles[sum]}`;
+    },
+
+    getChakraDominance: function (zodiacSign) {
+        const chakras = {
+            "Aries": "Solar Plexus (Manipura) - Nguvu ya Utashi",
+            "Taurus": "Heart (Anahata) - Upendo na Utulivu",
+            "Gemini": "Throat (Vishuddha) - Mawasiliano",
+            "Cancer": "Third Eye (Ajna) - Intuition",
+            "Leo": "Crown (Sahasrara) - Ufahamu wa Kimungu",
+            "Virgo": "Throat (Vishuddha) - Uchambuzi na Ukweli",
+            "Libra": "Heart (Anahata) - Usawa na Mahusiano",
+            "Scorpio": "Sacral (Svadhisthana) - Hisia na Mabadiliko",
+            "Sagittarius": "Sacral (Svadhisthana) - Shauku na Ugunduzi",
+            "Capricorn": "Root (Muladhara) - Utulivu na Msingi",
+            "Aquarius": "Root (Muladhara) - Mapinduzi ya Msingi",
+            "Pisces": "Solar Plexus (Manipura) - Hisia za Ndani"
+        };
+        return chakras[zodiacSign] || "Heart (Anahata) - Kituo cha Usawa";
+    },
+
+    getSpiritAnimal: function (lifePath) {
+        const animals = {
+            1: "Simba - Uongozi na Ujasiri",
+            2: "Njiwa - Amani na Diplomasia",
+            3: "Kipepeo - Mabadiliko na Furaha",
+            4: "Mchwa - Ujenzi na Bidii",
+            5: "Tai - Uhuru na Mtazamo wa Juu",
+            6: "Mbwa - Uaminifu na Ulinzi",
+            7: "Bundi - Hekima na Siri",
+            8: "Chui - Nguvu na Mkakati",
+            9: "Tembo - Kumbukumbu na Huruma",
+            11: "Dragon - Nguvu ya Kiroho",
+            22: "Phoenix - Kuzaliwa Upya",
+            33: "Dolphin - Uponyaji na Furaha"
+        };
+        return animals[lifePath] || "Mbwa Mwitu - Kiongozi wa Njia";
     }
 };
 

@@ -92,6 +92,10 @@ IMPORTANT: DAIMA jibu kwa Kiswahili. DAIMA fuata muundo wa hatua 5. Jibu kama Ms
 ▸ SUN FREQUENCY: ${profile.sunFreq}
 ▸ MEDITATION PRACTICE: ${profile.meditation}
 ▸ SYMBOLIC WISDOM: ${profile.symbolicWisdom}
+▸ CURRENT CYCLE: ${profile.currentCycle}
+▸ CHAKRA: ${profile.chakra}
+▸ SPIRIT ANIMAL: ${profile.spiritAnimal}
+▸ ELEMENT BALANCE: ${profile.elementBalance}
 
 Tumia taarifa hii kumpa mtumiaji majibu ya kibinafsi na ya kina.`;
     },

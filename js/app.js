@@ -102,6 +102,12 @@ function generateProfile(fullName, birthDate, birthPlace) {
     const oracle = window.SoulMission.getMysticOracle();
     const symbolicWisdom = window.SoulMission.getSymbolicWisdom(lifePath);
 
+    // New Metrics
+    const currentCycle = window.SoulMission.getCurrentCycle(birthDate);
+    const chakra = window.SoulMission.getChakraDominance(zodiac.name);
+    const spiritAnimal = window.SoulMission.getSpiritAnimal(lifePath);
+    const elementBalance = `Dominant: ${zodiac.element}`;
+
     return {
         name: fullName,
         birthDate: birthDate,
@@ -116,7 +122,11 @@ function generateProfile(fullName, birthDate, birthPlace) {
         sunFreq: sunFreq,
         aesthetics: aesthetics,
         oracle: oracle,
-        symbolicWisdom: symbolicWisdom
+        symbolicWisdom: symbolicWisdom,
+        currentCycle: currentCycle,
+        chakra: chakra,
+        spiritAnimal: spiritAnimal,
+        elementBalance: elementBalance
     };
 }
 
@@ -142,6 +152,12 @@ function renderDashboard(profile) {
     document.getElementById('aesthetics-text').textContent = profile.aesthetics;
     document.getElementById('oracle-text').textContent = `"${profile.oracle}"`;
     document.getElementById('symbolic-wisdom-text').textContent = profile.symbolicWisdom;
+
+    // Update Extended Panels
+    document.getElementById('current-cycle-text').textContent = profile.currentCycle;
+    document.getElementById('chakra-text').textContent = profile.chakra;
+    document.getElementById('spirit-animal-text').textContent = profile.spiritAnimal;
+    document.getElementById('element-balance-text').textContent = profile.elementBalance;
 
     // Detailed Analysis
     const analysisDiv = document.getElementById('detailed-analysis');
