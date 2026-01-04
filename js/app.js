@@ -392,6 +392,41 @@ function renderDashboard(profile) {
         collectiveRoleEl.textContent = profile.collectiveRole;
     }
 
+    // Setup click handlers for all new diagnostic cards
+    setupModalTrigger('cognitive-style-value', 'NJIA YA UFAHAMU', '', profile);
+    setupModalTrigger('personality-archetype-value', 'MCHORO WA UTU', '', profile);
+    setupModalTrigger('emotional-cycle-value', 'MZUNGUKO WA HISIA', '', profile);
+    setupModalTrigger('career-alignment-value', 'MWELEKEO WA KAZI', '', profile);
+    setupModalTrigger('wealth-flow-value', 'MTIRIRIKO WA UTAJIRI', '', profile);
+    setupModalTrigger('relationship-dynamics-value', 'MIENENDO YA MAHUSIANO', '', profile);
+    setupModalTrigger('past-life-influence-value', 'USHAWISHI WA MAISHA YA ZAMANI', '', profile);
+    setupModalTrigger('energy-blockage-value', 'KIZUIZI CHA NISHATI', '', profile);
+    setupModalTrigger('light-shadow-balance-value', 'USAWA WA NURU/KIVULI', '', profile);
+    setupModalTrigger('life-timeline-value', 'MZUNGUKO WA MAISHA', '', profile);
+    setupModalTrigger('ninety-day-forecast-value', 'UTABIRI WA SIKU 90', '', profile);
+    setupModalTrigger('lunar-influence-value', 'USHAWISHI WA MWEZI', '', profile);
+    setupModalTrigger('ai-confidence-score-value', 'ALAMA YA IMANI YA AI', '', profile);
+    setupModalTrigger('frequency-compatibility-value', 'UTANGAMANO WA MASAFA', '', profile);
+    setupModalTrigger('energy-dna-value', 'NISHATI DNA', '', profile);
+    setupModalTrigger('personal-mantra-value', 'MANTRA YA BINAFSI', '', profile);
+    setupModalTrigger('soul-rank-value', 'CHEO CHA ROHO', '', profile);
+    setupModalTrigger('collective-role-value', 'NAFASI YA JAMII', '', profile);
+
+    // Setup click handlers for existing cards
+    setupModalTrigger('life-path-number', `PROCESSOR YA MSINGI // LIFE PATH ${profile.lifePath}`, '', profile);
+    setupModalTrigger('destiny-number', `MWELEKEO // DESTINY ${profile.destiny}`, '', profile);
+    setupModalTrigger('soul-urge-number', `MSUKUMO WA NDANI // SOUL URGE ${profile.soulUrge}`, '', profile);
+    setupModalTrigger('personal-year-number', `MZUNGUKO WA SASA // PERSONAL YEAR ${profile.personalYear}`, '', profile);
+    setupModalTrigger('birth-day-number', `KIPAJI CHA ASILI // BIRTH DAY ${profile.birthDayNumber}`, '', profile);
+    setupModalTrigger('element-text', `ELEMENTI YA ASILI // ELEMENT: ${profile.zodiac.element.toUpperCase()}`, '', profile);
+    setupModalTrigger('soul-mission-text', 'LENGO KUU // SOUL MISSION', '', profile);
+    setupModalTrigger('shadow-work-text', 'SEKTA ILIYOJIFICHA // SHADOW WORK', '', profile);
+    setupModalTrigger('symbolic-wisdom-text', 'UCHAMBUZI WA KIISHARA // SYMBOLIC WISDOM', '', profile);
+    setupModalTrigger('meditation-text', 'PROTOKALI YA KUONGEZA NGUVU // MEDITATION', '', profile);
+    setupModalTrigger('sun-freq-text', 'RESONANCE // SUN FREQUENCY', '', profile);
+    setupModalTrigger('aesthetics-text', 'SAINI YA KIKIDIJITALI // AESTHETICS', '', profile);
+    setupModalTrigger('oracle-text', 'UJUMBE WA MFUMO // MYSTIC ORACLE', '', profile);
+
     // Detailed Analysis
     const analysisDiv = document.getElementById('detailed-analysis');
     analysisDiv.innerHTML = `
@@ -823,28 +858,28 @@ function formatEightPointReport(data) {
                 ${data.title || "Uchambuzi wa Kina"}
             </h2>
             
-            <h3 style="color: var(--accent-color);">1. Core Definition</h3>
+            <h3 style="color: var(--accent-color);">1. Ufafanuzi wa Msingi</h3>
             <p>${data.CoreDefinition}</p>
             
-            <h3 style="color: var(--accent-color);">2. Diagnostic Purpose</h3>
+            <h3 style="color: var(--accent-color);">2. Kusudi la Uchambuzi</h3>
             <p>${data.DiagnosticPurpose}</p>
             
-            <h3 style="color: var(--accent-color);">3. How the Card Is Derived</h3>
+            <h3 style="color: var(--accent-color);">3. Jinsi Kadi Hii Inapatikana</h3>
             <p>${data.HowDerived}</p>
             
-            <h3 style="color: var(--accent-color);">4. What This Card Reveals About the User</h3>
+            <h3 style="color: var(--accent-color);">4. Kile Kadi Hii Inakufunulia</h3>
             <p>${data.RevealsAboutUser}</p>
             
-            <h3 style="color: var(--accent-color);">5. Aligned Expression (High State)</h3>
+            <h3 style="color: var(--accent-color);">5. Uthibitishaji wa Ulinganifu (Hali ya Juu)</h3>
             <p>${data.AlignedExpression}</p>
             
-            <h3 style="color: var(--accent-color);">6. Shadow Expression (Low State)</h3>
+            <h3 style="color: var(--accent-color);">6. Uthibitishaji wa Kivuli (Hali ya Chini)</h3>
             <p>${data.ShadowExpression}</p>
             
-            <h3 style="color: var(--accent-color);">7. Real-Life Impact</h3>
+            <h3 style="color: var(--accent-color);">7. Athari ya Maisha Halisi</h3>
             <p>${data.RealLifeImpact}</p>
             
-            <h3 style="color: var(--accent-color);">8. Guidance & Integration</h3>
+            <h3 style="color: var(--accent-color);">8. Mwongozo & Ujumuishaji</h3>
             <p>${data.GuidanceIntegration}</p>
         </div>
     `;
@@ -1049,7 +1084,7 @@ async function openDeepDiveModal(elementId, title, profile) {
 
     modalBody.innerHTML = `
         <div class="scanner-line"></div>
-        <p style="text-align: center; margin-top: 2rem;">ANALYZING AKASHIC RECORDS...</p>
+        <p style="text-align: center; margin-top: 2rem;">INACHAMBUA REKODI ZA AKASHIC...</p>
     `;
 
     const closeModal = () => modal.style.display = 'none';
