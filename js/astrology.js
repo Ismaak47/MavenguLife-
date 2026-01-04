@@ -2,18 +2,18 @@
 
 const Astrology = {
     zodiacSigns: [
-        { name: "Capricorn", start: [12, 22], end: [1, 19], icon: "♑", element: "Earth" },
-        { name: "Aquarius", start: [1, 20], end: [2, 18], icon: "♒", element: "Air" },
-        { name: "Pisces", start: [2, 19], end: [3, 20], icon: "♓", element: "Water" },
-        { name: "Aries", start: [3, 21], end: [4, 19], icon: "♈", element: "Fire" },
-        { name: "Taurus", start: [4, 20], end: [5, 20], icon: "♉", element: "Earth" },
-        { name: "Gemini", start: [5, 21], end: [6, 20], icon: "♊", element: "Air" },
-        { name: "Cancer", start: [6, 21], end: [7, 22], icon: "♋", element: "Water" },
-        { name: "Leo", start: [7, 23], end: [8, 22], icon: "♌", element: "Fire" },
-        { name: "Virgo", start: [8, 23], end: [9, 22], icon: "♍", element: "Earth" },
-        { name: "Libra", start: [9, 23], end: [10, 22], icon: "♎", element: "Air" },
-        { name: "Scorpio", start: [10, 23], end: [11, 21], icon: "♏", element: "Water" },
-        { name: "Sagittarius", start: [11, 22], end: [12, 21], icon: "♐", element: "Fire" }
+        { name: "Capricorn", start: [12, 22], end: [1, 19], icon: "♑", element: "Ardhi (Earth)" },
+        { name: "Aquarius", start: [1, 20], end: [2, 18], icon: "♒", element: "Hewa (Air)" },
+        { name: "Pisces", start: [2, 19], end: [3, 20], icon: "♓", element: "Maji (Water)" },
+        { name: "Aries", start: [3, 21], end: [4, 19], icon: "♈", element: "Moto (Fire)" },
+        { name: "Taurus", start: [4, 20], end: [5, 20], icon: "♉", element: "Ardhi (Earth)" },
+        { name: "Gemini", start: [5, 21], end: [6, 20], icon: "♊", element: "Hewa (Air)" },
+        { name: "Cancer", start: [6, 21], end: [7, 22], icon: "♋", element: "Maji (Water)" },
+        { name: "Leo", start: [7, 23], end: [8, 22], icon: "♌", element: "Moto (Fire)" },
+        { name: "Virgo", start: [8, 23], end: [9, 22], icon: "♍", element: "Ardhi (Earth)" },
+        { name: "Libra", start: [9, 23], end: [10, 22], icon: "♎", element: "Hewa (Air)" },
+        { name: "Scorpio", start: [10, 23], end: [11, 21], icon: "♏", element: "Maji (Water)" },
+        { name: "Sagittarius", start: [11, 22], end: [12, 21], icon: "♐", element: "Moto (Fire)" }
     ],
 
     getZodiacSign: function (birthDate) {
@@ -59,20 +59,21 @@ const Astrology = {
 
     getRulingPlanet: function (signName) {
         const planets = {
-            "Aries": { name: "Mars", icon: "♂️", desc: "Sayari ya Vita na Nishati" },
-            "Taurus": { name: "Venus", icon: "♀️", desc: "Sayari ya Upendo na Uzuri" },
-            "Gemini": { name: "Mercury", icon: "☿️", desc: "Sayari ya Mawasiliano" },
-            "Cancer": { name: "Moon", icon: "🌙", desc: "Sayari ya Hisia na Intuition" },
-            "Leo": { name: "Sun", icon: "☀️", desc: "Nyota ya Nguvu na Uhai" },
-            "Virgo": { name: "Mercury", icon: "☿️", desc: "Sayari ya Akili na Uchambuzi" },
-            "Libra": { name: "Venus", icon: "♀️", desc: "Sayari ya Mahusiano" },
+            "Aries": { name: "Mirihi (Mars)", icon: "♂️", desc: "Sayari ya Vita na Nishati" },
+            "Taurus": { name: "Zuhura (Venus)", icon: "♀️", desc: "Sayari ya Upendo na Uzuri" },
+            "Gemini": { name: "Zebaki (Mercury)", icon: "☿️", desc: "Sayari ya Mawasiliano" },
+            "Cancer": { name: "Mwezi (Moon)", icon: "🌙", desc: "Sayari ya Hisia na Intuition" },
+            "Leo": { name: "Jua (Sun)", icon: "☀️", desc: "Nyota ya Nguvu na Uhai" },
+            "Virgo": { name: "Zebaki (Mercury)", icon: "☿️", desc: "Sayari ya Akili na Uchambuzi" },
+            "Libra": { name: "Zuhura (Venus)", icon: "♀️", desc: "Sayari ya Mahusiano" },
+            "Scorpio": "Pluto", icon: "♇️", desc: "Sayari ya Mabadiliko na Nguvu" }, // Typo fix in original logic if any, but let's keep consistent
             "Scorpio": { name: "Pluto", icon: "♇️", desc: "Sayari ya Mabadiliko na Nguvu" },
-            "Sagittarius": { name: "Jupiter", icon: "♃️", desc: "Sayari ya Bahati na Falsafa" },
-            "Capricorn": { name: "Saturn", icon: "♄️", desc: "Sayari ya Nidhamu na Karma" },
+            "Sagittarius": { name: "Mushtari (Jupiter)", icon: "♃️", desc: "Sayari ya Bahati na Falsafa" },
+            "Capricorn": { name: "Zohali (Saturn)", icon: "♄️", desc: "Sayari ya Nidhamu na Karma" },
             "Aquarius": { name: "Uranus", icon: "♅️", desc: "Sayari ya Mapinduzi" },
             "Pisces": { name: "Neptune", icon: "♆️", desc: "Sayari ya Ndoto na Kiroho" }
         };
-        return planets[signName] || { name: "Unknown", icon: "❓", desc: "Nishati Isiyojulikana" };
+        return planets[signName] || { name: "Haijulikani", icon: "❓", desc: "Nishati Isiyojulikana" };
     },
 
     getMoonPhase: function (birthDate) {
@@ -86,111 +87,111 @@ const Astrology = {
         const currentCycle = totalCycles - Math.floor(totalCycles);
         const age = currentCycle * cycle;
 
-        if (age < 1.84566) return { name: "New Moon", icon: "🌑", desc: "Mwanzo Mpya" };
-        if (age < 5.53699) return { name: "Waxing Crescent", icon: "🌒", desc: "Kuweka Nia" };
-        if (age < 9.22831) return { name: "First Quarter", icon: "🌓", desc: "Kuchukua Hatua" };
-        if (age < 12.91963) return { name: "Waxing Gibbous", icon: "🌔", desc: "Kukamilisha" };
-        if (age < 16.61096) return { name: "Full Moon", icon: "🌕", desc: "Utimilifu na Mavuno" };
-        if (age < 20.30228) return { name: "Waning Gibbous", icon: "🌖", desc: "Kushukuru" };
-        if (age < 23.99361) return { name: "Last Quarter", icon: "🌗", desc: "Kuachilia" };
-        return { name: "Waning Crescent", icon: "🌘", desc: "Kupumzika" };
+        if (age < 1.84566) return { name: "Mwezi Mpya (New Moon)", icon: "🌑", desc: "Mwanzo Mpya" };
+        if (age < 5.53699) return { name: "Mwezi Mchanga (Waxing Crescent)", icon: "🌒", desc: "Kuweka Nia" };
+        if (age < 9.22831) return { name: "Robo ya Kwanza (First Quarter)", icon: "🌓", desc: "Kuchukua Hatua" };
+        if (age < 12.91963) return { name: "Mwezi Unaoelekea Kujaa (Waxing Gibbous)", icon: "🌔", desc: "Kukamilisha" };
+        if (age < 16.61096) return { name: "Mwezi Mkamili (Full Moon)", icon: "🌕", desc: "Utimilifu na Mavuno" };
+        if (age < 20.30228) return { name: "Mwezi Unaoanza Kupungua (Waning Gibbous)", icon: "🌖", desc: "Kushukuru" };
+        if (age < 23.99361) return { name: "Robo ya Mwisho (Last Quarter)", icon: "🌗", desc: "Kuachilia" };
+        return { name: "Mwezi Mwandamo (Waning Crescent)", icon: "🌘", desc: "Kupumzika" };
     },
 
     getBirthStone: function (birthDate) {
         const month = new Date(birthDate).getMonth() + 1;
         const stones = {
-            1: { name: "Garnet", color: "Dark Red", desc: "Ulinzi na Nguvu" },
-            2: { name: "Amethyst", color: "Purple", desc: "Hekima na Utulivu" },
-            3: { name: "Aquamarine", color: "Light Blue", desc: "Ujasiri na Amani" },
-            4: { name: "Diamond", color: "Clear", desc: "Upendo wa Milele" },
-            5: { name: "Emerald", color: "Green", desc: "Uzazi na Upyaji" },
-            6: { name: "Pearl", color: "White", desc: "Usafi na Hekima" },
-            7: { name: "Ruby", color: "Red", desc: "Shauku na Ulinzi" },
-            8: { name: "Peridot", color: "Light Green", desc: "Nguvu na Uponyaji" },
-            9: { name: "Sapphire", color: "Blue", desc: "Hekima na Uaminifu" },
-            10: { name: "Opal", color: "Multi", desc: "Matumaini na Ubunifu" },
-            11: { name: "Topaz", color: "Yellow", desc: "Upendo na Mapenzi" },
-            12: { name: "Turquoise", color: "Blue-Green", desc: "Bahati na Mafanikio" }
+            1: { name: "Garnet", color: "Nyekundu Nzito", desc: "Ulinzi na Nguvu" },
+            2: { name: "Amethyst", color: "Zambarau", desc: "Hekima na Utulivu" },
+            3: { name: "Aquamarine", color: "Bluu Nyepesi", desc: "Ujasiri na Amani" },
+            4: { name: "Almasi (Diamond)", color: "Angavu", desc: "Upendo wa Milele" },
+            5: { name: "Zumaridi (Emerald)", color: "Kijani", desc: "Uzazi na Upyaji" },
+            6: { name: "Lulu (Pearl)", color: "Nyeupe", desc: "Usafi na Hekima" },
+            7: { name: "Yakuti (Ruby)", color: "Nyekundu", desc: "Shauku na Ulinzi" },
+            8: { name: "Peridot", color: "Kijani Nyepesi", desc: "Nguvu na Uponyaji" },
+            9: { name: "Sapphire", color: "Bluu", desc: "Hekima na Uaminifu" },
+            10: { name: "Opal", color: "Rangi Nyingi", desc: "Matumaini na Ubunifu" },
+            11: { name: "Topaz", color: "Njano", desc: "Upendo na Mapenzi" },
+            12: { name: "Turquoise", color: "Bluu-Kijani", desc: "Bahati na Mafanikio" }
         };
-        return stones[month] || { name: "Quartz", color: "Clear", desc: "Nguvu ya Jumla" };
+        return stones[month] || { name: "Quartz", color: "Angavu", desc: "Nguvu ya Jumla" };
     },
 
     getSpiritAnimal: function (signName) {
         const animals = {
-            "Aries": "Cheetah (Kasi na Focus)",
-            "Taurus": "Bear (Nguvu na Utulivu)",
-            "Gemini": "Dolphin (Akili na Furaha)",
-            "Cancer": "Rabbit (Upole na Ulinzi)",
-            "Leo": "Lion (Ujasiri na Uongozi)",
-            "Virgo": "Fox (Ujanja na Uchambuzi)",
-            "Libra": "Swan (Neema na Usawa)",
-            "Scorpio": "Snake (Mabadiliko na Uponyaji)",
-            "Sagittarius": "Owl (Hekima na Uhuru)",
-            "Capricorn": "Wolf (Nidhamu na Uaminifu)",
-            "Aquarius": "Eagle (Maono na Uhuru)",
-            "Pisces": "Butterfly (Mabadiliko na Roho)"
+            "Aries": "Duma (Cheetah)",
+            "Taurus": "Dubu (Bear)",
+            "Gemini": "Pomboo (Dolphin)",
+            "Cancer": "Sungura (Rabbit)",
+            "Leo": "Simba (Lion)",
+            "Virgo": "Mbweha (Fox)",
+            "Libra": "Bata Maji (Swan)",
+            "Scorpio": "Nyoka (Snake)",
+            "Sagittarius": "Bundi (Owl)",
+            "Capricorn": "Mbwa Mwitu (Wolf)",
+            "Aquarius": "Tai (Eagle)",
+            "Pisces": "Kipepeo (Butterfly)"
         };
         return animals[signName] || "Phoenix";
     },
 
     getLuckyColor: function (signName) {
         const colors = {
-            "Aries": "Red", "Taurus": "Green", "Gemini": "Yellow", "Cancer": "Silver",
-            "Leo": "Gold", "Virgo": "Grey", "Libra": "Pink", "Scorpio": "Black",
-            "Sagittarius": "Purple", "Capricorn": "Brown", "Aquarius": "Blue", "Pisces": "Sea Green"
+            "Aries": "Nyekundu", "Taurus": "Kijani", "Gemini": "Njano", "Cancer": "Fedha",
+            "Leo": "Dhahabu", "Virgo": "Kijivu", "Libra": "Pinki", "Scorpio": "Nyeusi",
+            "Sagittarius": "Zambarau", "Capricorn": "Kahawia", "Aquarius": "Bluu", "Pisces": "Kijani Bahari"
         };
-        return colors[signName] || "White";
+        return colors[signName] || "Nyeupe";
     },
 
     getLuckyDay: function (signName) {
         const days = {
-            "Aries": "Tuesday", "Taurus": "Friday", "Gemini": "Wednesday", "Cancer": "Monday",
-            "Leo": "Sunday", "Virgo": "Wednesday", "Libra": "Friday", "Scorpio": "Tuesday",
-            "Sagittarius": "Thursday", "Capricorn": "Saturday", "Aquarius": "Saturday", "Pisces": "Thursday"
+            "Aries": "Jumanne", "Taurus": "Ijumaa", "Gemini": "Jumatano", "Cancer": "Jumatatu",
+            "Leo": "Jumapili", "Virgo": "Jumatano", "Libra": "Ijumaa", "Scorpio": "Jumanne",
+            "Sagittarius": "Alhamisi", "Capricorn": "Jumamosi", "Aquarius": "Jumamosi", "Pisces": "Alhamisi"
         };
-        return days[signName] || "Sunday";
+        return days[signName] || "Jumapili";
     },
 
     getTarotCard: function (signName) {
         const cards = {
-            "Aries": "The Emperor", "Taurus": "The Hierophant", "Gemini": "The Lovers", "Cancer": "The Chariot",
-            "Leo": "Strength", "Virgo": "The Hermit", "Libra": "Justice", "Scorpio": "Death",
-            "Sagittarius": "Temperance", "Capricorn": "The Devil", "Aquarius": "The Star", "Pisces": "The Moon"
+            "Aries": "The Emperor (Mfalme)", "Taurus": "The Hierophant (Kuhani Mkuu)", "Gemini": "The Lovers (Wapendanao)", "Cancer": "The Chariot (Gari la Vita)",
+            "Leo": "Strength (Nguvu)", "Virgo": "The Hermit (Mtawa)", "Libra": "Justice (Haki)", "Scorpio": "Death (Kifo/Mabadiliko)",
+            "Sagittarius": "Temperance (Kiasi)", "Capricorn": "The Devil (Shetani/Vifungo)", "Aquarius": "The Star (Nyota)", "Pisces": "The Moon (Mwezi)"
         };
-        return cards[signName] || "The Fool";
+        return cards[signName] || "The Fool (Mjinga)";
     },
 
     getChakra: function (signName) {
         const chakras = {
-            "Aries": "Solar Plexus", "Taurus": "Heart", "Gemini": "Throat", "Cancer": "Third Eye",
-            "Leo": "Crown", "Virgo": "Throat", "Libra": "Heart", "Scorpio": "Sacral",
-            "Sagittarius": "Sacral", "Capricorn": "Root", "Aquarius": "Root", "Pisces": "Solar Plexus"
+            "Aries": "Solar Plexus (Kitovu)", "Taurus": "Heart (Moyo)", "Gemini": "Throat (Koo)", "Cancer": "Third Eye (Jicho la Tatu)",
+            "Leo": "Crown (Taji)", "Virgo": "Throat (Koo)", "Libra": "Heart (Moyo)", "Scorpio": "Sacral (Sakrali)",
+            "Sagittarius": "Sacral (Sakrali)", "Capricorn": "Root (Mzizi)", "Aquarius": "Root (Mzizi)", "Pisces": "Solar Plexus (Kitovu)"
         };
-        return chakras[signName] || "Root";
+        return chakras[signName] || "Root (Mzizi)";
     },
 
     getChineseZodiac: function (birthDate) {
         const year = new Date(birthDate).getFullYear();
-        const animals = ["Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"];
+        const animals = ["Panya (Rat)", "Ng'ombe (Ox)", "Chui (Tiger)", "Sungura (Rabbit)", "Joka (Dragon)", "Nyoka (Snake)", "Farasi (Horse)", "Mbuzi (Goat)", "Tumbili (Monkey)", "Jogoo (Rooster)", "Mbwa (Dog)", "Nguruwe (Pig)"];
         const index = (year - 4) % 12;
         return animals[index >= 0 ? index : index + 12];
     },
 
     getAuraColor: function (signName) {
         const auras = {
-            "Aries": "Bright Red", "Taurus": "Forest Green", "Gemini": "Bright Yellow", "Cancer": "Soft Pink",
-            "Leo": "Orange-Gold", "Virgo": "Royal Blue", "Libra": "Pastel Green", "Scorpio": "Deep Red",
-            "Sagittarius": "Light Purple", "Capricorn": "Deep Indigo", "Aquarius": "Electric Blue", "Pisces": "Violet"
+            "Aries": "Nyekundu Angavu", "Taurus": "Kijani cha Msitu", "Gemini": "Njano Angavu", "Cancer": "Pinki Laini",
+            "Leo": "Dhahabu-Chungwa", "Virgo": "Bluu ya Kifalme", "Libra": "Kijani Laini", "Scorpio": "Nyekundu Nzito",
+            "Sagittarius": "Zambarau Nyepesi", "Capricorn": "Indigo Nzito", "Aquarius": "Bluu ya Umeme", "Pisces": "Violeti"
         };
-        return auras[signName] || "White";
+        return auras[signName] || "Nyeupe";
     },
 
     getNorthNode: function (signName) {
         // Simplified North Node logic based on Zodiac Sign for demonstration
         const nodes = {
-            "Aries": "Libra", "Taurus": "Scorpio", "Gemini": "Sagittarius", "Cancer": "Capricorn",
-            "Leo": "Aquarius", "Virgo": "Pisces", "Libra": "Aries", "Scorpio": "Taurus",
-            "Sagittarius": "Gemini", "Capricorn": "Cancer", "Aquarius": "Leo", "Pisces": "Virgo"
+            "Aries": "Libra (Mizani)", "Taurus": "Scorpio (Nge)", "Gemini": "Sagittarius (Mshale)", "Cancer": "Capricorn (Mbuzi)",
+            "Leo": "Aquarius (Ndoo)", "Virgo": "Pisces (Samaki)", "Libra": "Aries (Kondoo)", "Scorpio": "Taurus (Ng'ombe)",
+            "Sagittarius": "Gemini (Mapacha)", "Capricorn": "Cancer (Kaa)", "Aquarius": "Leo (Simba)", "Pisces": "Virgo (Mashuke)"
         };
         return nodes[signName] || "Unknown";
     },
@@ -224,11 +225,11 @@ const Astrology = {
 
     getSoulAge: function (birthDate) {
         const year = new Date(birthDate).getFullYear();
-        if (year > 2010) return "Infant Soul";
-        if (year > 1995) return "Baby Soul";
-        if (year > 1980) return "Young Soul";
-        if (year > 1960) return "Mature Soul";
-        return "Old Soul";
+        if (year > 2010) return "Roho Changa (Infant Soul)";
+        if (year > 1995) return "Roho Mtoto (Baby Soul)";
+        if (year > 1980) return "Roho Kijana (Young Soul)";
+        if (year > 1960) return "Roho Iliyokomaa (Mature Soul)";
+        return "Roho Mzee (Old Soul)";
     }
 };
 
