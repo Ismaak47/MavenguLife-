@@ -821,6 +821,10 @@ const mavenguKnowledgeBase = {
             RealLifeImpact: "The Ujumbe wa Mfumo / Mystic Oracle card profoundly influences an individual's real life by offering direct, personalized guidance that can shift perspectives and inspire action. It brings clarity to decisions, helping to align choices with higher wisdom. It can offer insights into relational dynamics, guiding understanding and empathy. It provides encouragement and direction for work & purpose, particularly when facing uncertainty. It is a potent tool for mental & emotional health, reducing anxiety and fostering a sense of peace and trust in one's path.",
             GuidanceIntegration: "To integrate the wisdom of your Mystic Oracle, you must Receive the Message with an Open Heart and mind, trusting its inherent wisdom. Reflect Deeply on its meaning, allowing it to resonate with your current circumstances and inner knowing. Meditate on the Insight, asking for further clarity or guidance on how to apply it in your life. Finally, Take Inspired Action, allowing the Oracle's wisdom to guide your thoughts, words, and deeds, knowing that alignment with this guidance will accelerate your path to fulfillment."
         }
+    },
+    default: {
+        title: "Uchambuzi wa Mavengu",
+        description: "Taarifa za kina kuhusu kipengele hiki zinatayarishwa. Tafadhali endelea kutumia sehemu nyingine za ripoti."
     }
 };
 
@@ -832,13 +836,21 @@ window.mavenguKnowledgeBase = mavenguKnowledgeBase;
 // =================================================================
 
 function formatStandardReport(data, reportTitle) {
-    // If specific data for a card is not yet in the knowledge base, use the generic default message.
-    if (!data || !data.CoreDefinition || data === mavenguKnowledgeBase.default) {
+    // Robust check for missing data or default fallback
+    const isDefault = data === mavenguKnowledgeBase.default;
+    const isMissingCore = !data || !data.CoreDefinition;
+    
+    if (isDefault || isMissingCore) {
+         const desc = (data && data.description) ? data.description : 
+                     (mavenguKnowledgeBase.default && mavenguKnowledgeBase.default.description) ? mavenguKnowledgeBase.default.description :
+                     "Taarifa hazipo kwa sasa.";
+                     
         return `<div class="report-content" style="text-align: left; line-height: 1.6;">
                     <h3 style="color: var(--accent-color);">Uchambuzi Unakuja Hivi Karibuni</h3>
-                    <p>${mavenguKnowledgeBase.default.description}</p>
+                    <p>${desc}</p>
                 </div>`;
     }
+    
     return `
         <div class="report-content" style="text-align: left; line-height: 1.6;">
             <h3 style="color: var(--accent-color);">Ufafanuzi: ${data.CoreDefinition}</h3>
@@ -849,9 +861,66 @@ function formatStandardReport(data, reportTitle) {
 
 // Helper function to format the 8-point structure
 function formatEightPointReport(data) {
-    if (!data || !data.CoreDefinition) {
+    if (!data) {
         return formatStandardReport(mavenguKnowledgeBase.default, "Missing Card Data");
     }
+
+    // ADAPTER: Handle Legacy Data Structure (e.g. Life Path, Shadow Work)
+    if (!data.CoreDefinition && (data.description || data.issue)) {
+         return `
+            <div class="report-content" style="text-align: left; line-height: 1.6;">
+                <h2 style="text-align: center; color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">
+                    ${data.title || "Uchambuzi wa Kina"}
+                </h2>
+                
+                ${data.description ? `
+                <h3 style="color: var(--accent-color);">1. Ufafanuzi wa Msingi</h3>
+                <p>${data.description}</p>
+                ` : ''}
+
+                ${data.issue ? `
+                <h3 style="color: var(--accent-color);">Changamoto Kuu</h3>
+                <p>${data.issue}</p>
+                ` : ''}
+                
+                ${data.metaphor ? `
+                <h3 style="color: var(--accent-color);">2. Picha ya Kiishara (Metaphor)</h3>
+                <p>${data.metaphor}</p>
+                ` : ''}
+                
+                ${data.strengths ? `
+                <h3 style="color: var(--accent-color);">3. Nguvu Zako</h3>
+                <ul>${Array.isArray(data.strengths) ? data.strengths.map(s => `<li>${s}</li>`).join('') : `<li>${data.strengths}</li>`}</ul>
+                ` : ''}
+
+                ${data.weaknesses ? `
+                <h3 style="color: var(--accent-color);">4. Changamoto Zako</h3>
+                <ul>${Array.isArray(data.weaknesses) ? data.weaknesses.map(w => `<li>${w}</li>`).join('') : `<li>${data.weaknesses}</li>`}</ul>
+                ` : ''}
+
+                ${data.lessons ? `
+                <h3 style="color: var(--accent-color);">5. Somo la Maisha</h3>
+                <p>${data.lessons}</p>
+                ` : ''}
+
+                ${data.guidance ? `
+                <h3 style="color: var(--accent-color);">6. Mwongozo & Ujumuishaji</h3>
+                <p>${data.guidance}</p>
+                ` : ''}
+                
+                 ${data.integration ? `
+                <h3 style="color: var(--accent-color);">Ujumuishaji</h3>
+                <p>${data.integration}</p>
+                ` : ''}
+            </div>
+        `;
+    }
+
+    // Fallback if truly missing CoreDefinition and no legacy data
+    if (!data.CoreDefinition) {
+        return formatStandardReport(mavenguKnowledgeBase.default, "Missing Card Data");
+    }
+
     return `
         <div class="report-content" style="text-align: left; line-height: 1.6;">
             <h2 style="text-align: center; color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">
