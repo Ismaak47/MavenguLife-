@@ -1,4 +1,21 @@
-/* Mavengu AI Chat Engine - Deep Existential & Symbolic Wisdom */
+/* Mavengu AI Chat Engine - Core Diagnostic Intelligence */
+
+/**
+ * MAVENGU AI - The interpreter of the Mavengu diagnostic system
+ * 
+ * This is not a chatbot. This is the core diagnostic intelligence that provides
+ * authoritative, structured explanations of every diagnostic card in the system.
+ * 
+ * Every card explanation follows the mandatory 8-point structure:
+ * 1. Core Definition
+ * 2. Diagnostic Purpose
+ * 3. How the Card Is Derived
+ * 4. What This Card Reveals About the User
+ * 5. Aligned Expression (High State)
+ * 6. Shadow Expression (Low State)
+ * 7. Real-Life Impact
+ * 8. Guidance & Integration
+ */
 
 const AIChat = {
     userProfile: null,
@@ -105,18 +122,66 @@ const AIChat = {
         const p = this.userProfile;
 
         // --- INTENT DETECTION (Domain Mapping) ---
+        // Card-specific queries are checked FIRST to ensure authoritative 8-point explanations
         const domainMap = {
-            // Card-specific queries (check these first)
-            aiConfidenceScore: ['alama ya imani', 'ai confidence', 'confidence score', 'imani ya ai'],
-            frequencyCompatibility: ['utangamano wa masafa', 'frequency compatibility', 'masafa', 'compatibility'],
-            energyDNA: ['nishati dna', 'energy dna', 'dna ya nishati', 'energetic signature'],
-            personalMantra: ['mantra ya binafsi', 'personal mantra', 'mantra', 'affirmation'],
-            soulRank: ['cheo cha roho', 'soul rank', 'rank ya roho', 'spiritual rank'],
-            collectiveRole: ['nafasi ya jamii', 'collective role', 'jukumu la jamii', 'global role'],
-            meditation: ['meditation', 'protokali ya kuongeza nguvu', 'kutafakari', 'meditation protocol'],
-            sunFrequency: ['sun frequency', 'resonance', 'solar frequency', 'frequency yako'],
-            aesthetics: ['aesthetics', 'saini ya kidigitali', 'beauty', 'aesthetic'],
-            mysticOracle: ['mystic oracle', 'ujumbe wa mfumo', 'oracle', 'divine message'],
+            // Advanced Diagnostic Cards (8-point structure available)
+            aiConfidenceScore: ['alama ya imani', 'ai confidence', 'confidence score', 'imani ya ai', 'ai confidence score'],
+            frequencyCompatibility: ['utangamano wa masafa', 'frequency compatibility', 'masafa', 'compatibility', 'frequency'],
+            energyDNA: ['nishati dna', 'energy dna', 'dna ya nishati', 'energetic signature', 'energy signature'],
+            personalMantra: ['mantra ya binafsi', 'personal mantra', 'mantra', 'affirmation', 'my mantra'],
+            soulRank: ['cheo cha roho', 'soul rank', 'rank ya roho', 'spiritual rank', 'soul level'],
+            collectiveRole: ['nafasi ya jamii', 'collective role', 'jukumu la jamii', 'global role', 'my role'],
+            meditation: ['meditation', 'protokali ya kuongeza nguvu', 'kutafakari', 'meditation protocol', 'meditation practice'],
+            sunFrequency: ['sun frequency', 'resonance', 'solar frequency', 'frequency yako', 'my frequency', 'resonance frequency'],
+            aesthetics: ['aesthetics', 'saini ya kidigitali', 'beauty', 'aesthetic', 'aesthetic preference'],
+            mysticOracle: ['mystic oracle', 'ujumbe wa mfumo', 'oracle', 'divine message', 'oracle message'],
+            // Core Numerology Cards
+            lifePath: ['life path', 'processor ya msingi', 'life path number', 'namba ya maisha', 'my life path'],
+            destinyNumber: ['destiny', 'destiny number', 'namba ya hatima', 'my destiny', 'destiny path'],
+            soulUrge: ['soul urge', 'soul urge number', 'tamani ya roho', 'my soul urge', 'heart desire'],
+            personalYear: ['personal year', 'mwaka wa kibinafsi', 'my personal year', 'current year'],
+            // Astrology & Elements
+            shadowWork: ['shadow work', 'sekta iliyojificha', 'shadow', 'my shadow', 'shadow side'],
+            element: ['element', 'element yangu', 'my element', 'fire water earth air', 'moto maji ardhi hewa'],
+            zodiac: ['zodiac', 'nyota', 'astrology', 'sign yangu', 'my sign', 'sun sign'],
+            rulingPlanet: ['ruling planet', 'sayari kiongozi', 'planet yangu', 'my planet'],
+            moonPhase: ['moon phase', 'awamu ya mwezi', 'moon yangu', 'my moon'],
+            // Additional Cards
+            soulMission: ['soul mission', 'kusudi la roho', 'my soul mission', 'mission yangu'],
+            symbolicWisdom: ['symbolic wisdom', 'hekima ya alama', 'symbolic', 'wisdom'],
+            birthDayNumber: ['birth day', 'siku ya kuzaliwa', 'birth day number'],
+            birthStone: ['birth stone', 'jiwe la asili', 'my birth stone'],
+            spiritAnimal: ['spirit animal', 'mnyama wa roho', 'my spirit animal'],
+            balanceNumber: ['balance number', 'namba ya usawa'],
+            passionNumber: ['passion number', 'shauku ya ndani', 'hidden passion'],
+            karmicDebt: ['karmic debt', 'deni la karma', 'karma'],
+            firstChallenge: ['first challenge', 'changamoto ya kwanza'],
+            luckyColor: ['lucky color', 'rangi ya bahati'],
+            luckyDay: ['lucky day', 'siku ya bahati'],
+            tarotCard: ['tarot', 'tarot card', 'kadi ya tarot'],
+            chakra: ['chakra', 'chakra ruler', 'chakra yangu'],
+            chineseZodiac: ['chinese zodiac', 'nyota ya kichina'],
+            pinnacle: ['pinnacle', 'kilele', 'pinnacle cycle'],
+            auraColor: ['aura', 'aura color', 'rangi ya aura'],
+            lifeLesson: ['life lesson', 'somo la maisha'],
+            maturityNumber: ['maturity number', 'namba ya ukomavu'],
+            rationalThought: ['rational thought', 'fikra za kimantiki'],
+            attitudeNumber: ['attitude number', 'namba ya mtazamo'],
+            northNode: ['north node', 'mwelekeo wa roho'],
+            guardianAngel: ['guardian angel', 'malaika mlinzi'],
+            soulAge: ['soul age', 'umri wa roho'],
+            cognitiveStyle: ['cognitive style', 'njia ya ufahamu'],
+            personalityArchetype: ['personality archetype', 'mchoro wa utu'],
+            emotionalCycle: ['emotional cycle', 'mzunguko wa hisia'],
+            careerAlignment: ['career alignment', 'mwelekeo wa kazi'],
+            wealthFlow: ['wealth flow', 'mtiririko wa utajiri'],
+            relationshipDynamics: ['relationship dynamics', 'mienendo ya mahusiano'],
+            pastLifeInfluence: ['past life', 'maisha ya zamani', 'past life influence'],
+            energyBlockage: ['energy blockage', 'kizuizi cha nishati'],
+            lightShadowBalance: ['light shadow balance', 'usawa wa nuru na kivuli'],
+            lifeTimeline: ['life timeline', 'mzunguko wa maisha'],
+            ninetyDayEnergyForecast: ['90 day forecast', 'utabiri wa siku 90'],
+            lunarInfluence: ['lunar influence', 'ushawishi wa mwezi'],
             // General domain queries
             uchawi: ['uchawi', 'kurogwa', 'sihr', 'witchcraft', 'magic', 'majini', 'ndumba', 'kadi yangu ya uchawi'],
             existential: ['kwanini nilikuja', 'soul mission', 'mimi ni nani', 'maana ya maisha', 'kusudi langu', 'lengo la kuwepo'],
@@ -154,14 +219,13 @@ const AIChat = {
         if (detectedDomain) {
             this.lastTopic = detectedDomain;
             
-            // Check if this is a card-specific query that should use the knowledge base
-            const cardDomains = ['aiConfidenceScore', 'frequencyCompatibility', 'energyDNA', 'personalMantra', 
-                                'soulRank', 'collectiveRole', 'meditation', 'sunFrequency', 'aesthetics', 'mysticOracle'];
-            
-            if (cardDomains.includes(detectedDomain)) {
+            // Check if this is a diagnostic card query - ALL cards get authoritative treatment
+            // Cards are identified by their presence in the knowledge base
+            if (window.mavenguKnowledgeBase && window.mavenguKnowledgeBase[detectedDomain]) {
                 return this.getCardKnowledge(detectedDomain);
             }
             
+            // For non-card queries, use the general response system
             return this.constructResponse(detectedDomain);
         }
 
@@ -170,8 +234,14 @@ const AIChat = {
             return "Kama kiongozi wako wa kidijitali, naweza kukusaidia kuona mifumo ya kiroho ya mwili wako, lakini kwa masuala ya kitabibu, ni muhimu sana kuonana na daktari aliyefuzu. Afya yako ni mfumo wa thamani unaohitaji utaalamu wa kisayansi na kiroho kwa pamoja.";
         }
 
-        // Default Fallback (Safe & Wise Tone)
-        return `Umeuliza kuhusu "${input}", jambo ambalo linaweza kuonekana kama sehemu ya frequency yako ya ${p.sunFreq}. Katika mifumo mingi ya maarifa ya kiulimwengu, hakuna kinachotokea bila sababu. Je, ungependa tuchunguze jinsi hili linavyohusiana na Soul Mission yako: **${p.soulMission}**?`;
+        // Default Fallback - Authoritative diagnostic response
+        return `DIAGNOSTIC QUERY ANALYSIS: Your query "${input}" does not match a specific diagnostic card in the Knowledge Base. 
+
+To provide you with an authoritative diagnostic explanation, please specify which diagnostic card you wish to understand. You may reference cards by their name (e.g., "Life Path", "Energy DNA", "Soul Rank") or by asking about specific aspects of your profile.
+
+Your current diagnostic profile indicates a Sun Frequency of ${p.sunFreq} and a Soul Mission of "${p.soulMission}". These are active diagnostic engines in your system.
+
+Which specific diagnostic card would you like me to explain using the complete 8-point structure?`;
     },
 
     constructResponse: function (domain) {
@@ -275,17 +345,63 @@ ${data.step5}
     },
 
     getCardKnowledge: function(cardType) {
-        // Access the global knowledge base
-        if (!window.mavenguKnowledgeBase || !window.mavenguKnowledgeBase[cardType]) {
-            return "Samahani, taarifa za kadi hii bado hazipo katika mfumo. Tafadhali jaribu tena baadaye.";
+        // Access the global knowledge base - this is the authoritative source
+        if (!window.mavenguKnowledgeBase) {
+            return "SYSTEM ERROR: Knowledge Base not initialized. Diagnostic intelligence unavailable.";
         }
 
-        const cardData = window.mavenguKnowledgeBase[cardType].default;
-        if (!cardData || !cardData.CoreDefinition) {
-            return "Samahani, taarifa za kadi hii hazijakamilika. Tafadhali jaribu tena baadaye.";
+        if (!window.mavenguKnowledgeBase[cardType]) {
+            return `DIAGNOSTIC CARD NOT FOUND: The card type "${cardType}" is not present in the Knowledge Base. This may indicate a system configuration issue or the card has not yet been integrated into the diagnostic framework.`;
         }
 
-        // Format the 8-point structure for chat
+        // Retrieve card data - check for 8-point structure first
+        let cardData = null;
+        const cardEntry = window.mavenguKnowledgeBase[cardType];
+        
+        // For cards with 8-point structure (new format)
+        if (cardEntry.default && cardEntry.default.CoreDefinition) {
+            cardData = cardEntry.default;
+        }
+        // For cards with profile-specific data (e.g., lifePath[1], lifePath[2])
+        else if (this.userProfile) {
+            const lookupKey = this.getCardLookupKey(cardType, this.userProfile);
+            if (cardEntry[lookupKey]) {
+                cardData = cardEntry[lookupKey];
+            } else if (cardEntry.default) {
+                cardData = cardEntry.default;
+            }
+        } else if (cardEntry.default) {
+            cardData = cardEntry.default;
+        }
+
+        if (!cardData) {
+            return `INCOMPLETE DATA: The diagnostic card "${cardType}" exists in the Knowledge Base but lacks complete diagnostic information. This card requires additional configuration.`;
+        }
+
+        // If card has full 8-point structure, use it
+        if (cardData.CoreDefinition) {
+            return this.formatEightPointExplanation(cardData);
+        }
+
+        // For cards without 8-point structure, construct authoritative explanation from available data
+        return this.constructAuthoritativeExplanation(cardType, cardData);
+    },
+
+    getCardLookupKey: function(cardType, profile) {
+        // Map card types to profile properties for lookup
+        const lookupMap = {
+            'lifePath': profile.lifePath,
+            'destinyNumber': profile.destiny,
+            'soulUrge': profile.soulUrge,
+            'personalYear': profile.personalYear,
+            'shadowWork': profile.zodiac?.name,
+            'element': profile.zodiac?.element
+        };
+        return lookupMap[cardType] || 'default';
+    },
+
+    formatEightPointExplanation: function(cardData) {
+        // Mandatory 8-point structure - authoritative and comprehensive
         return `
 **${cardData.title}**
 
@@ -298,7 +414,7 @@ ${cardData.DiagnosticPurpose}
 **3. How the Card Is Derived**
 ${cardData.HowDerived}
 
-**4. What This Card Reveals About You**
+**4. What This Card Reveals About the User**
 ${cardData.RevealsAboutUser}
 
 **5. Aligned Expression (High State)**
@@ -312,6 +428,43 @@ ${cardData.RealLifeImpact}
 
 **8. Guidance & Integration**
 ${cardData.GuidanceIntegration}
+        `.trim();
+    },
+
+    constructAuthoritativeExplanation: function(cardType, cardData) {
+        // For cards without full 8-point structure, construct authoritative explanation
+        // This maintains the diagnostic intelligence standard even for legacy cards
+        const title = cardData.title || cardType;
+        const description = cardData.description || cardData.metaphor || 'No description available.';
+        
+        return `
+**${title}**
+
+**1. Core Definition**
+${description}
+
+**2. Diagnostic Purpose**
+This card exists within the Mavengu diagnostic system to measure a specific dimension of your energetic profile. It functions as a diagnostic engine that reveals patterns, tendencies, and energetic signatures unique to your system configuration.
+
+**3. How the Card Is Derived**
+This diagnostic value is calculated through algorithmic analysis of your birth data, numerological patterns, astrological placements, and energetic resonance analysis. The system synthesizes multiple data points to generate this specific diagnostic metric.
+
+**4. What This Card Reveals About the User**
+This card reveals fundamental patterns in your psychological, emotional, behavioral, and spiritual makeup. It illuminates core tendencies, natural inclinations, and energetic signatures that shape your experience of reality and your interactions with the world.
+
+**5. Aligned Expression (High State)**
+When this energy is consciously aligned and operating at its highest expression, you experience clarity, flow, and authentic power. The energy manifests constructively, supporting your growth and enabling you to fulfill your highest potential.
+
+**6. Shadow Expression (Low State)**
+When this energy is blocked, ignored, or operating unconsciously, it manifests as limitation, conflict, or resistance. The same energy that could empower you becomes a source of challenge until it is consciously integrated and aligned.
+
+**7. Real-Life Impact**
+This card influences your decision-making processes, relationship dynamics, career alignment, financial flow, and overall life trajectory. Understanding and working with this energy consciously allows you to optimize these areas of your life.
+
+**8. Guidance & Integration**
+To integrate this energy, you must first acknowledge its presence and function in your system. Study its patterns, observe how it manifests in your daily life, and consciously choose to align your thoughts, emotions, and actions with its highest expression. Regular reflection and intentional practice will deepen your integration of this diagnostic energy.
+
+**NOTE:** This card's diagnostic framework is currently being expanded. A complete 8-point analysis with specific data for your profile will be available in a future system update.
         `.trim();
     }
 };
