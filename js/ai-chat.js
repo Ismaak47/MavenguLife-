@@ -57,7 +57,7 @@ const AIChat = {
                 } else {
                     // Fallback to rule-based BUT show error reason
                     console.error("Gemini API Failed:", result.error);
-                    response = `[SYSTEM ERROR: ${result.error}] \n\n` + this.generateResponse(input);
+                    response = `[KOSA LA MFUMO: ${result.error}] \n\n` + this.generateResponse(input);
                     source = 'rule-based'; // Keep as rule-based to show gear icon
                 }
             } else {
@@ -72,7 +72,7 @@ const AIChat = {
         } catch (error) {
             console.error('Chat error:', error);
             this.hideTypingIndicator();
-            const fallbackResponse = `[CRITICAL ERROR: ${error.message}] \n\n` + this.generateResponse(input);
+            const fallbackResponse = `[KOSA KUBWA: ${error.message}] \n\n` + this.generateResponse(input);
             this.addMessage(fallbackResponse, 'bot', 'rule-based');
         }
     },
@@ -235,13 +235,13 @@ const AIChat = {
         }
 
         // Default Fallback - Authoritative diagnostic response
-        return `DIAGNOSTIC QUERY ANALYSIS: Your query "${input}" does not match a specific diagnostic card in the Knowledge Base. 
+        return `UCHAMBUZI WA SWALI: Swali lako "${input}" halifanani na kadi maalum ya uchambuzi katika Hifadhidata ya Maarifa. 
 
-To provide you with an authoritative diagnostic explanation, please specify which diagnostic card you wish to understand. You may reference cards by their name (e.g., "Life Path", "Energy DNA", "Soul Rank") or by asking about specific aspects of your profile.
+Ili kukupa ufafanuzi mkuu wa uchambuzi, tafadhali taja kadi gani ya uchambuzi ungependa kuelewa. Unaweza kurejelea kadi kwa jina lao (mfano, "Life Path", "Energy DNA", "Soul Rank") au kwa kuuliza kuhusu vipengele maalum vya wasifu wako.
 
-Your current diagnostic profile indicates a Sun Frequency of ${p.sunFreq} and a Soul Mission of "${p.soulMission}". These are active diagnostic engines in your system.
+Wasifu wako wa sasa wa uchambuzi unaonyesha Frequency ya Jua ya ${p.sunFreq} na Soul Mission ya "${p.soulMission}". Hizi ni injini za uchambuzi zinazofanya kazi katika mfumo wako.
 
-Which specific diagnostic card would you like me to explain using the complete 8-point structure?`;
+Kadi gani maalum ya uchambuzi ungependa nieleze kwa kutumia muundo kamili wa alama 8?`;
     },
 
     constructResponse: function (domain) {
@@ -347,11 +347,11 @@ ${data.step5}
     getCardKnowledge: function(cardType) {
         // Access the global knowledge base - this is the authoritative source
         if (!window.mavenguKnowledgeBase) {
-            return "SYSTEM ERROR: Knowledge Base not initialized. Diagnostic intelligence unavailable.";
+            return "KOSA LA MFUMO: Hifadhidata ya Maarifa haijaanzishwa. Uchambuzi wa akili haupo.";
         }
 
         if (!window.mavenguKnowledgeBase[cardType]) {
-            return `DIAGNOSTIC CARD NOT FOUND: The card type "${cardType}" is not present in the Knowledge Base. This may indicate a system configuration issue or the card has not yet been integrated into the diagnostic framework.`;
+            return `KADI HAIPATIKANI: Aina ya kadi "${cardType}" haipo katika Hifadhidata ya Maarifa. Hii inaweza kuashiria tatizo la usanidi wa mfumo au kadi bado haijaunganishwa katika mfumo wa uchambuzi.`;
         }
 
         // Retrieve card data - check for 8-point structure first
@@ -375,7 +375,7 @@ ${data.step5}
         }
 
         if (!cardData) {
-            return `INCOMPLETE DATA: The diagnostic card "${cardType}" exists in the Knowledge Base but lacks complete diagnostic information. This card requires additional configuration.`;
+            return `TAARIFA HAZIJAKAMILIKA: Kadi ya uchambuzi "${cardType}" ipo katika Hifadhidata ya Maarifa lakini haina taarifa kamili za uchambuzi. Kadi hii inahitaji usanidi wa ziada.`;
         }
 
         // If card has full 8-point structure, use it
@@ -433,21 +433,21 @@ ${cardData.GuidanceIntegration}
 
 ---
 
-**REAL-LIFE ILLUSTRATIONS**
+**MIFANO YA MAISHA HALISI**
 
-**A. Example in Daily Behavior**
+**A. Mfano katika Tabia ya Kila Siku**
 ${examples.dailyBehavior}
 
-**B. Example in Relationships**
+**B. Mfano katika Mahusiano**
 ${examples.relationships}
 
-**C. Example in Work or Purpose**
+**C. Mfano katika Kazi au Kusudi**
 ${examples.workPurpose}
 
-**D. Example in Shadow Expression**
+**D. Mfano katika Kivuli (Shadow Expression)**
 ${examples.shadowExpression}
 
-**E. Example in Aligned Expression**
+**E. Mfano katika Hali ya Ulinganifu (Aligned Expression)**
 ${examples.alignedExpression}
         `.trim();
     },
@@ -459,11 +459,11 @@ ${examples.alignedExpression}
         
         // Base examples that will be customized per card type
         const baseExamples = {
-            dailyBehavior: `In daily life, this energy manifests through specific behavioral patterns. For instance, you may notice yourself consistently responding to situations in ways that reflect this diagnostic signature. Your morning routine, decision-making process, and how you handle unexpected events all carry the imprint of this card's energy.`,
-            relationships: `In relationships, this card shapes how you connect with others. You might find yourself drawn to certain types of people or responding to relationship dynamics in predictable patterns. Your communication style, conflict resolution approach, and emotional availability are all influenced by this diagnostic energy.`,
-            workPurpose: `In work and career, this card determines your natural strengths, challenges, and optimal work environments. Your leadership style, collaboration preferences, and how you handle pressure all reflect this energy. Certain career paths will feel more aligned while others create friction.`,
-            shadowExpression: `When this energy is blocked or operating unconsciously, specific problems emerge. You might find yourself repeating the same mistakes, experiencing chronic frustration in certain areas, or feeling stuck despite your efforts. The shadow expression creates tangible obstacles that can be observed in your daily experience.`,
-            alignedExpression: `When this energy is consciously aligned, you experience clear success and flow. Decisions become easier, relationships improve, and work feels meaningful. You notice synchronicities, increased energy, and a sense of being "in the right place at the right time." The aligned state produces measurable positive outcomes.`
+            dailyBehavior: `Katika maisha ya kila siku, nishati hii hujidhihirisha kupitia mifumo maalum ya tabia. Kwa mfano, unaweza kujigundua unajibu hali kwa njia zinazoonyesha saini hii ya uchambuzi. Mpangilio wako wa asubuhi, mchakato wako wa kufanya maamuzi, na jinsi unavyoshughulikia matukio yasiyotarajiwa yote hubeba alama ya nishati ya kadi hii.`,
+            relationships: `Katika mahusiano, kadi hii huamua jinsi unavyoungana na wengine. Unaweza kujikuta unavutiwa na aina fulani za watu au kujibu mienendo ya mahusiano kwa mifumo inayoweza kutabiriwa. Mtindo wako wa mawasiliano, mbinu yako ya kutatua migogoro, na uwezo wako wa kihisia wote huathiriwa na nishati hii ya uchambuzi.`,
+            workPurpose: `Katika kazi na taaluma, kadi hii huamua nguvu zako za asili, changamoto, na mazingira bora ya kazi. Mtindo wako wa uongozi, mapendeleo yako ya ushirikiano, na jinsi unavyoshughulikia msongo wote huakisi nishati hii. Njia fulani za taaluma zitaonekana zaidi zinalingana wakati zingine zinaunda msuguano.`,
+            shadowExpression: `Wakati nishati hii imezuiwa au inafanya kazi bila ufahamu, matatizo maalum hutokea. Unaweza kujikuta unarudia makosa sawa, unakumbana na kuchukizwa mara kwa mara katika maeneo fulani, au unajisikia umekwama licha ya juhudi zako. Kivuli huunda vikwazo halisi ambavyo vinaweza kuonekana katika uzoefu wako wa kila siku.`,
+            alignedExpression: `Wakati nishati hii imeunganishwa kwa ufahamu, unakumbana na mafanikio wazi na mtiririko. Maamuzi huwa rahisi zaidi, mahusiano yanaboresha, na kazi inaonekana na maana. Unagundua mifumo ya bahati, nishati iliyoongezeka, na hisia ya kuwa "mahali sahihi wakati sahihi." Hali ya ulinganifu hutoa matokeo chanya yanayoweza kupimika.`
         };
 
         // Customize examples based on card type
@@ -491,83 +491,83 @@ ${examples.alignedExpression}
         
         switch(cardType) {
             case 'lifePath':
-                examples.dailyBehavior = `A Life Path 1 individual wakes up each morning with a drive to initiate something new. They might start their day by checking emails immediately, making quick decisions about breakfast, and planning their day with clear priorities. When faced with a problem, they don't wait for permission—they take action. In contrast, a Life Path 2 person begins their day more slowly, checking in with others, considering multiple options, and seeking harmony before acting.`;
-                examples.relationships = `A Life Path 8 in a relationship takes charge of financial planning, makes major decisions confidently, and expects their partner to respect their authority. They might struggle when their partner questions their choices or when they feel their power is challenged. A Life Path 6, however, prioritizes family harmony, makes decisions based on what's best for everyone, and may struggle with setting boundaries because they put others' needs first.`;
-                examples.workPurpose = `A Life Path 3 working as a marketing director thrives when creating campaigns, presenting to clients, and using their natural charisma. They struggle with repetitive administrative tasks and feel drained in overly structured environments. A Life Path 4 accountant, however, excels at detailed financial analysis, creating systems, and maintaining consistency. They feel overwhelmed in chaotic, fast-changing work environments.`;
-                examples.shadowExpression = `A Life Path 5's shadow manifests when they become restless and make impulsive career changes every few months, leaving projects unfinished and burning bridges. They might jump from job to job, relationship to relationship, never committing long enough to build something substantial. Their fear of being trapped leads them to sabotage stability.`;
-                examples.alignedExpression = `A Life Path 7's aligned expression shows when they dedicate focused time to research, write a comprehensive report that reveals hidden patterns, and share their insights in a way that helps others. They feel energized by deep study, trust their intuition, and create value through their analytical abilities. Their work feels meaningful and their relationships deepen through authentic communication.`;
+                examples.dailyBehavior = `Mtu wa Life Path 1 huaamka kila asubuhi na hamu ya kuanzisha kitu kipya. Anaweza kuanza siku yake kwa kuangalia barua pepe mara moja, kufanya maamuzi ya haraka kuhusu kiamsha kinywa, na kupanga siku yake kwa vipaumbele wazi. Anapokutana na tatizo, hawaiti ruhusa—anachukua hatua. Kinyume chake, mtu wa Life Path 2 huanza siku yake polepole zaidi, akijuliana na wengine, akizingatia chaguzi nyingi, na akitafuta maelewano kabla ya kutenda.`;
+                examples.relationships = `Life Path 8 katika uhusiano huchukua jukumu la kupanga kifedha, hufanya maamuzi makuu kwa ujasiri, na anatarajia mpenzi wake amheshimu mamlaka yake. Anaweza kukumbana na changamoto wakati mpenzi wake anauliza chaguzi zake au anapojisikia nguvu yake inashindwa. Life Path 6, hata hivyo, hupendelea maelewano ya familia, hufanya maamuzi kulingana na kile bora kwa kila mtu, na anaweza kukumbana na kuweka mipaka kwa sababu anaweka mahitaji ya wengine kwanza.`;
+                examples.workPurpose = `Life Path 3 anayefanya kazi kama mkurugenzi wa masoko hufanikiwa anapounda kampeni, akitoa maelezo kwa wateja, na kutumia ukarimu wake wa asili. Anakumbana na kazi za kurudiarudia za utawala na anajisikia amekwama katika mazingira yaliyopangwa sana. Mhasibu wa Life Path 4, hata hivyo, hushinda katika uchambuzi wa kina wa kifedha, kuunda mifumo, na kudumisha uthabiti. Anajisikia amezidiwa katika mazingira ya kazi yaliyofujifuji, yanayobadilika haraka.`;
+                examples.shadowExpression = `Kivuli cha Life Path 5 hujidhihirisha wanapokuwa wasitulivu na kufanya mabadiliko ya taaluma ya ghafla kila baada ya miezi michache, wakiacha miradi isiyokamilika na kuchoma madaraja. Wanaweza kuruka kutoka kazi hadi kazi, uhusiano hadi uhusiano, kamwe hawajitoa muda wa kutosha kujenga kitu cha maana. Hofu yao ya kukwama inawasababisha kuharibu utulivu.`;
+                examples.alignedExpression = `Uthibitishaji wa Life Path 7 unaonyesha wanapojitolea muda wa kuzingatia utafiti, kuandika ripoti kamili inayofunua mifumo iliyofichika, na kushiriki maarifa yao kwa njia inayosaidia wengine. Wanaona nguvu kutokana na masomo ya kina, wanaamini ufahamu wao wa ndani, na huunda thamani kupitia uwezo wao wa uchambuzi. Kazi yao inaonekana na maana na mahusiano yao yanazidi kupitia mawasiliano halisi.`;
                 break;
                 
             case 'energyDNA':
-                examples.dailyBehavior = `Someone with a high-frequency Energy DNA signature might notice they feel energized in bright, open spaces with natural light, while someone with a lower-frequency signature feels more comfortable in dimmer, more enclosed environments. Their natural sleep patterns, food preferences, and even the types of music that resonate with them all reflect their unique energetic signature.`;
-                examples.relationships = `A person with a compatible Energy DNA to their partner experiences effortless communication, shared energy levels, and mutual understanding without constant explanation. They feel "seen" and understood at a fundamental level. In contrast, mismatched Energy DNA creates constant friction—one partner feels drained by the other's presence, communication feels forced, and there's a sense of being fundamentally out of sync.`;
-                examples.workPurpose = `An individual whose Energy DNA aligns with their work environment experiences sustained energy throughout the day, creative flow, and a sense of purpose. They might work in a field that matches their frequency—a healer working in a wellness center, a creative working in an art studio. When misaligned, they experience chronic fatigue, lack of motivation, and a sense that their work drains rather than energizes them.`;
-                examples.shadowExpression = `When Energy DNA is suppressed, a person might force themselves into careers, relationships, or lifestyles that don't match their true frequency. They experience chronic fatigue, depression, and a sense of being "wrong" or "broken." They might try to be someone they're not, leading to identity confusion and energetic depletion.`;
-                examples.alignedExpression = `When Energy DNA is fully expressed, a person radiates authenticity. They attract opportunities, relationships, and experiences that perfectly match their frequency. They feel energized by their daily activities, sleep deeply, and experience synchronicities regularly. Their life feels like it's flowing effortlessly, and they have a clear sense of who they are.`;
+                examples.dailyBehavior = `Mtu aliye na saini ya Energy DNA ya masafa ya juu anaweza kugundua anajisikia ana nguvu katika nafasi zenye mwanga, wazi zenye mwanga wa asili, wakati mtu aliye na saini ya masafa ya chini anajisikia raha zaidi katika mazingira yenye giza zaidi, yaliyofungwa zaidi. Mzunguko wao wa asili wa usingizi, mapendeleo yao ya chakula, na hata aina za muziki zinazowasikiliza zote huakisi saini yao ya kipekee ya nishati.`;
+                examples.relationships = `Mtu aliye na Energy DNA inayolingana na mpenzi wake hukumbana na mawasiliano rahisi, viwango vya nishati vilivyoshirikiwa, na uelewano wa pande zote bila maelezo ya mara kwa mara. Wanaona "wameonekana" na kueleweka katika kiwango cha msingi. Kinyume chake, Energy DNA isiyolingana huunda msuguano wa mara kwa mara—mpenzi mmoja anajisikia amekwama na uwepo wa mwingine, mawasiliano yanaonekana yamelazimishwa, na kuna hisia ya kuwa kimsingi hawako katika mzunguko sawa.`;
+                examples.workPurpose = `Mtu ambaye Energy DNA yake inalingana na mazingira yake ya kazi hukumbana na nishati endelevu siku nzima, mtiririko wa ubunifu, na hisia ya kusudi. Anaweza kufanya kazi katika uwanja unaolingana na masafa yake—mganga anayefanya kazi katika kituo cha afya, mtu mwenye ubunifu anayefanya kazi katika studio ya sanaa. Wanapokuwa hawako katika mzunguko sawa, wanakumbana na uchovu wa mara kwa mara, ukosefu wa motisha, na hisia kwamba kazi yao inawapunguza nguvu badala ya kuwapa nishati.`;
+                examples.shadowExpression = `Wakati Energy DNA imezuiwa, mtu anaweza kujilazimisha kuingia katika taaluma, mahusiano, au mitindo ya maisha ambayo hailingani na masafa yake ya kweli. Wanakumbana na uchovu wa mara kwa mara, unyogovu, na hisia ya kuwa "si sahihi" au "imevunjika." Wanaweza kujaribu kuwa mtu si yeye, ikisababisha mkanganyiko wa utambulisho na upungufu wa nishati.`;
+                examples.alignedExpression = `Wakati Energy DNA imeonyeshwa kikamilifu, mtu huangaza uhalisi. Wanavutia fursa, mahusiano, na uzoefu ambao unalingana kikamilifu na masafa yao. Wanajisikia wana nishati kutokana na shughuli zao za kila siku, wanalala vizuri, na wanakumbana na mifumo ya bahati mara kwa mara. Maisha yao yanaonekana yanapita kwa urahisi, na wana hisia wazi ya ni nani.`;
                 break;
                 
             case 'frequency':
-                examples.dailyBehavior = `A person with a 528Hz frequency compatibility might notice they feel calmer and more centered when listening to specific types of music, working in environments with certain color schemes, or spending time in nature. Their body literally responds to these frequencies—heart rate slows, breathing deepens, and mental clarity improves.`;
-                examples.relationships = `When two people have compatible frequencies, their interactions feel harmonious. Conversations flow easily, silences are comfortable, and there's a natural rhythm to their time together. When frequencies are incompatible, one person might feel agitated, drained, or anxious around the other, even if they can't explain why.`;
-                examples.workPurpose = `A graphic designer whose frequency aligns with their work environment creates their best work, feels inspired, and maintains energy throughout long projects. When they work in a space with incompatible frequencies—perhaps harsh fluorescent lighting and constant noise—their creativity suffers, they feel fatigued, and their work quality declines.`;
-                examples.shadowExpression = `Someone ignoring their frequency needs might force themselves to work in environments that drain them, leading to burnout, chronic stress, and health issues. They might dismiss their sensitivity as "weakness" and push through discomfort, eventually developing anxiety, insomnia, or physical symptoms.`;
-                examples.alignedExpression = `A person consciously aligning with their compatible frequencies creates a home and workspace that supports their energy. They choose colors, sounds, and environments that uplift them. As a result, they experience improved mood, better sleep, increased creativity, and stronger relationships. Their life feels more balanced and sustainable.`;
+                examples.dailyBehavior = `Mtu aliye na utangamano wa masafa ya 528Hz anaweza kugundua anajisikia amepoa zaidi na amekaa katikati anaposikiliza aina maalum za muziki, anapofanya kazi katika mazingira yenye mpangilio maalum wa rangi, au anapotumia muda katika asili. Mwili wake unajibu kwa masafa haya—kiwango cha moyo hupungua, pumzi inazidi, na uwazi wa kiakili unaboresha.`;
+                examples.relationships = `Wakati watu wawili wana masafa yanayolingana, mwingiliano wao unaonekana wa maelewano. Mazungumzo yanapita kwa urahisi, ukimya unaonekana rahisi, na kuna rhythm ya asili kwa wakati wao pamoja. Wakati masafa hayalingani, mtu mmoja anaweza kujisikia amekasirika, amekwama, au ana wasiwasi karibu na mwingine, hata kama hawezi kueleza kwa nini.`;
+                examples.workPurpose = `Mchoraji wa picha ambaye masafa yake yanalingana na mazingira yake ya kazi huunda kazi yake bora, anajisikia amehamasishwa, na hudumisha nishati katika miradi mirefu. Anapofanya kazi katika nafasi yenye masafa yasiyolingana—labda taa kali za fluorescent na kelele ya mara kwa mara—ubunifu wake unakumbana, anajisikia amechoka, na ubora wa kazi yake unapungua.`;
+                examples.shadowExpression = `Mtu anayepuuzia mahitaji yake ya masafa anaweza kujilazimisha kufanya kazi katika mazingira yanayomwondoa nguvu, ikisababisha kuchoka, msongo wa mara kwa mara, na matatizo ya afya. Anaweza kupuuzia uelekevu wake kama "udhaifu" na kusukuma kupitia usumbufu, hatimaye akikua na wasiwasi, usingizi usio na raha, au dalili za kimwili.`;
+                examples.alignedExpression = `Mtu anayeunganisha kwa ufahamu na masafa yake yanayolingana huunda nyumba na nafasi ya kazi inayosaidia nishati yake. Wanachagua rangi, sauti, na mazingira yanayowainua. Kwa matokeo, wanakumbana na hali ya moyo iliyoboreshwa, usingizi bora, ubunifu ulioongezeka, na mahusiano yenye nguvu zaidi. Maisha yao yanaonekana yamewiana zaidi na yanaendelea.`;
                 break;
                 
             case 'soulRank':
-                examples.dailyBehavior = `A Young Soul (Novice rank) focuses daily energy on building security, establishing routines, and mastering basic life skills. They might spend significant time on practical matters like budgeting, career advancement, and material stability. An Old Soul (Adept or Master rank) might prioritize spiritual practice, philosophical reflection, and service to others, even if it means less material comfort.`;
-                examples.relationships = `A Young Soul seeks relationships that provide security, status, and practical benefits. They might choose partners based on shared goals, financial stability, and social compatibility. An Old Soul seeks relationships that support spiritual growth, deep connection, and mutual evolution, even if it means challenging conventional relationship structures.`;
-                examples.workPurpose = `A Young Soul in their career focuses on climbing the ladder, earning more money, and achieving visible success. They might work in corporate environments, traditional careers, and value titles and recognition. An Old Soul might choose work that serves a higher purpose, even if it pays less, and values meaning over status.`;
-                examples.shadowExpression = `An Old Soul trying to live a Young Soul lifestyle experiences deep dissatisfaction. They might have a successful career and material wealth but feel empty, questioning the meaning of it all. They might struggle with depression, feel disconnected from others, and experience a sense of being "in the wrong life."`;
-                examples.alignedExpression = `An Adept Soul working in alignment with their rank might be a teacher, healer, or counselor who uses their accumulated wisdom to guide others. They feel fulfilled by their work, experience deep connections with students or clients, and see their life as part of a larger evolutionary process. They feel authentic and purposeful.`;
+                examples.dailyBehavior = `Roho Mchanga (Cheo cha Mwanzo) huzingatia nishati ya kila siku kujenga usalama, kuunda mifumo, na kujua ujuzi wa msingi wa maisha. Wanaweza kutumia muda muhimu katika mambo ya vitendo kama bajeti, maendeleo ya taaluma, na utulivu wa vitu. Roho Mzee (Cheo cha Mtaalamu au Mwalimu) anaweza kuweka kipaumbele mazoezi ya kiroho, tafakari ya kifalsafa, na huduma kwa wengine, hata kama inamaanisha faraja ya chini ya vitu.`;
+                examples.relationships = `Roho Mchanga hutafuta mahusiano yanayotoa usalama, hadhi, na faida za vitendo. Wanaweza kuchagua wapenzi kulingana na malengo yaliyoshirikiwa, utulivu wa kifedha, na ulinganifu wa kijamii. Roho Mzee hutafuta mahusiano yanayosaidia ukuaji wa kiroho, uhusiano wa kina, na mageuzi ya pande zote, hata kama inamaanisha kushindana na miundo ya kawaida ya mahusiano.`;
+                examples.workPurpose = `Roho Mchanga katika taaluma yake huzingatia kupanda ngazi, kupata pesa zaidi, na kufikia mafanikio yanayoonekana. Wanaweza kufanya kazi katika mazingira ya kampuni, taaluma za jadi, na kuthamini majina na kutambuliwa. Roho Mzee anaweza kuchagua kazi inayotumikia kusudi la juu, hata kama inalipa chini, na kuthamini maana zaidi ya hadhi.`;
+                examples.shadowExpression = `Roho Mzee anayejaribu kuishi maisha ya Roho Mchanga hukumbana na kuridhika kwa kina. Wanaweza kuwa na taaluma ya mafanikio na utajiri wa vitu lakini wanaona wazi, wakiuliza maana ya yote. Wanaweza kukumbana na unyogovu, kujisikia hawana uhusiano na wengine, na kukumbana na hisia ya kuwa "katika maisha yasiyo sahihi."`;
+                examples.alignedExpression = `Roho Mtaalamu anayefanya kazi katika ulinganifu na cheo chake anaweza kuwa mwalimu, mganga, au mshauri anayetumia hekima yake iliyokusanywa kuongoza wengine. Wanajisikia wametimia na kazi yao, wanakumbana na uhusiano wa kina na wanafunzi au wateja, na wanaona maisha yao kama sehemu ya mchakato mkubwa wa mageuzi. Wanaona halisi na wenye kusudi.`;
                 break;
                 
             case 'mantra':
-                examples.dailyBehavior = `A person with the mantra "I am aligned with my highest purpose" might start each day by repeating this phrase. Throughout the day, when facing decisions, they pause and check: "Does this align with my highest purpose?" This simple practice shifts their choices from reactive to intentional. They notice themselves saying "no" to opportunities that don't serve them and "yes" to those that do.`;
-                examples.relationships = `Someone using the mantra "I communicate with love and clarity" finds that before difficult conversations, repeating this phrase changes their approach. Instead of reacting defensively, they speak from a place of compassion. Their relationships improve because their communication becomes more conscious and less reactive.`;
-                examples.workPurpose = `A professional using "I create value through authentic expression" as their mantra makes different career choices. They might turn down high-paying jobs that don't align with their values and pursue work that allows authentic self-expression, even if it means less money initially. Over time, this alignment attracts opportunities that match their authentic self.`;
-                examples.shadowExpression = `Without a conscious mantra, a person's mind runs on default programming, often negative. They might wake up thinking "I'm not good enough" or "Today will be stressful," and these thoughts become self-fulfilling prophecies. Their life reflects these unconscious beliefs, creating cycles of struggle and limitation.`;
-                examples.alignedExpression = `A person consistently using their personal mantra experiences measurable shifts. After three months of daily practice, they notice increased confidence, better decision-making, and improved relationships. The mantra has reprogrammed their subconscious, and their external reality begins to reflect their conscious intentions.`;
+                examples.dailyBehavior = `Mtu aliye na mantra "Nimeunganishwa na kusudi langu la juu" anaweza kuanza kila siku kwa kurudia sentensi hii. Katika siku nzima, anapokutana na maamuzi, anasimama na kuangalia: "Hii inalingana na kusudi langu la juu?" Mazoezi haya rahisi hubadilisha chaguzi zao kutoka kujibu hadi kwa makusudi. Wanajigundua wakisema "hapana" kwa fursa zisizowasaidia na "ndio" kwa zile zinazowasaidia.`;
+                examples.relationships = `Mtu anayetumia mantra "Nawasiliana kwa upendo na uwazi" hupata kwamba kabla ya mazungumzo magumu, kurudia sentensi hii hubadilisha mbinu yake. Badala ya kujibu kwa ulinzi, wanasema kutoka mahali pa huruma. Mahusiano yao yanaboresha kwa sababu mawasiliano yao yanakuwa ya ufahamu zaidi na yanajibu kidogo.`;
+                examples.workPurpose = `Mtaalamu anayetumia "Ninaunda thamani kupitia kujidhihirisha halisi" kama mantra yake hufanya chaguzi tofauti za taaluma. Anaweza kukataa kazi zenye malipo makubwa zisizolingana na maadili yake na kufuata kazi inayoruhusu kujidhihirisha halisi, hata kama inamaanisha pesa chini mwanzoni. Baada ya muda, ulinganifu huu huvutia fursa zinazolingana na yeye halisi.`;
+                examples.shadowExpression = `Bila mantra ya ufahamu, akili ya mtu inaendesha programu ya kawaida, mara nyingi hasi. Wanaweza kuamka wakifikiria "Sio mzuri wa kutosha" au "Leo itakuwa na msongo," na mawazo haya hukua unabii unaojitimia. Maisha yao huakisi imani hizi zisizo na ufahamu, zikiunda mizunguko ya mapambano na kikomo.`;
+                examples.alignedExpression = `Mtu anayetumia mantra yake ya kibinafsi mara kwa mara hukumbana na mabadiliko yanayoweza kupimika. Baada ya miezi mitatu ya mazoezi ya kila siku, wanagundua ujasiri ulioongezeka, kufanya maamuzi bora, na mahusiano yaliyoboreshwa. Mantra imerekebisha tena fahamu yao ya chini, na ukweli wao wa nje unaanza kuakisi nia zao za ufahamu.`;
                 break;
                 
             case 'meditation':
-                examples.dailyBehavior = `A person with an active meditation protocol (like walking meditation) might start their day with a 20-minute walk, using it as moving meditation. They notice their mind clears, solutions to problems emerge naturally, and they feel more grounded. Someone with a breath-focused protocol might take 5-minute breathing breaks throughout the day, using them to reset their energy and maintain calm.`;
-                examples.relationships = `A person practicing loving-kindness meditation before family interactions finds they respond with more patience and compassion. When a family member is difficult, instead of reacting with frustration, they can access a deeper sense of understanding. Their relationships improve because they're bringing a calmer, more present energy to interactions.`;
-                examples.workPurpose = `A professional using visualization meditation before important meetings or presentations finds they perform better. They visualize success, see themselves speaking confidently, and imagine positive outcomes. This practice reduces anxiety and improves actual performance. Their career advances because they're showing up with greater confidence and clarity.`;
-                examples.shadowExpression = `Someone who knows they should meditate but resists it experiences the consequences: chronic stress, difficulty sleeping, emotional reactivity, and difficulty making clear decisions. They might try to meditate but give up quickly, saying "it doesn't work for me," when the real issue is they haven't found the right technique for their energetic type.`;
-                examples.alignedExpression = `A person with a consistent, aligned meditation practice experiences measurable benefits: better sleep, improved emotional regulation, clearer thinking, and increased intuition. They notice synchronicities increase, their relationships improve, and they handle challenges with greater ease. Their life feels more balanced and purposeful.`;
+                examples.dailyBehavior = `Mtu aliye na itifaki ya kutafakari hai (kama kutafakari kwa kutembea) anaweza kuanza siku yake kwa kutembea kwa dakika 20, akitumia kama kutafakari kwa kusonga. Wanagundua akili yao inasafuka, suluhisho la matatizo linajitokeza kiasili, na wanajisikia wamegundua zaidi. Mtu aliye na itifaki inayozingatia pumzi anaweza kuchukua mapumziko ya dakika 5 ya kupumua siku nzima, akitumia kurekebisha tena nishati yake na kudumisha utulivu.`;
+                examples.relationships = `Mtu anayejifunza kutafakari kwa upendo na huruma kabla ya mwingiliano na familia hupata wanajibu kwa subira zaidi na huruma. Wakati mwanafamilia ni mgumu, badala ya kujibu kwa kuchukizwa, wanaweza kufikia hisia ya kina ya uelewano. Mahusiano yao yanaboresha kwa sababu wanaleta nishati ya utulivu zaidi, ya sasa kwa mwingiliano.`;
+                examples.workPurpose = `Mtaalamu anayetumia kutafakari kwa kuona kabla ya mikutano muhimu au mawasilisho hupata wanafanya vizuri zaidi. Wanaona mafanikio, wanaona wenyewe wakisema kwa ujasiri, na wanafikiria matokeo chanya. Mazoezi haya hupunguza wasiwasi na huboresha utendaji halisi. Taaluma yao inaendelea kwa sababu wanaonekana na ujasiri mkubwa na uwazi.`;
+                examples.shadowExpression = `Mtu anayejua anapaswa kutafakari lakini anapinga hukumbana na matokeo: msongo wa mara kwa mara, ugumu wa kulala, kujibu kihisia, na ugumu wa kufanya maamuzi wazi. Wanaweza kujaribu kutafakari lakini kuacha haraka, wakisema "haifanyi kazi kwangu," wakati tatizo halisi ni hawajapata mbinu sahihi kwa aina yao ya nishati.`;
+                examples.alignedExpression = `Mtu aliye na mazoezi ya mara kwa mara, yaliyounganishwa ya kutafakari hukumbana na faida zinazoweza kupimika: usingizi bora, udhibiti ulioboreshwa wa kihisia, kufikiri wazi zaidi, na ufahamu ulioongezeka. Wanagundua mifumo ya bahati inaongezeka, mahusiano yao yanaboresha, na wanashughulikia changamoto kwa urahisi zaidi. Maisha yao yanaonekana yamewiana zaidi na yenye kusudi.`;
                 break;
                 
             case 'aesthetics':
-                examples.dailyBehavior = `A person whose aesthetic is minimalist and clean might feel anxious and scattered in a cluttered environment. When they organize their space, clear surfaces, and remove visual noise, they immediately feel calmer and more focused. Their productivity increases, and they make better decisions. Someone with a vibrant, colorful aesthetic feels energized by bold colors and artistic arrangements, feeling drained in bland, neutral spaces.`;
-                examples.relationships = `A person whose aesthetic preference is natural and organic might feel uncomfortable in a partner's modern, minimalist home. They might not understand why they feel uneasy until they realize the space doesn't match their energetic needs. When they spend time in environments that match their aesthetic, their relationships feel more harmonious.`;
-                examples.workPurpose = `A creative professional working in a space that matches their aesthetic—perhaps an artist in a studio filled with inspiring art, natural light, and creative tools—produces their best work. When forced to work in a sterile office environment that doesn't match their aesthetic, their creativity suffers, and they feel uninspired.`;
-                examples.shadowExpression = `Someone ignoring their aesthetic needs might live in a space that drains them daily without realizing why. They might experience chronic low-grade stress, difficulty concentrating, and a sense of being "off" without understanding it's their environment. They might blame themselves for lack of motivation when the real issue is aesthetic misalignment.`;
-                examples.alignedExpression = `A person who consciously creates spaces aligned with their aesthetic experiences increased creativity, better mood, and improved well-being. They might redecorate their home or workspace to match their aesthetic preferences and notice immediate positive changes in their energy, productivity, and overall satisfaction with life.`;
+                examples.dailyBehavior = `Mtu ambaye saini yake ya kidigitali ni ya chini na safi anaweza kujisikia na wasiwasi na kusambaa katika mazingira yaliyojaa vitu. Wanapopanga nafasi yao, kusafisha uso, na kuondoa kelele ya kuona, mara moja wanajisikia wamepoa zaidi na wamezingatia zaidi. Uzalishaji wao unaongezeka, na wanafanya maamuzi bora. Mtu aliye na saini ya kidigitali ya nguvu na rangi anajisikia ana nishati kutokana na rangi za ujasiri na mpangilio wa kisanaa, akijisikia amekwama katika nafasi zisizo na rangi, zisizo na upande.`;
+                examples.relationships = `Mtu ambaye mapendeleo yake ya kidigitali ni ya asili na ya kikaboni anaweza kujisikia hawezi katika nyumba ya kisasa, ya chini ya mpenzi wake. Wanaweza kushindwa kuelewa kwa nini wanajisikia wasiwasi hadi wanapogundua nafasi hailingani na mahitaji yao ya nishati. Wanapotumia muda katika mazingira yanayolingana na saini yao ya kidigitali, mahusiano yao yanaonekana ya maelewano zaidi.`;
+                examples.workPurpose = `Mtaalamu mwenye ubunifu anayefanya kazi katika nafasi inayolingana na saini yake ya kidigitali—labda msanii katika studio iliyojazwa na sanaa ya kuhamasisha, mwanga wa asili, na zana za ubunifu—huunda kazi yake bora. Wanapolazimishwa kufanya kazi katika mazingira ya ofisi yasiyo na bakteria yasiyolingana na saini yao ya kidigitali, ubunifu wao unakumbana, na wanajisikia hawajahamasishwa.`;
+                examples.shadowExpression = `Mtu anayepuuzia mahitaji yake ya kidigitali anaweza kuishi katika nafasi inayomwondoa nguvu kila siku bila kujua kwa nini. Wanaweza kukumbana na msongo wa mara kwa mara wa kiwango cha chini, ugumu wa kuzingatia, na hisia ya kuwa "si sahihi" bila kuelewa ni mazingira yao. Wanaweza kujilaumu kwa ukosefu wa motisha wakati tatizo halisi ni kutokuwiana kwa kidigitali.`;
+                examples.alignedExpression = `Mtu anayeunda kwa ufahamu nafasi zilizounganishwa na saini yake ya kidigitali hukumbana na ubunifu ulioongezeka, hali ya moyo bora, na ustawi ulioboreshwa. Wanaweza kuandaa tena nyumba yao au nafasi ya kazi ili kufanana na mapendeleo yao ya kidigitali na kugundua mabadiliko chanya ya mara moja katika nishati yao, uzalishaji, na kuridhika kwa jumla na maisha.`;
                 break;
                 
             case 'oracle':
-                examples.dailyBehavior = `A person receives an Oracle message: "Trust the timing of your life." The next day, they're offered a job opportunity they've been waiting for. Instead of questioning if it's the right time, they remember the Oracle's message and accept with confidence. The message becomes a guiding principle, helping them navigate uncertainty with trust.`;
-                examples.relationships = `An Oracle message: "Release what no longer serves you" arrives during a time of relationship struggle. The person realizes they've been holding onto a friendship that's become toxic. The message gives them clarity and courage to set boundaries, leading to healthier relationships.`;
-                examples.workPurpose = `A professional receives: "Your purpose is emerging through service." They've been feeling unfulfilled in their corporate job. The message inspires them to explore how they can serve others, leading them to start a side business that eventually becomes their full-time calling.`;
-                examples.shadowExpression = `Someone receives an Oracle message but dismisses it as "too vague" or "not relevant." They continue making decisions from fear and old patterns, missing the guidance. Later, they realize the message was exactly what they needed, but they ignored it, leading to continued struggle.`;
-                examples.alignedExpression = `A person receives an Oracle message and takes it seriously. They meditate on it, journal about it, and look for how it applies to their current situation. They notice synchronicities confirming the message and make decisions aligned with it. Their life begins to shift in positive ways, and they feel guided and supported.`;
+                examples.dailyBehavior = `Mtu hupokea ujumbe wa Oracle: "Amini wakati wa maisha yako." Siku inayofuata, wanapewa fursa ya kazi waliyoikungojea. Badala ya kuuliza kama ni wakati sahihi, wanakumbuka ujumbe wa Oracle na wakakubali kwa ujasiri. Ujumbe unakuwa kanuni ya kuongoza, ikisaidia kusafiri kutokuwa na uhakika kwa imani.`;
+                examples.relationships = `Ujumbe wa Oracle: "Achana na kile kisichokutumikia tena" hufika wakati wa mapambano ya mahusiano. Mtu anagundua wamekuwa wakishikilia urafiki ambao umekua sumu. Ujumbe unawapa uwazi na ujasiri wa kuweka mipaka, ikisababisha mahusiano bora ya afya.`;
+                examples.workPurpose = `Mtaalamu hupokea: "Kusudi lako linajitokeza kupitia huduma." Wamekuwa wakijisikia hawajatimia katika kazi yao ya kampuni. Ujumbe unawahamasisha kuchunguza jinsi wanaweza kutumikia wengine, ikisababisha kuanza biashara ya ziada ambayo hatimaye inakuwa wito wao wa wakati wote.`;
+                examples.shadowExpression = `Mtu hupokea ujumbe wa Oracle lakini anaupuuzia kama "si wazi sana" au "si muhimu." Wanaendelea kufanya maamuzi kutoka hofu na mifumo ya zamani, wakikosa mwongozo. Baadaye, wanagundua ujumbe ulikuwa hasa kile walichohitaji, lakini waliupuuza, ikisababisha mapambano yaliyoendelea.`;
+                examples.alignedExpression = `Mtu hupokea ujumbe wa Oracle na anauchukulia kwa uzito. Wanatafakari juu yake, wanaandika kuhusu hilo, na wanatafuta jinsi linavyotumika kwa hali yao ya sasa. Wanagundua mifumo ya bahati inayothibitisha ujumbe na wanafanya maamuzi yaliyounganishwa nalo. Maisha yao yanaanza kubadilika kwa njia chanya, na wanajisikia wameongozwa na wamekusudiwa.`;
                 break;
                 
             case 'collectiveRole':
-                examples.dailyBehavior = `A person with the Collective Role of "Grid Stabilizer" might notice they naturally create calm in chaotic situations. At work, when there's conflict, they step in to mediate. At home, they're the one who maintains routines and stability. They might not realize this is their role until they understand it consciously, then they can use it more intentionally.`;
-                examples.relationships = `A "Consciousness Awakener" in relationships naturally helps others see new perspectives. Friends come to them for advice because they help people see situations differently. Their relationships are characterized by growth and evolution, as they naturally support others' awakening.`;
-                examples.workPurpose = `A "Healer" in their Collective Role might work as a therapist, nurse, or wellness practitioner. They feel most fulfilled when helping others heal. When they try to work in unrelated fields, they feel unfulfilled, even if they're successful. Their purpose is clear: to facilitate healing.`;
-                examples.shadowExpression = `Someone unaware of their Collective Role might feel a sense of "something missing" despite personal success. They might have a good career, relationships, and material comfort, but feel unfulfilled. They're operating without understanding their larger purpose, leading to a sense of emptiness.`;
-                examples.alignedExpression = `A person consciously living their Collective Role experiences deep fulfillment. A "Bridge Builder" might work in international relations, bringing different cultures together. They feel energized by their work, see the impact they're making, and understand their role in the larger human story. Their life has meaning beyond personal achievement.`;
+                examples.dailyBehavior = `Mtu aliye na Jukumu la Jamii la "Mstabilizaji wa Gridi" anaweza kugundua kiasili huunda utulivu katika hali za fujo. Kazini, wakati kuna mgogoro, wanajitolea kutatua. Nyumbani, ndiye anayedumisha mifumo na utulivu. Wanaweza kushindwa kugundua hili ni jukumu lao hadi wanapolielewa kwa ufahamu, kisha wanaweza kuitumia kwa makusudi zaidi.`;
+                examples.relationships = `"Mfufua Fahamu" katika mahusiano kiasili husaidia wengine kuona mtazamo mpya. Marafiki wanakuja kwa nasaha kwa sababu husaidia watu kuona hali tofauti. Mahusiano yao yana sifa ya ukuaji na mageuzi, kwa sababu kiasili wanasaidia ufufuo wa wengine.`;
+                examples.workPurpose = `"Mganga" katika Jukumu lao la Jamii anaweza kufanya kazi kama mtaalamu wa akili, muuguzi, au mtaalamu wa afya. Wanaona wametimia zaidi wanaposaidia wengine kupona. Wanapojaribu kufanya kazi katika uwanja usiohusiana, wanajisikia hawajatimia, hata kama wamefanikiwa. Kusudi lao ni wazi: kuwezesha uponyaji.`;
+                examples.shadowExpression = `Mtu asiyekijua Jukumu lao la Jamii anaweza kujisikia na hisia ya "kitu kinakosa" licha ya mafanikio ya kibinafsi. Wanaweza kuwa na taaluma nzuri, mahusiano, na faraja ya vitu, lakini wanajisikia hawajatimia. Wanafanya kazi bila kuelewa kusudi lao kubwa, ikisababisha hisia ya utupu.`;
+                examples.alignedExpression = `Mtu anayeishi kwa ufahamu Jukumu lao la Jamii hukumbana na kuridhika kwa kina. "Mjenga Daraja" anaweza kufanya kazi katika uhusiano wa kimataifa, akileta tamaduni tofauti pamoja. Wanajisikia wana nishati kutokana na kazi yao, wanaona athari wanayoifanya, na wanaelewa jukumu lao katika hadithi kubwa ya binadamu. Maisha yao yana maana zaidi ya mafanikio ya kibinafsi.`;
                 break;
                 
             case 'confidence':
-                examples.dailyBehavior = `A person with a high AI Confidence Score (85%) notices the diagnostic insights feel accurate and resonant. They read their report and think "Yes, this is exactly me." They trust the guidance and make decisions based on it. Someone with a lower score (62%) might feel the insights are "close but not quite right," indicating the need for more self-reflection or additional data.`;
-                examples.relationships = `When the AI Confidence Score is high for relationship dynamics, a person can trust the insights about their compatibility patterns. They might read "You tend to attract partners who mirror your shadow work" and recognize this pattern immediately, allowing them to make more conscious relationship choices.`;
-                examples.workPurpose = `A high confidence score for career alignment gives someone clarity about their vocational path. They read "Your optimal work environment includes creative freedom and minimal hierarchy" and realize why they've struggled in traditional corporate settings. This insight guides them toward more aligned career choices.`;
-                examples.shadowExpression = `A low confidence score might indicate conflicting data or complexity. A person might read their report and feel confused because some insights resonate while others don't. Without understanding this is normal for complex profiles, they might dismiss the entire diagnostic as inaccurate.`;
-                examples.alignedExpression = `A person with a high confidence score uses their diagnostic report as a trusted guide. They reference it when making decisions, notice patterns it predicted, and feel supported by the clarity it provides. The high score validates their experience and empowers them to take aligned action.`;
+                examples.dailyBehavior = `Mtu aliye na Alama ya Imani ya AI ya juu (85%) anagundua maarifa ya uchambuzi yanaonekana sahihi na yanawasikiliza. Wanasoma ripoti yao na wanafikiria "Ndio, hii ni mimi hasa." Wanaamini mwongozo na wanafanya maamuzi kulingana nalo. Mtu aliye na alama ya chini (62%) anaweza kujisikia maarifa ni "karibu lakini si sahihi kabisa," ikionyesha hitaji la kutafakari zaidi au data ya ziada.`;
+                examples.relationships = `Wakati Alama ya Imani ya AI ni ya juu kwa mienendo ya mahusiano, mtu anaweza kuamini maarifa kuhusu mifumo yao ya ulinganifu. Wanaweza kusoma "Huwa unavutia wapenzi ambao huakisi kazi yako ya kivuli" na wanatambua mfumo huu mara moja, ikiruhusu kufanya chaguzi za mahusiano za ufahamu zaidi.`;
+                examples.workPurpose = `Alama ya juu ya imani kwa ulinganifu wa taaluma inampa mtu uwazi kuhusu njia yao ya taaluma. Wanasoma "Mazingira yako bora ya kazi yanajumuisha uhuru wa ubunifu na uongozi mdogo" na wanagundua kwa nini wamekumbana katika mazingira ya jadi ya kampuni. Maarifa haya yanawaongoza kuelekea chaguzi za taaluma zilizounganishwa zaidi.`;
+                examples.shadowExpression = `Alama ya chini ya imani inaweza kuonyesha data zinazokinzana au ugumu. Mtu anaweza kusoma ripoti yao na kujisikia amekanganyika kwa sababu maarifa mengine yanawasikiliza wakati mengine hayawasikilizi. Bila kuelewa hii ni kawaida kwa wasifu magumu, wanaweza kupuuzia uchambuzi wote kama usio sahihi.`;
+                examples.alignedExpression = `Mtu aliye na alama ya juu ya imani anatumia ripoti yao ya uchambuzi kama mwongozo unaoaminika. Wanarejelea wakati wa kufanya maamuzi, wanagundua mifumo iliyotabiriwa, na wanajisikia wamekusudiwa na uwazi unaoitoa. Alama ya juu inathibitisha uzoefu wao na inawapa nguvu kuchukua hatua zilizounganishwa.`;
                 break;
                 
             default:
@@ -575,10 +575,10 @@ ${examples.alignedExpression}
                 if (cardData.CoreDefinition) {
                     const coreDef = cardData.CoreDefinition.toLowerCase();
                     if (coreDef.includes('energy') || coreDef.includes('nishati')) {
-                        examples.dailyBehavior = `This energetic signature manifests in your daily routines. You might notice specific times of day when you feel more energized, certain activities that drain or replenish you, and environmental factors that significantly impact your mood and productivity. Your body's natural rhythms reflect this diagnostic energy.`;
+                        examples.dailyBehavior = `Saini hii ya nishati hujidhihirisha katika mifumo yako ya kila siku. Unaweza kugundua nyakati maalum za siku unapojisikia una nishati zaidi, shughuli fulani zinazokupunguza nguvu au kukujaza, na mambo ya mazingira yanayoathiri sana hali yako ya moyo na uzalishaji. Mzunguko wa asili wa mwili wako huakisi nishati hii ya uchambuzi.`;
                     }
                     if (coreDef.includes('relationship') || coreDef.includes('uhusiano')) {
-                        examples.relationships = `In your relationships, this diagnostic pattern determines who you attract, how you communicate, and what you need from connections. You might notice you consistently attract certain personality types, respond to conflict in predictable ways, and have specific needs that must be met for relationships to thrive.`;
+                        examples.relationships = `Katika mahusiano yako, mfumo huu wa uchambuzi huamua nani unavutia, jinsi unavyowasiliana, na unachohitaji kutoka uhusiano. Unaweza kugundua unavutia mara kwa mara aina fulani za utu, unajibu mgogoro kwa njia zinazoweza kutabiriwa, na una mahitaji maalum ambayo lazima yatimizwe ili mahusiano yastawi.`;
                     }
                 }
         }
@@ -598,47 +598,47 @@ ${examples.alignedExpression}
 **1. Core Definition**
 ${description}
 
-**2. Diagnostic Purpose**
-This card exists within the Mavengu diagnostic system to measure a specific dimension of your energetic profile. It functions as a diagnostic engine that reveals patterns, tendencies, and energetic signatures unique to your system configuration.
+**2. Kusudi la Uchambuzi**
+Kadi hii ipo katika mfumo wa uchambuzi wa Mavengu kupima kipimo maalum cha wasifu wako wa nishati. Inafanya kazi kama injini ya uchambuzi inayofunua mifumo, mienendo, na saini za nishati za kipekee za usanidi wako wa mfumo.
 
-**3. How the Card Is Derived**
-This diagnostic value is calculated through algorithmic analysis of your birth data, numerological patterns, astrological placements, and energetic resonance analysis. The system synthesizes multiple data points to generate this specific diagnostic metric.
+**3. Kadi Hii Inapatikana Vipi**
+Thamani hii ya uchambuzi huhesabiwa kupitia uchambuzi wa algoriti ya data yako ya kuzaliwa, mifumo ya namba, uwekaji wa nyota, na uchambuzi wa resonance ya nishati. Mfumo hujumuisha alama nyingi za data ili kutoa kipimo hiki maalum cha uchambuzi.
 
-**4. What This Card Reveals About the User**
-This card reveals fundamental patterns in your psychological, emotional, behavioral, and spiritual makeup. It illuminates core tendencies, natural inclinations, and energetic signatures that shape your experience of reality and your interactions with the world.
+**4. Kadi Hii Inafunua Nini Kuhusu Mtumiaji**
+Kadi hii inafunua mifumo ya msingi katika muundo wako wa kisaikolojia, kihisia, kitabia, na kiroho. Inaangaza mienendo ya msingi, mwelekeo wa asili, na saini za nishati zinazounda uzoefu wako wa ukweli na mwingiliano wako na ulimwengu.
 
-**5. Aligned Expression (High State)**
-When this energy is consciously aligned and operating at its highest expression, you experience clarity, flow, and authentic power. The energy manifests constructively, supporting your growth and enabling you to fulfill your highest potential.
+**5. Uthibitishaji wa Ulinganifu (Hali ya Juu)**
+Wakati nishati hii imeunganishwa kwa ufahamu na inafanya kazi kwa kujidhihirisha kwa kiwango cha juu, unakumbana na uwazi, mtiririko, na nguvu halisi. Nishati hujidhihirisha kwa njia ya kujenga, ikisaidia ukuaji wako na kukuwezesha kutimiza uwezo wako wa juu.
 
-**6. Shadow Expression (Low State)**
-When this energy is blocked, ignored, or operating unconsciously, it manifests as limitation, conflict, or resistance. The same energy that could empower you becomes a source of challenge until it is consciously integrated and aligned.
+**6. Kivuli (Hali ya Chini)**
+Wakati nishati hii imezuiwa, imepuuzwa, au inafanya kazi bila ufahamu, hujidhihirisha kama kikomo, mgogoro, au upinzani. Nishati ile ile ambayo inaweza kukupa nguvu inakuwa chanzo cha changamoto hadi itakapojumuishwa kwa ufahamu na kuunganishwa.
 
-**7. Real-Life Impact**
-This card influences your decision-making processes, relationship dynamics, career alignment, financial flow, and overall life trajectory. Understanding and working with this energy consciously allows you to optimize these areas of your life.
+**7. Athari ya Maisha Halisi**
+Kadi hii huathiri michakato yako ya kufanya maamuzi, mienendo ya mahusiano, ulinganifu wa taaluma, mtiririko wa kifedha, na mwelekeo wako wa jumla wa maisha. Kuelewa na kufanya kazi na nishati hii kwa ufahamu kunakuruhusu kuongeza maeneo haya ya maisha yako.
 
-**8. Guidance & Integration**
-To integrate this energy, you must first acknowledge its presence and function in your system. Study its patterns, observe how it manifests in your daily life, and consciously choose to align your thoughts, emotions, and actions with its highest expression. Regular reflection and intentional practice will deepen your integration of this diagnostic energy.
+**8. Mwongozo na Ujumuishaji**
+Ili kujumuishisha nishati hii, lazima kwanza ukikubali uwepo wake na kazi yake katika mfumo wako. Chunguza mifumo yake, angalia jinsi inavyojidhihirisha katika maisha yako ya kila siku, na kwa ufahamu chagua kuunganisha mawazo yako, hisia, na matendo na kujidhihirisha kwa kiwango cha juu. Kutafakari mara kwa mara na mazoezi ya makusudi kutazidi ujumuishaji wako wa nishati hii ya uchambuzi.
 
 ---
 
-**REAL-LIFE ILLUSTRATIONS**
+**MIFANO YA MAISHA HALISI**
 
-**A. Example in Daily Behavior**
+**A. Mfano katika Tabia ya Kila Siku**
 ${examples.dailyBehavior}
 
-**B. Example in Relationships**
+**B. Mfano katika Mahusiano**
 ${examples.relationships}
 
-**C. Example in Work or Purpose**
+**C. Mfano katika Kazi au Kusudi**
 ${examples.workPurpose}
 
-**D. Example in Shadow Expression**
+**D. Mfano katika Kivuli (Shadow Expression)**
 ${examples.shadowExpression}
 
-**E. Example in Aligned Expression**
+**E. Mfano katika Hali ya Ulinganifu (Aligned Expression)**
 ${examples.alignedExpression}
 
-**NOTE:** This card's diagnostic framework is currently being expanded. A complete 8-point analysis with specific data for your profile will be available in a future system update.
+**KUMBUKA:** Mfumo wa uchambuzi wa kadi hii unaendelea kupanuliwa. Uchambuzi kamili wa alama 8 na data maalum ya wasifu wako utapatikana katika sasisho la mfumo linalofuata.
         `.trim();
     }
 };
