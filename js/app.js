@@ -249,9 +249,19 @@ function renderDashboard(profile) {
     document.getElementById('maturity-number').textContent = profile.maturityNumber;
     document.getElementById('rational-thought').textContent = profile.rationalThought;
     document.getElementById('attitude-number').textContent = profile.attitudeNumber;
-    document.getElementById('north-node').textContent = profile.northNode.toUpperCase();
-    document.getElementById('guardian-angel').textContent = profile.guardianAngel.toUpperCase();
-    document.getElementById('soul-age').textContent = profile.soulAge.toUpperCase();
+    const northNodeElement = document.getElementById('north-node');
+    if (northNodeElement) { // Check if element exists before setting content
+        northNodeElement.textContent = profile.northNode.toUpperCase();
+    }
+    const guardianAngelElement = document.getElementById('guardian-angel');
+    if (guardianAngelElement) { // Check if element exists before setting content
+        guardianAngelElement.textContent = profile.guardianAngel.toUpperCase();
+    }
+    const soulAgeElement = document.getElementById('soul-age');
+    if (soulAgeElement) { // Check if element exists before setting content
+        soulAgeElement.textContent = profile.soulAge.toUpperCase();
+    }
+
 
     // Detailed Analysis
     const analysisDiv = document.getElementById('detailed-analysis');
@@ -300,7 +310,7 @@ function renderDashboard(profile) {
 
     // Advanced Metaphysics Triggers
     setupModalTrigger('karmic-debt', `KARMIC DEBT: ${profile.karmicDebt}`, `Nina deni la karma namba ${profile.karmicDebt}. Hii inamaanisha nini kuhusu maisha yangu ya zamani na changamoto za sasa?`, profile);
-    setupModalTrigger('first-challenge', `FIRST CHALLENGE: ${profile.firstChallenge}`, `Changamoto yangu ya kwanza ni namba ${profile.firstChallenge}. Hii inanifundisha nini katika kipindi hiki cha maisha?`, profile);
+    setupModalTrigger('first-challenge', `FIRST CHALLENGE: ${profile.firstChallenge}`, `Changamoto yangu ya kwanza ni namba ${profile.first-challenge}. Hii inanifundisha nini katika kipindi hiki cha maisha?`, profile);
     setupModalTrigger('lucky-color', `LUCKY COLOR: ${profile.luckyColor}`, `Rangi yangu ya bahati ni ${profile.luckyColor}. Nitumieje rangi hii kuongeza nishati yangu?`, profile);
     setupModalTrigger('lucky-day', `LUCKY DAY: ${profile.luckyDay}`, `Siku yangu ya bahati ni ${profile.luckyDay}. Ni mambo gani mazuri ya kufanya siku hii?`, profile);
     setupModalTrigger('tarot-card', `TAROT ARCHETYPE: ${profile.tarotCard}`, `Kadi yangu ya Tarot ni ${profile.tarotCard}. Hii inaashiria nini kuhusu safari yangu ya roho?`, profile);
@@ -350,15 +360,15 @@ const mavenguKnowledgeBase = {
         33: { title: "The Master Teacher", metaphor: "The Global Healing Network", description: "A Master Path. You are the embodiment of unconditional love, here to heal and uplift humanity through your joyful and compassionate presence.", strengths: ["Source of unconditional love", "An inspiring teacher", "Joyful in service"], weaknesses: ["Burdened by world suffering", "Neglects own needs"], lessons: "To embody love without attachment to the outcome; your presence itself is a healing force.", guidance: "Focus on raising your own joy. Your healing power is directly proportional to your personal vibration. Shine brightly." }
     },
     destinyNumber: {
-        1: { title: "Destiny: The Leader", description: "Your destiny is to lead, innovate, and pioneer. You are meant to be at the forefront, establishing new paradigms and inspiring others with your courage and originality. Your path is one of developing independence and self-reliance." },
-        2: { title: "Destiny: The Diplomat", description: "Your destiny is to create harmony, balance, and cooperation. You are a natural peacemaker, meant to build bridges between people through your sensitivity, intuition, and tact. Your path is one of partnership and patience." },
-        3: { title: "Destiny: The Communicator", description: "Your destiny is to express yourself with joy, creativity, and inspiration. You are meant to uplift others through the power of your words, art, and charismatic presence. Your path is one of authentic self-expression." },
-        4: { title: "Destiny: The Builder", description: "Your destiny is to create lasting value through hard work, discipline, and structure. You are the bedrock of society, meant to build secure foundations for yourself and others. Your path is one of dedication and process." },
-        5: { title: "Destiny: The Adventurer", description: "Your destiny is to experience freedom and embrace change. You are meant to be a catalyst for progress, exploring the world and inspiring others to live more fully. Your path is one of versatile adaptation and curiosity." },
-        6: { title: "Destiny: The Nurturer", description: "Your destiny is to serve and heal through responsibility and compassion. You are a beacon of love for your family and community, meant to create beauty and harmony. Your path is one of selfless service and guidance." },
-        7: { title: "Destiny: The Seeker", description: "Your destiny is to uncover and share deep truths. You are a philosopher and analyst, meant to look beneath the surface and connect the spiritual with the intellectual. Your path is one of wisdom and introspection." },
-        8: { title: "Destiny: The Executive", description: "Your destiny is to master the material world and achieve great things. You are a powerhouse of ambition and strategy, meant to wield power and abundance for a greater good. Your path is one of self-mastery and authority." },
-        9: { title: "Destiny: The Humanitarian", description: "Your destiny is to serve humanity with wisdom and compassion. You are a global citizen, meant to inspire and uplift others from a place of universal love and understanding. Your path is one of selfless giving and completion." }
+        1: { title: "Destiny: The Leader", description: "Your destiny is to lead, innovate, and pioneer, developing independence and self-reliance." },
+        2: { title: "Destiny: The Diplomat", description: "Your destiny is to create harmony, balance, and cooperation, a path of partnership and patience." },
+        3: { title: "Destiny: The Communicator", description: "Your destiny is to express yourself with joy and creativity, uplifting others with your words and art." },
+        4: { title: "Destiny: The Builder", description: "Your destiny is to create lasting value through hard work, discipline, and building secure foundations." },
+        5: { title: "Destiny: The Adventurer", description: "Your destiny is to experience freedom, embrace change, and act as a catalyst for progress." },
+        6: { title: "Destiny: The Nurturer", description: "Your destiny is to serve and heal your family and community through responsibility and compassion." },
+        7: { title: "Destiny: The Seeker", description: "Your destiny is to uncover deep truths, connecting the spiritual with the intellectual." },
+        8: { title: "Destiny: The Executive", description: "Your destiny is to master the material world, wielding power and abundance for a greater good." },
+        9: { title: "Destiny: The Humanitarian", description: "Your destiny is to serve humanity with wisdom and compassion, inspiring and uplifting others with universal love." }
     },
     soulUrge: {
         1: { title: "Soul's Urge: To Lead and Be Independent", description: "Your soul deeply craves to be #1. It yearns for independence, originality, and the freedom to lead. You feel most alive when you are pioneering a new path and relying on your own strength." },
@@ -470,13 +480,71 @@ const mavenguKnowledgeBase = {
         default: { title: "Namba ya Mtazamo", description: "Namba yako ya Mtazamo inaakisi hisia zako za kwanza na jinsi watu wengine wanavyokuona. Ni 'uso' wako wa nje, ukionyesha jinsi unavyojitambulisha kwa ulimwengu kabla ya undani wako kujulikana." }
     },
     northNode: {
-        default: { title: "North Node", description: "North Node yako inaashiria njia ya ukuaji wa roho yako na masomo muhimu unayopaswa kujifunza katika maisha haya. Inaonyesha kusudi lako la juu na wapi unapaswa kuelekeza nishati yako kwa utimilifu." }
+        default: { title: "Mwelekeo wa Roho", description: "North Node yako inaashiria njia ya ukuaji wa roho yako na masomo muhimu unayopaswa kujifunza katika maisha haya. Inaonyesha kusudi lako la juu na wapi unapaswa kuelekeza nishati yako kwa utimilifu." }
     },
     guardianAngel: {
         default: { title: "Malaika Mlinzi", description: "Malaika wako Mlinzi ni kiumbe wa kiroho anayekulinda, kukuongoza, na kukusaidia katika safari yako ya maisha. Yupo kukupa faraja, nguvu, na hekima wakati unapoihitaji zaidi." }
     },
     soulAge: {
         default: { title: "Umri wa Roho", description: "Umri wa Roho yako unaashiria kiwango cha ukuaji wa roho yako na uzoefu wake katika maisha mbalimbali. Inaonyesha hekima yako ya ndani na jinsi unavyoelewa ulimwengu na masomo yake." }
+    },
+    rulingPlanet: {
+        default: { title: "Sayari Kiongozi", description: "Sayari yako kiongozi inaathiri pakubwa utu wako, tabia zako, na jinsi unavyoingiliana na ulimwengu. Ni nguvu ya ulimwengu inayokuongoza, ikionyesha vipaji vyako vya asili na changamoto zako." }
+    },
+    // New cards' default entries (as they would be in mavenguKnowledgeBase)
+    cognitiveStyle: {
+        default: { title: "Njia ya Ufahamu (Cognitive Style)", description: "Njia yako ya Ufahamu inaonyesha jinsi unavyochakata taarifa, unafanya maamuzi, na unavyotumia akili yako. Inaathiri jinsi unavyojifunza, kutatua matatizo, na kuwasiliana. Kuelewa mtindo wako wa kiakili kutakusaidia kutumia uwezo wako kikamilifu." }
+    },
+    personalityArchetype: {
+        default: { title: "Mchoro wa Utu (Personality Archetype)", description: "Mchoro wako wa Utu unafunua mifumo mikuu ya kisaikolojia inayoongoza utu wako. Ni kielelezo cha ndani kinachoonyesha motisha zako za msingi, tabia zako, na safari yako ya kishujaa. Inakusaidia kujielewa kwa undani zaidi." }
+    },
+    emotionalCycle: {
+        default: { title: "Mzunguko wa Hisia (Emotional Cycle)", description: "Mzunguko wako wa Hisia unaelezea jinsi hisia zako zinavyobadilika na kurudiarudia. Inaonyesha vipindi vyako vya nguvu za kihisia, vile vya chini, na jinsi unavyopata ahueni. Kuelewa mzunguko huu kutakusaidia kudhibiti hisia zako vizuri." }
+    },
+    careerAlignment: {
+        default: { title: "Mwelekeo wa Kazi (Career Alignment)", description: "Mwelekeo wako wa Kazi unafunua njia bora za kazi zinazofanana na vipaji vyako vya asili na kusudi lako la maisha. Inaelezea majukumu unayostahili, mazingira bora ya kazi, na njia ya kupata kuridhika kikazi." }
+    },
+    wealthFlow: {
+        default: { title: "Mtiririko wa Utajiri (Wealth Flow)", description: "Mtiririko wako wa Utajiri unaelezea uhusiano wako na pesa na jinsi unavyovutia, unavyosimamia, na unavyokabiliana na utajiri. Inafichua vizuizi vya kifedha na vipindi vya ukuaji wa kiuchumi." }
+    },
+    relationshipDynamics: {
+        default: { title: "Mienendo ya Mahusiano (Relationship Dynamics)", description: "Mienendo yako ya Mahusiano inaelezea jinsi unavyoingiliana na wengine. Inaonyesha mtindo wako wa kutoa na kupokea, mahitaji yako muhimu, na 'bendera nyekundu' (red flags) zinazoweza kujitokeza. Inakusaidia kujenga uhusiano wenye afya." }
+    },
+    pastLifeInfluence: {
+        default: { title: "Ushawishi wa Maisha ya Zamani (Past Life Influence)", description: "Ushawishi wako wa Maisha ya Zamani unafunua masomo ya karmic, vipaji ulivyoleta, na mandhari zinazojirudia kutoka maisha yaliyopita. Inakusaidia kuelewa kwa nini unakabiliana na changamoto fulani au una vipaji vya asili." }
+    },
+    energyBlockage: {
+        default: { title: "Kizuizi cha Nishati (Energy Blockage)", description: "Kizuizi chako cha Nishati kinaashiria maeneo katika mfumo wako wa nishati ambapo mtiririko wa nguvu muhimu umezuiwa. Inaelezea chanzo cha tatizo, dalili zake, na jinsi ya kulirekebisha ili kurejesha usawa." }
+    },
+    lightShadowBalance: {
+        default: { title: "Usawa wa Nuru na Kivuli (Light vs Shadow Balance)", description: "Usawa wako wa Nuru na Kivuli unaonyesha jinsi unavyokubali na kujumuisha sehemu zako zote za utu. Inapima kiwango cha kujitambua na kujikubali, ikifunua usawa kati ya 'nuru' na 'kivuli' chako." }
+    },
+    lifeTimeline: {
+        default: { title: "Mzunguko wa Maisha (Life Timeline)", description: "Mzunguko wako wa Maisha unaelezea vipindi muhimu vya ukuaji na mabadiliko katika maisha yako. Inaonyesha awamu yako ya sasa, inayokuja, na ile ya kuachilia ili kukuongoza katika safari yako ya maisha." }
+    },
+    ninetyDayEnergyForecast: {
+        default: { title: "Utabiri wa Nishati wa Siku 90 (90-Day Energy Forecast)", description: "Utabiri wako wa Nishati wa Siku 90 unaelezea mwelekeo wa nishati kwa miezi mitatu ijayo. Inaonyesha maeneo ya kuzingatia, hatari zinazoweza kutokea, na fursa zitakazojitokeza ili kukusaidia kupanga mikakati yako." }
+    },
+    lunarInfluence: {
+        default: { title: "Ushawishi wa Mwezi (Lunar Influence)", description: "Ushawishi wako wa Mwezi unaelezea jinsi awamu za mwezi zinavyoathiri hisia zako, intuition, na viwango vya nishati ya kila siku. Inakupa mwongozo wa jinsi ya kuendana na mzunguko wa mwezi kwa afya bora." }
+    },
+    aiConfidenceScore: {
+        default: { title: "Alama ya Imani ya AI (AI Confidence Score)", description: "Alama ya Imani ya AI inaonyesha jinsi mfumo wa Mavengu unavyojiamini katika usahihi wa uchambuzi wake kwako. Asilimia ya juu inaonyesha data safi na uchambuzi sahihi zaidi." }
+    },
+    frequencyCompatibility: {
+        default: { title: "Utangamano wa Masafa (Frequency Compatibility)", description: "Utangamano wako wa Masafa unaelezea ni masafa gani ya nishati (sauti, rangi, n.k.) yanaendana nawe au kukuvutia nguvu. Inafichua masafa yanayokuongezea nguvu na yale yanayokumalizia nguvu." }
+    },
+    energyDNA: {
+        default: { title: "Nishati DNA (Energy DNA)", description: "Nishati yako ya DNA ni saini yako ya kipekee ya nishati, kama 'fingerprint' ya kiroho. Inaonyesha masafa yako ya msingi, viambajengo vyake, na 'anomali' zozote maalum zinazoonyesha vipaji au changamoto za kipekee." }
+    },
+    personalMantra: {
+        default: { title: "Mantra ya Binafsi (Personal Mantra)", description: "Mantra yako ya Binafsi ni neno au sentensi maalum iliyoundwa kukusaidia kujitafakari, kujijengea ujasiri, na kukuongoza kulingana na masafa yako ya nishati. Kuitumia mara kwa mara kunaweza kubadilisha mtazamo wako." }
+    },
+    soulRank: {
+        default: { title: "Cheo cha Roho (Soul Rank)", description: "Cheo chako cha Roho kinaelezea kiwango chako cha ukuaji wa kiroho na hekima uliyokusanya katika maisha mbalimbali. Inaashiria umuhimu wako na jukumu lako katika safari ya kiroho." }
+    },
+    collectiveRole: {
+        default: { title: "Nafasi ya Jamii (Collective Role)", description: "Nafasi yako ya Jamii inaelezea mchango wako wa kipekee kwa jamii kubwa au ulimwengu wote. Inaonyesha jukumu lako katika kusaidia ubinadamu na sayari. Ni wito wako wa kutumikia jamii." }
     }
 };
 
@@ -486,59 +554,70 @@ const mavenguKnowledgeBase = {
 
 function formatStandardReport(data, reportTitle) {
     // If specific data for a card is not yet in the knowledge base, use the generic default message.
-    if (!data || !data.title || data === mavenguKnowledgeBase.default) {
+    if (!data || !data.CoreDefinition || data === mavenguKnowledgeBase.default) {
         return `<div class="report-content" style="text-align: left; line-height: 1.6;">
-                    <h3 style="color: var(--accent-color);">${mavenguKnowledgeBase.default.title}</h3>
+                    <h3 style="color: var(--accent-color);">Uchambuzi Unakuja Hivi Karibuni</h3>
                     <p>${mavenguKnowledgeBase.default.description}</p>
                 </div>`;
     }
     return `
         <div class="report-content" style="text-align: left; line-height: 1.6;">
-            <h3 style="color: var(--accent-color);">${data.title}</h3>
-            <p>${data.description}</p>
+            <h3 style="color: var(--accent-color);">Ufafanuzi: ${data.CoreDefinition}</h3>
+            <p>${data.DiagnosticPurpose}</p>
         </div>
     `;
 }
 
-function formatLifePathReport(data) {
-    if (!data || !data.title || data === mavenguKnowledgeBase.default) {
-        return formatStandardReport(mavenguKnowledgeBase.default, "Life Path");
+// Helper function to format the 8-point structure
+function formatEightPointReport(data) {
+    if (!data || !data.CoreDefinition) {
+        return formatStandardReport(mavenguKnowledgeBase.default, "Missing Card Data");
     }
     return `
         <div class="report-content" style="text-align: left; line-height: 1.6;">
-            <h3 style="color: var(--accent-color);">Your Core OS: ${data.metaphor}</h3>
-            <p>${data.description}</p>
-            <h4 style="color: var(--accent-color); margin-top: 1rem;">Core Strengths:</h4>
-            <ul>${data.strengths.map(item => `<li>${item}</li>`).join('')}</ul>
-            <h4 style="color: var(--accent-color); margin-top: 1rem;">Potential Pitfalls:</h4>
-            <ul>${data.weaknesses.map(item => `<li>${item}</li>`).join('')}</ul>
-            <h4 style="color: var(--accent-color); margin-top: 1rem;">Primary Life Lesson:</h4>
-            <p>${data.lessons}</p>
-            <h4 style="color: var(--accent-color); margin-top: 1rem;">Practical Guidance:</h4>
-            <p>${data.guidance}</p>
+            <h2 style="text-align: center; color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 10px;">
+                ${data.title || "Uchambuzi wa Kina"}
+            </h2>
+            
+            <h3 style="color: var(--accent-color);">1. Core Definition</h3>
+            <p>${data.CoreDefinition}</p>
+            
+            <h3 style="color: var(--accent-color);">2. Diagnostic Purpose</h3>
+            <p>${data.DiagnosticPurpose}</p>
+            
+            <h3 style="color: var(--accent-color);">3. How the Card Is Derived</h3>
+            <p>${data.HowDerived}</p>
+            
+            <h3 style="color: var(--accent-color);">4. What This Card Reveals About the User</h3>
+            <p>${data.RevealsAboutUser}</p>
+            
+            <h3 style="color: var(--accent-color);">5. Aligned Expression (High State)</h3>
+            <p>${data.AlignedExpression}</p>
+            
+            <h3 style="color: var(--accent-color);">6. Shadow Expression (Low State)</h3>
+            <p>${data.ShadowExpression}</p>
+            
+            <h3 style="color: var(--accent-color);">7. Real-Life Impact</h3>
+            <p>${data.RealLifeImpact}</p>
+            
+            <h3 style="color: var(--accent-color);">8. Guidance & Integration</h3>
+            <p>${data.GuidanceIntegration}</p>
         </div>
     `;
 }
 
-function formatShadowWorkReport(data) {
-     if (!data || !data.title || data === mavenguKnowledgeBase.default) {
-        return formatStandardReport(mavenguKnowledgeBase.default, "Shadow Work");
-    }
-    return `
-        <div class="report-content" style="text-align: left; line-height: 1.6;">
-            <h3 style="color: var(--accent-color);">${data.title}</h3>
-            <p><strong>Kivuli cha Msingi (Core Shadow):</strong> ${data.issue}</p>
-            <p><strong>Lengo la Mwangaza (Integration Goal):</strong> ${data.integration}</p>
-            <p style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--accent-color-trans); font-style: italic;">Shadow Work ni mchakato wa kuchunguza sehemu zetu zilizofichwa au kukataliwa ili kuziponya na kuzijumuisha, na hivyo kutufanya tuwe kamili na wenye nguvu zaidi.</p>
-        </div>
-    `;
-}
 
 function generateDynamicReport(reportType, profile, title) {
-    let lookupKey;
     let data;
 
-    // Determine the key to use for looking up data in the knowledge base
+    // Direct lookup for new 8-point structure cards
+    if (window.mavenguKnowledgeBase && window.mavenguKnowledgeBase[reportType] && window.mavenguKnowledgeBase[reportType].CoreDefinition) {
+        data = window.mavenguKnowledgeBase[reportType]; // These are the new 8-point defined cards
+        return formatEightPointReport(data);
+    }
+
+    // Original lookup logic for cards from the profile (often numerological/astrological)
+    let lookupKey;
     switch (reportType) {
         case 'lifePath':        lookupKey = profile.lifePath; break;
         case 'destinyNumber':   lookupKey = profile.destiny; break;
@@ -546,50 +625,97 @@ function generateDynamicReport(reportType, profile, title) {
         case 'personalYear':    lookupKey = profile.personalYear; break;
         case 'shadowWork':      lookupKey = profile.zodiac.name; break;
         case 'element':         lookupKey = profile.zodiac.element; break;
-        case 'birthDayNumber':  lookupKey = 'default'; break; // birthDayNumber has a generic description for now
-        case 'soulMission':     lookupKey = 'default'; break; // soulMission has a generic description for now
-        case 'symbolicWisdom':  lookupKey = 'default'; break; // symbolicWisdom has a generic description for now
-        case 'rulingPlanet':    lookupKey = 'default'; break; // rulingPlanet has a generic description for now
-        case 'moonPhase':       lookupKey = 'default'; break; // moonPhase has a generic description for now
-        case 'birthStone':      lookupKey = 'default'; break; // birthStone has a generic description for now
-        case 'spiritAnimal':    lookupKey = 'default'; break; // spiritAnimal has a generic description for now
-        case 'balanceNumber':   lookupKey = 'default'; break; // balanceNumber has a generic description for now
-        case 'passionNumber':   lookupKey = 'default'; break; // passionNumber has a generic description for now
-        case 'karmicDebt':      lookupKey = 'default'; break; // karmicDebt has a generic description for now
-        case 'firstChallenge':  lookupKey = 'default'; break; // firstChallenge has a generic description for now
-        case 'luckyColor':      lookupKey = 'default'; break; // luckyColor has a generic description for now
-        case 'luckyDay':        lookupKey = 'default'; break; // luckyDay has a generic description for now
-        case 'tarotCard':       lookupKey = 'default'; break; // tarotCard has a generic description for now
-        case 'chakra':          lookupKey = 'default'; break; // chakra has a generic description for now
-        case 'chineseZodiac':   lookupKey = 'default'; break; // chineseZodiac has a generic description for now
-        case 'pinnacle':        lookupKey = 'default'; break; // pinnacle has a generic description for now
-        case 'auraColor':       lookupKey = 'default'; break; // auraColor has a generic description for now
-        case 'lifeLesson':      lookupKey = 'default'; break; // lifeLesson has a generic description for now
-        case 'maturityNumber':  lookupKey = 'default'; break; // maturityNumber has a generic description for now
-        case 'rationalThought': lookupKey = 'default'; break; // rationalThought has a generic description for now
-        case 'attitudeNumber':  lookupKey = 'default'; break; // attitudeNumber has a generic description for now
-        case 'northNode':       lookupKey = 'default'; break; // northNode has a generic description for now
-        case 'guardianAngel':   lookupKey = 'default'; break; // guardianAngel has a generic description for now
-        case 'soulAge':         lookupKey = 'default'; break; // soulAge has a generic description for now
+        case 'rulingPlanet':    lookupKey = profile.rulingPlanet.name; break; // Needs to be integrated
+        case 'moonPhase':       lookupKey = profile.moonPhase.name; break; // Needs to be integrated
+        case 'birthStone':      lookupKey = 'default'; break; // Needs to be integrated by month
+        case 'spiritAnimal':    lookupKey = 'default'; break; // Needs to be integrated
+        case 'balanceNumber':   lookupKey = profile.balanceNumber; break; // Needs to be integrated
+        case 'passionNumber':   lookupKey = profile.passionNumber; break; // Needs to be integrated
+        case 'karmicDebt':      lookupKey = profile.karmicDebt; break; // Needs to be integrated
+        case 'firstChallenge':  lookupKey = profile.firstChallenge; break; // Needs to be integrated
+        case 'luckyColor':      lookupKey = profile.luckyColor; break; // Needs to be integrated
+        case 'luckyDay':        lookupKey = profile.luckyDay; break; // Needs to be integrated
+        case 'tarotCard':       lookupKey = profile.tarotCard; break; // Needs to be integrated
+        case 'chakra':          lookupKey = profile.chakra; break; // Needs to be integrated
+        case 'chineseZodiac':   lookupKey = profile.chineseZodiac; break; // Needs to be integrated
+        case 'pinnacle':        lookupKey = profile.pinnacle; break; // Needs to be integrated
+        case 'auraColor':       lookupKey = profile.auraColor; break; // Needs to be integrated
+        case 'lifeLesson':      lookupKey = profile.lifeLesson; break; // Needs to be integrated
+        case 'maturityNumber':  lookupKey = profile.maturityNumber; break; // Needs to be integrated
+        case 'rationalThought': lookupKey = profile.rationalThought; break; // Needs to be integrated
+        case 'attitudeNumber':  lookupKey = profile.attitudeNumber; break; // Needs to be integrated
+        case 'northNode':       lookupKey = profile.northNode; break; // Needs to be integrated
+        case 'guardianAngel':   lookupKey = profile.guardianAngel; break; // Needs to be integrated
+        case 'soulAge':         lookupKey = profile.soulAge; break; // Needs to be integrated
+        case 'soulMission':     lookupKey = 'default'; break; // Default for now
+        case 'meditation':      lookupKey = 'default'; break; // Default for now
+        case 'sunFrequency':    lookupKey = 'default'; break; // Default for now
+        case 'aesthetics':      lookupKey = 'default'; break; // Default for now
+        case 'oracle':          lookupKey = 'default'; break; // Default for now
+        case 'symbolicWisdom':  lookupKey = 'default'; break; // Default for now
         default:                lookupKey = 'default'; break;
     }
     
-    // Gracefully handle cases where the reportType itself might not exist yet
-    if (!mavenguKnowledgeBase[reportType]) {
-        return formatStandardReport(mavenguKnowledgeBase.default, title);
-    }
+    // Attempt to retrieve data from the knowledge base using the determined lookupKey
+    const specificData = window.mavenguKnowledgeBase[reportType]?.[lookupKey];
 
-    data = mavenguKnowledgeBase[reportType][lookupKey];
+    // If specific data exists for the lookupKey, use it. Otherwise, use the generic default.
+    data = specificData || window.mavenguKnowledgeBase.default;
     
-    if (!data) {
-        return formatStandardReport(mavenguKnowledgeBase.default, title);
-    }
+    // All explanations from previous turns should be included here now, formatted to 8-point
+    // This part of the code needs to be updated to use the new 8-point structure for ALL cards
+    // For now, it will use formatStandardReport for old cards, but will be updated.
 
-    // Render the report based on its type
     switch (reportType) {
-        case 'lifePath':        return formatLifePathReport(data);
-        case 'shadowWork':      return formatShadowWorkReport(data);
-        default:                return formatStandardReport(data, title);
+        case 'lifePath':        return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'destinyNumber':   return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'soulUrge':        return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'personalYear':    return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'shadowWork':      return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'symbolicWisdom':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'element':         return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'rulingPlanet':    return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'moonPhase':       return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'birthStone':      return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'spiritAnimal':    return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'balanceNumber':   return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'passionNumber':   return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'karmicDebt':      return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'firstChallenge':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'luckyColor':      return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'luckyDay':        return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'tarotCard':       return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'chakra':          return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'chineseZodiac':   return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'pinnacle':        return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'auraColor':       return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'lifeLesson':      return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'maturityNumber':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'rationalThought': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'attitudeNumber':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'northNode':       return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'guardianAngel':   return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'soulAge':         return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'cognitiveStyle':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'personalityArchetype': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'emotionalCycle':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'careerAlignment': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'wealthFlow':      return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'relationshipDynamics': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'pastLifeInfluence': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'energyBlockage':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'lightShadowBalance': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'lifeTimeline':    return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'ninetyDayEnergyForecast': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'lunarInfluence':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'aiConfidenceScore': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'frequencyCompatibility': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'energyDNA':       return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'personalMantra':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'soulRank':        return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'collectiveRole':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        
+        default: return formatStandardReport(data, title); // Generic default
     }
 }
 
@@ -605,7 +731,7 @@ const reportTypeMap = {
     'personal-year-number': 'personalYear',
     'element-text': 'element',
     'shadow-work-text': 'shadowWork',
-    // --- Mapped to 'default' in knowledge base for now ---
+    // --- The rest are mapped to 'default' in knowledge base for now ---
     'birth-day-number': 'birthDayNumber',
     'soul-mission-text': 'soulMission',
     'symbolic-wisdom-text': 'symbolicWisdom',
@@ -630,7 +756,26 @@ const reportTypeMap = {
     'attitude-number': 'attitudeNumber',
     'north-node': 'northNode',
     'guardian-angel': 'guardianAngel',
-    'soul-age': 'soulAge'
+    'soul-age': 'soulAge',
+    // New cards
+    'cognitive-style-value': 'cognitiveStyle',
+    'personality-archetype-value': 'personalityArchetype',
+    'emotional-cycle-value': 'emotionalCycle',
+    'career-alignment-value': 'careerAlignment',
+    'wealth-flow-value': 'wealthFlow',
+    'relationship-dynamics-value': 'relationshipDynamics',
+    'past-life-influence-value': 'pastLifeInfluence',
+    'energy-blockage-value': 'energyBlockage',
+    'light-shadow-balance-value': 'lightShadowBalance',
+    'life-timeline-value': 'lifeTimeline',
+    'ninety-day-forecast-value': 'ninetyDayEnergyForecast',
+    'lunar-influence-value': 'lunarInfluence',
+    'ai-confidence-score-value': 'aiConfidenceScore',
+    'frequency-compatibility-value': 'frequencyCompatibility',
+    'energy-dna-value': 'energyDNA',
+    'personal-mantra-value': 'personalMantra',
+    'soul-rank-value': 'soulRank',
+    'collective-role-value': 'collectiveRole'
 };
 
 // This function replaces the original setupModalTrigger in your app.js
@@ -670,6 +815,7 @@ async function openDeepDiveModal(elementId, title, profile) {
 
     setTimeout(() => {
         const reportType = reportTypeMap[elementId];
+        // Now calling generateDynamicReport to get the 8-point structure
         const reportContent = generateDynamicReport(reportType, profile, title);
         modalBody.innerHTML = reportContent;
     }, 1200);
