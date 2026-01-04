@@ -401,7 +401,9 @@ ${data.step5}
     },
 
     formatEightPointExplanation: function(cardData) {
-        // Mandatory 8-point structure - authoritative and comprehensive
+        // Mandatory 8-point structure with mandatory real-life examples
+        const examples = this.generateRealLifeExamples(cardData);
+        
         return `
 **${cardData.title}**
 
@@ -428,14 +430,167 @@ ${cardData.RealLifeImpact}
 
 **8. Guidance & Integration**
 ${cardData.GuidanceIntegration}
+
+---
+
+**REAL-LIFE ILLUSTRATIONS**
+
+**A. Example in Daily Behavior**
+${examples.dailyBehavior}
+
+**B. Example in Relationships**
+${examples.relationships}
+
+**C. Example in Work or Purpose**
+${examples.workPurpose}
+
+**D. Example in Shadow Expression**
+${examples.shadowExpression}
+
+**E. Example in Aligned Expression**
+${examples.alignedExpression}
         `.trim();
     },
 
+    generateRealLifeExamples: function(cardData) {
+        // Generate contextual real-life examples based on card data
+        const cardTitle = cardData.title || 'This diagnostic card';
+        const cardType = this.inferCardType(cardData);
+        
+        // Base examples that will be customized per card type
+        const baseExamples = {
+            dailyBehavior: `In daily life, this energy manifests through specific behavioral patterns. For instance, you may notice yourself consistently responding to situations in ways that reflect this diagnostic signature. Your morning routine, decision-making process, and how you handle unexpected events all carry the imprint of this card's energy.`,
+            relationships: `In relationships, this card shapes how you connect with others. You might find yourself drawn to certain types of people or responding to relationship dynamics in predictable patterns. Your communication style, conflict resolution approach, and emotional availability are all influenced by this diagnostic energy.`,
+            workPurpose: `In work and career, this card determines your natural strengths, challenges, and optimal work environments. Your leadership style, collaboration preferences, and how you handle pressure all reflect this energy. Certain career paths will feel more aligned while others create friction.`,
+            shadowExpression: `When this energy is blocked or operating unconsciously, specific problems emerge. You might find yourself repeating the same mistakes, experiencing chronic frustration in certain areas, or feeling stuck despite your efforts. The shadow expression creates tangible obstacles that can be observed in your daily experience.`,
+            alignedExpression: `When this energy is consciously aligned, you experience clear success and flow. Decisions become easier, relationships improve, and work feels meaningful. You notice synchronicities, increased energy, and a sense of being "in the right place at the right time." The aligned state produces measurable positive outcomes.`
+        };
+
+        // Customize examples based on card type
+        return this.customizeExamplesForCard(cardType, cardData, baseExamples);
+    },
+
+    inferCardType: function(cardData) {
+        const title = (cardData.title || '').toLowerCase();
+        if (title.includes('life path') || title.includes('processor')) return 'lifePath';
+        if (title.includes('energy dna') || title.includes('nishati dna')) return 'energyDNA';
+        if (title.includes('soul rank') || title.includes('cheo cha roho')) return 'soulRank';
+        if (title.includes('frequency') || title.includes('masafa')) return 'frequency';
+        if (title.includes('mantra')) return 'mantra';
+        if (title.includes('meditation')) return 'meditation';
+        if (title.includes('aesthetics')) return 'aesthetics';
+        if (title.includes('oracle')) return 'oracle';
+        if (title.includes('collective role')) return 'collectiveRole';
+        if (title.includes('confidence')) return 'confidence';
+        return 'generic';
+    },
+
+    customizeExamplesForCard: function(cardType, cardData, baseExamples) {
+        const examples = { ...baseExamples };
+        const title = cardData.title || '';
+        
+        switch(cardType) {
+            case 'lifePath':
+                examples.dailyBehavior = `A Life Path 1 individual wakes up each morning with a drive to initiate something new. They might start their day by checking emails immediately, making quick decisions about breakfast, and planning their day with clear priorities. When faced with a problem, they don't wait for permission—they take action. In contrast, a Life Path 2 person begins their day more slowly, checking in with others, considering multiple options, and seeking harmony before acting.`;
+                examples.relationships = `A Life Path 8 in a relationship takes charge of financial planning, makes major decisions confidently, and expects their partner to respect their authority. They might struggle when their partner questions their choices or when they feel their power is challenged. A Life Path 6, however, prioritizes family harmony, makes decisions based on what's best for everyone, and may struggle with setting boundaries because they put others' needs first.`;
+                examples.workPurpose = `A Life Path 3 working as a marketing director thrives when creating campaigns, presenting to clients, and using their natural charisma. They struggle with repetitive administrative tasks and feel drained in overly structured environments. A Life Path 4 accountant, however, excels at detailed financial analysis, creating systems, and maintaining consistency. They feel overwhelmed in chaotic, fast-changing work environments.`;
+                examples.shadowExpression = `A Life Path 5's shadow manifests when they become restless and make impulsive career changes every few months, leaving projects unfinished and burning bridges. They might jump from job to job, relationship to relationship, never committing long enough to build something substantial. Their fear of being trapped leads them to sabotage stability.`;
+                examples.alignedExpression = `A Life Path 7's aligned expression shows when they dedicate focused time to research, write a comprehensive report that reveals hidden patterns, and share their insights in a way that helps others. They feel energized by deep study, trust their intuition, and create value through their analytical abilities. Their work feels meaningful and their relationships deepen through authentic communication.`;
+                break;
+                
+            case 'energyDNA':
+                examples.dailyBehavior = `Someone with a high-frequency Energy DNA signature might notice they feel energized in bright, open spaces with natural light, while someone with a lower-frequency signature feels more comfortable in dimmer, more enclosed environments. Their natural sleep patterns, food preferences, and even the types of music that resonate with them all reflect their unique energetic signature.`;
+                examples.relationships = `A person with a compatible Energy DNA to their partner experiences effortless communication, shared energy levels, and mutual understanding without constant explanation. They feel "seen" and understood at a fundamental level. In contrast, mismatched Energy DNA creates constant friction—one partner feels drained by the other's presence, communication feels forced, and there's a sense of being fundamentally out of sync.`;
+                examples.workPurpose = `An individual whose Energy DNA aligns with their work environment experiences sustained energy throughout the day, creative flow, and a sense of purpose. They might work in a field that matches their frequency—a healer working in a wellness center, a creative working in an art studio. When misaligned, they experience chronic fatigue, lack of motivation, and a sense that their work drains rather than energizes them.`;
+                examples.shadowExpression = `When Energy DNA is suppressed, a person might force themselves into careers, relationships, or lifestyles that don't match their true frequency. They experience chronic fatigue, depression, and a sense of being "wrong" or "broken." They might try to be someone they're not, leading to identity confusion and energetic depletion.`;
+                examples.alignedExpression = `When Energy DNA is fully expressed, a person radiates authenticity. They attract opportunities, relationships, and experiences that perfectly match their frequency. They feel energized by their daily activities, sleep deeply, and experience synchronicities regularly. Their life feels like it's flowing effortlessly, and they have a clear sense of who they are.`;
+                break;
+                
+            case 'frequency':
+                examples.dailyBehavior = `A person with a 528Hz frequency compatibility might notice they feel calmer and more centered when listening to specific types of music, working in environments with certain color schemes, or spending time in nature. Their body literally responds to these frequencies—heart rate slows, breathing deepens, and mental clarity improves.`;
+                examples.relationships = `When two people have compatible frequencies, their interactions feel harmonious. Conversations flow easily, silences are comfortable, and there's a natural rhythm to their time together. When frequencies are incompatible, one person might feel agitated, drained, or anxious around the other, even if they can't explain why.`;
+                examples.workPurpose = `A graphic designer whose frequency aligns with their work environment creates their best work, feels inspired, and maintains energy throughout long projects. When they work in a space with incompatible frequencies—perhaps harsh fluorescent lighting and constant noise—their creativity suffers, they feel fatigued, and their work quality declines.`;
+                examples.shadowExpression = `Someone ignoring their frequency needs might force themselves to work in environments that drain them, leading to burnout, chronic stress, and health issues. They might dismiss their sensitivity as "weakness" and push through discomfort, eventually developing anxiety, insomnia, or physical symptoms.`;
+                examples.alignedExpression = `A person consciously aligning with their compatible frequencies creates a home and workspace that supports their energy. They choose colors, sounds, and environments that uplift them. As a result, they experience improved mood, better sleep, increased creativity, and stronger relationships. Their life feels more balanced and sustainable.`;
+                break;
+                
+            case 'soulRank':
+                examples.dailyBehavior = `A Young Soul (Novice rank) focuses daily energy on building security, establishing routines, and mastering basic life skills. They might spend significant time on practical matters like budgeting, career advancement, and material stability. An Old Soul (Adept or Master rank) might prioritize spiritual practice, philosophical reflection, and service to others, even if it means less material comfort.`;
+                examples.relationships = `A Young Soul seeks relationships that provide security, status, and practical benefits. They might choose partners based on shared goals, financial stability, and social compatibility. An Old Soul seeks relationships that support spiritual growth, deep connection, and mutual evolution, even if it means challenging conventional relationship structures.`;
+                examples.workPurpose = `A Young Soul in their career focuses on climbing the ladder, earning more money, and achieving visible success. They might work in corporate environments, traditional careers, and value titles and recognition. An Old Soul might choose work that serves a higher purpose, even if it pays less, and values meaning over status.`;
+                examples.shadowExpression = `An Old Soul trying to live a Young Soul lifestyle experiences deep dissatisfaction. They might have a successful career and material wealth but feel empty, questioning the meaning of it all. They might struggle with depression, feel disconnected from others, and experience a sense of being "in the wrong life."`;
+                examples.alignedExpression = `An Adept Soul working in alignment with their rank might be a teacher, healer, or counselor who uses their accumulated wisdom to guide others. They feel fulfilled by their work, experience deep connections with students or clients, and see their life as part of a larger evolutionary process. They feel authentic and purposeful.`;
+                break;
+                
+            case 'mantra':
+                examples.dailyBehavior = `A person with the mantra "I am aligned with my highest purpose" might start each day by repeating this phrase. Throughout the day, when facing decisions, they pause and check: "Does this align with my highest purpose?" This simple practice shifts their choices from reactive to intentional. They notice themselves saying "no" to opportunities that don't serve them and "yes" to those that do.`;
+                examples.relationships = `Someone using the mantra "I communicate with love and clarity" finds that before difficult conversations, repeating this phrase changes their approach. Instead of reacting defensively, they speak from a place of compassion. Their relationships improve because their communication becomes more conscious and less reactive.`;
+                examples.workPurpose = `A professional using "I create value through authentic expression" as their mantra makes different career choices. They might turn down high-paying jobs that don't align with their values and pursue work that allows authentic self-expression, even if it means less money initially. Over time, this alignment attracts opportunities that match their authentic self.`;
+                examples.shadowExpression = `Without a conscious mantra, a person's mind runs on default programming, often negative. They might wake up thinking "I'm not good enough" or "Today will be stressful," and these thoughts become self-fulfilling prophecies. Their life reflects these unconscious beliefs, creating cycles of struggle and limitation.`;
+                examples.alignedExpression = `A person consistently using their personal mantra experiences measurable shifts. After three months of daily practice, they notice increased confidence, better decision-making, and improved relationships. The mantra has reprogrammed their subconscious, and their external reality begins to reflect their conscious intentions.`;
+                break;
+                
+            case 'meditation':
+                examples.dailyBehavior = `A person with an active meditation protocol (like walking meditation) might start their day with a 20-minute walk, using it as moving meditation. They notice their mind clears, solutions to problems emerge naturally, and they feel more grounded. Someone with a breath-focused protocol might take 5-minute breathing breaks throughout the day, using them to reset their energy and maintain calm.`;
+                examples.relationships = `A person practicing loving-kindness meditation before family interactions finds they respond with more patience and compassion. When a family member is difficult, instead of reacting with frustration, they can access a deeper sense of understanding. Their relationships improve because they're bringing a calmer, more present energy to interactions.`;
+                examples.workPurpose = `A professional using visualization meditation before important meetings or presentations finds they perform better. They visualize success, see themselves speaking confidently, and imagine positive outcomes. This practice reduces anxiety and improves actual performance. Their career advances because they're showing up with greater confidence and clarity.`;
+                examples.shadowExpression = `Someone who knows they should meditate but resists it experiences the consequences: chronic stress, difficulty sleeping, emotional reactivity, and difficulty making clear decisions. They might try to meditate but give up quickly, saying "it doesn't work for me," when the real issue is they haven't found the right technique for their energetic type.`;
+                examples.alignedExpression = `A person with a consistent, aligned meditation practice experiences measurable benefits: better sleep, improved emotional regulation, clearer thinking, and increased intuition. They notice synchronicities increase, their relationships improve, and they handle challenges with greater ease. Their life feels more balanced and purposeful.`;
+                break;
+                
+            case 'aesthetics':
+                examples.dailyBehavior = `A person whose aesthetic is minimalist and clean might feel anxious and scattered in a cluttered environment. When they organize their space, clear surfaces, and remove visual noise, they immediately feel calmer and more focused. Their productivity increases, and they make better decisions. Someone with a vibrant, colorful aesthetic feels energized by bold colors and artistic arrangements, feeling drained in bland, neutral spaces.`;
+                examples.relationships = `A person whose aesthetic preference is natural and organic might feel uncomfortable in a partner's modern, minimalist home. They might not understand why they feel uneasy until they realize the space doesn't match their energetic needs. When they spend time in environments that match their aesthetic, their relationships feel more harmonious.`;
+                examples.workPurpose = `A creative professional working in a space that matches their aesthetic—perhaps an artist in a studio filled with inspiring art, natural light, and creative tools—produces their best work. When forced to work in a sterile office environment that doesn't match their aesthetic, their creativity suffers, and they feel uninspired.`;
+                examples.shadowExpression = `Someone ignoring their aesthetic needs might live in a space that drains them daily without realizing why. They might experience chronic low-grade stress, difficulty concentrating, and a sense of being "off" without understanding it's their environment. They might blame themselves for lack of motivation when the real issue is aesthetic misalignment.`;
+                examples.alignedExpression = `A person who consciously creates spaces aligned with their aesthetic experiences increased creativity, better mood, and improved well-being. They might redecorate their home or workspace to match their aesthetic preferences and notice immediate positive changes in their energy, productivity, and overall satisfaction with life.`;
+                break;
+                
+            case 'oracle':
+                examples.dailyBehavior = `A person receives an Oracle message: "Trust the timing of your life." The next day, they're offered a job opportunity they've been waiting for. Instead of questioning if it's the right time, they remember the Oracle's message and accept with confidence. The message becomes a guiding principle, helping them navigate uncertainty with trust.`;
+                examples.relationships = `An Oracle message: "Release what no longer serves you" arrives during a time of relationship struggle. The person realizes they've been holding onto a friendship that's become toxic. The message gives them clarity and courage to set boundaries, leading to healthier relationships.`;
+                examples.workPurpose = `A professional receives: "Your purpose is emerging through service." They've been feeling unfulfilled in their corporate job. The message inspires them to explore how they can serve others, leading them to start a side business that eventually becomes their full-time calling.`;
+                examples.shadowExpression = `Someone receives an Oracle message but dismisses it as "too vague" or "not relevant." They continue making decisions from fear and old patterns, missing the guidance. Later, they realize the message was exactly what they needed, but they ignored it, leading to continued struggle.`;
+                examples.alignedExpression = `A person receives an Oracle message and takes it seriously. They meditate on it, journal about it, and look for how it applies to their current situation. They notice synchronicities confirming the message and make decisions aligned with it. Their life begins to shift in positive ways, and they feel guided and supported.`;
+                break;
+                
+            case 'collectiveRole':
+                examples.dailyBehavior = `A person with the Collective Role of "Grid Stabilizer" might notice they naturally create calm in chaotic situations. At work, when there's conflict, they step in to mediate. At home, they're the one who maintains routines and stability. They might not realize this is their role until they understand it consciously, then they can use it more intentionally.`;
+                examples.relationships = `A "Consciousness Awakener" in relationships naturally helps others see new perspectives. Friends come to them for advice because they help people see situations differently. Their relationships are characterized by growth and evolution, as they naturally support others' awakening.`;
+                examples.workPurpose = `A "Healer" in their Collective Role might work as a therapist, nurse, or wellness practitioner. They feel most fulfilled when helping others heal. When they try to work in unrelated fields, they feel unfulfilled, even if they're successful. Their purpose is clear: to facilitate healing.`;
+                examples.shadowExpression = `Someone unaware of their Collective Role might feel a sense of "something missing" despite personal success. They might have a good career, relationships, and material comfort, but feel unfulfilled. They're operating without understanding their larger purpose, leading to a sense of emptiness.`;
+                examples.alignedExpression = `A person consciously living their Collective Role experiences deep fulfillment. A "Bridge Builder" might work in international relations, bringing different cultures together. They feel energized by their work, see the impact they're making, and understand their role in the larger human story. Their life has meaning beyond personal achievement.`;
+                break;
+                
+            case 'confidence':
+                examples.dailyBehavior = `A person with a high AI Confidence Score (85%) notices the diagnostic insights feel accurate and resonant. They read their report and think "Yes, this is exactly me." They trust the guidance and make decisions based on it. Someone with a lower score (62%) might feel the insights are "close but not quite right," indicating the need for more self-reflection or additional data.`;
+                examples.relationships = `When the AI Confidence Score is high for relationship dynamics, a person can trust the insights about their compatibility patterns. They might read "You tend to attract partners who mirror your shadow work" and recognize this pattern immediately, allowing them to make more conscious relationship choices.`;
+                examples.workPurpose = `A high confidence score for career alignment gives someone clarity about their vocational path. They read "Your optimal work environment includes creative freedom and minimal hierarchy" and realize why they've struggled in traditional corporate settings. This insight guides them toward more aligned career choices.`;
+                examples.shadowExpression = `A low confidence score might indicate conflicting data or complexity. A person might read their report and feel confused because some insights resonate while others don't. Without understanding this is normal for complex profiles, they might dismiss the entire diagnostic as inaccurate.`;
+                examples.alignedExpression = `A person with a high confidence score uses their diagnostic report as a trusted guide. They reference it when making decisions, notice patterns it predicted, and feel supported by the clarity it provides. The high score validates their experience and empowers them to take aligned action.`;
+                break;
+                
+            default:
+                // For generic cards, use contextual examples based on card title and content
+                if (cardData.CoreDefinition) {
+                    const coreDef = cardData.CoreDefinition.toLowerCase();
+                    if (coreDef.includes('energy') || coreDef.includes('nishati')) {
+                        examples.dailyBehavior = `This energetic signature manifests in your daily routines. You might notice specific times of day when you feel more energized, certain activities that drain or replenish you, and environmental factors that significantly impact your mood and productivity. Your body's natural rhythms reflect this diagnostic energy.`;
+                    }
+                    if (coreDef.includes('relationship') || coreDef.includes('uhusiano')) {
+                        examples.relationships = `In your relationships, this diagnostic pattern determines who you attract, how you communicate, and what you need from connections. You might notice you consistently attract certain personality types, respond to conflict in predictable ways, and have specific needs that must be met for relationships to thrive.`;
+                    }
+                }
+        }
+        
+        return examples;
+    },
+
     constructAuthoritativeExplanation: function(cardType, cardData) {
-        // For cards without full 8-point structure, construct authoritative explanation
-        // This maintains the diagnostic intelligence standard even for legacy cards
+        // For cards without full 8-point structure, construct authoritative explanation with mandatory examples
         const title = cardData.title || cardType;
         const description = cardData.description || cardData.metaphor || 'No description available.';
+        const examples = this.generateRealLifeExamples(cardData);
         
         return `
 **${title}**
@@ -463,6 +618,25 @@ This card influences your decision-making processes, relationship dynamics, care
 
 **8. Guidance & Integration**
 To integrate this energy, you must first acknowledge its presence and function in your system. Study its patterns, observe how it manifests in your daily life, and consciously choose to align your thoughts, emotions, and actions with its highest expression. Regular reflection and intentional practice will deepen your integration of this diagnostic energy.
+
+---
+
+**REAL-LIFE ILLUSTRATIONS**
+
+**A. Example in Daily Behavior**
+${examples.dailyBehavior}
+
+**B. Example in Relationships**
+${examples.relationships}
+
+**C. Example in Work or Purpose**
+${examples.workPurpose}
+
+**D. Example in Shadow Expression**
+${examples.shadowExpression}
+
+**E. Example in Aligned Expression**
+${examples.alignedExpression}
 
 **NOTE:** This card's diagnostic framework is currently being expanded. A complete 8-point analysis with specific data for your profile will be available in a future system update.
         `.trim();
