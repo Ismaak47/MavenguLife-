@@ -106,6 +106,18 @@ const AIChat = {
 
         // --- INTENT DETECTION (Domain Mapping) ---
         const domainMap = {
+            // Card-specific queries (check these first)
+            aiConfidenceScore: ['alama ya imani', 'ai confidence', 'confidence score', 'imani ya ai'],
+            frequencyCompatibility: ['utangamano wa masafa', 'frequency compatibility', 'masafa', 'compatibility'],
+            energyDNA: ['nishati dna', 'energy dna', 'dna ya nishati', 'energetic signature'],
+            personalMantra: ['mantra ya binafsi', 'personal mantra', 'mantra', 'affirmation'],
+            soulRank: ['cheo cha roho', 'soul rank', 'rank ya roho', 'spiritual rank'],
+            collectiveRole: ['nafasi ya jamii', 'collective role', 'jukumu la jamii', 'global role'],
+            meditation: ['meditation', 'protokali ya kuongeza nguvu', 'kutafakari', 'meditation protocol'],
+            sunFrequency: ['sun frequency', 'resonance', 'solar frequency', 'frequency yako'],
+            aesthetics: ['aesthetics', 'saini ya kidigitali', 'beauty', 'aesthetic'],
+            mysticOracle: ['mystic oracle', 'ujumbe wa mfumo', 'oracle', 'divine message'],
+            // General domain queries
             uchawi: ['uchawi', 'kurogwa', 'sihr', 'witchcraft', 'magic', 'majini', 'ndumba', 'kadi yangu ya uchawi'],
             existential: ['kwanini nilikuja', 'soul mission', 'mimi ni nani', 'maana ya maisha', 'kusudi langu', 'lengo la kuwepo'],
             human: ['consciousness', 'kujitambua', 'roho', 'nafsi', 'hisia', 'tabia', 'ukuaji', 'maumivu', 'kukwama'],
@@ -141,6 +153,15 @@ const AIChat = {
 
         if (detectedDomain) {
             this.lastTopic = detectedDomain;
+            
+            // Check if this is a card-specific query that should use the knowledge base
+            const cardDomains = ['aiConfidenceScore', 'frequencyCompatibility', 'energyDNA', 'personalMantra', 
+                                'soulRank', 'collectiveRole', 'meditation', 'sunFrequency', 'aesthetics', 'mysticOracle'];
+            
+            if (cardDomains.includes(detectedDomain)) {
+                return this.getCardKnowledge(detectedDomain);
+            }
+            
             return this.constructResponse(detectedDomain);
         }
 
@@ -251,6 +272,47 @@ ${data.step5}
         };
 
         return library[domain] || library.human;
+    },
+
+    getCardKnowledge: function(cardType) {
+        // Access the global knowledge base
+        if (!window.mavenguKnowledgeBase || !window.mavenguKnowledgeBase[cardType]) {
+            return "Samahani, taarifa za kadi hii bado hazipo katika mfumo. Tafadhali jaribu tena baadaye.";
+        }
+
+        const cardData = window.mavenguKnowledgeBase[cardType].default;
+        if (!cardData || !cardData.CoreDefinition) {
+            return "Samahani, taarifa za kadi hii hazijakamilika. Tafadhali jaribu tena baadaye.";
+        }
+
+        // Format the 8-point structure for chat
+        return `
+**${cardData.title}**
+
+**1. Core Definition**
+${cardData.CoreDefinition}
+
+**2. Diagnostic Purpose**
+${cardData.DiagnosticPurpose}
+
+**3. How the Card Is Derived**
+${cardData.HowDerived}
+
+**4. What This Card Reveals About You**
+${cardData.RevealsAboutUser}
+
+**5. Aligned Expression (High State)**
+${cardData.AlignedExpression}
+
+**6. Shadow Expression (Low State)**
+${cardData.ShadowExpression}
+
+**7. Real-Life Impact**
+${cardData.RealLifeImpact}
+
+**8. Guidance & Integration**
+${cardData.GuidanceIntegration}
+        `.trim();
     }
 };
 
