@@ -132,6 +132,26 @@ function generateProfile(fullName, birthDate, birthPlace) {
     const guardianAngel = window.Astrology.getGuardianAngel(zodiac.name);
     const soulAge = window.Astrology.getSoulAge(birthDate);
 
+    // New Diagnostic Cards - Placeholder values (to be replaced with actual calculations)
+    const cognitiveStyle = "Holistic Synthesizer";
+    const personalityArchetype = "The Sage";
+    const emotionalCycle = "Crest & Trough Pattern";
+    const careerAlignment = "Guide / Analyst";
+    const wealthFlow = "Value-Based Accumulation";
+    const relationshipDynamics = "Empathetic Support";
+    const pastLifeInfluence = "The Scholar's Oath";
+    const energyBlockage = "Throat (Vishuddha)";
+    const lightShadowBalance = "72% Nuru";
+    const lifeTimeline = "Integration Phase";
+    const ninetyDayForecast = "Creative Expansion";
+    const lunarInfluence = "High Sensitivity";
+    const aiConfidenceScore = "98.7%";
+    const frequencyCompatibility = "Solfeggio 528Hz";
+    const energyDNA = "Alpha-7-Gamma-9";
+    const personalMantra = oracle || "Clarity in Action, Purpose in Stillness.";
+    const soulRank = "Adept Soul";
+    const collectiveRole = "Grid Stabilizer";
+
     return {
         name: fullName,
         birthDate: birthDate,
@@ -170,7 +190,26 @@ function generateProfile(fullName, birthDate, birthPlace) {
         attitudeNumber: attitudeNumber,
         northNode: northNode,
         guardianAngel: guardianAngel,
-        soulAge: soulAge
+        soulAge: soulAge,
+        // New Diagnostic Cards
+        cognitiveStyle: cognitiveStyle,
+        personalityArchetype: personalityArchetype,
+        emotionalCycle: emotionalCycle,
+        careerAlignment: careerAlignment,
+        wealthFlow: wealthFlow,
+        relationshipDynamics: relationshipDynamics,
+        pastLifeInfluence: pastLifeInfluence,
+        energyBlockage: energyBlockage,
+        lightShadowBalance: lightShadowBalance,
+        lifeTimeline: lifeTimeline,
+        ninetyDayForecast: ninetyDayForecast,
+        lunarInfluence: lunarInfluence,
+        aiConfidenceScore: aiConfidenceScore,
+        frequencyCompatibility: frequencyCompatibility,
+        energyDNA: energyDNA,
+        personalMantra: personalMantra,
+        soulRank: soulRank,
+        collectiveRole: collectiveRole
     };
 }
 
@@ -262,6 +301,96 @@ function renderDashboard(profile) {
         soulAgeElement.textContent = profile.soulAge.toUpperCase();
     }
 
+    // Update New Diagnostic Cards
+    const cognitiveStyleEl = document.getElementById('cognitive-style-value');
+    if (cognitiveStyleEl && profile.cognitiveStyle) {
+        cognitiveStyleEl.textContent = profile.cognitiveStyle;
+    }
+    
+    const personalityArchetypeEl = document.getElementById('personality-archetype-value');
+    if (personalityArchetypeEl && profile.personalityArchetype) {
+        personalityArchetypeEl.textContent = profile.personalityArchetype;
+    }
+    
+    const emotionalCycleEl = document.getElementById('emotional-cycle-value');
+    if (emotionalCycleEl && profile.emotionalCycle) {
+        emotionalCycleEl.textContent = profile.emotionalCycle;
+    }
+    
+    const careerAlignmentEl = document.getElementById('career-alignment-value');
+    if (careerAlignmentEl && profile.careerAlignment) {
+        careerAlignmentEl.textContent = profile.careerAlignment;
+    }
+    
+    const wealthFlowEl = document.getElementById('wealth-flow-value');
+    if (wealthFlowEl && profile.wealthFlow) {
+        wealthFlowEl.textContent = profile.wealthFlow;
+    }
+    
+    const relationshipDynamicsEl = document.getElementById('relationship-dynamics-value');
+    if (relationshipDynamicsEl && profile.relationshipDynamics) {
+        relationshipDynamicsEl.textContent = profile.relationshipDynamics;
+    }
+    
+    const pastLifeInfluenceEl = document.getElementById('past-life-influence-value');
+    if (pastLifeInfluenceEl && profile.pastLifeInfluence) {
+        pastLifeInfluenceEl.textContent = profile.pastLifeInfluence;
+    }
+    
+    const energyBlockageEl = document.getElementById('energy-blockage-value');
+    if (energyBlockageEl && profile.energyBlockage) {
+        energyBlockageEl.textContent = profile.energyBlockage;
+    }
+    
+    const lightShadowBalanceEl = document.getElementById('light-shadow-balance-value');
+    if (lightShadowBalanceEl && profile.lightShadowBalance) {
+        lightShadowBalanceEl.textContent = profile.lightShadowBalance;
+    }
+    
+    const lifeTimelineEl = document.getElementById('life-timeline-value');
+    if (lifeTimelineEl && profile.lifeTimeline) {
+        lifeTimelineEl.textContent = profile.lifeTimeline;
+    }
+    
+    const ninetyDayForecastEl = document.getElementById('ninety-day-forecast-value');
+    if (ninetyDayForecastEl && profile.ninetyDayForecast) {
+        ninetyDayForecastEl.textContent = profile.ninetyDayForecast;
+    }
+    
+    const lunarInfluenceEl = document.getElementById('lunar-influence-value');
+    if (lunarInfluenceEl && profile.lunarInfluence) {
+        lunarInfluenceEl.textContent = profile.lunarInfluence;
+    }
+    
+    const aiConfidenceScoreEl = document.getElementById('ai-confidence-score-value');
+    if (aiConfidenceScoreEl && profile.aiConfidenceScore) {
+        aiConfidenceScoreEl.textContent = profile.aiConfidenceScore;
+    }
+    
+    const frequencyCompatibilityEl = document.getElementById('frequency-compatibility-value');
+    if (frequencyCompatibilityEl && profile.frequencyCompatibility) {
+        frequencyCompatibilityEl.textContent = profile.frequencyCompatibility;
+    }
+    
+    const energyDNAEl = document.getElementById('energy-dna-value');
+    if (energyDNAEl && profile.energyDNA) {
+        energyDNAEl.textContent = profile.energyDNA;
+    }
+    
+    const personalMantraEl = document.getElementById('personal-mantra-value');
+    if (personalMantraEl && profile.personalMantra) {
+        personalMantraEl.textContent = profile.personalMantra;
+    }
+    
+    const soulRankEl = document.getElementById('soul-rank-value');
+    if (soulRankEl && profile.soulRank) {
+        soulRankEl.textContent = profile.soulRank;
+    }
+    
+    const collectiveRoleEl = document.getElementById('collective-role-value');
+    if (collectiveRoleEl && profile.collectiveRole) {
+        collectiveRoleEl.textContent = profile.collectiveRole;
+    }
 
     // Detailed Analysis
     const analysisDiv = document.getElementById('detailed-analysis');
