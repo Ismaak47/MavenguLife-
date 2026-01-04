@@ -5,7 +5,7 @@ const MavenguConfig = {
     api: {
         gemini: {
             key: 'AIzaSyB4Y-ccwj6s0EYS0Z0uZwIg67d5wPntmRc',
-            model: 'gemini-1.5-flash'
+            model: 'gemini-pro'
         },
         maxRetries: 3,
         timeout: 30000 // 30 seconds

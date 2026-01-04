@@ -368,26 +368,14 @@ async function openDeepDiveModal(title, prompt, profile) {
         if (e.target === modal) closeModal();
     };
 
-    // Fetch AI Insight
-    try {
-        const systemPrompt = window.MavenguSystemPrompt.generatePrompt(profile);
-        const fullPrompt = `${systemPrompt}\n\nUSER REQUEST: ${prompt}\n\nToa uchambuzi wa kina sana (deep dive) kama ripoti ya kitaalamu. Tumia vichwa vidogo, na eleza kwa urefu.`;
-
-        const messages = [{ role: 'user', parts: [{ text: fullPrompt }] }];
-
-        const text = await window.GeminiAPI.callGeminiAPI(messages);
-
-        // Format response
-        let formattedText = text
-            .replace(/\*\*(.*?)\*\*/g, '<h3>$1</h3>')
-            .replace(/\n/g, '<br>');
-
-        modalBody.innerHTML = formattedText;
-
-    } catch (e) {
-        console.error(e);
-        modalBody.innerHTML = `<p style="color: red;">SYSTEM ERROR: ${e.message || 'Connection Failed'}</p>`;
-    }
+    // Display a static message as the AI service is unavailable
+    setTimeout(() => {
+        modalBody.innerHTML = `
+            <h3>Uchambuzi wa Kina</h3>
+            <p>Samahani, uchambuzi wa kina kwa sasa haupatikani. Timu yetu inafanyia kazi suala hili.</p>
+            <p>Tafadhali angalia tena baadae.</p>
+        `;
+    }, 1500);
 }
 
 /* Particle Animation System */
