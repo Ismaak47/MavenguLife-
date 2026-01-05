@@ -66,7 +66,6 @@ const Astrology = {
             "Leo": { name: "Jua (Sun)", icon: "☀️", desc: "Nyota ya Nguvu na Uhai" },
             "Virgo": { name: "Zebaki (Mercury)", icon: "☿️", desc: "Sayari ya Akili na Uchambuzi" },
             "Libra": { name: "Zuhura (Venus)", icon: "♀️", desc: "Sayari ya Mahusiano" },
-            "Scorpio": "Pluto", icon: "♇️", desc: "Sayari ya Mabadiliko na Nguvu" }, // Typo fix in original logic if any, but let's keep consistent
             "Scorpio": { name: "Pluto", icon: "♇️", desc: "Sayari ya Mabadiliko na Nguvu" },
             "Sagittarius": { name: "Mushtari (Jupiter)", icon: "♃️", desc: "Sayari ya Bahati na Falsafa" },
             "Capricorn": { name: "Zohali (Saturn)", icon: "♄️", desc: "Sayari ya Nidhamu na Karma" },
