@@ -78,8 +78,15 @@
                 </div>
 
                 <div class="input-group">
-                    <label for="birth-date">TAREHE YA ASILI</label>
-                    <input type="date" id="birth-date" required>
+                    <label>TAREHE YA ASILI</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem;">
+                        <input type="number" id="birth-day" required placeholder="Siku" min="1" max="31" 
+                               style="width: 100%; padding: 0.6rem 0.8rem; background: rgba(0,0,0,0.4); border: 1px solid var(--primary-color); color: var(--text-color); font-family: var(--font-tech);">
+                        <input type="number" id="birth-month" required placeholder="Mwezi" min="1" max="12" 
+                               style="width: 100%; padding: 0.6rem 0.8rem; background: rgba(0,0,0,0.4); border: 1px solid var(--primary-color); color: var(--text-color); font-family: var(--font-tech);">
+                        <input type="number" id="birth-year" required placeholder="Mwaka" min="1900" max="2100" 
+                               style="width: 100%; padding: 0.6rem 0.8rem; background: rgba(0,0,0,0.4); border: 1px solid var(--primary-color); color: var(--text-color); font-family: var(--font-tech);">
+                    </div>
                 </div>
 
                 <div class="input-group">

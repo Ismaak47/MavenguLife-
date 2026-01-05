@@ -42,10 +42,24 @@ function initApp() {
             e.preventDefault();
 
             const fullName = document.getElementById('full-name').value;
-            const birthDate = document.getElementById('birth-date').value;
             const birthPlace = document.getElementById('birth-place').value;
-
-            if (!fullName || !birthDate) return;
+            const birthDateInput = document.getElementById('birth-date');
+            const dayEl = document.getElementById('birth-day');
+            const monthEl = document.getElementById('birth-month');
+            const yearEl = document.getElementById('birth-year');
+            let birthDate = '';
+            if (dayEl && monthEl && yearEl) {
+                const d = parseInt(dayEl.value, 10);
+                const m = parseInt(monthEl.value, 10);
+                const y = parseInt(yearEl.value, 10);
+                if (!fullName || !d || !m || !y) return;
+                const dd = String(d).padStart(2, '0');
+                const mm = String(m).padStart(2, '0');
+                birthDate = `${y}-${mm}-${dd}`;
+            } else {
+                if (!fullName || !birthDateInput || !birthDateInput.value) return;
+                birthDate = birthDateInput.value;
+            }
 
             // Show Loading
             inputSection.style.display = 'none';
