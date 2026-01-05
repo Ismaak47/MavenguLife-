@@ -590,70 +590,290 @@ const mavenguKnowledgeBase = {
         default: { title: "Sayari Kiongozi", description: "Sayari yako kiongozi inaathiri pakubwa utu wako, tabia zako, na jinsi unavyoingiliana na ulimwengu. Ni nguvu ya ulimwengu inayokuongoza, ikionyesha vipaji vyako vya asili na changamoto zako." }
     },
     moonPhase: {
-        default: { title: "Awamu ya Mwezi Uliozaliwa", description: "Awamu ya Mwezi uliozaliwa chini yake inaashiria nishati za kihisia na kiroho zilizokuwepo wakati wa kuzaliwa kwako. Inaathiri hisia zako, intuition, na jinsi unavyojibu mabadiliko ya maisha. Ni dirisha la kuelewa undani wa nafsi yako." }
+        default: {
+            title: "Awamu ya Mwezi Uliozaliwa",
+            CoreDefinition: "Awamu ya Mwezi uliozaliwa chini yake inaonyesha mzunguko wako wa ndani wa hisia, jinsi unavyopokea nishati, na namna unavyohifadhi kumbukumbu za kiroho. Ni alama ya rhythm ya ndani inayosimamia mawimbi ya moyo na akili yako.",
+            DiagnosticPurpose: "Kadi hii ipo ili kuangaza jinsi mabadiliko ya ndani yanavyojitokeza maishani mwako. Inapima jinsi unavyohusika na kukamilisha mizunguko, uwezo wako wa kuachilia, na namna unavyokabiliana na mabadiliko ya kihisia.",
+            HowDerived: "Uchambuzi unatokana na tarehe yako ya kuzaliwa na nafasi ya Mwezi katika anga wakati huo. Mfumo wa uchambuzi wa Mavengu hutumia hesabu ya unajimu kubaini awamu ya mwezi (mfano, New Moon, Full Moon, Robo ya Mwisho) na kuifananisha na archetype ya kihisia na kiroho inayohusiana.",
+            RevealsAboutUser: "Kadi hii inafunua jinsi unavyoshughulikia mizunguko ya kuanza na kumaliza, jinsi unapokea maumivu na furaha, na mwelekeo wako wa ndani wa kiroho. Inaonyesha kama una mwelekeo wa kushikilia mambo kwa muda mrefu au kuachilia kwa urahisi.",
+            AlignedExpression: "Unapofanya kazi kwa ulinganifu na Awamu yako ya Mwezi, unaheshimu rhythm yako ya ndani, unajua lini uanze, lini ufanye kazi kwa bidii, na lini uache na kupumzika. Hisia zako hutiririka kwa uhuru na unajisikia kuungwa mkono na mzunguko wa maisha.",
+            ShadowExpression: "Kinyume chake, ukikataa au kupuuza mzunguko wa ndani, unaweza kuhisi kukwama kihisia, kurudia mizunguko ile ile ya maumivu, au kuishi katika hali ya kuchoka kiakili. Unaweza kuanza mambo mengi bila kuyakamilisha au kushindwa kuachilia vilivyokufa.",
+            RealLifeImpact: "Awamu ya Mwezi inaathiri moja kwa moja hali yako ya hisia, uwezo wa kufanya maamuzi kwa wakati sahihi, na jinsi unavyochoka au kuchangamka katika vipindi tofauti. Inaathiri mahusiano, kazi, na jinsi unavyojihisi kuhusu hatua za maisha.",
+            GuidanceIntegration: "Ili kuunganisha hekima ya Awamu yako ya Mwezi, zingatia ratiba ya mwezi, fanya journaling ya hisia zako katika awamu mbalimbali, na panga kazi nzito au maamuzi makubwa wakati wa awamu zinazokuinua. Jifunze sanaa ya kuachilia wakati wa kupungua kwa mwezi."
+        }
     },
     birthStone: {
-        default: { title: "Jiwe la Asili", description: "Jiwe lako la asili lina nguvu za uponyaji na ulinzi. Inaweza kukuza sifa zako nzuri na kukupa nguvu unapohitaji. Kila jiwe lina nishati yake ya kipekee inayolingana na mwezi wako wa kuzaliwa." }
+        default: {
+            title: "Jiwe la Asili",
+            CoreDefinition: "Jiwe la Asili ni jiwe la kiishara linalohusishwa na mwezi wako wa kuzaliwa, likiwa na masafa maalum ya uponyaji, ulinzi, na uanzishaji wa vipaji vya ndani. Ni kifaa cha nishati kinachosaidia kuratibu mwili, akili, na roho.",
+            DiagnosticPurpose: "Kadi hii ipo ili kuonyesha ni aina gani ya nishati ya kijiwe inayounga mkono safari yako. Inatoa mwongozo kuhusu ni masafa gani ya kijiwe yanayoweza kukusaidia kuponya majeraha ya zamani, kuimarisha nguvu yako ya ndani, na kulinda uwanja wako wa nishati.",
+            HowDerived: "Uchambuzi unatokana na mwezi wa kuzaliwa na mila za kale za jiwe la kuzaliwa, zikichanganywa na profil ya nishati ya unajimu na numerology. Mfumo unalinganisha sifa za kiroho za jiwe lako na ramani ya nishati ya maisha yako.",
+            RevealsAboutUser: "Kadi hii inafunua aina ya msaada wa nishati unaouhitaji zaidi: utulivu, ujasiri, uwazi wa akili, huruma, au ulinzi. Inaonyesha ni maeneo gani ya maisha yako yanaweza kuimarishwa kupitia kazi ya kijiwe.",
+            AlignedExpression: "Unapotumia Jiwe lako la Asili kwa uangalifu (kama hirizi, katika kutafakari, au kwenye mazingira yako), unahisi umeshikiliwa, umewezeshwa, na umelindwa. Unahisi nishati yako ikitulia na kusawazishwa na kusudi la moyo wako.",
+            ShadowExpression: "Ukipuuzia resonance ya jiwe lako au kufanya kazi na masafa yasiyolingana, unaweza kuhisi nishati iliyochanganyikiwa, kukosa mwelekeo, au kutokua kwenye mstari na hisia zako za ndani. Hii inaweza kuleta uchovu, kuchoka kiroho, au hisia ya kutopata msaada.",
+            RealLifeImpact: "Jiwe la Asili linaathiri jinsi unavyohisi katika mwili wako, kiwango cha ujasiri, na utayari wako wa kuchukua hatua wakati wa changamoto. Linaweza kukusaidia kukaa thabiti katika misukosuko na kubeba hisia za ulinzi na uthabiti.",
+            GuidanceIntegration: "Ili kujumuisha hekima ya Jiwe lako la Asili, vaa au tumia jiwe lako kwa makusudi, weka nia kabla ya kulitumia, na lifanye kuwa sehemu ya itifaki yako ya kila siku au kila wiki. Tumia kama nanga ya nishati wakati wa maombi, kutafakari, au maamuzi magumu."
+        }
     },
     spiritAnimal: {
-        default: { title: "Mnyama wa Roho", description: "Mnyama wako wa roho ni mwongozo wa kiroho anayeakisi sifa zako za ndani na kukupa hekima. Ni ishara ya nguvu, ulinzi, na masomo unayopaswa kujifunza maishani mwako." }
+        default: {
+            title: "Mnyama wa Roho",
+            CoreDefinition: "Mnyama wa Roho ni archetype ya nishati ya wanyama inayobeba sifa, silika, na hekima ya kiishara inayoakisi sehemu muhimu ya nafsi yako ya ndani. Ni mwongozo wa kiroho anayekutumia lugha ya ishara badala ya maneno.",
+            DiagnosticPurpose: "Kadi hii ipo ili kufichua mitindo yako ya kiasili ya kuishi, kujilinda, na kusonga mbele maishani. Inaonyesha aina ya nguvu ya kimsingi unayobeba unapokabiliana na changamoto, unapotafuta fursa, na unapojilinda kiroho.",
+            HowDerived: "Uchambuzi unatokana na ishara yako ya unajimu, mienendo ya nishati ya maisha yako, na mifumo ya tabia inayoonekana katika wasifu wako wa uchambuzi. Mfumo unafananishwa na mifano ya wanyama wa kiishara kutoka hekima mbalimbali za kale.",
+            RevealsAboutUser: "Kadi hii inafunua jinsi unavyokabiliana na hofu, namna unavyotafuta njia mpya, unavyotetea mipaka yako, na jinsi unavyowasiliana na ulimwengu. Inatafsiri sehemu yako ya kinstinct ambayo mara nyingi haijasemwa wazi.",
+            AlignedExpression: "Unapokubali Mnyama wako wa Roho, unajiona wazi zaidi, unatumia vipaji vyake (mfano ujanja wa mbweha, ujasiri wa simba, au uvumilivu wa dubu) kwa njia yenye fahamu. Unahisi unaungwa mkono na nguvu ya mfano hai iliyo upande wako.",
+            ShadowExpression: "Ukikataa au kutojua Mnyama wako wa Roho, unaweza kuishia kujieleza vibaya: ama kupita kiasi (aggressiveness, kutawala) au kujizuia kupita kiasi (woga, kujificha). Hii inaweza kuibua migogoro ya ndani na kukosa ujasiri wa asili.",
+            RealLifeImpact: "Mnyama wa Roho huathiri jinsi unavyojiamini katika umati, namna unavyopambana unapokandamizwa, na jinsi unavyotafuta riziki na ulinzi. Inaathiri mitindo yako ya mahusiano na hata aina ya watu unaovutiwa nao au kuwaepuka.",
+            GuidanceIntegration: "Ili kuunganisha hekima ya Mnyama wako wa Roho, jifunze tabia na ishara zake, tumia picha au ishara yake katika mazingira yako, na umwite kwa nia maalum wakati wa kutafakari, sala, au maamuzi magumu. Jiulize mara kwa mara: Ningetenda vipi kama ningeishi hekima ya mnyama huyu kikamilifu?"
+        }
     },
     balanceNumber: {
-        default: { title: "Namba ya Usawa", description: "Namba yako ya usawa inaonyesha jinsi unavyoitikia changamoto na migogoro. Inaashiria nguvu zako za ndani za kukabiliana na matatizo na kudumisha utulivu katika nyakati za misukosuko." }
+        default: {
+            title: "Namba ya Usawa",
+            CoreDefinition: "Namba ya Usawa inaonyesha namna unavyokabiliana na migogoro, misukosuko, na hali za dharura. Ni ramani ya jinsi unavyopata kituo cha ndani katikati ya shinikizo la nje.",
+            DiagnosticPurpose: "Kadi hii ipo ili kufichua mtindo wako wa msingi wa kukabiliana na stress na migogoro. Inakusaidia kuelewa ikiwa unajibu kihisia, kimantiki, kwa kukwepa, au kwa kuchukua hatua ya moja kwa moja.",
+            HowDerived: "Namba hii inapatikana kupitia hesabu maalum ya herufi za majina yako, kulingana na kanuni za numerology ya lugha ya kuzaliwa. Mfumo wa Mavengu huunganisha namba hii na Life Path na Destiny ili kutafsiri aina yako ya msingi ya majibu.",
+            RevealsAboutUser: "Kadi hii inafunua jinsi unavyotafuta usawa baada ya mshtuko, jinsi unavyoshughulikia mabishano, na kama una mwelekeo wa kupatanisha, kupambana, au kujiondoa. Inaonyesha kiwango chako cha ustahimilivu wa ndani.",
+            AlignedExpression: "Unapofanya kazi kwa ulinganifu na Namba yako ya Usawa, unakabiliana na changamoto kwa utulivu, uwazi wa mawazo, na maamuzi ya busara. Unajua lini useme, lini usikilize, na lini uache mambo yaende.",
+            ShadowExpression: "Ukifanya kazi kinyume na namba hii, unaweza kuzidiwa na stress, kurudia mifumo ya uharibifu kama kujilinda kupita kiasi, ukali, au kukwepa majukumu. Hii huleta migongano ya muda mrefu na kuchoka kiakili.",
+            RealLifeImpact: "Namba ya Usawa inaathiri namna unavyoishi katika mahusiano yenye changamoto, kazi yenye pressure, na vipindi vya mabadiliko makubwa. Inaamua kama unavunjika au unajengwa zaidi kupitia misukosuko.",
+            GuidanceIntegration: "Ili kuunganisha hekima ya Namba yako ya Usawa, tafakari jinsi ulivyokabiliana na migogoro mikuu iliyopita, tambua mifumo inayojirudia, na ujifunze mbinu za ufahamu (breathwork, grounding, mawasiliano ya wazi) zinazoendana na namba yako. Fanya mazoezi haya kuwa sehemu ya kujihudumia."
+        }
     },
     passionNumber: {
-        default: { title: "Shauku ya Ndani (Hidden Passion)", description: "Namba yako ya Shauku ya Ndani inafichua talanta zako zilizofichwa au shughuli unazopaswa kuzifanya ili kujisikia umetimia. Ni moto wa ndani unaokusukuma kuelekea furaha na ubunifu." }
+        default: {
+            title: "Shauku ya Ndani (Hidden Passion)",
+            CoreDefinition: "Shauku ya Ndani inaonyesha talanta, vipaji, au misukumo ya ndani ambayo haionekani mara moja kwenye uso wa maisha yako, lakini ndiyo moto wa kweli unaokuendesha ndani.",
+            DiagnosticPurpose: "Kadi hii ipo ili kufichua kile kinachokupa hisia ya kuwaka moyoni, hata kama haujavifanya kuwa kazi au mwelekeo wa wazi. Inaonyesha maeneo ambayo ukiyapuuza, unaweza kuhisi maisha yako hayajatimia.",
+            HowDerived: "Namba hii inatokana na kurudia kwa baadhi ya herufi katika majina yako kulingana na kanuni za numerology. Mfumo unatafsiri marudio haya kuwa mada kuu za shauku na vipaji vya ndani vinavyotaka kuishiwa.",
+            RevealsAboutUser: "Kadi hii inafunua mahali unapohisi uko hai zaidi: ubunifu, uongozi, huduma, kujifunza, au kujieleza. Inaonyesha kile unachoweza kufanya kwa saa nyingi bila kuchoka kwa sababu kinaendana na moyo wako.",
+            AlignedExpression: "Unapoheshimu Shauku yako ya Ndani, unatafuta njia ya kuijumuisha kwenye kazi, miradi ya pembeni, au huduma. Unahisi nguvu, msukumo, na maana ya ndani katika shughuli zako za kila siku.",
+            ShadowExpression: "Ukizuia moto huu wa ndani, unaweza kuhisi kutojali, kuchoka, au hisia ya kuwa 'nje ya kusudi'. Unaweza kutafuta faraja za haraka (kulewa, matumizi kupita kiasi) badala ya uundaji wa kina wa maana.",
+            RealLifeImpact: "Shauku ya Ndani inaathiri uchaguzi wa kazi, ushirikiano, na namna unavyotumia muda wako wa ziada. Ikiwa imeunganishwa, maisha yako yanajaa msisimko wa ubunifu; ikiwa imedhibitiwa, maisha yanaweza kuhisiwa kama mzigo unaorudiwa.",
+            GuidanceIntegration: "Ili kuunganisha hekima ya kadi hii, orodhesha shughuli zinazokufanya usahau muda, zipe kipaumbele kwa makusudi, na utafute njia ndogo za kuzielekea kila wiki. Tambua sauti zinazokuzuia kuzifuata na uzibadilishe kwa uthibitisho wa ujasiri."
+        }
     },
     karmicDebt: {
-        default: { title: "Deni la Karma", description: "Deni la Karma linaonyesha masomo unayopaswa kujifunza kutokana na matendo ya maisha yaliyopita. Ni fursa ya kurekebisha makosa na kukuza sifa chanya ili kusonga mbele kwa uhuru zaidi." }
+        default: {
+            title: "Deni la Karma",
+            CoreDefinition: "Deni la Karma linaonyesha masomo mazito yasiyokamilika kutoka mizunguko ya zamani ya maisha ambayo bado yanatafuta usawa kupitia uzoefu wa sasa. Ni nishati ya kujirekebisha na kusafisha mifumo ya zamani.",
+            DiagnosticPurpose: "Kadi hii ipo ili kukupa ufahamu wa kina kuhusu kwa nini baadhi ya changamoto zinaonekana 'nzito kupita kawaida'. Inafafanua mandhari ya kiafya, kifedha, au kihisia inayohitaji usawa wa makusudi na uwajibikaji wa ndani.",
+            HowDerived: "Namba za Deni la Karma hupatikana kupitia muundo wa tarehe ya kuzaliwa na baadhi ya namba maalum katika majina yako, zikifuata kanuni za jadi za numerology. Mfumo wa Mavengu unazitafsiri kama masomo makuu ya kusafisha nishati.",
+            RevealsAboutUser: "Kadi hii inafunua maeneo ambayo una mwelekeo wa kurudia makosa, kuwavutia watu au hali zinazofanana, au kubeba mzigo wa kihisia usioeleweka. Inaonyesha mahali ambapo msamaha, nidhamu, au uwazi wa maamuzi unahitajika.",
+            AlignedExpression: "Unapokubali Deni lako la Karma kwa ufahamu, unakoma kujiona mwathirika na unaanza kuchukua hatua za makusudi za kurejesha usawa: mabadiliko ya tabia, kuchagua uaminifu, huduma, au uwazi wa kihisia. Hii inaleta uhuru wa polepole lakini wa kudumu.",
+            ShadowExpression: "Ukipinga au kukataa masomo ya karma, unaweza kujikuta ukirudia mahusiano yenye maumivu, matatizo ya kifedha, au mifumo ya kujiharibu. Hii huongeza hisia za kukwama na kukata tamaa.",
+            RealLifeImpact: "Deni la Karma linaathiri mienendo ya mahusiano, maamuzi ya kifedha, na hali muhimu za maisha kama ndoa, kazi, na afya. Linapoeleweka, unaweza kuligeuza kuwa jukwaa la ukuaji wa kipekee badala ya kifungo kisichoonekana.",
+            GuidanceIntegration: "Ili kuunganisha hekima ya kadi hii, chunguza kwa uaminifu mifumo inayojirudia, tafuta msaada wa kitaalamu au kiroho inapohitajika, na uamue tabia mpya unazotaka kuendeleza. Fanya matendo ya ufahamu ya kusafisha kama msamaha, kutoa, au huduma ya hiari."
+        }
     },
     firstChallenge: {
-        default: { title: "Changamoto ya Kwanza", description: "Changamoto yako ya kwanza inaashiria masomo muhimu unayopaswa kujifunza katika hatua za mwanzo za maisha yako. Ni fursa ya kukua na kuimarisha msingi wako kabla ya kukabiliana na changamoto kubwa zaidi." }
+        default: {
+            title: "Changamoto ya Kwanza",
+            CoreDefinition: "Changamoto ya Kwanza inaonyesha kizuizi kikuu cha mwanzo maishani mwako kinachounda tabia yako, imani zako, na jinsi unavyokabiliana na dunia katika miaka ya awali.",
+            DiagnosticPurpose: "Kadi hii ipo ili kufafanua ni aina gani ya majaribu ya mapema yanayokuunda: ukosefu wa msaada, hofu, kujithamini chini, au mzigo wa majukumu. Inaonyesha eneo ambalo roho yako iliamua kupata uthabiti wa msingi.",
+            HowDerived: "Namba hii inatokana na mchanganyiko wa sehemu za tarehe yako ya kuzaliwa kulingana na fomula maalum ya numerology. Mfumo unaihusianisha na mandhari ya utotoni na ujana wa mapema.",
+            RevealsAboutUser: "Kadi hii inafunua kile kilichokusukuma kukua mapema, mifumo uliyojifunza kujilinda, na maeneo ambayo bado unaweza kubeba majeraha ya zamani. Inaonyesha asili ya kikwazo cha kwanza kilichokufundisha nguvu.",
+            AlignedExpression: "Unapoponya na kukubali Changamoto yako ya Kwanza, unageuza hadithi ya maumivu kuwa hadithi ya nguvu. Unatumia uzoefu wako kusaidia wengine na kufanya maamuzi yenye afya badala ya kurudia ulivyofanyiwa.",
+            ShadowExpression: "Ukibaki umefungwa kwenye hisia za zamani za kukosa msaada au kuumizwa, unaweza kuendelea kupambana na imani za kujidunisha, hofu ya ukaribu, au tabia za kujilinda kupita kiasi.",
+            RealLifeImpact: "Changamoto hii inaathiri jinsi unavyotazama dunia (salama au hatari), namna unavyounda mahusiano ya karibu, na jinsi unavyopokea msaada. Inaweza kupunguza au kuongeza uwezo wako wa kuamini safari ya maisha.",
+            GuidanceIntegration: "Ili kuunganisha hekima yake, tambua tukio au mandhari kuu ya changamoto za awali, fanya kazi ya ndani (inner child work, journaling, tiba), na ruhusu nafsi yako ya sasa kumtunza na kumthibitisha yule uliyekuwa. Hivi ndivyo unavyofungua kiwango kipya cha uhuru wa kihisia."
+        }
     },
     luckyColor: {
-        default: { title: "Rangi ya Bahati", description: "Rangi yako ya bahati inaleta nishati chanya na inaweza kukuza furaha na mafanikio yako. Kila rangi ina maana yake, na kuitumia kwa uangalifu kunaweza kuongeza bahati yako maishani." }
+        default: {
+            title: "Rangi ya Bahati",
+            CoreDefinition: "Rangi ya Bahati inaonyesha wigo wa rangi ambao unapoongezwa kwenye maisha yako huongeza ujasiri, uwazi, na resonance chanya ya nishati yako. Ni lugha ya kuona ya aura yako ya asili.",
+            DiagnosticPurpose: "Kadi hii ipo ili kukuonyesha ni pembejeo gani ya rangi inaweza kukuza hali unayotamani: utulivu, nguvu, mvuto, au ulinzi. Inapima jinsi mwili wako wa nishati unavyoitikia mitetemo tofauti ya rangi.",
+            HowDerived: "Rangi ya Bahati hutolewa kupitia ulinganifu wa ishara yako ya unajimu, aura yako, na mandhari ya maisha yako. Mfumo wa Mavengu unatumia ramani ya archetypes za rangi na elementi ili kubainisha rangi inayokuinua zaidi.",
+            RevealsAboutUser: "Kadi hii inafunua jinsi unavyotumia au kupuuza rangi katika mavazi, mazingira na utambulisho wako. Inaonyesha ikiwa unapendelea kujificha (rangi hafifu) au kuonekana (rangi kali) na ni hali gani ya nishati inayokufaa zaidi.",
+            AlignedExpression: "Unapojumuisha Rangi yako ya Bahati kwa ufahamu, unahisi kuungwa mkono, unaonekana kwa namna inayolingana na nafsi yako ya ndani, na unapokea majibu chanya zaidi kutoka kwa watu na mazingira.",
+            ShadowExpression: "Ukivaa au kuzungukwa mara kwa mara na rangi zinazopingana na aura yako, unaweza kuhisi kuchoka, kutokuwa na msukumo, au kupoteza msimamo wako wa ndani. Unaweza pia kujisikia 'hauonekani' kikamilifu.",
+            RealLifeImpact: "Rangi hii inaathiri hisia zako za kila siku, hisia ya uzuri wa kibinafsi, na namna unavyopokelewa kwenye mahojiano, mikutano, au mahusiano ya karibu. Ni zana ndogo lakini yenye nguvu ya kubadilisha hali ya nishati.",
+            GuidanceIntegration: "Ili kujumuisha hekima ya Rangi ya Bahati, anza kuingiza rangi hii katika vitu vidogo (vifaa, mandhari ya simu, vitu vya kazi), kisha uijumuishe kwenye mavazi au mapambo ya nyumbani. Tazama jinsi hali yako inavyobadilika unapofanya hivyo kwa makusudi."
+        }
     },
     luckyDay: {
-        default: { title: "Siku ya Bahati", description: "Siku yako ya bahati ni wakati mwafaka wa kuanzisha miradi mipya, kufanya maamuzi muhimu, au kufuata malengo yako. Nishati ya siku hii inakupa nguvu na ulinzi wa ziada." }
+        default: {
+            title: "Siku ya Bahati",
+            CoreDefinition: "Siku ya Bahati ni siku katika wiki ambapo masafa yako ya kibinafsi ya nishati yanalingana zaidi na masafa ya sayari, hivyo kuongeza uwezekano wa mtiririko mzuri, fursa, na uamuzi ulio wazi.",
+            DiagnosticPurpose: "Kadi hii ipo ili kukusaidia kupanga matendo muhimu ya maisha (maamuzi, mazungumzo makubwa, kuanzisha miradi) wakati ambapo nishati inakusaidia zaidi badala ya kukukwamisha.",
+            HowDerived: "Siku hii hutokana na ishara yako ya unajimu na sayari inayoiwazia, ikifungamanishwa na mzunguko wa wiki. Mfumo wa Mavengu unalinganisha sifa za sayari na tabia zako za asili.",
+            RevealsAboutUser: "Kadi hii inafunua mwelekeo wako wa mafanikio ya asili na muda ambapo unakuwa na nguvu zaidi kiakili na kihisia. Inaonyesha kama unastawi zaidi katika kuanza wiki, katikati, au mwishoni mwa wiki.",
+            AlignedExpression: "Unapotumia Siku yako ya Bahati kwa ufahamu, unaweka shughuli muhimu siku hii, unajiheshimu kwa kupunguza migogoro isiyo ya lazima, na unaruhusu matukio ya 'bahati' kuongezeka kwa sababu uko katika nishati ya uwiano.",
+            ShadowExpression: "Ukipuuzia kabisa hisia za muda na mizunguko, unaweza kupanga kila kitu kinyume na mfuatano wa nishati yako, na hivyo kuhisi mambo 'hayaendi tu' bila kuelewa kwa nini.",
+            RealLifeImpact: "Siku ya Bahati inaathiri ubora wa mahojiano, mikutano, maamuzi ya kifedha, au hata tarehe za kimapenzi. Si uchawi wa papo kwa papo, bali ni kuendana na mzunguko unaokufaa.",
+            GuidanceIntegration: "Ili kuunganisha hekima ya kadi hii, anza kutambua ni siku gani unahisi uko juu zaidi na uweke mambo magumu au muhimu siku hiyo inapowezekana. Tumia siku hii pia kama siku ya kuunganisha upya nia na malengo yako."
+        }
     },
     tarotCard: {
-        default: { title: "Kadi ya Tarot (Archetype)", description: "Kadi yako ya Tarot Archetype inaashiria somo kuu la maisha yako au utu wako wa ndani. Ni kielelezo cha hekima ya kale inayokuongoza katika safari yako ya kiroho na kukusaidia kuelewa undani wa nafsi yako." }
+        default: {
+            title: "Kadi ya Tarot (Archetype)",
+            CoreDefinition: "Kadi ya Tarot ya kuzaliwa inaonyesha archetype kuu ya safari yako ya roho: hadithi ya ndani ya mwanahero unayocheza katika maisha haya, pamoja na majaribio na zawadi zake.",
+            DiagnosticPurpose: "Kadi hii ipo ili kukuonyesha ramani ya kiroho ya maisha yako kwa lugha ya ishara. Inafafanua mandhari ya kudumu kama kujitafuta, uongozi, huduma, uponyaji, au uhuru.",
+            HowDerived: "Archetype ya Tarot imeunganishwa na ishara yako ya jua na ramani pana ya nishati, ikifananishwa na Majors Arcana katika Tarot. Mfumo wa Mavengu hutumia archetype hii kama dirisha la kuelewa kusudi la kina la roho.",
+            RevealsAboutUser: "Kadi hii inafunua namna unavyoona changamoto, jinsi unavyochukua mamlaka ya maisha, na ni aina gani ya mabadiliko ndiyo 'thamani ya msingi' ya safari yako. Inaonyesha pia kivuli unachohitaji kuligeuza kuwa nguvu.",
+            AlignedExpression: "Unapokumbatia archetype yako kwa ufahamu, unakoma kujilinganisha bila kichwa; unakubali kuwa safari yako ina rangi maalum na unafanya kazi ndani ya ramani hiyo kwa ubunifu na ujasiri.",
+            ShadowExpression: "Ukipopoteza fahamu ya archetype yako, unaweza kuishi upande wake wa kivuli: The Hermit kuwa kujitenga kupita kiasi, The Emperor kuwa udikteta, nk. Hii huleta hisia za kupotea au kuzidisha tabia fulani.",
+            RealLifeImpact: "Archetype huathiri aina ya kazi unayovutiwa nayo, mahusiano unayochagua, na hata maswali ya kiroho unayojiuliza. Ni msingi wa hadithi unayoendelea kuiandika kila siku.",
+            GuidanceIntegration: "Ili kuunganisha hekima ya kadi hii, jifunze hadithi na masomo ya archetype yako, jiulize uko kwenye hatua gani ya hadithi hiyo, na ufanye maamuzi yanayokupeleka karibu na usemi wake wa juu zaidi badala ya kivuli chake."
+        }
     },
     chakra: {
-        default: { title: "Chakra Kiongozi", description: "Chakra yako kiongozi inaashiria kituo chako cha nishati kinachoamua afya yako ya kiroho, kihisia, na kimwili. Kuelewa na kusawazisha Chakra yako kunaweza kuongeza nguvu zako za ndani na kukuleta katika usawa kamili." }
+        default: {
+            title: "Chakra Kiongozi",
+            CoreDefinition: "Chakra Kiongozi ni kituo chako kikuu cha nishati kinachotawala namna unavyohisi salama, unavyojieleza, unapenda, au unavyotafuta maana. Ni lango kuu la mtiririko wa nguvu ya maisha katika mfumo wako.",
+            DiagnosticPurpose: "Kadi hii ipo ili kufichua mahali ambapo nguvu yako ya kiroho na kihisia imejikita zaidi: mizizi, moyo, koo, taji, n.k. Hii husaidia kuelewa kwa nini unajibu maisha kwa namna fulani.",
+            HowDerived: "Uchanganuzi unategemea ishara yako ya unajimu, ramani ya elementen, na mienendo ya kihisia iliyoonekana katika wasifu wako. Mfumo unalinganisha data hii na tabia za kila chakra ili kubaini kituo kinachoongoza.",
+            RevealsAboutUser: "Kadi hii inafunua ikiwa unaongozwa zaidi na utegemezi wa kiusalama (Root), ubunifu na hisia (Sacral), nguvu ya utashi (Solar Plexus), upendo (Heart), usemi wa ukweli (Throat), intuition (Third Eye), au muunganiko wa kiungu (Crown).",
+            AlignedExpression: "Unapofanya kazi kwa ulinganifu na Chakra yako Kiongozi, una mtiririko wa asili wa nguvu katika eneo hilo na hutumia zawadi zake kwa uwazi: mawasiliano wazi, upendo, ujasiri, au hekima ya juu.",
+            ShadowExpression: "Ukizidisha au kudhoofisha kituo hiki, unaweza kukumbwa na tabia za kupoteza uwiano kama woga wa kuachilia, kiburi, kukosa mipaka, au kukaa kichwani kupita kiasi bila kuugusa mwili na hisia.",
+            RealLifeImpact: "Chakra hii inaathiri afya ya mwili katika eneo husika, ubora wa mahusiano yako, na kiwango chako cha ubunifu au uwezo wa kufanya maamuzi magumu.",
+            GuidanceIntegration: "Ili kuunganisha hekima yake, fanya mazoezi, kutafakari, au rituali zinazolilisha chakra hili (rangi, sauti, harakati, maombi) na pia zijenge chakra nyingine ili kuleta usawa wa mfumo mzima."
+        }
     },
     chineseZodiac: {
-        default: { title: "Nyota ya Kichina", description: "Nyota yako ya Kichina, kulingana na mwaka wako wa kuzaliwa, inaashiria sifa zako za msingi, tabia zako, na jinsi unavyoingiliana na wengine. Ni mfumo wa kale unaotoa ufafanuzi wa kina wa utu wako." }
+        default: {
+            title: "Nyota ya Kichina",
+            CoreDefinition: "Nyota ya Kichina inaonyesha archetype ya mwaka wa kuzaliwa kwako kulingana na mzunguko wa miaka 12 ya wanyama. Inabeba mtindo wa muda mrefu wa tabia, mwelekeo wa mafanikio, na njia ya kushirikiana na jamii.",
+            DiagnosticPurpose: "Kadi hii ipo ili kuongeza safu ya ziada kwenye uelewa wa utu wako, ikichanganya hekima ya Mashariki na ramani nyingine za nishati. Inakuonyesha jinsi ulivyo ndani ya mzunguko wa kijamii na kizazi chako.",
+            HowDerived: "Uchambuzi unatokana na mwaka wa kuzaliwa, ukifananisha na mnyama husika (mfano Panya, Farasi, Mbwa). Mfumo wa Mavengu unaunganisha sifa za mnyama huyo na tabia za unajimu wa Magharibi.",
+            RevealsAboutUser: "Kadi hii inafunua namna unavyofanya kazi katika mifumo ya watu wengi: je, wewe ni mwepesi, mwenye ujanja, mtiifu, jasiri, au msiri? Inaonyesha pia aina ya changamoto na zawadi katika mzunguko wa kijamii.",
+            AlignedExpression: "Unapokubali Nyota yako ya Kichina, unatumia vipaji vyake kwa uangalifu katika kazi, biashara, na mahusiano. Unajua ni mahali gani unapofaa kuwa mbele na mahali pa kushirikiana kama timu.",
+            ShadowExpression: "Ukikimbia upande wa kivuli wa mnyama wako (kama ukaidi, tamaa, woga, ubinafsi), unaweza kujikuta ukihujumu mafanikio yako ya muda mrefu na kuleta migogoro isiyo ya lazima.",
+            RealLifeImpact: "Nyota ya Kichina inaathiri sifa ya jina lako katika jamii, jinsi watu wanavyokupokea kwa ujumla, na mizunguko ya miaka yenye bahati au changamoto katika maisha yako ya kazi na familia.",
+            GuidanceIntegration: "Ili kuunganisha hekima yake, jifunze tabia chanya za mnyama wako na kivuli chake, kisha uamue tabia moja unayotaka kukuza na moja unayotaka kuponya. Tumia maarifa haya katika kupanga malengo ya muda mrefu."
+        }
     },
     pinnacle: {
-        default: { title: "Mzunguko wa Kilele (Pinnacle Cycle)", description: "Mzunguko wako wa kilele unaashiria vipindi maalum maishani mwako ambavyo huleta fursa za kipekee za ukuaji na mafanikio. Kila kilele kina masomo yake, vikwazo, na zawadi zake." }
+        default: {
+            title: "Mzunguko wa Kilele (Pinnacle Cycle)",
+            CoreDefinition: "Mzunguko wa Kilele unaonyesha awamu maalum za maisha ambapo masomo makuu, fursa, na mafanikio ya juu yanajitokeza. Ni 'sehemu za juu' za simulizi ya maisha yako.",
+            DiagnosticPurpose: "Kadi hii ipo ili kukusaidia kuelewa ni kwa nini vipindi fulani vya maisha vinaonekana vimejaa mabadiliko au mafanikio kuliko vingine. Inatoa muktadha wa wakati badala ya tukio moja tu.",
+            HowDerived: "Mizunguko ya Kilele inatokana na hesabu maalum ya numerology ya tarehe yako ya kuzaliwa, mara nyingi ikigawanya maisha katika awamu nne kuu. Mfumo wa Mavengu unaleta muhtasari wa kilele cha sasa ulipo.",
+            RevealsAboutUser: "Kadi hii inafunua msisitizo wa awamu uliyo ndani yake sasa: je unaitwa kujenga, kuvunja, kupanua, au kuachilia? Inaonyesha aina ya masomo na zawadi zinazopatikana katika kipindi hiki.",
+            AlignedExpression: "Unapofanya kazi sambamba na Mzunguko wa Kilele, unakubali msimu wa maisha: unapanda wakati wa kupanda, kuvuna wakati wa mavuno, na kupumzika wakati wa kupumzika. Hii huleta mafanikio ya kina na yasiyohitaji nguvu ya kulazimisha.",
+            ShadowExpression: "Ukilazimisha maisha yako kwenda kinyume na msimu wa kilele, unaweza kukumbana na msuguano wa mara kwa mara, vizuizi, na kuhisi 'umesukumwa nyuma' bila kuelewa chanzo.",
+            RealLifeImpact: "Mizunguko hii inaathiri maamuzi makubwa kama mabadiliko ya kazi, ndoa, kuhamia, au kuanza miradi mikubwa. Inakupa ramani ya wakati unaofaa zaidi wa hatua kubwa.",
+            GuidanceIntegration: "Ili kuunganisha hekima ya kadi hii, tambua ni aina gani ya kilele unachokipitia (kujenga, kujifunza, kuongoza, kutoa), kisha upange malengo yako makuu ya miaka michache ijayo kwa kuzingatia mwelekeo huo wa nishati."
+        }
     },
     auraColor: {
-        default: { title: "Rangi ya Aura", description: "Rangi yako ya aura inaakisi nishati yako ya kiroho na kihisia, ikionyesha hali yako ya ndani, afya, na utu wako. Kila rangi ina maana yake ya kipekee, ikikupa ufahamu wa kina wa 'mimi' wako wa ndani." }
+        default: {
+            title: "Rangi ya Aura",
+            CoreDefinition: "Rangi ya Aura ni mwonekano wa nishati ya uwanja wako wa kiroho na kihisia, ikionyesha kiwango cha furaha, uzito, uchovu, au msisimko wa roho katika wakati uliopo.",
+            DiagnosticPurpose: "Kadi hii ipo ili kukuonyesha hali ya sasa ya uwiano wako wa ndani. Inafichua ikiwa unahitaji kupunguza mzigo, kuongeza mwanga wa ubunifu, au kulinda nishati yako dhidi ya uchafuzi wa nje.",
+            HowDerived: "Rangi ya Aura hutokana na ulinganifu wa ishara ya unajimu, elementi, na mienendo ya kihisia iliyoandikwa kwenye wasifu wako. Mfumo unaihusianisha na rangi za kawaida za uwanja wa nishati wa binadamu.",
+            RevealsAboutUser: "Kadi hii inafunua unaelekea wapi kwa sasa: kutafakari, vitendo, uponyaji, au ubunifu. Inaonyesha pia jinsi watu wengine wanavyokuhisi bila hata maneno.",
+            AlignedExpression: "Unapofanya kazi kwa ulinganifu na Rangi yako ya Aura, unajua unachohitaji kubaki katika hali ya mwanga: muda wa peke yako, kuungana na wengine, kufanya kazi ya mwili, au ibada za kiroho.",
+            ShadowExpression: "Ukipuuzia ishara ya aura iliyochoka au iliyochafuliwa, unaweza kupuuzia mipaka, kuungua (burnout), au kupata maumivu ya mwili yanayotokana na uchovu wa nishati.",
+            RealLifeImpact: "Rangi ya Aura inaathiri jinsi unavyoonekana katika mahojiano, uhusiano, na hadhara: je, watu wanajisikia kuvutiwa kukusikiliza, kukutegemea, au wanahisi mashaka? Inaweza pia kubadilika kulingana na jinsi unavyojijali.",
+            GuidanceIntegration: "Ili kuunganisha hekima yake, fanya kazi za kusafisha aura kama kuoga kwa chumvi, kutembea kwenye asili, kupumua kwa kina, na maombi. Tumia rangi zinazosaidia aura yako kupitia nguo, mwanga, na sanaa karibu nawe."
+        }
     },
     lifeLesson: {
-        default: { title: "Somo la Maisha", description: "Somo lako la maisha ni changamoto kuu unayopaswa kushinda au sifa unayopaswa kukuza katika maisha haya. Linakuongoza kuelekea ukuaji wa kiroho na kujitambua." }
+        default: {
+            title: "Somo la Maisha",
+            CoreDefinition: "Somo la Maisha ni mandhari kuu ya kiroho unayodaiwa kujifunza katika mzunguko huu wa maisha. Ni mstari wa nyuma wa kila tukio kubwa linalojirudia.",
+            DiagnosticPurpose: "Kadi hii ipo ili kuunganisha nukta kati ya changamoto tofauti ambazo zinaonekana na sura sawa. Inakuonyesha kwamba nyuma ya matukio mengi kuna somo moja linalojirudia kwa sura tofauti.",
+            HowDerived: "Somo hili linatokana na mchanganyiko wa Life Path, namba za changamoto, na nyota za kiroho kama North Node. Mfumo wa Mavengu unachuja mada inayojitokeza mara kwa mara.",
+            RevealsAboutUser: "Kadi hii inafunua eneo kuu la ukuaji: je ni mipaka, kujikubali, uwajibikaji, msamaha, au ujasiri? Inaonyesha mahali ambapo ukibadilika, maisha yako yote yanabadilika.",
+            AlignedExpression: "Unapokubali na kufanya kazi na Somo lako la Maisha, unaacha kujiuliza 'kwa nini mimi?' na kuanza kuuliza 'inamaana gani?' Kila tukio linakuwa darasa, si laana.",
+            ShadowExpression: "Ukikataa somo hili, hali zinazofanana zinaendelea kujirudia kwa nguvu kubwa zaidi, zikikuacha ukihisi umechoka, umekata tamaa, au umehasi maisha.",
+            RealLifeImpact: "Somo la Maisha linaathiri jinsi unavyochagua kazi, mahusiano, mtindo wa maisha, na hata jinsi unavyosali au kutafakari. Linaonyesha ufunguo wa kuingia kwenye hatua inayofuata ya ukuaji.",
+            GuidanceIntegration: "Ili kuunganisha hekima yake, taja kwa ufupi somo lako la msingi, liandike mahali pa wazi, na ujaribu kuchukua uamuzi mmoja kila siku unaolisaidia somo hilo badala ya kulikwepa."
+        }
     },
     maturityNumber: {
-        default: { title: "Namba ya Ukomavu", description: "Namba yako ya Ukomavu inaonyesha matamanio yako ya kweli na kusudi lako kuu la maisha. Linaanza kujitokeza katika umri wako wa kati na kuongoza safari yako ya kibinafsi kuelekea utimilifu." }
+        default: {
+            title: "Namba ya Ukomavu",
+            CoreDefinition: "Namba ya Ukomavu inaonyesha kile roho yako inakusudia kukua nacho unapokomaa kwa umri na uzoefu. Ni picha ya 'toleo lako la baadaye' lililo imara na lililosawazika.",
+            DiagnosticPurpose: "Kadi hii ipo ili kukupa mwelekeo wa muda mrefu: unakuwa nani taratibu kadri miaka inavyosonga? Inakusaidia kuchagua njia zinazokuletea ukomavu huo mapema badala ya kupitia maumivu yasiyo ya lazima.",
+            HowDerived: "Namba hii inapatikana kwa kuchanganya Life Path na Destiny Number. Mfumo unaitafsiri kama vector ya mabadiliko ya maisha, si hali ya sasa.",
+            RevealsAboutUser: "Kadi hii inafunua sifa unazojenga polepole: hekima, uwajibikaji, ubunifu, huduma, uongozi, n.k. Inaonyesha pia tofauti kati ya wewe wa sasa na unayeitwa kuwa.",
+            AlignedExpression: "Unapotembea kwa ufahamu kuelekea namba yako ya Ukomavu, unachagua maamuzi yanayokuletea utulivu wa ndani, uwazi wa kusudi, na ubora wa mahusiano badala ya kukimbiza kuthibitishwa na nje.",
+            ShadowExpression: "Ukikataa mwelekeo huu, unaweza kubaki kwenye mifumo ya utoto au ujana: kukwepa majukumu, kujilinda kupita kiasi, au kukimbia maumivu kwa raha za muda mfupi.",
+            RealLifeImpact: "Namba ya Ukomavu inaathiri jinsi unavyokabiliana na umri wa kati na baadaye, jinsi unavyohisi kuhusu urithi unaouacha, na kiwango cha amani unachokifikia unapopitia hatua mbalimbali za maisha.",
+            GuidanceIntegration: "Ili kuunganisha hekima yake, jiulize: 'Mimi wa miaka 20 ijayo angependa nichague nini leo?' Kisha anza kutenda kwa kuzingatia jibu hilo mara kwa mara."
+        }
     },
     rationalThought: {
-        default: { title: "Fikra za Kimantiki", description: "Namba yako ya Fikra za Kimantiki inaashiria jinsi unavyochakata taarifa na kufanya maamuzi. Inaonyesha uwezo wako wa kufikiri kimantiki, kutatua matatizo, na kuelewa ulimwengu unaokuzunguka." }
+        default: {
+            title: "Fikra za Kimantiki",
+            CoreDefinition: "Fikra za Kimantiki zinaonyesha jinsi ubongo wako unavyopanga taarifa, kutenganisha hisia na hoja, na kufikia hitimisho. Ni algorithm yako ya ndani ya uchambuzi.",
+            DiagnosticPurpose: "Kadi hii ipo ili kukusaidia kuelewa nguvu na up blind spot wa mtindo wako wa kufikiri: je una mashaka kupita kiasi, unakurupuka, au una tabia ya kuchambua kwa kina kupita kiasi?",
+            HowDerived: "Namba hii inatokana na mchanganyiko wa tarehe ya kuzaliwa na herufi za majina yako kulingana na kanuni mahususi za numerology. Mfumo unaihusianisha na style ya uamuzi wa mantiki.",
+            RevealsAboutUser: "Kadi hii inafunua kama unategemea zaidi hesabu, intuition iliyo kimantiki, uzoefu, au imani zisizoangaliwa. Inaonyesha nguvu zako katika kutatua matatizo ya kiakili.",
+            AlignedExpression: "Unapofanya kazi kwa ulinganifu na Fikra zako za Kimantiki, unachanganya data, uzoefu, na hisia kwa uwiano, na kufanya maamuzi ya busara bila kukwama kwenye hofu.",
+            ShadowExpression: "Ukizidisha au kudhoofisha kipaji hiki, unaweza kuwa mkali kupita kiasi, mwepesi wa kuhukumu, au kinyume chake: kuchanganyikiwa kila mara na kushindwa kuamua lolote.",
+            RealLifeImpact: "Mtindo huu wa kufikiri unaathiri maamuzi ya fedha, kazi, mahusiano, na afya. Unapoutambua, unaweza kujizuia pale unapojua unapoteza uwiano.",
+            GuidanceIntegration: "Ili kuunganisha hekima yake, jifunze kutofautisha kati ya sauti ya hofu na sauti ya mantiki yenye utulivu, na utengeneze itifaki ndogo ya kufanya maamuzi (kukusanya data, kusikiliza mwili, kisha kuamua)."
+        }
     },
     attitudeNumber: {
-        default: { title: "Namba ya Mtazamo", description: "Namba yako ya Mtazamo inaakisi hisia zako za kwanza na jinsi watu wengine wanavyokuona. Ni 'uso' wako wa nje, ukionyesha jinsi unavyojitambulisha kwa ulimwengu kabla ya undani wako kujulikana." }
+        default: {
+            title: "Namba ya Mtazamo",
+            CoreDefinition: "Namba ya Mtazamo inaonyesha sura ya kwanza unayoiwasilisha kwa ulimwengu: jinsi unavyoonekana unapokutana na watu, hata kabla hawajakuona kwa undani.",
+            DiagnosticPurpose: "Kadi hii ipo ili kukusaidia kuelewa tofauti kati ya picha ya nje na ukweli wa ndani. Inaonyesha jinsi picha hiyo inaweza kukusaidia au kukuzuia.",
+            HowDerived: "Namba hii inachukuliwa kutoka siku na mwezi wa kuzaliwa tu, ikitoa 'mask' ya awali ya utu wako kulingana na numerology.",
+            RevealsAboutUser: "Kadi hii inafunua impression ya kwanza unayoacha: je unaonekana mchangamfu, mkimya, mchapakazi, mwenye mamlaka, au wa kiroho? Inaonyesha kwa nini watu wanaweza kukutafsiri vibaya.",
+            AlignedExpression: "Unapokuwa na uelewa wa Namba yako ya Mtazamo, unaitumia kwa ufahamu katika mahojiano, maongezi ya kwanza, na nafasi za kijamii. Unajua wakati wa kupunguza au kuongeza nguvu ya picha hiyo.",
+            ShadowExpression: "Ukipuuzia athari yake, unaweza kushangaa kwa nini watu wana hofu au matumaini fulani yasiyoendana na ulivyo kwa ndani, na hivyo kusababisha kutokuelewana.",
+            RealLifeImpact: "Namba hii inaathiri sana mahusiano ya biashara, urafiki wa haraka, na jinsi walimu, wakuu wa kazi, au washirika wanavyokuona. Inaweza kuwa daraja au kizuizi.",
+            GuidanceIntegration: "Ili kuunganisha hekima yake, tambua picha unayoitoa, amua ikiwa inaendana na nafsi yako ya ndani, na fanya marekebisho kwa lugha ya mwili, mavazi, na mawasiliano ili kuleta ulinganifu zaidi."
+        }
     },
     northNode: {
-        default: { title: "Mwelekeo wa Roho", description: "North Node yako inaashiria njia ya ukuaji wa roho yako na masomo muhimu unayopaswa kujifunza katika maisha haya. Inaonyesha kusudi lako la juu na wapi unapaswa kuelekeza nishati yako kwa utimilifu." }
+        default: {
+            title: "Mwelekeo wa Roho",
+            CoreDefinition: "North Node ni alama ya kiunajimu inayowakilisha mwelekeo wa roho yako katika maisha haya: upande mpya unaoitwa kuuchunguza ambao mara nyingi ni kinyume na eneo lako la faraja.",
+            DiagnosticPurpose: "Kadi hii ipo ili kukupa dira ya kiroho ya muda mrefu. Inaonyesha 'mstari wa upeo' wa ukuaji wako wa ndani badala ya kile ulichokwisha kukijua vizuri.",
+            HowDerived: "Uchambuzi wa North Node unatokana na nafasi ya pointi hii katika ramani ya unajimu, ikichanganywa na ishara yako ya jua na Life Path. Mfumo wa Mavengu hutafsiri hii kama njia ya ukuaji wa roho.",
+            RevealsAboutUser: "Kadi hii inafunua maeneo ambayo unahisi kuvutwa lakini pia una hofu: aina mpya za mahusiano, kazi, au kujieleza. Inaonyesha hatua inayofuata ya moyo wako wa kiroho.",
+            AlignedExpression: "Unapofuata Mwelekeo wa Roho kwa ufahamu, unafanya maamuzi yanayokufanya ukubali changamoto za ukuaji badala ya kubaki kwenye hali za zamani zinazojulikana lakini zisizokutimizia.",
+            ShadowExpression: "Ukikataa mwelekeo huu, unakaa kwenye Node ya Kusini (mifumo ya zamani), ukirudia tabia, kazi, au mahusiano yaliyoshapitwa na wakati kwa roho yako, na kuhisi kukwama.",
+            RealLifeImpact: "Mwelekeo wa Roho unaathiri maamuzi makubwa ya lini kuhamia, kubadilisha kazi, kuingia au kutoka kwenye mahusiano, na hata aina ya kazi ya kiroho utakayofanya.",
+            GuidanceIntegration: "Ili kuunganisha hekima yake, tambua eneo kuu la maisha linaloangaziwa na North Node yako, chukua hatua ndogo ndogo za kulikumbatia, na utumie hofu kama kiashiria cha mahali ambapo upanuzi upo."
+        }
     },
     guardianAngel: {
-        default: { title: "Malaika Mlinzi", description: "Malaika wako Mlinzi ni kiumbe wa kiroho anayekulinda, kukuongoza, na kukusaidia katika safari yako ya maisha. Yupo kukupa faraja, nguvu, na hekima wakati unapoihitaji zaidi." }
+        default: {
+            title: "Malaika Mlinzi",
+            CoreDefinition: "Malaika Mlinzi anawakilisha nguvu ya kiroho ya ulinzi na mwongozo inayosimama kando yako katika safari ya maisha. Ni archetype ya msaada wa mbinguni wa kibinafsi.",
+            DiagnosticPurpose: "Kadi hii ipo ili kukumbusha kwamba haupo peke yako kwenye changamoto zako. Inaonyesha ubora maalum wa ulinzi na hekima unaokuandama: nidhamu, huruma, ukweli, n.k.",
+            HowDerived: "Uhusiano huu unatokana na mchanganyiko wa ishara ya unajimu, Numerology, na mila za kiroho zinazohusisha sanjari za malaika na mitindo ya roho. Mfumo wa Mavengu unatoa jina au ubora wa malaika anayehusishwa na wasifu wako.",
+            RevealsAboutUser: "Kadi hii inafunua ni aina gani ya msaada wa kiroho unayoweza kukubali kwa urahisi, na pia maeneo ambayo mara nyingi unahitaji ukumbusho wa kuomba msaada badala ya kubeba kila kitu peke yako.",
+            AlignedExpression: "Unapofanya kazi kwa ufahamu na Malaika Mlinzi, unajifunza kuomba msaada, kusikiliza ishara ndogo, na kuchukua hatua ulizoongozwa kuzichukua hata kama zinakiuka mipango yako ya akili.",
+            ShadowExpression: "Ukijisahau kabisa upande wa msaada wa kiroho, unaweza kubeba mzigo mzito wa hatia, udhibiti, au hofu ya kuanguka bila msaada, na hivyo kuishi katika hali ya msongo wa muda mrefu.",
+            RealLifeImpact: "Uhusiano huu unaathiri jinsi unavyokabiliana na matukio ya ghafla, magumu, au yasiyoelezeka. Unaweza kuhisi miujiza midogo au bahati isiyo ya kawaida pale unapokubali kwamba haupo peke yako.",
+            GuidanceIntegration: "Ili kuunganisha hekima yake, tengeneza ibada fupi ya kila siku ya mawasiliano (sala, maneno, au mawazo ya wazi), uombe mwongozo mahususi, na uangalie jinsi ujumbe unavyokuja kupitia watu, ndoto, au hisia za ndani."
+        }
     },
     soulAge: {
-        default: { title: "Umri wa Roho", description: "Umri wa Roho yako unaashiria kiwango cha ukuaji wa roho yako na uzoefu wake katika maisha mbalimbali. Inaonyesha hekima yako ya ndani na jinsi unavyoelewa ulimwengu na masomo yake." }
+        default: {
+            title: "Umri wa Roho",
+            CoreDefinition: "Umri wa Roho unaonyesha kina cha uzoefu wa kiroho roho yako ilishapitia kabla ya maisha haya na jinsi hilo linavyoathiri mtazamo wako wa sasa wa maisha.",
+            DiagnosticPurpose: "Kadi hii ipo ili kufafanua kwa nini unaweza kuhisi 'mzee' au 'mchanga' ndani bila kujali umri wa mwili. Inakupa ufahamu wa kiwango cha hekima asilia na pia mahali bado unajifunza kama mwanafunzi.",
+            HowDerived: "Uchambuzi unatokana na mchanganyiko wa data ya unajimu, numerology, na mizunguko ya karmic inayoonekana katika wasifu wako. Mfumo unatafsiri hii kama kundi la roho (young, mature, old, n.k.).",
+            RevealsAboutUser: "Kadi hii inafunua mtazamo wako wa asili kuhusu maisha: je unaona maisha kama uwanja wa kucheza, darasa, au hekalu? Inaonyesha pia sababu za hisia zako kuhusu jamii na muda.",
+            AlignedExpression: "Unapokubali Umri wa Roho yako, unaheshimu mahali ulipo: kama roho kijana unaweza kukubali hitaji la kujaribu mengi; kama roho mzee, unaweza kukubali hitaji la utulivu na huduma ya kina.",
+            ShadowExpression: "Ukikataa au kuchanganya hatua yako ya sasa, unaweza kujikuta ukijilazimisha kuishi kama mtu mwingine: roho kijana kujifunga kwenye ukali wa kupita, au roho mzee kukimbia kila kitu kilicho cha kina.",
+            RealLifeImpact: "Umri wa Roho unaathiri aina ya maswali unayojiuliza, watu unaovutiwa nao, na mazingira unayostawi. Unaweza kujihisi nyumbani kwenye mazungumzo ya kijuujuu au ya kina kulingana na umri huu.",
+            GuidanceIntegration: "Ili kuunganisha hekima yake, tambua hatua yako, tafuta jamii ya watu wenye mwelekeo sawa wa ndani, na uache kujihukumu kwa kasi au mwelekeo wa ukuaji wako wa kiroho. Kila hatua ina uzuri wake."
+        }
     },
     rulingPlanet: {
-        default: { title: "Sayari Kiongozi", description: "Sayari yako kiongozi inaathiri pakubwa utu wako, tabia zako, na jinsi unavyoingiliana na ulimwengu. Ni nguvu ya ulimwengu inayokuongoza, ikionyesha vipaji vyako vya asili na changamoto zako." }
+        default: {
+            title: "Sayari Kiongozi",
+            CoreDefinition: "Sayari Kiongozi ni mwili wa angani unaotawala ishara yako ya jua na kuipa rangi ya msingi ya tabia, msukumo, na mtindo wa kujieleza. Ni 'mtawala wa kifalme' wa ramani yako ya nishati.",
+            DiagnosticPurpose: "Kadi hii ipo ili kufafanua ni aina gani ya nguvu za sayari zinazosukuma hadithi yako ya maisha: mawazo ya haraka, uthabiti, upendo, mageuzi, au falsafa ya kina.",
+            HowDerived: "Uchambuzi wa Sayari Kiongozi unatokana na ishara yako ya unajimu na sayari inayoiwazia kulingana na mila za unajimu. Mfumo wa Mavengu unaiunganisha na data nyingine za nishati ili kuunda maelezo ya kibinafsi.",
+            RevealsAboutUser: "Kadi hii inafunua injini yako ya msingi: je unasukumwa na akili (Mercury), moyo (Venus), nguvu ya mapambano (Mars), upanuzi (Jupiter), nidhamu (Saturn), mageuzi (Uranus/Pluto), au maono ya kiroho (Neptune/Sun)?",
+            AlignedExpression: "Unapofanya kazi kwa ulinganifu na sayari kiongozi, unakubali kipaji chake kikuu na unakilea kwa uangalifu. Unatumia lexicon yake kuunda maisha yenye maana kwako, badala ya kupigana nayo.",
+            ShadowExpression: "Ukizidisha au kupinga nishati hii, unaweza kwenda kwenye kivuli chake: Mercury kuwa wasiwasi, Mars kuwa hasira, Venus kuwa utegemezi, Saturn kuwa ukali, n.k.",
+            RealLifeImpact: "Sayari Kiongozi inaathiri jinsi unavyofikiri, unapenda, unafanya kazi, na unavyopambana na vikwazo. Ni ufunguo wa kuelewa kwa nini njia yako ya kufanya mambo ni tofauti na ya wengine.",
+            GuidanceIntegration: "Ili kuunganisha hekima yake, jifunze zaidi kuhusu sayari yako kiongozi, tambua tabia nzuri na kivuli chake, na uamue tabia moja chanya unayotaka kuimarisha ili kuifanya sayari yako kuwa mshirika, si adui."
+        }
     },
     // New cards' default entries (as they would be in mavenguKnowledgeBase)
     cognitiveStyle: {
