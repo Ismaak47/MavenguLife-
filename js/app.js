@@ -407,6 +407,9 @@ function renderDashboard(profile) {
     }
 
     // Setup click handlers for all new diagnostic cards
+    setupModalTrigger('executive-summary-value', 'EXECUTIVE DIAGNOSIS SUMMARY', '', profile);
+    setupModalTrigger('priority-focus-value', 'PRIORITY FOCUS CARD', '', profile);
+    setupModalTrigger('action-plan-30-60-90-value', 'MPANGO WA VITENDO 30/60/90', '', profile);
     setupModalTrigger('cognitive-style-value', 'NJIA YA UFAHAMU', '', profile);
     setupModalTrigger('personality-archetype-value', 'MCHORO WA UTU', '', profile);
     setupModalTrigger('emotional-cycle-value', 'MZUNGUKO WA HISIA', '', profile);
@@ -897,13 +900,43 @@ const mavenguKnowledgeBase = {
         default: { title: "Mchoro wa Utu (Personality Archetype)", description: "Mchoro wako wa Utu unafunua mifumo mikuu ya kisaikolojia inayoongoza utu wako. Ni kielelezo cha ndani kinachoonyesha motisha zako za msingi, tabia zako, na safari yako ya kishujaa. Inakusaidia kujielewa kwa undani zaidi." }
     },
     emotionalCycle: {
-        default: { title: "Mzunguko wa Hisia (Emotional Cycle)", description: "Mzunguko wako wa Hisia unaelezea jinsi hisia zako zinavyobadilika na kurudiarudia. Inaonyesha vipindi vyako vya nguvu za kihisia, vile vya chini, na jinsi unavyopata ahueni. Kuelewa mzunguko huu kutakusaidia kudhibiti hisia zako vizuri." }
+        default: {
+            title: "Uchambuzi wa Muundo wa Hisia (Emotional Pattern Analysis)",
+            CoreDefinition: "Uchambuzi wa Muundo wa Hisia unaangalia jinsi hisia zako zinavyojirudia: hisia kuu unayoishi nayo, hisia unazozikandamiza, vichochezi vinavyoziwasha, na njia ya afya ya kuzipooza.",
+            DiagnosticPurpose: "Kadi hii ipo ili kubadilisha hisia zako kuwa ramani inayoeleweka badala ya dhoruba isiyoelezeka. Inakusaidia kuona mwelekeo, si tukio moja moja, ili ujue wapi pa kuanza kuponya.",
+            HowDerived: "Muundo huu unatokana na mchanganyiko wa namba zako za hisia (Soul Urge, Mzunguko wa Mwaka), elementi yako, na mienendo ya kivuli iliyo kwenye Shadow Work. Mfumo unatafuta hisia zinazorudiwa na matukio yanayofanana ili kutengeneza picha moja.",
+            RevealsAboutUser: "Kadi hii inafunua hisia inayoongoza hadithi yako ya ndani, hisia unazokwepa au kuzifunika, hali au watu wanaokuchochea zaidi, na mahali ambapo mwili wako au akili yako huanza kulalamika kabla ya kuvunjika.",
+            AlignedExpression: "Unapofanya kazi kwa ulinganifu na muundo huu, unatambua hisia zako mapema, unajieleza kwa uaminifu bila kumwaga kila kitu, na unatumia hisia kama taarifa za kina, si adhabu au aibu.",
+            ShadowExpression: "Ukikwepa muundo huu, unaweza kurudia mlipuko ule ule wa kihisia, kuzimia ndani, kujikuta kwenye mahusiano au kazi zinazoumia kiakili, au kutumia tabia za kukimbia kama kulewa, kula kupita kiasi, au kujifungia.",
+            RealLifeImpact: "Muundo wa hisia unaathiri maamuzi yako ya pesa, mahusiano, kazi, na afya. Ukiuacha bila kufahamika, unaweza kujikuta ukiharibu fursa nzuri au kubaki sehemu zinazokuumiza kwa muda mrefu.",
+            GuidanceIntegration: "Ili kujumuisha hekima ya kadi hii, taja kwa majina hisia yako kuu, iliyokandamizwa, kichochezi kikuu, na hatua moja ya uponyaji. Andika mahali pa wazi na uitumie kama ramani ya kufuatilia mabadiliko yako ya kihisia kwa wiki na miezi inayokuja."
+        }
     },
     careerAlignment: {
-        default: { title: "Mwelekeo wa Kazi (Career Alignment)", description: "Mwelekeo wako wa Kazi unafunua njia bora za kazi zinazofanana na vipaji vyako vya asili na kusudi lako la maisha. Inaelezea majukumu unayostahili, mazingira bora ya kazi, na njia ya kupata kuridhika kikazi." }
+        default: {
+            title: "Mwelekeo wa Kazi (Career Alignment)",
+            CoreDefinition: "Mwelekeo wa Kazi unaonyesha aina ya kazi na mazingira ambayo yanaunga mkono namba zako za msingi, elementi, na saini ya roho ili ufanye kazi kwa ulinganifu badala ya kuishi kwenye mode ya kuendelea kuishi tu.",
+            DiagnosticPurpose: "Kadi hii ipo ili kugeuza vipaji vyako vya nishati na saikolojia kuwa maamuzi halisi ya kazi, majukumu, na miradi. Inakusaidia kutofautisha kati ya kazi “unazoweza” kufanya na kazi zinazokulisha roho yako.",
+            HowDerived: "Uchambuzi unatokana na mchanganyiko wa Life Path, Destiny, Soul Urge, elementi, na Nafasi ya Jamii. Mfumo unatafuta muunganiko unaojirudia wa vipaji, masomo ya maisha, na wito wa roho ili kupendekeza mazingira ya kazi na majukumu yanayokufaa.",
+            RevealsAboutUser: "Kadi hii inafunua aina ya mazingira unayostawi (timu, kujitegemea, uongozi, huduma), majukumu unayoweza kung'aa (mfano, mwalimu, msanidi, mshauri, mponyaji), na aina ya kazi zinazokukausha nishati hata kama zinaonekana nzuri kwenye karatasi.",
+            AlignedExpression: "Unapolingana na Mwelekeo wako wa Kazi, kazi inakuwa chaneli ya kusudi, si kifungo cha kifedha. Unapata uchovu wa kawaida wa mwili lakini sio kuchoka kwa roho, ukuaji wa mapato unaolingana na thamani unayotoa, na hisia ya kujengwa badala ya kuungua.",
+            ShadowExpression: "Ukikipuuza, unaweza kubaki kwenye kazi zinazolipa lakini zinakufanya ugonjwa wa ndani, kukubali majukumu ya chini ya kiwango cha roho yako au kutangatanga bila mwelekeo, ukibadilisha kazi bila hisia ya kuwasili mahali sahihi.",
+            RealLifeImpact: "Mwelekeo wa Kazi unaathiri moja kwa moja mapato, afya ya akili, kiwango cha msongo, na namna unavyohisi kuhusiana na mchango wako duniani. Ulinganifu mzuri hapa hubadilisha ratiba yako ya kila siku na jinsi unavyopanga miaka ijayo.",
+            GuidanceIntegration: "Ili kujumuisha hekima yake, chagua kwanza aina moja ya mazingira ya kazi na jukumu moja kuu linalolingana na kadi hii. Aanika hatua ndogo (mafunzo, maombi ya kazi, mradi wa pembeni) unazoweza kuchukua ndani ya miezi 3 ili kusogea karibu na ulinganifu huo."
+        }
     },
     wealthFlow: {
-        default: { title: "Mtiririko wa Utajiri (Wealth Flow)", description: "Mtiririko wako wa Utajiri unaelezea uhusiano wako na pesa na jinsi unavyovutia, unavyosimamia, na unavyokabiliana na utajiri. Inafichua vizuizi vya kifedha na vipindi vya ukuaji wa kiuchumi." }
+        default: {
+            title: "Uchambuzi wa Mtiririko wa Fedha (Money Flow Diagnosis)",
+            CoreDefinition: "Uchambuzi wa Mtiririko wa Fedha unaonyesha uhusiano wako wa ndani na pesa, jinsi nishati yako inavyovutia au kukimbiza fursa, na njia rahisi zaidi ambazo fedha hupenda kuingia kwenye maisha yako.",
+            DiagnosticPurpose: "Kadi hii ipo ili kuondoa aibu na mkanganyiko kuzunguka pesa na kuifanya iwe lugha ya nishati unayoelewa. Inakusaidia kuona mifumo, si tu salio la benki, ili kubadilisha jinsi fedha zinavyozunguka kwako.",
+            HowDerived: "Mtiririko huu unatokana na Life Path, Destiny, namba za changamoto, elementi, na mifumo ya karma. Mfumo unatazama historia ya maamuzi ya pesa unayovutiwa nayo kiasili (hatari, usalama, kutoa, kuwekeza) na kuhusisha na ramani ya nishati ya roho.",
+            RevealsAboutUser: "Kadi hii inafunua uhusiano wako wa kihisia na pesa (hofu, uhuru, usalama), imani za ndani unazobeba kuhusu kustahili au kutostahili, eneo kuu la vizuizi (hofu, kuchafuliwa na hatia, kutokuwa na mipaka), na njia unayopokea kwa urahisi zaidi kama zawadi, kazi ya kusudi, au biashara.",
+            AlignedExpression: "Unapolingana na Mtiririko wako wa Fedha, pesa inakuwa mshirika wa safari yako, si adui. Unafungua milango ya mapato yanayolingana na thamani na kusudi, unaweka mipaka ya afya katika kutoa, na unatumia mipango ya kifedha inayoheshimu kasi ya roho yako.",
+            ShadowExpression: "Ukikwepa kazi hii, unaweza kurudia mizunguko ya ukosefu, madeni ya kihisia na kifedha, matumizi ya kutuliza maumivu, au kazi zinazodhoofisha nishati kwa sababu ya hofu ya kuishi bila usalama. Unaweza pia kuzuia mapato kwa kuogopa kuonekana au kuomba ulipwe ipasavyo.",
+            RealLifeImpact: "Mtiririko wa Fedha unaathiri aina ya kazi unayokubali, uhusiano unaovumilia kwa sababu ya pesa, kiwango cha uhuru wa kimwili na kiroho unachoweza kujiruhusu, na kasi ya kufikia malengo makubwa ya maisha.",
+            GuidanceIntegration: "Ili kujumuisha hekima yake, taja uhusiano wako wa sasa na pesa, vizuizi vikuu viwili au vitatu, na njia moja rahisi zaidi ambayo pesa hupenda kukuja kwako. Tengeneza hatua ndogo za kila mwezi za kuponya imani na kuongeza vitendo vinavyounga mkono mtiririko wako wa kipekee."
+        }
     },
     relationshipDynamics: {
         default: { title: "Mienendo ya Mahusiano (Relationship Dynamics)", description: "Mienendo yako ya Mahusiano inaelezea jinsi unavyoingiliana na wengine. Inaonyesha mtindo wako wa kutoa na kupokea, mahitaji yako muhimu, na 'bendera nyekundu' (red flags) zinazoweza kujitokeza. Inakusaidia kujenga uhusiano wenye afya." }
@@ -918,13 +951,95 @@ const mavenguKnowledgeBase = {
         default: { title: "Usawa wa Nuru na Kivuli (Light vs Shadow Balance)", description: "Usawa wako wa Nuru na Kivuli unaonyesha jinsi unavyokubali na kujumuisha sehemu zako zote za utu. Inapima kiwango cha kujitambua na kujikubali, ikifunua usawa kati ya 'nuru' na 'kivuli' chako." }
     },
     lifeTimeline: {
-        default: { title: "Mzunguko wa Maisha (Life Timeline)", description: "Mzunguko wako wa Maisha unaelezea vipindi muhimu vya ukuaji na mabadiliko katika maisha yako. Inaonyesha awamu yako ya sasa, inayokuja, na ile ya kuachilia ili kukuongoza katika safari yako ya maisha." }
+        default: {
+            title: "Mzunguko wa Maisha (Life Timeline)",
+            CoreDefinition: "Mzunguko wa Maisha unaonyesha awamu kuu za safari yako: kile kinachojengwa sasa, kinachokaribia kubadilika, na kile kinachotakiwa kuachiliwa ili uende hatua inayofuata.",
+            DiagnosticPurpose: "Kadi hii ipo ili kutoa ramani ya wakati: ni kipindi gani ni cha kupanda mbegu, cha kuvuna, cha kutafakari, au cha kuachia. Inazuia kuchanganya msimu wa kupanda na msimu wa kuvuna.",
+            HowDerived: "Uchambuzi unatokana na mzunguko wa miaka ya kibinafsi, Pinnacles, namba za changamoto, na awamu ya nishati iliyo kwenye Aura na Somo la Maisha. Mfumo unaziweka kwenye mlolongo unaoeleweka wa nyakati.",
+            RevealsAboutUser: "Kadi hii inafunua kama uko kwenye awamu ya kujenga misingi, kuvuna matunda, kubadili mwelekeo, au kuponya historia. Inaonyesha pia mwelekeo wa mizunguko inayojirudia maishani mwako.",
+            AlignedExpression: "Unapoheshimu Mzunguko wa Maisha, unafanya maamuzi yanayoendana na msimu: hutazami kuharakisha mavuno kabla ya wakati, wala kushikilia kile kinachotakiwa kuachwa. Unaishi kwa kasi inayolingana na roho yako.",
+            ShadowExpression: "Ukikataa au kupuuza awamu uliyo ndani yake, unaweza kujaribu kulazimisha mafanikio makubwa wakati wa msimu wa uponyaji, au kushikilia mahusiano na kazi wakati msimu wao umekwisha, na hivyo kuongeza maumivu na kuchoka.",
+            RealLifeImpact: "Mzunguko wa Maisha unaathiri mipango ya kazi, mahusiano ya muda mrefu, kuhamia, miradi mikubwa, na hata maamuzi ya kuanzisha au kuachiwa majukumu. Kuelewa msimu wako hupunguza wasiwasi na kulainisha mabadiliko.",
+            GuidanceIntegration: "Ili kujumuisha hekima yake, andika jina la awamu yako ya sasa, hatua tatu muhimu zinazoiwakilisha, na uamuzi mmoja wa makusudi unaoiheshimu. Rudia uchunguzi huu kila baada ya miezi michache."
+        }
+    },
+    executiveSummary: {
+        default: {
+            title: "Muhtasari wa Kimkakati wa Diagnosis (Executive Diagnosis Summary)",
+            CoreDefinition: "Muhtasari wa Kimkakati wa Diagnosis ni ramani ya juu inayobana vipengele vyote muhimu vya ripoti yako katika picha moja wazi: roho, akili, mwili, fedha, na mahusiano.",
+            DiagnosticPurpose: "Kadi hii ipo ili kukupa taswira ya haraka ya kile kinachohitaji umakini sasa, badala ya kupotea kwenye maelezo mengi ya kila kadi. Inageuza taarifa kuwa mwelekeo.",
+            HowDerived: "Muhtasari unatokana na alama kuu za namba zako, elementi, mzunguko wa mwaka, na kadi za nishati kama Aura, Mtiririko wa Fedha, na Mzunguko wa Hisia. Mfumo unatafuta mandhari inayojirudia na alama kali zaidi.",
+            RevealsAboutUser: "Kadi hii inafunua hadithi kuu ya kipindi hiki cha maisha yako: ni aina gani ya mabadiliko unaoingia, kile unachodaiwa kujenga, na mahali ambapo roho yako inaita nguvu na ujasiri zaidi.",
+            AlignedExpression: "Unapoitumia kadi hii kwa ulinganifu, unajua kwa ufupi 'niko wapi' na 'nitaanza wapi' badala ya kuchanganyikiwa. Unachuja taarifa nyingi na kuweka msisitizo kwenye hatua chache zenye uzito mkubwa.",
+            ShadowExpression: "Ukikosa muhtasari huu, unaweza kusoma ripoti nzima kama hadithi ya kuvutia lakini ukaendelea kuishi kama zamani, bila mpangilio wa vitendo. Hii huleta kuchoka kiakili na kukata tamaa ya mabadiliko.",
+            RealLifeImpact: "Muhtasari huu unaathiri jinsi unavyopanga miezi ijayo, unavyoweka vipaumbele kwenye afya, fedha, kazi, na mahusiano, na kiwango ambacho unachukua hatua badala ya kukaa kwenye kusoma tu.",
+            GuidanceIntegration: "Ili kujumuisha hekima yake, soma muhtasari mara moja kwa makini, andika vipaumbele vitatu vinavyotoka ndani yake, na uviweke mahali unapoona kila siku (simu, daftari, ukuta) kama dira ya kipindi hiki."
+        }
+    },
+    priorityFocus: {
+        default: {
+            title: "Kadi ya Kipaumbele cha Sasa (Priority Focus Card)",
+            CoreDefinition: "Kadi ya Kipaumbele cha Sasa inaonyesha eneo 1–3 muhimu zaidi la maisha yako ambalo likibadilika, litasogeza mbele maeneo mengine yote.",
+            DiagnosticPurpose: "Kadi hii ipo ili kuondoa presha ya kujaribu kubadilisha kila kitu kwa mara moja. Inakusaidia kuchagua sehemu moja kuu ya kuwekeza nishati yako ya kila siku.",
+            HowDerived: "Kipaumbele hiki kinatokana na makutano ya Life Path, Mwaka wa Kibinafsi, Somo la Maisha, na alama zenye uzito mkubwa kwenye Mtiririko wa Fedha, Muundo wa Hisia, na Nafasi ya Jamii.",
+            RevealsAboutUser: "Kadi hii inafunua iwapo kipaumbele cha sasa ni uponyaji wa ndani, ujenzi wa msingi wa kifedha, kuboresha mahusiano, kubadilisha kazi, au kuimarisha nidhamu ya kiroho.",
+            AlignedExpression: "Unapoheshimu kipaumbele kimoja au viwili badala ya kupasua nishati kwenye vitu vingi, unahisi maendeleo ya kweli, unamaliza mizunguko, na unaacha kujilaumu kwa kile hujafanikisha bado.",
+            ShadowExpression: "Ukikataa kipaumbele hiki, unaweza kusafisha sehemu ndogo zisizo za msingi huku mzizi wa tatizo ukiendelea, ukijikuta unarudia hisia zile zile za kukwama kila mwaka.",
+            RealLifeImpact: "Kipaumbele sahihi kinabadilisha jinsi unavyotumia muda, pesa, na umakini wako wa kihisia kila siku. Kinaweza kubadilisha ratiba yako, aina ya mazungumzo unayoruhusu, na maamuzi ya 'ndiyo' au 'hapana' unayofanya.",
+            GuidanceIntegration: "Ili kujumuisha hekima yake, chagua hatua moja ndogo ya kila siku au kila wiki inayohusiana moja kwa moja na kipaumbele hiki, na ujitolee kuifanyia kazi kwa angalau siku 30 mfululizo."
+        }
+    },
+    actionPlan30_60_90: {
+        default: {
+            title: "Mpango wa Vitendo wa Siku 30/60/90 (Action Plan 30/60/90 Days)",
+            CoreDefinition: "Mpango wa Vitendo wa 30/60/90 ni ramani ya hatua za vitendo za muda mfupi, za kati, na za tathmini zinazokusaidia kugeuza ufahamu wa ripoti kuwa mabadiliko halisi ya maisha.",
+            DiagnosticPurpose: "Kadi hii ipo ili kuondoa hisia ya kuzidiwa na ripoti ndefu kwa kugawa safari yako ya mabadiliko katika vipindi vinavyoweza kushikika: hatua za sasa, ujenzi, na tathmini.",
+            HowDerived: "Mpango unatokana na kipaumbele cha sasa, muhtasari wa diagnosis, na kadi za msingi kama Somo la Maisha, Mwelekeo wa Kazi, Mtiririko wa Fedha, na Muundo wa Hisia. Mfumo unaweka kipaumbele katika mpangilio wa kimantiki wa miezi mitatu.",
+            RevealsAboutUser: "Kadi hii inafunua ni wapi unahitaji kuchukua hatua ndogo mara moja katika siku 30, nini kinahitaji kujengwa kwa taratibu ndani ya siku 60, na ni maamuzi au tathmini zipi zinahitajika kufanywa ndani ya siku 90.",
+            AlignedExpression: "Unapofanya kazi kwa ulinganifu na mpango huu, kila mwezi unahisi mwelekeo na kumaliza hatua, badala ya kufikiria tu. Unaunda msukumo wa nishati unaojijenga badala ya kuanza na kuacha mara kwa mara.",
+            ShadowExpression: "Ukikataa kupanga kwa vipindi, unaweza kubaki na ndoto kubwa zisizo na tarehe, ukihisi kwamba 'mambo hayajawahi kukaa sawa' hata baada ya kusoma na kuelewa ripoti yako mara kadhaa.",
+            RealLifeImpact: "Mpango wa 30/60/90 unaathiri namna unavyopanga kalenda, malengo ya kifedha ya karibu, miradi ya kazi au biashara, na mabadiliko ya tabia ya kila siku. Unaleta muundo unaoonekana wa safari yako ya ndani.",
+            GuidanceIntegration: "Ili kujumuisha hekima yake, andika hatua 3 kwa kila kipindi: ndani ya siku 30 nifanye nini, miezi 2 ijayo nijenge nini, na kabla ya siku 90 nitathmini nini. Weka tarehe za kukagua maendeleo yako."
+        }
     },
     ninetyDayEnergyForecast: {
-        default: { title: "Utabiri wa Nishati wa Siku 90 (90-Day Energy Forecast)", description: "Utabiri wako wa Nishati wa Siku 90 unaelezea mwelekeo wa nishati kwa miezi mitatu ijayo. Inaonyesha maeneo ya kuzingatia, hatari zinazoweza kutokea, na fursa zitakazojitokeza ili kukusaidia kupanga mikakati yako." }
+        default: {
+            title: "Utabiri wa Nishati wa Siku 90 (90-Day Energy Forecast)",
+            CoreDefinition: "Utabiri wa Nishati wa Siku 90 unaonyesha mkondo wa jumla wa nishati kwa miezi mitatu ijayo: vipindi vya msukumo, majaribio, na uondoaji wa zamani.",
+            DiagnosticPurpose: "Kadi hii ipo ili kukusaidia kupanga hatua na mapumziko kwa busara, badala ya kupambana na mawimbi ya nishati bila ramani. Inakuonyesha wimbi la ujumla la safari yako ya karibu.",
+            HowDerived: "Uchambuzi unatokana na mchanganyiko wa Mwaka wa Kibinafsi, Pinnacles, Mzunguko wa Hisia, na kadi za nishati kama Aura na Mtiririko wa Fedha. Mfumo unazigawa katika awamu tatu kuu za miezi mitatu.",
+            RevealsAboutUser: "Kadi hii inafunua ni wakati gani ni rahisi kuanzisha miradi mipya, ni vipindi gani vya tahadhari au urejeshaji wa ndani, na ni maeneo gani ya maisha yanayoweza kusukumwa mbele zaidi katika kipindi hiki.",
+            AlignedExpression: "Unapotumia utabiri huu kwa ulinganifu, unapanga kazi, mapumziko, na maamuzi makubwa kulingana na dirisha la nishati linalokufaa, ukipunguza msukumo wa kupambana na wakati usio sahihi.",
+            ShadowExpression: "Ukikataa mawimbi haya na kusukuma bila kutazama wakati, unaweza kujikuta umechoka, ukiacha miradi katikati, au ukifanya maamuzi mazito katika vipindi vya kuchoka kihisia.",
+            RealLifeImpact: "Utabiri wa siku 90 unaathiri ratiba ya kazi, mipango ya kifedha, mabadiliko ya makazi, na hata upangaji wa mahusiano na likizo. Unaweza kusogeza mambo muhimu kwenye dirisha lenye nishati bora kwako.",
+            GuidanceIntegration: "Ili kujumuisha hekima yake, tenga muda mfupi kila mwezi kutazama wimbi la miezi mitatu, kisha ubadilishe kalenda yako (vipaumbele, mapumziko, na hatua) ili kuakisi kile kilicho wazi katika kipindi hicho."
+        }
     },
     lunarInfluence: {
-        default: { title: "Ushawishi wa Mwezi (Lunar Influence)", description: "Ushawishi wako wa Mwezi unaelezea jinsi awamu za mwezi zinavyoathiri hisia zako, intuition, na viwango vya nishati ya kila siku. Inakupa mwongozo wa jinsi ya kuendana na mzunguko wa mwezi kwa afya bora." }
+        default: {
+            title: "Ushawishi wa Mwezi (Lunar Influence)",
+            CoreDefinition: "Ushawishi wa Mwezi unaonyesha jinsi awamu za mwezi zinavyoamsha na kupunguza mawimbi ya hisia, intuition, na viwango vya nishati kwenye mwili na roho yako.",
+            DiagnosticPurpose: "Kadi hii ipo ili kukusaidia kupangilia kazi za ndani na za nje na mizunguko ya mwezi, badala ya kujihukumu unapohisi mabadiliko makubwa ya nishati bila sababu inayoonekana.",
+            HowDerived: "Uchambuzi unatokana na awamu ya mwezi uliyozaliwa nayo, ishara yako ya jua, elementi, na muundo wa hisia. Mfumo unatafuta awamu zinazokuinua au kukuchosha zaidi.",
+            RevealsAboutUser: "Kadi hii inafunua ni wakati gani wa mwezi una hisia kali, wapi intuition yako iko juu, na ni nyakati zipi unahitaji utulivu, kupumzika, au kujitunza zaidi kuliko kawaida.",
+            AlignedExpression: "Unapolingana na Ushawishi wa Mwezi, unaacha kupigana na mwili wako na badala yake unapanga siku zako za kazi nzito, ubunifu, na kupumzika ili kutiririka na mawimbi ya mwezi.",
+            ShadowExpression: "Ukikataa mzunguko huu, unaweza kujihukumu kama mvivu, mzito, au usiye thabiti, au ukajaribu kusukuma umakini mkali wakati mwili na moyo vinahitaji kujirekebisha.",
+            RealLifeImpact: "Ushawishi wa Mwezi unaathiri usingizi, umakini, mhemko wa siku hadi siku, na hata ubora wa mawasiliano katika mahusiano. Kuliangalia kunakupa huruma zaidi kwa wewe mwenyewe na wengine.",
+            GuidanceIntegration: "Ili kujumuisha hekima yake, fuatilia hisia zako kwa wiki chache sambamba na awamu za mwezi, taja siku zako za kilele na za kupumzika, kisha urekebishe majukumu yako makubwa ili yaendane na mpigo huo wa asili."
+        }
+    },
+    userReflection: {
+        default: {
+            title: "Kadi ya Kujitafakari (User Reflection Card)",
+            CoreDefinition: "Kadi ya Kujitafakari ni nafasi iliyoandaliwa ya kuunganisha taarifa zote za ripoti na sauti yako ya ndani kupitia maswali mafupi, makali, na ya moja kwa moja.",
+            DiagnosticPurpose: "Kadi hii ipo ili kuhakikisha ripoti haiishii kusomwa tu, bali inageuzwa kuwa ufahamu wa binafsi na maamuzi mapya. Inakupeleka kutoka 'nimeelewa' kwenda 'nimeamua'.",
+            HowDerived: "Maswali yanatokana na muhtasari wa diagnosis, kadi za hisia, kazi, fedha, na roho. Mfumo unachuja mada kuu na kuibadilisha kuwa maswali yanayolenga moyo wa safari yako kwa sasa.",
+            RevealsAboutUser: "Kadi hii inafunua jinsi unavyojibu ndani ya nafsi yako unapokutana na ukweli: unakimbia, unajitetea, au unakubali kwa ujasiri. Inaonyesha pia sehemu ambazo uko tayari kubadilika leo, si kesho.",
+            AlignedExpression: "Unapoitumia kwa uaminifu, muda mfupi wa kujaza maswali haya unakuwa ibada ya kila wiki au mwezi inayokusaidia kuona hatua uliyochukua na ile unayohitaji kuchukua bila kujidanganya.",
+            ShadowExpression: "Ukikwepa kujitafakari, unaweza kuendelea kukusanya ripoti, kozi, na mafundisho bila mabadiliko ya tabia, ukihisi kuwa 'unajua sana' lakini maisha yako ya kila siku hayabadiliki.",
+            RealLifeImpact: "Kujitafakari kwa muundo huu kunaathiri maamuzi madogo unayofanya kila siku, jinsi unavyoweka mipaka, unavyoongea na watu muhimu, na ni hatua zipi za vitendo unazochagua kuanza nazo.",
+            GuidanceIntegration: "Ili kujumuisha hekima yake, jitafakari kwa maswali haya kuu: 'Ni nini kimekugusa sana kwenye ripoti hii?', 'Ni tabia gani umeiona wazi ndani yako?', na 'Hatua gani moja utaanza leo ili kuheshimu ufahamu huu?'. Andika majibu na uyapitie tena baada ya wiki au mwezi."
+        }
     },
     aiConfidenceScore: {
         default: {
@@ -1236,6 +1351,10 @@ function generateDynamicReport(reportType, profile, title) {
         case 'oracle':          lookupKey = 'default'; break;
         case 'mysticOracle':    lookupKey = 'default'; break;
         case 'symbolicWisdom':  lookupKey = 'default'; break; // Default for now
+        case 'executiveSummary': lookupKey = 'default'; break;
+        case 'priorityFocus':    lookupKey = 'default'; break;
+        case 'actionPlan30_60_90': lookupKey = 'default'; break;
+        case 'userReflection':   lookupKey = 'default'; break;
         default:                lookupKey = 'default'; break;
     }
     
@@ -1304,6 +1423,10 @@ function generateDynamicReport(reportType, profile, title) {
         case 'sunFrequency':    return formatEightPointReport(data);
         case 'aesthetics':      return formatEightPointReport(data);
         case 'mysticOracle':    return formatEightPointReport(data);
+        case 'executiveSummary': return formatEightPointReport(data);
+        case 'priorityFocus':   return formatEightPointReport(data);
+        case 'actionPlan30_60_90': return formatEightPointReport(data);
+        case 'userReflection':  return formatEightPointReport(data);
         
         default: return formatStandardReport(data, title);
     }
@@ -1369,7 +1492,11 @@ const reportTypeMap = {
     'energy-dna-value': 'energyDNA',
     'personal-mantra-value': 'personalMantra',
     'soul-rank-value': 'soulRank',
-    'collective-role-value': 'collectiveRole'
+    'collective-role-value': 'collectiveRole',
+    'executive-summary-value': 'executiveSummary',
+    'priority-focus-value': 'priorityFocus',
+    'action-plan-30-60-90-value': 'actionPlan30_60_90',
+    'user-reflection-value': 'userReflection'
 };
 
 // This function replaces the original setupModalTrigger in your app.js
