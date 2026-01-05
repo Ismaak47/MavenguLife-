@@ -12,10 +12,24 @@ function initApp() {
     const form = document.getElementById('cosmic-form');
     const dashboardSection = document.getElementById('dashboard-section');
     const loadingScreen = document.getElementById('loading-screen');
+    const accessCodeInput = document.getElementById('access-code');
+    const accessCodeError = document.getElementById('access-code-error');
 
     // Navigation
     if (startBtn) {
         startBtn.addEventListener('click', () => {
+            if (accessCodeInput) {
+                const enteredCode = accessCodeInput.value.trim();
+                if (enteredCode !== '666-777-999') {
+                    if (accessCodeError) {
+                        accessCodeError.style.display = 'block';
+                    }
+                    accessCodeInput.focus();
+                    return;
+                } else if (accessCodeError) {
+                    accessCodeError.style.display = 'none';
+                }
+            }
             introSection.style.display = 'none';
             inputSection.style.display = 'block';
             inputSection.classList.add('animate-fade-in');
