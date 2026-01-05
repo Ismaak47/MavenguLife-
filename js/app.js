@@ -1019,55 +1019,59 @@ function generateDynamicReport(reportType, profile, title) {
     // For now, it will use formatStandardReport for old cards, but will be updated.
 
     switch (reportType) {
-        case 'lifePath':        return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'destinyNumber':   return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'soulUrge':        return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'personalYear':    return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'shadowWork':      return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'symbolicWisdom':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'element':         return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'rulingPlanet':    return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'moonPhase':       return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'birthStone':      return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'spiritAnimal':    return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'balanceNumber':   return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'passionNumber':   return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'karmicDebt':      return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'firstChallenge':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'luckyColor':      return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'luckyDay':        return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'tarotCard':       return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'chakra':          return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'chineseZodiac':   return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'pinnacle':        return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'auraColor':       return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'lifeLesson':      return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'maturityNumber':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'rationalThought': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'attitudeNumber':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'northNode':       return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'guardianAngel':   return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'soulAge':         return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'cognitiveStyle':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'personalityArchetype': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'emotionalCycle':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'careerAlignment': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'wealthFlow':      return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'relationshipDynamics': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'pastLifeInfluence': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'energyBlockage':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'lightShadowBalance': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'lifeTimeline':    return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'ninetyDayEnergyForecast': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'lunarInfluence':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'aiConfidenceScore': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'frequencyCompatibility': return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'energyDNA':       return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'personalMantra':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'soulRank':        return formatEightPointReport(data); // Needs to be converted to 8-point in KB
-        case 'collectiveRole':  return formatEightPointReport(data); // Needs to be converted to 8-point in KB
+        case 'lifePath':        return formatEightPointReport(data);
+        case 'destinyNumber':   return formatEightPointReport(data);
+        case 'soulUrge':        return formatEightPointReport(data);
+        case 'personalYear':    return formatEightPointReport(data);
+        case 'shadowWork':      return formatEightPointReport(data);
+        case 'symbolicWisdom':  return formatEightPointReport(data);
+        case 'element':         return formatEightPointReport(data);
+        case 'rulingPlanet':    return formatEightPointReport(data);
+        case 'moonPhase':       return formatEightPointReport(data);
+        case 'birthStone':      return formatEightPointReport(data);
+        case 'spiritAnimal':    return formatEightPointReport(data);
+        case 'balanceNumber':   return formatEightPointReport(data);
+        case 'passionNumber':   return formatEightPointReport(data);
+        case 'karmicDebt':      return formatEightPointReport(data);
+        case 'firstChallenge':  return formatEightPointReport(data);
+        case 'luckyColor':      return formatEightPointReport(data);
+        case 'luckyDay':        return formatEightPointReport(data);
+        case 'tarotCard':       return formatEightPointReport(data);
+        case 'chakra':          return formatEightPointReport(data);
+        case 'chineseZodiac':   return formatEightPointReport(data);
+        case 'pinnacle':        return formatEightPointReport(data);
+        case 'auraColor':       return formatEightPointReport(data);
+        case 'lifeLesson':      return formatEightPointReport(data);
+        case 'maturityNumber':  return formatEightPointReport(data);
+        case 'rationalThought': return formatEightPointReport(data);
+        case 'attitudeNumber':  return formatEightPointReport(data);
+        case 'northNode':       return formatEightPointReport(data);
+        case 'guardianAngel':   return formatEightPointReport(data);
+        case 'soulAge':         return formatEightPointReport(data);
+        case 'cognitiveStyle':  return formatEightPointReport(data);
+        case 'personalityArchetype': return formatEightPointReport(data);
+        case 'emotionalCycle':  return formatEightPointReport(data);
+        case 'careerAlignment': return formatEightPointReport(data);
+        case 'wealthFlow':      return formatEightPointReport(data);
+        case 'relationshipDynamics': return formatEightPointReport(data);
+        case 'pastLifeInfluence': return formatEightPointReport(data);
+        case 'energyBlockage':  return formatEightPointReport(data);
+        case 'lightShadowBalance': return formatEightPointReport(data);
+        case 'lifeTimeline':    return formatEightPointReport(data);
+        case 'ninetyDayEnergyForecast': return formatEightPointReport(data);
+        case 'lunarInfluence':  return formatEightPointReport(data);
+        case 'aiConfidenceScore': return formatEightPointReport(data);
+        case 'frequencyCompatibility': return formatEightPointReport(data);
+        case 'energyDNA':       return formatEightPointReport(data);
+        case 'personalMantra':  return formatEightPointReport(data);
+        case 'soulRank':        return formatEightPointReport(data);
+        case 'collectiveRole':  return formatEightPointReport(data);
+        case 'meditation':      return formatEightPointReport(data);
+        case 'sunFrequency':    return formatEightPointReport(data);
+        case 'aesthetics':      return formatEightPointReport(data);
+        case 'mysticOracle':    return formatEightPointReport(data);
         
-        default: return formatStandardReport(data, title); // Generic default
+        default: return formatStandardReport(data, title);
     }
 }
 
@@ -1109,6 +1113,10 @@ const reportTypeMap = {
     'north-node': 'northNode',
     'guardian-angel': 'guardianAngel',
     'soul-age': 'soulAge',
+    'meditation-text': 'meditation',
+    'sun-freq-text': 'sunFrequency',
+    'aesthetics-text': 'aesthetics',
+    'oracle-text': 'mysticOracle',
     // New cards
     'cognitive-style-value': 'cognitiveStyle',
     'personality-archetype-value': 'personalityArchetype',
